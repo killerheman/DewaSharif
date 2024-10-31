@@ -1,0 +1,785 @@
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap);
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Montserrat", sans-serif
+}
+
+@media only screen and (max-width:767px) {
+
+  .feedbackbtn img {
+  
+    width: 32px !important;
+   
+}
+
+  .circuits li:hover {
+
+    white-space: break-spaces !important;
+  }
+
+  .circuits li:hover img {
+
+    transform: none;
+    -webkit-transform: none;
+    -moz-transform: none
+  }
+
+  .circuits {
+
+    display: flow-root !important;
+  }
+
+  .new_tab29042024 li {
+    float: left !important;
+  }
+
+  .circuits li {
+    width: 50% !important;
+    font-size: 13px !important;
+    min-height: 67px !important;
+    line-height: 19px !important;
+    padding: 0 !important;
+  }
+
+  .circuits li img {
+
+    width: 50px;
+  }
+
+
+  .innerbanner {
+    min-height: auto !important;
+    height: auto !important;
+  }
+
+  .blockquote-hedden {
+    padding: 0 !important;
+
+  }
+
+
+
+  .title h1 {
+    line-height: 30px
+  }
+
+  .proud-wrap .proud-img,
+  .proud-wrap .proud-img img {
+    border-radius: 0
+  }
+
+  .sm-icon li {
+    width: auto;
+  }
+
+  .dList {
+    margin-right: 0
+  }
+
+
+
+
+  .h1,
+  h1 {
+    font-size: 1.3em !important;
+  }
+
+  .h2,
+  h2 {
+    font-size: 1.2em !important
+  }
+
+  .h3,
+  h3 {
+    font-size: 1.1em !important
+  }
+
+  .h4,
+  h4 {
+    font-size: 0.9em !important
+  }
+
+  .h5,
+  h5 {
+    font-size: 0.8em !important;
+  }
+
+  .h6,
+  h6 {
+    font-size: 0.7em !important
+  }
+
+
+
+
+  .footer-column {
+    padding: 5px 0px;
+  }
+
+
+  .leader ul li {
+    width: 50%;
+    float: inline-start;
+    min-height: 240px
+  }
+
+  #branding {
+    margin-top: auto !important;
+  }
+
+  .blockquote h2 {
+    font-size: 1.2em
+  }
+
+  .gallery-img h1 {
+    font-size: 20px
+  }
+
+  .pagedata {
+    padding: 30px 0 0
+  }
+
+  .video-btn {
+    float: none
+  }
+
+  body.homebody {
+    overflow-x: hidden !important
+  }
+
+  .landinglogo img {
+    max-width: 60%
+  }
+
+  .landing-title {
+    padding-top: 5%
+  }
+
+  .landing-title h2 {
+    font-size: 1.7em;
+    text-align: center
+  }
+
+  .landing-title h4 {
+    font-size: 1em;
+    text-align: center
+  }
+
+  .top-nav ul.pwdarea li:nth-child(1),
+  .top-nav ul.pwdarea li:nth-child(4),
+  .top-nav ul.pwdarea li:nth-child(5),
+  .top-nav ul.pwdarea li:nth-child(6) {
+    display: none
+  }
+
+  .pagecontent ul,
+  .top-nav ul {
+    padding-left: 0
+  }
+
+  .pwdarea.pull-right,
+  .top-nav ul.pwdarea li:nth-child(10) {
+    float: none !important
+  }
+
+  .top-nav ul.pwdarea li:nth-child(10) {
+    position: static;
+    padding: 0
+  }
+
+  .navbar-form .btn {
+    position: relative;
+    z-index: 100;
+    margin-top: -51px
+  }
+
+  .landing-title h1 {
+    font-size: 3em;
+    margin: 20px auto;
+    text-align: center
+  }
+
+  .landing-wrap a,
+  .landing-wrap a:hover {
+    bottom: 15%
+  }
+
+  li.navbar-form {
+    margin-bottom: 0;
+    margin-top: 0
+  }
+
+  .logo img {
+    max-width: 100%
+  }
+
+  .performances .venue li,
+  .viewmore {
+    width: 100% !important;
+    margin: 0
+  }
+
+  #myVideo {
+    top: 0;
+    height: 198px !important;
+  }
+
+  #banner {
+    height: 198px;
+  }
+
+  .dropdown>a::after {
+
+    top: 16px;
+  }
+
+  #banner .layer,
+  #explore .explorebg,
+  #explore .explorebg2,
+  .landing-wrap.wraphide {
+    display: none
+  }
+
+  #explore,
+  .important-event {
+    padding: 20px 0 50px;
+    margin-top: auto
+  }
+
+  .lighshow {
+    max-width: 100%;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    margin-top: 5px
+  }
+
+  .webtop-section {
+    width: 100%;
+    margin: 0 auto
+  }
+
+  .pagecontent,
+  .webtop-section {
+    overflow-x: hidden
+  }
+
+  #explore,
+  #happening {
+    display: block;
+    width: 100%
+  }
+
+  .footbtm {
+
+    padding: 20px 0px;
+  }
+
+
+  .footbtm p {
+
+    font-size: 13px;
+  }
+
+  .sm-icon li a img {
+    width: 42px !important;
+  }
+
+  #business-wrap,
+  #connect,
+  #festive,
+  #trip,
+  #unfold {
+    display: block;
+    width: 100%;
+    margin-top: auto;
+    padding: 30PX 0 30PX 0;
+  }
+
+  #branding {
+    display: block;
+    width: 100%;
+    padding: 20px 0px 0px 0px;
+  }
+
+  .logo-section {
+    background-color: #fff;
+    padding: 0
+  }
+
+  .navbar-header,
+  header {
+    position: relative
+  }
+
+  .navbar-header {
+    z-index: 1000;
+    background-color: #03be64;
+    margin: 0-15px
+  }
+
+  .navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #fff;
+    margin-right: 15px;
+    border: 0
+  }
+
+  .navbar-inverse .navbar-toggle:focus,
+  .navbar-inverse .navbar-toggle:hover {
+    background: 0 0
+  }
+
+  .navbar-inverse .navbar-toggle {
+    border-color: #3330
+  }
+
+  .navbar-toggle {
+    background-color: #fff0;
+    margin-right: 0;
+    padding: 12px
+  }
+
+  .menu .navbar-nav {
+    display: block;
+    float: none
+  }
+
+  .mega-dropdown {
+    position: relative !important
+  }
+
+  .menu,
+  .menu .navbar .dropdown-menu,
+  .navbar {
+    position: relative
+  }
+
+  .menu .navbar-inverse .navbar-nav>li>a {
+    padding: 10px;
+    float: none
+  }
+
+  .navbar-collapse {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    border: 0
+  }
+
+  .explorebg,
+  .explorebg2,
+  .uplogo {
+    display: none
+  }
+
+  #upmap .container,
+  .pcard img,
+  .ullist-column li,
+  .ramayana_circuit li {
+    width: 100%
+  }
+
+  #explore .letters li p {
+    font-size: .6em
+  }
+
+  #explore .letters li img {
+    height: 46px
+  }
+
+  #connect h2,
+  #explore h2,
+  #festive .title h1,
+  #happening h1,
+  #unfold .title h1,
+  .innerbanner .pagetitle h1 {
+    font-size: 1.2em
+  }
+
+  #upmap {
+    padding-top: 30px;
+  }
+
+  #happening,
+  #map-svg {
+    min-height: auto;
+    margin-top: 0
+  }
+
+  #happening {
+    padding-top: 140px;
+    background-size: cover;
+    padding-bottom: 30px;
+  }
+
+  #festive {
+    padding-top: 20px
+  }
+
+  #trip,
+  .tabs-left li a {
+    background-size: cover
+  }
+
+  .tabs-left li a.active,
+  .tabs-left li a:hover {
+    background-size: contain
+  }
+
+  .festivetab .tab-pane .description li {
+    padding: 5px;
+    font-size: .8em
+  }
+
+  #trip {
+    padding: 20px 0 10px;
+    min-height: auto;
+    /* background: #211f19; */
+  }
+
+  #trip .bgvedio .video-overlay {
+    display: none
+  }
+
+  .tripup {
+    margin-right: 0
+  }
+
+  #trip .bgvedio {
+
+    display: none;
+  }
+
+  .tiger,
+  .tripup {
+    animation: inherit
+  }
+
+  .trip-plan ul li a {
+    border: 2px solid #fff;
+    padding: 10px;
+    min-height: auto;
+    line-height: 51px;
+  }
+
+  .trip-plan ul li {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: right !important;
+    padding: 0 !important;
+  }
+
+  .trip-plan ul li img {
+    float: left !important;
+    margin-right: 1em;
+    height: 42px;
+  }
+
+  .subscribe h3 {
+    margin-top: 20px
+  }
+
+  .cenematic li {
+    width: 100%;
+    padding: 15px 10px;
+    text-align: center
+  }
+
+  .cenematic li:first-child {
+    border-right: 0 solid #d7d7d7
+  }
+
+  .pcard-wrap li {
+    width: 100%;
+    padding-bottom: 10px
+  }
+
+  #unfold .explorebg2,
+  .tabs-left li a.active::after {
+    display: none
+  }
+
+
+  .sm-icon li a span {
+    bottom: -26px !important;
+    font-size: 8px !important;
+  }
+
+  .sm-icon li a {
+    width: 86px !important;
+    height: 86px !important;
+    font-size: 40px !important;
+    line-height: 90px !important;
+  }
+
+  .proud-wrap {
+    padding: 15px;
+    margin-left: auto;
+    min-height: auto;
+    border-radius: 0 50px 0 50px
+  }
+
+  .arrow1,
+  .arrow2 {
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    left: 0;
+    top: -5px;
+    display: none
+  }
+
+  .arrow2 {
+    width: 39px;
+    right: 0
+  }
+
+  .proud {
+    padding-left: 0;
+    min-height: auto;
+  }
+
+  .proud-wrap .proud-img {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: -15px -15px 15px;
+    max-width: 100%
+  }
+
+  .monument {
+    background-repeat: repeat-x;
+    min-height: 60px;
+    background-size: 100%
+  }
+
+  .innerbanner {
+    min-height: auto
+  }
+
+  .pagedata h3 {
+    font-size: 1.1em
+  }
+
+  .with_in-up .with_in_up_content h3 {
+    font-size: 1.3em
+  }
+
+  .left-image .first {
+    margin-left: 0;
+    margin-bottom: 15px
+  }
+
+  .right-image .first {
+    margin-right: 0;
+    margin-bottom: 15px
+  }
+
+  .images-column .second {
+    margin-top: 0;
+    margin-bottom: 15px
+  }
+
+  .images-column {
+    margin-bottom: 15px
+  }
+
+  #littlearc .tab-content .tab-pane {
+    padding-right: 0
+  }
+
+  #littlearc .tab-content .tab-pane .rel-image {
+    width: 100%;
+    position: relative;
+    right: 0;
+    top: 0;
+    margin-bottom: 15px
+  }
+
+  #city-overview .nav-pills {
+    flex-direction: column
+  }
+
+  #city-overview .nav-pills li a {
+    border-bottom: 1px solid rgba(0, 0, 0, .17)
+  }
+
+  .other-link.cloum-3 {
+    column-count: 1
+  }
+
+  .events-year {
+    display: block
+  }
+
+  .events-year li {
+    width: 100%
+  }
+
+  #explore .letters li {
+    padding: 0 3px
+  }
+
+  .gallery-img {
+    margin-bottom: 15px
+  }
+
+  .newgallery li {
+    flex: 50%;
+    max-width: 50%
+  }
+
+  .pwdFxd {
+    position: relative
+  }
+
+  .menu .navbar-inverse {
+    height: auto
+  }
+
+  .sitemap .coimncount {
+    column-count: 1
+  }
+
+  .backbtn {
+    z-index: 1000
+  }
+
+  .history {
+    display: block
+  }
+
+  .pcard {
+    margin-bottom: 10px
+  }
+
+  .form-group :first-child {
+    float: left
+  }
+
+  .breadcrumb li {
+    color: #000 !important;
+    margin: 0
+  }
+
+  .breadcrumb {
+    padding: 5px 10px
+  }
+
+  .backbtn {
+    top: -8px;
+    display: none
+  }
+
+  .innerbanner li.item img {
+    height: 200px
+  }
+
+  img.youtube {
+    width: 50px
+  }
+
+  li.language {
+    float: right
+  }
+
+  .text-right {
+    text-align: unset
+  }
+
+  .grid-stack {
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto
+  }
+
+  #festive .nav-tabs {
+    display: flex;
+    flex-wrap: wrap
+  }
+
+  #festive .tabs-left li {
+    padding: 3px;
+    width: 50%
+  }
+
+  #festive .tabs-left li a {
+    font-size: .9em;
+    border: 1px solid #fb1b6a;
+    padding: 10px 15px 10px 38px;
+    position: relative
+  }
+
+  .tabs-left li a::before {
+    font-size: 16px;
+    top: 8px
+  }
+
+  .tabs-left li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .36);
+    top: 0;
+    display: none;
+  }
+
+  .utsav li {
+    box-sizing: border-box;
+    padding: 4px;
+    width: 50%
+  }
+
+  #city-section {
+    padding: 13px 0
+  }
+}
+
+@media only screen and (max-width:640px) {
+  .pwdarea .navbar-form #s1 {
+    height: 31px;
+    margin-right: 0;
+    position: relative;
+    float: right;
+    top: 20px
+  }
+
+  .videocontrol button {
+    font-size: .8em;
+    padding: 3px 5px
+  }
+
+  .notemsg {
+    clear: both
+  }
+
+  #ContentPlaceHolder_Body_btnsubmit,
+  #ContentPlaceHolder_Body_imgCaptcha {
+    margin-right: 10px
+  }
+}
+
+@media only screen and (max-width:570px) {
+  .newgallery li {
+    flex: 100%;
+    max-width: 100%
+  }
+
+  .utsav li {
+    box-sizing: border-box;
+    padding: 4px;
+    width: 100%
+  }
+}

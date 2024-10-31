@@ -1,0 +1,1 @@
+$(".twitter-block").append('<a class="twitter-timeline" href="https://twitter.com/uptourismgov?ref_src=twsrc%5Etfw">Tweets by uptourismgov</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>');

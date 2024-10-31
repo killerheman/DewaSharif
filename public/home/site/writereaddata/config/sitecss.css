@@ -1,0 +1,239 @@
+#basicExampleModal .close {
+   padding: 1px;
+   background: #e24c4b;
+   color: #fff;
+   text-shadow: 0 0px 0 #fff;
+   font-size: 38px;
+   font-weight: 100;
+   line-height: 0;
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+   right: -6px;
+    top: -5px;
+}
+#banner {
+    height: 80vh  !important;
+ 
+}
+#basicExampleModal .modal-content, #basicExampleModal .modal-body, #basicExampleModal .modal-body img {
+    border-radius: 20px;
+}
+#basicExampleModal .modal-body a,
+#basicExampleModal .modal-body img{}
+
+.news-head {
+    background-color: #fffad3;
+    padding: 7px 0;
+    font-size: 16px;
+    font-weight: 900;
+    border-top: 1px dashed #d5cb7b;
+}
+.news-head a {
+    color: #ff4747;
+    text-decoration: none;
+}
+.news-head a:hover {
+    color: ff4747;
+    text-decoration: none;
+}
+.quotes {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    z-index: 9;
+}
+.quotes i {
+    font-size: 30px;
+    color: #e64353c7;
+}
+.blockquotes {
+    padding: 15px 20px 10px 28px;
+    position: relative;
+    margin-bottom: 25px;
+    border-radius: 25px 25px 25px 25px;
+    background-color: #fe4e4e29;
+    box-shadow: 5px 5px 25px rgb(0 0 0 / 28%);
+}
+.bgs {
+    background-color: #ff8a0036 !important;
+}
+.blockquotes p {
+    font-size: 1.2em;
+    font-weight: 400;
+}
+.blockquotes p span {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+.fade-2 {
+    margin: 20px 0px 35px;
+    border-width: 0 0 1px;
+    color: #e64353;
+    border-image: linear-gradient(90deg, rgba(135, 206, 235, 0), #e64353 50%, rgba(135, 206, 235, 0) 100%) 0 0 100%;
+    border-style: solid;
+}
+.wall-story li {
+    width: 25%!important;
+}
+.wall-story li .circuit-description {
+    font-size: 0.90em!important;
+    top: 81%!important;
+}
+.new {
+    position: absolute;
+}
+.new::after {
+	content: url('../../../../uktech.ac.in/images/newicon.png');
+	margin-left: 5px;
+	animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+	50% {
+		opacity: 0;
+	}
+}
+
+.innerbanner ul li img {
+	width: 100%
+}
+
+
+.card p {
+	font-size: 1.2em;
+	font-weight: 300;
+}
+
+.card {
+	box-shadow: 0 0 30px rgb(0 0 0 / 11%);
+	padding: 20px;
+	margin-bottom: 25px;
+	border-radius: 25px;
+}
+
+.card h2 {
+	font-family: inherit;
+	font-size: 1.6em;
+	color: #ed3f51;
+	font-weight: 800;
+	line-height: 1.3;
+	font-style: italic;
+}
+
+.bathing {
+	background: #e64353;
+	border-radius: 30px 0 30px 0;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+	padding: 30px;
+}
+
+.bathing h1 {
+	color: #fff;
+	font-weight: 800;
+}
+
+.bathing ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.bathing ul li {
+	/* border-bottom: dashed 1px #fff; */
+	line-height: 40px;
+	color: #fff;
+	display: flow-root;
+	font-weight: 800;
+}
+
+
+.bathing ul li::before {
+	content: "\f054";
+	margin-right: 6px;
+	position: relative;
+	display: inline-block;
+	font: normal normal normal 10px / 2 FontAwesome;
+	color: #ffbc42;
+}
+
+.bathing ul li span {
+	float: right;
+	border: 2px #ffffff4a dashed;
+	padding: 1px;
+	line-height: 30px;
+	padding: 0 10px;
+	border-radius: 100px;
+	color: #eefc7e;
+	font-weight: 800;
+}
+
+
+.table tbody>tr>td>a {
+	color: #004cff
+}
+
+.pcard .box img {
+	width: 66px !important
+}
+
+.pcard .box h4 a {
+	color: #fff !important
+}
+
+
+.ullist-column li {
+	width: auto !important
+}
+
+#upmap {
+	background: #fff !important
+}
+
+/*! new css */
+.Chitrakoot {
+	background-image: url(../siteContent/Year_2024/202403141742490350Chitrakoot_bg.jpg) !important
+}
+
+
+.kumbh-25{position:relative;}
+.kumbh-25 img{width:100%; position: relative; z-index: 0;}
+
+.kumbhshape-1 {
+  position: absolute;
+  z-index: 5;
+  top: -20px;
+  margin: 0px auto;
+  width: 100%;
+}
+
+.kumbhshape-2 {
+  position: absolute;
+  z-index: 5;
+  bottom: -20px;
+  margin: 0px auto;
+  width: 100%;
+}
+.k-btn-group{position: absolute; z-index:6; bottom: 20px; right: auto; left: auto; margin: 0px auto; box-sizing: border-box; text-align: center;}
+.k-btn-group .kbtn{display: inline-block; margin: 0px 5px; border-radius: 8px; border: 3px solid #fff; padding: 8px 15px; color:#fff; box-shadow: 0px 0px 5px rgba(0,0,0,.3);}
+.k-btn-group{position: absolute; z-index:6; bottom: 70px; right: auto; left: auto; margin: 0px auto; box-sizing: border-box; text-align: center; width:100%;padding-left: 120px;}
+.k-btn-group .kbtn{display: inline-block; margin: 0px 5px; border-radius: 8px; border: 3px solid #fff; padding: 5px 15px; color:#fff; box-shadow: 0px 0px 5px rgba(0,0,0,.3); position: relative;font-size: 1.2em;font-weight: bold;}
+.k-btn-group .kbtn:after {
+  content: "\f054";
+  font: normal normal normal 10px/2 FontAwesome;
+  font-size: 15px;
+  margin-left: 15px;
+}
+.k-btn-group .kbtn img {width: 35px;
+  margin-right: 6px;}
+@media only screen and (max-width:767px) {
+	.innerbanner {
+		height: 146px !important;
+		background-size: contain
+	}
+.blockquotes p {
+    text-align: center;
+}
+.kumbhshape-1,kumbhshape-2{display:none;}
+.k-btn-group{position: relative; padding: 6px; background-color: #562182; bottom: 0px;}
+}
