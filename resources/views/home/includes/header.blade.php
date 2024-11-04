@@ -6,7 +6,7 @@
                 <div class="col-md-3 col-xs-12">
                     <div class="logo">
                         <a href="#">
-                            <img src="{{ asset('home/images/dewasharif/anim_dewa_logo1.gif') }}" class="img-responsive"
+                            <img src="{{ asset('home/images/dewasharif/anim_dewa_logo2.gif') }}" class="img-responsive"
                                 alt="Logo of Dewa sharif Dot Com" title="Dewa Sharif" />
                         </a>
                     </div>
@@ -113,7 +113,7 @@
                                                         <li class=""><a class="" target="_blank" href="{{asset('ummhabibahbintabisufyan')}}"> Umm Habibah bint Abi Sufyan</a></li>
                                                         <li class=""><a class="" target="_blank" href="{{asset('maymonahbintalharis')}}">Maymonah bint al-Haris</a></li>
                                                         <li class=""><a class="" target="_blank" href="{{asset('safiyyahbinthuyayyibnakhtab')}}">Safiyyah bint Huyayy ibn Akhtab</a></li>
-                                                        
+
 
                                                     </ul>
                                                 </li>
