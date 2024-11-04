@@ -82,7 +82,7 @@ Route::get('/dataganjbaksh', [HomeController::class, 'lahore'])->name('dataganjb
  Route::get('/umar', [HomeController::class, 'umar'])->name('umar');
  Route::get('/usman', [HomeController::class, 'usman'])->name('usman');
  Route::get('/sawdah', [HomeController::class, 'sawdah'])->name('sawdah');
- Route::get('/', [HomeController::class, ''])->name('');
+//  Route::get('/', [HomeController::class, ''])->name('');
  Route::get('/zaynabbintkhuzayma', [HomeController::class, 'zaynabbintkhuzayma'])->name('zaynabbintkhuzayma');
  Route::get('/juwayriyahbintalharis', [HomeController::class, 'juwayriyahbintalharis'])->name('juwayriyahbintalharis');
  Route::get('/zaynabbintjahsh', [HomeController::class, 'zaynabbintjahsh'])->name('zaynabbintjahsh');
