@@ -13,7 +13,7 @@
 <section class="important-event">
     <div class="container">
         <div class="title">
-            <h1><b>What’s New</b> in Dewa Sharif?</h1>
+            <h1><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
             <p>Dewa Mela &amp; Karthik-2024</p>
         </div>
         <ul class="utsav impfestive owl-carousel owl-theme">
@@ -35,6 +35,13 @@
                 <a href="#" class="utsav-thumb" rel="noopener">
                     <span class="imgthumb">
                         <img src="{{ asset('home/images/dewasharif/event/event-3.jpeg') }}" caption="false" style="height: 300px; width: 500px; object-fit: fill;" />
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="utsav-thumb" rel="noopener">
+                    <span class="imgthumb">
+                        <img src="{{ asset('home/images/dewasharif/event/event-7.jpeg') }}" caption="false" style="height: 300px; width: 500px; object-fit: fill;" />
                     </span>
                 </a>
             </li>
@@ -96,6 +103,15 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="col-md-2 leader">
+            <ul>
+                <li><img src="home/images/dewasharif/masharratwarsi.jpg"
+                        alt="Shahzade Alam" title="Shahzade Alam" />
+                    <h4>MASHARRAT WARSI [Shahzade Alam] </h4>
+                    <p><b><i>Software Developer</i></b><br/> <b>www.dewasharif.com</b></p>
+                </li>
+                <ul>
         </div>
     </div>
     <div class="explorebg2">
