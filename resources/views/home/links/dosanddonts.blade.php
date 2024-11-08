@@ -5,6 +5,7 @@
         <h1>*** DOs & Don’ts ***</h1>
     </div>
     <div class="row">
+        <form action="{{ route('dosanddonts') }}" method="POST">
         <p>
         <h4>DOs :</h4>
 
@@ -54,7 +55,7 @@
         </i> For your safety, avoid sharing sensitive or personal information in public sections of the website.
         </p>
 
-
+    </form>
 
     </div>
 

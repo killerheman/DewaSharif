@@ -5,6 +5,7 @@
         <h1>*** FAQs ***</h1>
     </div>
     <div class="row">
+        <form action="{{ route('faqs') }}" method="POST">
         <p>
             <h4>1. What is <a href="www.dewasharif.com"></a> ?:</h4>
             <a href="www.dewasharif.com"></a> is a website dedicated to providing authentic religious information, insights, and
@@ -51,7 +52,7 @@
 
         </p>
 
-
+    </form>
 
     </div>
 

@@ -5,6 +5,7 @@
         <h1>*** Terms & Conditions ***</h1>
     </div>
     <div class="row">
+        <form action="{{ route('terms') }}" method="POST">
         <p>
         <h4> 1. Use of Religious Content :</h4>
         The content on <a href="www.dewasharif.com"></a> is for informational and personal use only, specifically
@@ -37,7 +38,7 @@
         <a href="www.dewasharif.com"></a> reserves the right to update these Terms and Conditions as necessary.
         </p>
 
-
+    </form>
 
     </div>
 

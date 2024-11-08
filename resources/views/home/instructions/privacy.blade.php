@@ -5,6 +5,7 @@
         <h1>*** Terms & Conditions ***</h1>
     </div>
     <div class="row">
+        <form action="{{ route('privacy') }}" method="POST">
         <p>
             <h4>1. Introduction :</h4>
             At www.dewasharif.com, we are committed to protecting the privacy and personal information of our users.
@@ -54,7 +55,7 @@
         </p>
 
 
-
+    </form>
     </div>
 
 </div>

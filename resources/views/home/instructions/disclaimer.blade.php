@@ -5,6 +5,7 @@
         <h1>*** Disclaimer ***</h1>
     </div>
     <div class="row">
+        <form action="{{ route('disclaimer') }}" method="POST">
         <p>
         <h4>1. General Information Purpose :</h4>
         The content on <a href="www.dewasharif.com"></a> is provided for general informational and educational purposes related to
@@ -28,7 +29,7 @@
 
         </p>
 
-
+    </form>
 
     </div>
 
