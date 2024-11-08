@@ -639,9 +639,37 @@ public function usman()
         return view('home.islam.madina.almadinahmuseum');
     }
 
+// Instructions
 
+public function copyright()
+{
+    return view('home.instructions.copyright');
+}
 
-    // Gellary
+public function disclaimer()
+{
+    return view('home.instructions.disclaimer');
+}
+public function privacy()
+{
+    return view('home.instructions.privacy');
+}
+public function terms()
+{
+    return view('home.instructions.terms');
+}
+
+// Quick Links
+public function dosanddonts()
+{
+    return view('home.links.dosanddonts');
+}
+public function faqs()
+{
+    return view('home.links.faqs');
+}
+
+// Gellary
 
 
     public function gellary()

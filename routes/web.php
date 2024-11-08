@@ -152,5 +152,18 @@ Route::get('/daralmadinahmuseum', [HomeController::class, 'daralmadinahmuseum'])
 Route::get('/hejazrailwaymuseum', [HomeController::class, 'hejazrailwaymuseum'])->name('hejazrailwaymuseum');
 Route::get('/quranprintcomplex', [HomeController::class, 'quranprintcomplex'])->name('quranprintcomplex');
 
+
+// Instructions
+Route::get('/copyright', [HomeController::class, 'copyright'])->name('copyright');
+Route::get('/disclaimer', [HomeController::class, 'disclaimer'])->name('disclaimer');
+Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
+Route::get('/terms', [HomeController::class, 'terms'])->name('terms');
+
+// Quick Links
+Route::get('/dosanddonts', [HomeController::class, 'dosanddonts'])->name('dosanddonts');
+Route::get('/faqs', [HomeController::class, 'faqs'])->name('faqs');
+
+
 // Gellary
 Route::get('/gellary', [HomeController::class, 'gellary'])->name('gellary');
+

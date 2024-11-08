@@ -24,18 +24,12 @@
                             <div class="col-md-3">
                                 <h3>About Dewa Sharif</h3>
                                 <ul id="aup" class="f-link">
-                                    <li class=""><a class="" href="#">History</a></li>
-                                    <li class=""><a class="" href="#">Dargaah Dewa
-                                            sharif</a></li>
-                                    <li class=""><a class="" href="#">Key Facts</a>
-                                    </li>
-                                    <li class=""><a class="" href="#">Geography</a>
-                                    </li>
-                                    <li class=""><a class="" href="#">People
-                                            &amp; Language</a></li>
-                                    <li class=""><a class=""
-                                            href="#">Administration &amp; Economy</a>
-                                    </li>
+                                    <li class=""><a class="" href="{{ route('allah') }}">Allah</a></li>
+                                    <li class=""><a class="" href="{{ route('hazratmuhammad') }}"></a></li>
+                                    <li class=""><a class="" href="{{ route('History') }}">Dewa Sharif</a></li>
+                                    <li class=""><a class="" href="{{ route('mazar') }}">Mazaar</a></li>
+                                    <li class=""><a class="" href="{{ route('hajiwarisalishah') }}">Haji Waris Ali Shah</a></li>
+                                    <li class=""><a class="" href="{{ route('mosquedargah') }}">Masjid Al Waris</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-3">
@@ -54,26 +48,24 @@
                             <div class="col-md-3">
                                 <h3>Policies</h3>
                                 <ul id="policy" class="f-link">
-                                    <li class=""><a class="" href="#">Terms
+                                    <li class=""><a class="" href="{{ route('terms') }}">Terms
                                             &amp; Conditions</a></li>
-                                    <li class=""><a class="" href="#">Copyright
+                                    <li class=""><a class="" href="{{ route('copyright') }}">Copyright
                                             Policy</a></li>
-                                    <li class=""><a class="" href="#">Privacy
+                                    <li class=""><a class="" href="{{ route('privacy') }}">Privacy
                                             Policy</a></li>
-                                    <li class=""><a class="" href="#">Help</a></li>
-                                    <li class=""><a class="" href="#">Disclaimer</a>
+                                    <li class=""><a class="" href="{{ route('disclaimer') }}">Disclaimer</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-3">
                                 <h3>Quick Links</h3>
                                 <ul class="f-link">
-                                    <li class=""><a class="" href="#">Map</a></li>
-                                    <li class=""><a class="" target="_blank"
-                                            href="#">Weather</a></li>
+                                    <li class=""><a class="" href="https://maps.app.goo.gl/LFx8yPuFLQLn79ow6">Map</a></li>
+                                    <li class=""><a class="" target="_blank" href="https://mausam.imd.gov.in/">Weather</a></li>
                                     <li class=""><a class=""
-                                            href="#">FAQs</a></li>
-                                    <li class=""><a class="" href="#">DOs &amp;
+                                            href="{{ route('faqs') }}">FAQs</a></li>
+                                    <li class=""><a class="" href="{{ route('dosanddonts') }}">DOs &amp;
                                             Don’ts</a></li>
                                 </ul>
                             </div>
@@ -92,9 +84,7 @@
                             please contact us <a href="#">"info@dewasharif.com"</a>.</p>
                         <p><br />Last Updated On : 18 October 2024 | 06:00 PM </p>
                     </div>
-                    <div class="col-md-3 text-center"><a href="#" class="feedbackbtn "> <img
-                                src="{{ asset('home/images/feedback.png') }}" alt="feedback" title="feedback" />
-                            Feedback</a>
+                    <div class="col-md-3 text-center">
                         <p>Visitor No. : <img src="http://c.statcounter.com/10766041/0/7c92968f/0/"
                                 alt="State Counter" /></p>
                     </div>
