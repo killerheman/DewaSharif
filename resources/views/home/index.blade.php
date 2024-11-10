@@ -425,7 +425,7 @@
             <li>
                 <div class="pcard">
                     <a href="#" target="_blank" rel="noopener">
-                        <img src="{{ asset('home/downloadmedia/siteContent/Year_2024/638616836634540344.jpg') }}"
+                        <img src="{{ asset('home/images/1.jpg') }}"
                             alt="Blog" title="Blog" />
                         <span class="inner-block"><i class="slider-top-right"></i></span>
                     </a>
@@ -439,7 +439,7 @@
             <li>
                 <div class="pcard">
                     <a href="#" rel="noopener">
-                        <img src="{{ asset('home/images/VisualLibrary_1.jpg') }}" alt="Photo Gallery"
+                        <img src="{{ asset('home/images/2.jpg') }}" alt="Photo Gallery"
                             title="Photo Gallery" />
                         <span class="inner-block"><i class="slider-top-right"></i></span>
                     </a>
@@ -453,7 +453,7 @@
             <li>
                 <div class="pcard">
                     <a href="#" rel="noopener">
-                        <img src="{{ asset('home/images/VisualLibrary_2.jpg') }}" alt="Video Gallery"
+                        <img src="{{ asset('home/images/3.jpg') }}" alt="Video Gallery"
                             title="Video Gallery" />
                         <span class="inner-block"><i class="slider-top-right"></i></span>
                     </a>
@@ -525,7 +525,7 @@
 <section id="branding">
     <div class="container">
         <div class="title">
-            <h1><b>Mother</b> is the <b>Fragrance</b> of <b>Love</b> <i><b>- MASHARRAT WARSI
+            <h1 style="color: #023311"><b>Mother</b> is the <b>Fragrance</b> of <b>Love</b> <i><b>- MASHARRAT WARSI
                     </b></i></h1>
         </div>
 

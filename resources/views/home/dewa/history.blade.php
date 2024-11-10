@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <div class="maroon"> <h1>*** History ***</h1></div>
+    <div class="maroon"> <h1>*** Dewa Sharif ***</h1></div>
     <div class="row">
         <div class="col-sm-8">
            <p>

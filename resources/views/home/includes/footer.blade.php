@@ -24,48 +24,48 @@
                             <div class="col-md-3">
                                 <h3>About Dewa Sharif</h3>
                                 <ul id="aup" class="f-link">
-                                    <li class=""><a class="" href="{{ route('allah') }}">Allah</a></li>
-                                    <li class=""><a class="" href="{{ route('hazratmuhammad') }}"></a></li>
-                                    <li class=""><a class="" href="{{ route('History') }}">Dewa Sharif</a></li>
-                                    <li class=""><a class="" href="{{ route('mazar') }}">Mazaar</a></li>
-                                    <li class=""><a class="" href="{{ route('hajiwarisalishah') }}">Haji Waris Ali Shah</a></li>
-                                    <li class=""><a class="" href="{{ route('mosquedargah') }}">Masjid Al Waris</a></li>
+                                    <li class=""><a class="" target="_blank" href="{{ route('allah') }}">Allah</a></li>
+                                    <li class=""><a class="" target="_blank" href="{{ route('hazratmuhammad') }}">Muhammad[S.A.W]</a></li>
+                                    <li class=""><a class="" target="_blank" href="{{ route('history') }}">Dewa Sharif</a></li>
+                                    <li class=""><a class="" target="_blank" href="{{ route('mazar') }}">Mazaar</a></li>
+                                    <li class=""><a class="" target="_blank" href="{{ route('hajiwarisalishah') }}">Haji Waris Ali Shah</a></li>
+                                    <li class=""><a class="" target="_blank" href="{{ route('mosquedargah') }}">Masjid Al Waris</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-3">
                                 <h3>Share</h3>
                                 <ul class="f-link">
-                                    <li class=""><a class="" href="#">Photo
+                                    <li class=""><a class="" target="_blank" href="#">Photo
                                             Gallery</a></li>
-                                    <li class=""><a class="" href="#">Video
+                                    <li class=""><a class="" target="_blank" href="#">Video
                                             Gallery</a></li>
-                                    <li class=""><a class="" href="#">360 Gallery</a>
+                                    <li class=""><a class="" target="_blank" href="#">360 Gallery</a>
                                     </li>
-                                    <li class=""><a class=""
+                                    <li class=""><a class="" target="_blank"
                                             href="#">Feedback</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-3">
                                 <h3>Policies</h3>
                                 <ul id="policy" class="f-link">
-                                    <li class=""><a class="" href="{{ route('terms') }}">Terms
+                                    <li class=""><a class="" target="_blank" href="{{ route('terms') }}">Terms
                                             &amp; Conditions</a></li>
-                                    <li class=""><a class="" href="{{ route('copyright') }}">Copyright
+                                    <li class=""><a class="" target="_blank" href="{{ route('copyright') }}">Copyright
                                             Policy</a></li>
-                                    <li class=""><a class="" href="{{ route('privacy') }}">Privacy
+                                    <li class=""><a class="" target="_blank" href="{{ route('privacy') }}">Privacy
                                             Policy</a></li>
-                                    <li class=""><a class="" href="{{ route('disclaimer') }}">Disclaimer</a>
+                                    <li class=""><a class="" target="_blank" href="{{ route('disclaimer') }}">Disclaimer</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-3">
                                 <h3>Quick Links</h3>
                                 <ul class="f-link">
-                                    <li class=""><a class="" href="https://maps.app.goo.gl/LFx8yPuFLQLn79ow6">Map</a></li>
+                                    <li class=""><a class="" target="_blank" href="https://maps.app.goo.gl/LFx8yPuFLQLn79ow6">Map</a></li>
                                     <li class=""><a class="" target="_blank" href="https://mausam.imd.gov.in/">Weather</a></li>
-                                    <li class=""><a class=""
+                                    <li class=""><a class="" target="_blank"
                                             href="{{ route('faqs') }}">FAQs</a></li>
-                                    <li class=""><a class="" href="{{ route('dosanddonts') }}">DOs &amp;
+                                    <li class=""><a class="" target="_blank" href="{{ route('dosanddonts') }}">DOs &amp;
                                             Don’ts</a></li>
                                 </ul>
                             </div>
@@ -82,7 +82,7 @@
                             India.<br /> Content on this website is published and managed by MASHARRAT WARSI [Shahzade
                             Alam] Dewa Sharif.<br /> For any query, suggession or complaint regarding this website,
                             please contact us <a href="#">"info@dewasharif.com"</a>.</p>
-                        <p><br />Last Updated On : 18 October 2024 | 06:00 PM </p>
+                        <p><br />Last Updated On : 10 October 2024 | 12:12 PM </p>
                     </div>
                     <div class="col-md-3 text-center">
                         <p>Visitor No. : <img src="http://c.statcounter.com/10766041/0/7c92968f/0/"
