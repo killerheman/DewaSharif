@@ -196,63 +196,63 @@ class HomeController extends Controller
 
     public function baghdad()
     {
-        return view('home.auliaallah.abdulqadirgilani');
+        return view('home.buzurganeislam.auliaallah.abdulqadirgilani');
     }
 
     public function khammanpeer()
     {
-        return view('home.auliaallah.khammanpeer');
+        return view('home.buzurganeislam.auliaallah.khammanpeer');
     }
 
     public function shahmeenashah()
     {
-        return view('home.auliaallah.shahmeenashah');
+        return view('home.buzurganeislam.auliaallah.shahmeenashah');
     }
 
     public function lahore()
     {
-        return view('home.auliaallah.dataganjbaksh');
+        return view('home.buzurganeislam.auliaallah.dataganjbaksh');
     }
 
     public function delhi()
     {
-        return view('home.auliaallah.hazratnizamuddin');
+        return view('home.buzurganeislam.auliaallah.hazratnizamuddin');
     }
 
     public function ajmer()
     {
-        return view('home.auliaallah.muinuddinchisti');
+        return view('home.buzurganeislam.auliaallah.muinuddinchisti');
     }
 
     public function mumbai()
     {
-        return view('home.auliaallah.hajiali');
+        return view('home.buzurganeislam.auliaallah.hajiali');
     }
 
     public function nagpur()
     {
-        return view('home.auliaallah.hazrattajuddin');
+        return view('home.buzurganeislam.auliaallah.hazrattajuddin');
     }
 
     public function bahraich()
     {
-        return view('home.auliaallah.syedmasoodghazi');
+        return view('home.buzurganeislam.auliaallah.syedmasoodghazi');
     }
 
 
     public function kichhauchha()
     {
-        return view('home.auliaallah.syedmakhdoom');
+        return view('home.buzurganeislam.auliaallah.syedmakhdoom');
     }
 
     public function srinagar()
     {
-        return view('home.auliaallah.hazratbal');
+        return view('home.buzurganeislam.auliaallah.hazratbal');
     }
 
     public function bareilly()
     {
-        return view('home.auliaallah.aalahazrat');
+        return view('home.buzurganeislam.auliaallah.aalahazrat');
     }
 
 
