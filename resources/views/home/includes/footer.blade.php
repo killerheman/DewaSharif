@@ -1,5 +1,5 @@
 <div class="monument_footer">
-    <img src="{{ asset('home/images/dewasharif/footer-banner.png') }}" />
+    <img src="{{ asset('home/images/dewasharif/colorfooter.png') }}" />
 </div>
 <footer>
     <div class="footer">
