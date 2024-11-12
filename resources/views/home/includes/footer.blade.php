@@ -82,7 +82,7 @@
                             India.<br /> Content on this website is published and managed by MASHARRAT WARSI [Shahzade
                             Alam] Dewa Sharif.<br /> For any query, suggession or complaint regarding this website,
                             please contact us <a href="#">"info@dewasharif.com"</a>.</p>
-                        <p><br />Last Updated On : 10 October 2024 | 12:12 PM </p>
+                        <p><br />Last Updated On : 12 October 2024 | 09:00 PM </p>
                     </div>
                     <div class="col-md-3 text-center">
                         <p>Visitor No. : <img src="http://c.statcounter.com/10766041/0/7c92968f/0/"

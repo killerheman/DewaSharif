@@ -60,7 +60,7 @@
 <section id="explore">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 <h2>"Dewa Sharif:<b> A Legacy of Love, Faith, Spirituality, Humanity, Peace And Devotion"</b></h2>
                 <ul class="letters">
                     <li><a href="#">
@@ -117,15 +117,16 @@
                     <li><img src="home/images/dewasharif/masharratwarsi.jpg" alt="Shahzade Alam"
                             title="Shahzade Alam" />
                         <h4>MASHARRAT WARSI [Shahzade Alam] </h4>
-                        <p><b><i>Software Developer</i></b><br /> <b>www.dewasharif.com</b></p>
+                        <p><b><i>Software Developer</i></b> <br /> <b>www.dewasharif.com</b></p>
                     </li>
                     <ul>
             </div>
         </div>
-        <div class="explorebg2">
-            <img src="{{ asset('home/images/explorebg2.png')}}" alt="Background" title="Background" />
-        </div>
     </div>
+    <div class="explorebg2">
+        <img src="{{ asset('home/images/explorebg2.png')}}" alt="Background" title="Background" />
+    </div>
+
 </section>
 
 
@@ -173,7 +174,8 @@
 <section id="festive">
     <div class="container">
         <div class="title">
-            <p style="color: #a80303">Checkout <i>Festivals </i> &amp; <i>Events </i> of <b><i>Islam </i></b> & <b><i>Dewa Sharif</i></b></p>
+            <p style="color: #a80303">Checkout <i>Festivals </i> &amp; <i>Events </i> of <b><i>Islam </i></b> &
+                <b><i>Dewa Sharif</i></b></p>
             <h1 style="color: #03be64"> <b>Islamic Festive Seasons</b></h1>
         </div>
         <div class="row">
@@ -323,8 +325,8 @@
                     </div>
                     <div class="tab-pane active" id="September">
                         <ul class="festivals owl-carousel">
-                            <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif URS"
-                                    title="Dewa Sharif URS 2024"/>
+                            <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
+                                    alt="Dewa Sharif URS" title="Dewa Sharif URS 2024" />
                                 <ul class="description">
                                     <li>18 October to 27 October</li>
                                     <li>Dewa Sharif URS 2024</li>
@@ -425,8 +427,7 @@
             <li>
                 <div class="pcard">
                     <a href="#" target="_blank" rel="noopener">
-                        <img src="{{ asset('home/images/1.jpg') }}"
-                            alt="Blog" title="Blog" />
+                        <img src="{{ asset('home/images/1.jpg') }}" alt="Blog" title="Blog" />
                         <span class="inner-block"><i class="slider-top-right"></i></span>
                     </a>
                     <div class="box">
@@ -439,8 +440,7 @@
             <li>
                 <div class="pcard">
                     <a href="#" rel="noopener">
-                        <img src="{{ asset('home/images/2.jpg') }}" alt="Photo Gallery"
-                            title="Photo Gallery" />
+                        <img src="{{ asset('home/images/2.jpg') }}" alt="Photo Gallery" title="Photo Gallery" />
                         <span class="inner-block"><i class="slider-top-right"></i></span>
                     </a>
                     <div class="box">
@@ -453,8 +453,7 @@
             <li>
                 <div class="pcard">
                     <a href="#" rel="noopener">
-                        <img src="{{ asset('home/images/3.jpg') }}" alt="Video Gallery"
-                            title="Video Gallery" />
+                        <img src="{{ asset('home/images/3.jpg') }}" alt="Video Gallery" title="Video Gallery" />
                         <span class="inner-block"><i class="slider-top-right"></i></span>
                     </a>
                     <div class="box">
@@ -467,13 +466,12 @@
             <li>
                 <div class="pcard">
                     <a href="#" rel="noopener">
-                        <img src="{{ asset('home/images/dewasharif/india.jpg') }}" alt="India"
-                            title="India" />
+                        <img src="{{ asset('home/images/dewasharif/india.jpg') }}" alt="India" title="India" />
                         <span class="inner-block"><i class="slider-top-right"></i></span>
                     </a>
                     <div class="box">
-                        <a href="#" rel="noopener"><img src="{{ asset('home/images/icons/oneday.png') }}"
-                                alt="India" title="India" /></a>
+                        <a href="#" rel="noopener"><img src="{{ asset('home/images/icons/oneday.png') }}" alt="India"
+                                title="India" /></a>
                         <h4><a href="#" rel="noopener">India</a></h4>
                     </div>
                 </div>
