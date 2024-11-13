@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="title" content="Welcome to UP Tourism-Official Website of Department of Tourism, Government of Uttar Pradesh, India" />
+<meta name="title" content="Welcome to Dewa Sharif, Barabanki, Uttar Pradesh, India" />
 <title>Welcome to Dewa-Sharif, UP, India</title>
 <link rel="shortcut icon" href="{{ asset('home/frmHttpErrorPage.html') }}" />
 

@@ -213,7 +213,7 @@
                                                         href="JavaScript:void(0);">QURAN</a>
                                                     <ul class="">
                                                         <li class=""><a class="" target="_blank"
-                                                                href="http://bundelkhandmahotsav.in/">Coming Soon
+                                                                href="#">Coming Soon
                                                                 </a></li>
                                                         {{--  <li class=""><a class=""
                                                                 href="en/page/ramotsav.html">Ramotsav</a></li>
@@ -231,7 +231,9 @@
                                                 <li class="col-md-3  menu-heading"><a class=""
                                                         href="JavaScript:void(0);">Good Thoughts</a>
                                                     <ul class="">
-                                                        <li class=""><a class="" href="en/page/agra.html">Coming Soon</a></li>
+                                                        <li class=""><a class="" target="_blank"
+                                                            href="#">Coming Soon
+                                                            </a></li>
                                                         {{--  <li class=""><a class=""
                                                                 href="en/page/allahabad.html">Prayagraj</a></li>
                                                         <li class=""><a class=""
@@ -252,7 +254,8 @@
                                         <li class="dropdown mega-dropdown"><a class="dropdown-toggle"
                                                 href="JavaScript:void(0);">Online Booking</a>
                                             <ul class="dropdown-menu mega-dropdown-menu online-tag">
-                                               <li class=""><a class="" target="_blank" href="{{asset('')}}">COMING SOON</a></li>
+                                               <li class=""><a class="" target="_blank" href="#">COMING SOON</a></li>
+{{--  <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
@@ -269,15 +272,14 @@
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
+<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>  --}}
                                             </ul>
                                         </li>
                                         <li class="dropdown mega-dropdown"><a class="dropdown-toggle"
                                             href="JavaScript:void(0);">Register-Business</a>
                                         <ul class="dropdown-menu mega-dropdown-menu online-tag">
-                                           <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}">COMING SOON</a></li>
+                                           <li class=""><a class="" target="_blank" href="#">COMING SOON</a></li>
+{{--  <li class=""><a class="" target="_blank" href="#">COMING SOON</a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
@@ -294,7 +296,7 @@
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
 <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
+<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>  --}}
                                         </ul>
                                     </li>
                                     </ul>

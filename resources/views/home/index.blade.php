@@ -13,8 +13,8 @@
 <section class="important-event">
     <div class="container">
         <div class="title">
-            <h1><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
-            <p>Dewa Mela &amp; Karthik-2024</p>
+            <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
+            <p style="color:#5edf9e">Dewa Mela &amp; Karthik-2024</p>
         </div>
         <ul class="utsav impfestive owl-carousel owl-theme">
             <li>
@@ -174,7 +174,7 @@
 <section id="festive">
     <div class="container">
         <div class="title">
-            <p style="color: #a80303">Checkout <i>Festivals </i> &amp; <i>Events </i> of <b><i>Islam </i></b> &
+            <p style="color: #0a5c36">Checkout <i>Festivals </i> &amp; <i>Events </i> of <b><i>Islam </i></b> &
                 <b><i>Dewa Sharif</i></b></p>
             <h1 style="color: #03be64"> <b>Islamic Festive Seasons</b></h1>
         </div>
@@ -420,7 +420,7 @@
 <section id="unfold">
     <div class="container">
         <div class="title">
-            <p style="color: #a80303">Dive In And Discover</p>
+            <p style="color: #0a5c36">Dive In And Discover</p>
             <h1 style="color: #03be64"><b>Visual Library</b></h1>
         </div>
         <ul class="visual_library visuallibrary pcard-wrap owl-carousel owl-theme">
@@ -523,7 +523,7 @@
 <section id="branding">
     <div class="container">
         <div class="title">
-            <h1 style="color: #023311"><b>Mother</b> is the <b>Fragrance</b> of <b>Love</b> <i><b>- MASHARRAT WARSI
+            <h1 style="color: #074121"><b>Mother</b> is the <b>Fragrance</b> of <b>Love</b> <i><b>- MASHARRAT WARSI
                     </b></i></h1>
         </div>
 
