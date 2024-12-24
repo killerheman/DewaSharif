@@ -232,21 +232,7 @@
                                                         href="JavaScript:void(0);">Good Thoughts</a>
                                                     <ul class="">
                                                         <li class=""><a class="" target="_blank"
-                                                            href="#">Coming Soon
-                                                            </a></li>
-                                                        {{--  <li class=""><a class=""
-                                                                href="en/page/allahabad.html">Prayagraj</a></li>
-                                                        <li class=""><a class=""
-                                                                href="en/page/lucknow-heritage.html">Lucknow</a></li>
-                                                        <li class=""><a class=""
-                                                                href="en/page/varanasi.html">Varanasi</a></li>
-                                                        <li class=""><a class=""
-                                                                href="en/page/shopping.html">Shopping</a></li>
-                                                        <li class=""><a class=""
-                                                                href="en/page/photography.html">Photography</a></li>
-                                                        <li class=""><a class="" target="_blank"
-                                                                href="gkp-temp-360/index487e.html?cd=NAA3ADEA">Gorakhnath
-                                                                Temple 360 Degree View</a></li>  --}}
+                                                            href="{{asset('goodthoughts')}}">Good Thoughts</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>

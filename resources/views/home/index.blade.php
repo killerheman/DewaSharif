@@ -14,7 +14,7 @@
     <div class="container">
         <div class="title">
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
-            <p style="color:#5edf9e">Dewa Mela &amp; Karthik-2024</p>
+            <p style="color:#03be64">Dewa Mela &amp; Karthik-2024</p>
         </div>
         <ul class="utsav impfestive owl-carousel owl-theme">
             <li>
@@ -116,7 +116,7 @@
                 <ul>
                     <li><img src="home/images/dewasharif/masharratwarsi.jpg" alt="Shahzade Alam"
                             title="Shahzade Alam" />
-                        <h4>MASHARRAT WARSI [Shahzade Alam] </h4>
+                        <h4>Shahzade Alam <br>[مشرت وارثی]</h4>
                         <p><b><i>Software Developer</i></b> <br /> <b>www.dewasharif.com</b></p>
                     </li>
                     <ul>
@@ -487,7 +487,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="title text-center">
+                <div class="text-center title">
                     <span class="arrow1"><img src="{{ asset('home/images/arrow1.png') }}" /></span>
                     <h1><b>Connect </b> &amp; <b>Engage</b></h1>
                     <span class="arrow2"><img src="{{ asset('home/images/arrow2.png') }}" /></span>

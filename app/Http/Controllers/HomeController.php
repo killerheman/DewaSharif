@@ -639,6 +639,12 @@ public function usman()
         return view('home.islam.madina.almadinahmuseum');
     }
 
+// Goodt Thoughts
+public function goodthoughts()
+{
+    return view('home.islam.thoughts.goodthoughts');
+}
+
 // Instructions
 
 public function copyright()

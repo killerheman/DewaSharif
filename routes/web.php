@@ -152,6 +152,8 @@ Route::get('/daralmadinahmuseum', [HomeController::class, 'daralmadinahmuseum'])
 Route::get('/hejazrailwaymuseum', [HomeController::class, 'hejazrailwaymuseum'])->name('hejazrailwaymuseum');
 Route::get('/quranprintcomplex', [HomeController::class, 'quranprintcomplex'])->name('quranprintcomplex');
 
+// Gellary
+Route::get('/goodthoughts', [HomeController::class, 'goodthoughts'])->name('goodthoughts');
 
 // Instructions
 Route::get('/copyright', [HomeController::class, 'copyright'])->name('copyright');
