@@ -79,8 +79,8 @@
                 <div class="row">
                     <div class="col-md-9">
                         <p>This is the information provider website of Dewa Sharif, Barabanki , Uttar Pradesh,
-                            India.<br /> Content on this website is published and managed by SHAHZADE ALAM [MASHARRAT
-                            WARSI] Dewa Sharif.<br /> For any query, suggession or complaint regarding this website,
+                            India.<br /> Content on this website is published and managed by SHAHZADE ALAM [Masharrat
+                            Warsi] Dewa Sharif.<br /> For any query, suggession or complaint regarding this website,
                             please contact us <a href="#">"info@dewasharif.com"</a>.</p>
                         <p><br />Last Updated On : 01 JANUARY 2025 | 12:00 AM </p>
                     </div>
