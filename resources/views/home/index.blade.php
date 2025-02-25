@@ -14,7 +14,7 @@
     <div class="container">
         <div class="title">
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
-            <p style="color:#03be64">Dewa Mela &amp; Karthik-2024</p>
+            <p style="color:#03be64">Ramadan Kareem -The Holi Month Coming </p>
         </div>
         <ul class="utsav impfestive owl-carousel owl-theme">
             <li>
@@ -123,9 +123,9 @@
             </div>
             <div class="col-md-2 leader">
                 <ul>
-                    <li><img src="home/images/dewasharif/rajabmonth.jpg" alt="Rajab"
-                            title="Rajab" />
-                        <h4>Rajab Month <br>[]</h4>
+                    <li><img src="home/images/dewasharif/shaban.jpg" alt="Rajab"
+                            title="Shaban" />
+                        <h4>Shaban Month <br>[Shab-E-Barat]</h4>
                         <p><b><i></i></b> <br />
                             <b>www.dewasharif.com</b> </b> <br />
                         </p>
