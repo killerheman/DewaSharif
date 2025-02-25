@@ -2,7 +2,11 @@
 @section('content')
 <section id="banner">
     <video width="300" height="150" id="myVideo" loop="loop" muted="" autoplay="autoplay">
+<<<<<<< HEAD
         <source src="{{ asset('home/images/dewasharif/introv.mp4') }}" type="video/mp4" />
+=======
+        <source src="{{ asset('home/images/dewasharif/introvid.mp4') }}" type="video/mp4" />
+>>>>>>> 4def52ada08029e3b33c92df6ce2ffd28713cd3a
     </video>
     <div class="videocontrol">
         <button onclick="playVid()" type="button"><i class="fa fa-play" aria-hidden="true"></i></button>

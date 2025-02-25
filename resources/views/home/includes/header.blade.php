@@ -125,107 +125,73 @@
                                                 <li class="col-md-3 menu-heading"><a class=""
                                                         href="JavaScript:void(0);">Makkah</a>
                                                     <ul class="">
-<li class=""><a class="" target="_blank" href="{{asset('aishaalrajhimosque')}}">Aisha-Al-Rajhi Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('aishamosque')}}">Aisha Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alhajaralaswad')}}">Al-Hajar-Al-Aswad</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alharammosque')}}">Al-Haram Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('aljinnmosque')}}">Al-Jinn Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alkhaifmosque')}}">Al-Khaif Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('allah')}}">ALLAH</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alnoormountain')}}">Al-Noor Mountain</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alqubaismountain')}}">Al-Qubais Mountain</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alrahmatmountain')}}">Al-Rahmat Mountain</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alrayahmosque')}}">Al-Rayah Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alsafaalmarwa')}}">Al-Safa ~ Al-Marwa</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('altoormountain')}}">Al-Toor Mountain</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('arafat')}}">Arafaat</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('badr')}}">Badr</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('bilalbinrabahmosque')}}">Bilal-Bin-Rabah Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('birtuwawell')}}">BirTuwa Well</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('clocktower')}}">Clock Tower</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('gharehira')}}">Ghar-E-Hira</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('hajj')}}">Hajj</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('hazratmuhammad')}}">HAZRAT MUHAMMAD</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('islam')}}">Islam</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('jannatalmualla')}}">Jannat-Al-Mualla</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('jisraljamarat')}}">Jisr-Al-Jamarat</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('khanaekaaba')}}">Khana-E-Ka'aba</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('makameibraheem')}}">Makam-E-Ibraheem</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('makkah')}}">Makkah</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('makkahmuseum')}}">Makkah Museum</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('mina')}}">Mina</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('muzdalifa')}}">Muzdalifah</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('nimrahmosque')}}">Nimrah Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('thekiswafactory')}}">The Kiswa Factory</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('umrah')}}">Umrah</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('zamzam')}}">ZamZam</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('zamzamwell')}}">ZAMZAM WELL</a></li>
-
-
-
+                                                        <li class=""><a class="" target="_blank" href="{{asset('aishaalrajhimosque')}}">Aisha-Al-Rajhi Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('aishamosque')}}">Aisha Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alhajaralaswad')}}">Al-Hajar-Al-Aswad</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alharammosque')}}">Al-Haram Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('aljinnmosque')}}">Al-Jinn Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alkhaifmosque')}}">Al-Khaif Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('allah')}}">ALLAH</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alnoormountain')}}">Al-Noor Mountain</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alqubaismountain')}}">Al-Qubais Mountain</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alrahmatmountain')}}">Al-Rahmat Mountain</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alrayahmosque')}}">Al-Rayah Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alsafaalmarwa')}}">Al-Safa ~ Al-Marwa</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('altoormountain')}}">Al-Toor Mountain</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('arafat')}}">Arafaat</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('badr')}}">Badr</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('bilalbinrabahmosque')}}">Bilal-Bin-Rabah Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('birtuwawell')}}">BirTuwa Well</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('clocktower')}}">Clock Tower</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('gharehira')}}">Ghar-E-Hira</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('hajj')}}">Hajj</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('hazratmuhammad')}}">HAZRAT MUHAMMAD</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('islam')}}">Islam</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('jannatalmualla')}}">Jannat-Al-Mualla</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('jisraljamarat')}}">Jisr-Al-Jamarat</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('khanaekaaba')}}">Khana-E-Ka'aba</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('makameibraheem')}}">Makam-E-Ibraheem</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('makkah')}}">Makkah</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('makkahmuseum')}}">Makkah Museum</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('mina')}}">Mina</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('muzdalifa')}}">Muzdalifah</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('nimrahmosque')}}">Nimrah Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('thekiswafactory')}}">The Kiswa Factory</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('umrah')}}">Umrah</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('zamzam')}}">ZamZam</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('zamzamwell')}}">ZAMZAM WELL</a></li>
                                                     </ul>
                                                 </li>
                                                 <li class="col-md-3 menu-heading"><a class=""
                                                         href="JavaScript:void(0);">Madina</a>
                                                     <ul class="">
                                                        <li class=""><a class="" target="_blank" href=""></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('abubakrmosque')}}">Abubakr Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('almadinahmuseum')}}">Al-Madinah Museum</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('almasjidalnabawi')}}">Al-Masjid ~ Al-Nabawi</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alqiblataynmosque')}}">Al-Qiblatayn Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('alqubamosque')}}">Al-Quba Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('albidyamosque')}}">Al-Bidya Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('daralmadinahmuseum')}}">Dar-Al-Madinah Musium</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('ghamamahmosque')}}">Ghamama Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('hazratmuhammaddome')}}">Hazrat Muhammad Dome</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('hejazrailwaymuseum')}}">Hejaz Railway Museum</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('jannatulbaque')}}">Jannat-Al-Baque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('jumahmosque')}}">Jumah Mosque</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('madinah')}}">Madinah</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('mountuhud')}}">Mount Uhud</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('muhammad')}}">Muhammad</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('quranprintcomplex')}}">Quran Print Complex</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('wadiejinn')}}">Wadi-E-Jinn</a></li>
-
-
-{{--  <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>  --}}
+                                                        <li class=""><a class="" target="_blank" href="{{asset('abubakrmosque')}}">Abubakr Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('almadinahmuseum')}}">Al-Madinah Museum</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('almasjidalnabawi')}}">Al-Masjid ~ Al-Nabawi</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alqiblataynmosque')}}">Al-Qiblatayn Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('alqubamosque')}}">Al-Quba Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('albidyamosque')}}">Al-Bidya Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('daralmadinahmuseum')}}">Dar-Al-Madinah Musium</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('ghamamahmosque')}}">Ghamama Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('hazratmuhammaddome')}}">Hazrat Muhammad Dome</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('hejazrailwaymuseum')}}">Hejaz Railway Museum</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('jannatulbaque')}}">Jannat-Al-Baque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('jumahmosque')}}">Jumah Mosque</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('madinah')}}">Madinah</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('mountuhud')}}">Mount Uhud</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('muhammad')}}">Muhammad</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('quranprintcomplex')}}">Quran Print Complex</a></li>
+                                                        <li class=""><a class="" target="_blank" href="{{asset('wadiejinn')}}">Wadi-E-Jinn</a></li>
 
                                                     </ul>
                                                 </li>
                                                 <li class="col-md-3 menu-heading"><a class=""
                                                         href="JavaScript:void(0);">QURAN</a>
                                                     <ul class="">
-                                                        <li class=""><a class="" target="_blank"
-                                                                href="#">Coming Soon
-                                                                </a></li>
-                                                        {{--  <li class=""><a class=""
-                                                                href="en/page/ramotsav.html">Ramotsav</a></li>
-                                                        <li class=""><a class="" href="en/page/taj-mahotsav.html">Taj
-                                                                Mahotsav</a></li>
-                                                        <li class=""><a class=""
-                                                                href="en/page/deepotsav.html">Deepotsav</a></li>
-                                                        <li class=""><a class=""
-                                                                href="en/page/rangotsav.html">Rangotsav</a></li>
-                                                        <li class=""><a class=""
-                                                                href="en/page/ganga-mahotsav.html">Ganga Mahotsav</a>
-                                                        </li>  --}}
+                                                        <li class="">
+                                                            <a class="" target="_blank" href="#">Coming Soon </a>
+                                                        </li>
                                                     </ul>
                                                 </li>
                                                 <li class="col-md-3  menu-heading"><a class=""
@@ -241,52 +207,27 @@
                                                 href="JavaScript:void(0);">Online Booking</a>
                                             <ul class="dropdown-menu mega-dropdown-menu online-tag">
                                                <li class=""><a class="" target="_blank" href="#">COMING SOON</a></li>
-{{--  <li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>  --}}
                                             </ul>
                                         </li>
                                         <li class="dropdown mega-dropdown"><a class="dropdown-toggle"
                                             href="JavaScript:void(0);">Register-Business</a>
-                                        <ul class="dropdown-menu mega-dropdown-menu online-tag">
-                                           <li class=""><a class="" target="_blank" href="#">COMING SOON</a></li>
-{{--  <li class=""><a class="" target="_blank" href="#">COMING SOON</a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>
-<li class=""><a class="" target="_blank" href="{{asset('')}}"></a></li>  --}}
-                                        </ul>
-                                    </li>
+                                            <ul class="dropdown-menu mega-dropdown-menu online-tag">
+                                            <li class=""><a class="" target="_blank" href="#">COMING SOON</a></li>
+                                            </ul>
+                                        </li>
+                                        <div id="google_translate_element"></div>
                                     </ul>
                                 </div>
+
+                                <script type="text/javascript">
+                                    function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement(
+                                            {pageLanguage: 'en'},
+                                            'google_translate_element'
+                                        );
+                                    }
+                                </script>
+                                <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                             </div>
                     </div>
                     <!-- /.nav-collapse -->
