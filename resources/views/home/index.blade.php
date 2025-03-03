@@ -2,7 +2,7 @@
 @section('content')
 <section id="banner">
     <video width="300" height="150" id="myVideo" loop="loop" muted="" autoplay="autoplay">
-        <source src="{{ asset('home/images/dewasharif/introv.mp4') }}" type="video/mp4" />
+        <source src="{{ asset('home/images/dewasharif/ramzanvid.mp4') }}" type="video/mp4" />
     </video>
     <div class="videocontrol">
         <button onclick="playVid()" type="button"><i class="fa fa-play" aria-hidden="true"></i></button>
@@ -123,9 +123,9 @@
             </div>
             <div class="col-md-2 leader">
                 <ul>
-                    <li><img src="home/images/dewasharif/shaban.jpg" alt="Rajab"
-                            title="Shaban" />
-                        <h4>Shaban Month <br>[Shab-E-Barat]</h4>
+                    <li><img src="home/images/dewasharif/ramazaan.jpg" alt="Rajab"
+                            title="Ramazan" />
+                        <h4>Ramazan Month <br>[Ramadan Kareem]</h4>
                         <p><b><i></i></b> <br />
                             <b>www.dewasharif.com</b> </b> <br />
                         </p>
@@ -174,7 +174,7 @@
 <div class="kumbh-25">
     <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
     <video height="30%" width="100%" autoplay loop muted>
-        <source src="{{ asset('home/images/dewasharif/pagebackground/ali.mp4') }}" type="video/mp4">
+        <source src="{{ asset('home/images/dewasharif/pagebackground/ramadaan.mp4') }}" type="video/mp4">
     </video>
     <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
 </div>
