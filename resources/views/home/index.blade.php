@@ -114,24 +114,24 @@
             </div>
             <div class="col-md-2 leader">
                 <ul>
+                    <li><img src="home/images/dewasharif/walidsahab.jpeg" alt="Rajab"
+                            title="Ramazan" />
+                        <h4>BARKAT ALI <br>[WAALID SAHAB]</h4>
+                          <p><b><i>Barkat Ali Kirana Store</i></b> <br /> <b>www.dewasharif.com</b></p>
+                    </li>
+                <ul>
+            </div>
+
+            <div class="col-md-2 leader ">
+                <ul>
                     <li><img src="home/images/dewasharif/masharratwarsi.jpg" alt="Shahzade Alam"
                             title="Shahzade Alam" />
                         <h4>Shahzade Alam <br>[مشرت وارثی]</h4>
                         <p><b><i>Software Developer</i></b> <br /> <b>www.dewasharif.com</b></p>
                     </li>
-                    <ul>
-            </div>
-            <div class="col-md-2 leader">
                 <ul>
-                    <li><img src="home/images/dewasharif/ramazaan.jpg" alt="Rajab"
-                            title="Ramazan" />
-                        <h4>Ramazan Month <br>[Ramadan Kareem]</h4>
-                        <p><b><i></i></b> <br />
-                            <b>www.dewasharif.com</b> </b> <br />
-                        </p>
-                    </li>
-                    <ul>
             </div>
+
         </div>
     </div>
     <div class="explorebg2">
@@ -496,13 +496,14 @@
 
 <section id="connect">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row ">
+            <div class="col-md-12 ">
                 <div class="text-center title">
                     <span class="arrow1"><img src="{{ asset('home/images/arrow1.png') }}" /></span>
                     <h1><b>Connect </b> &amp; <b>Engage</b></h1>
                     <span class="arrow2"><img src="{{ asset('home/images/arrow2.png') }}" /></span>
                 </div>
+
                 <ul class="sm-icon">
                     <li><a href="https://www.facebook.com/dewasharif707?mibextid=ZbWKwL" target="_blank" rel="noopener"
                             class="external none" title="Facebook"><i class="fa fa-facebook"></i></a></li>
