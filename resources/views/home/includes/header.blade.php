@@ -368,7 +368,6 @@
                                             </ul>
                                         </li>
 
-
                                         <li class="dropdown mega-dropdown"><a class="dropdown-toggle"
                                                 href="JavaScript:void(0);">Online Booking</a>
                                             <ul class="dropdown-menu mega-dropdown-menu online-tag">
@@ -382,7 +381,7 @@
                                                 <li class=""><a class="" target="_blank"
                                                         href="#">COMING SOON</a></li>
                                             </ul>
-                                        </li> <br>
+                                        </li>
                                         <div id="google_translate_element"></div>
                                     </ul>
                                 </div>
