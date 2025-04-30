@@ -28,3 +28,13 @@
 <link href="{{ asset('home/en_Themes/style.css') }}" rel="stylesheet" id="theme" />
 <link rel="stylesheet" href="{{ asset('home/css/jquery.flipster.min.css') }}" />
 <link href="{{ asset('home/css/responsive.css') }}" rel="stylesheet" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2E3VENDPG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2E3VENDPG');
+</script>
