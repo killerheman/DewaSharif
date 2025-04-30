@@ -186,23 +186,26 @@
 
                                                     </ul>
                                                 </li>
-                                                <li class="col-md-3 menu-heading"><a class=""
-                                                        href="JavaScript:void(0);">QURAN</a>
-                                                    <ul class="">
-                                                        <li class="">
-                                                            <a class="" target="_blank" href="#">Coming Soon </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-md-3  menu-heading"><a class=""
-                                                        href="JavaScript:void(0);">Good Thoughts</a>
-                                                    <ul class="">
-                                                        <li class=""><a class="" target="_blank"
-                                                            href="{{asset('goodthoughts')}}">Good Thoughts</a></li>
-                                                    </ul>
-                                                </li>
+
                                             </ul>
                                         </li>
+
+                                    <li class="col-md-3 menu-heading"><a class=""
+                                            href="JavaScript:void(0);">QURAN</a>
+                                        <ul class="">
+                                            <li class="">
+                                                <a class="" target="_blank" href="#">Coming Soon </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="col-md-3  menu-heading"><a class=""
+                                            href="JavaScript:void(0);">Good Thoughts</a>
+                                        <ul class="">
+                                            <li class=""><a class="" target="_blank"
+                                                href="{{asset('goodthoughts')}}">Good Thoughts</a></li>
+                                        </ul>
+                                    </li>
+
                                         <li class="dropdown mega-dropdown"><a class="dropdown-toggle"
                                                 href="JavaScript:void(0);">Online Booking</a>
                                             <ul class="dropdown-menu mega-dropdown-menu online-tag">
