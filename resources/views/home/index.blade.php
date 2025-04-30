@@ -494,43 +494,59 @@
     </div>
 </section>
 
-<section id="connect">
-    <div class="container">
-        <div class="row ">
-            <div class="col-md-12 ">
-                <div class="text-center title">
-                    <span class="arrow1"><img src="{{ asset('home/images/arrow1.png') }}" /></span>
-                    <h1><b>Connect </b> &amp; <b>Engage</b></h1>
-                    <span class="arrow2"><img src="{{ asset('home/images/arrow2.png') }}" /></span>
+<section id="connect" style="padding: 40px 0; position: relative; background-color: #fff;">
+    <div class="container" style="max-width: 1140px; margin: 0 auto;">
+        <div class="row" style="display: flex; flex-wrap: wrap;">
+            <div class="col-md-12" style="width: 100%; text-align: center;">
+                <div class="title" style="position: relative; margin-bottom: 30px;">
+                    <span class="arrow1" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%);">
+                        <img src="{{ asset('home/images/arrow1.png') }}" alt="Arrow Left" />
+                    </span>
+                    <h1 style="font-size: 32px; font-weight: bold; margin: 0;">
+                        <b>Connect</b> &amp; <b>Engage</b>
+                    </h1>
+                    <span class="arrow2" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
+                        <img src="{{ asset('home/images/arrow2.png') }}" alt="Arrow Right" />
+                    </span>
                 </div>
 
-                <ul class="sm-icon">
-                    <li><a href="https://www.facebook.com/dewasharif707?mibextid=ZbWKwL" target="_blank" rel="noopener"
-                            class="external none" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="https://x.com/dewasharif707?t=V7INlftOKGRvkXpyxt8hcg&s=09" target="_blank"
-                            rel="noopener" class="external none" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com/dewa.sharif707/profilecard/?igsh=NzR1YjdubmRndGJ5"
-                            target="_blank" rel="noopener" class="external none" title="Instagram"><i
-                                class="fa fa-instagram"></i></a></li>
-                    <li><a href="https://www.youtube.com/@DewaSharif707" target="_blank" rel="noopener"
-                            class="external none" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
-                    <li>
-                        <a href="#" target="_blank" rel="noopener" class="external none" title="UP Tourism Blog"
-                            style="position: relative;">
-                            <img src="{{ asset('home/images/blog.png') }}"
-                                style="filter: contrast(0%) brightness(20%); width: 74px;" />
-                            <span
-                                style="position: absolute; font-size: 10px; color: #000; left: 0; right: -28px; bottom: -10px; text-transform: uppercase; font-weight: 800;">blog</span>
+                <ul class="sm-icon" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; padding: 0; margin: 20px 0; list-style: none;">
+                    <li style="display: inline-block;">
+                        <a href="https://www.facebook.com/dewasharif707?mibextid=ZbWKwL" target="_blank" rel="noopener" class="external none" title="Facebook">
+                            <i class="fa fa-facebook" style="font-size: 24px;"></i>
+                        </a>
+                    </li>
+                    <li style="display: inline-block;">
+                        <a href="https://x.com/dewasharif707?t=V7INlftOKGRvkXpyxt8hcg&s=09" target="_blank" rel="noopener" class="external none" title="Twitter">
+                            <i class="fa fa-twitter" style="font-size: 24px;"></i>
+                        </a>
+                    </li>
+                    <li style="display: inline-block;">
+                        <a href="https://www.instagram.com/dewa.sharif707/profilecard/?igsh=NzR1YjdubmRndGJ5" target="_blank" rel="noopener" class="external none" title="Instagram">
+                            <i class="fa fa-instagram" style="font-size: 24px;"></i>
+                        </a>
+                    </li>
+                    <li style="display: inline-block;">
+                        <a href="https://www.youtube.com/@DewaSharif707" target="_blank" rel="noopener" class="external none" title="YouTube">
+                            <i class="fa fa-youtube-play" style="font-size: 24px;"></i>
+                        </a>
+                    </li>
+                    <li style="display: inline-block; position: relative;">
+                        <a href="#" target="_blank" rel="noopener" class="external none" title="UP Tourism Blog">
+                            <img src="{{ asset('home/images/blog.png') }}" style="filter: contrast(0%) brightness(20%); width: 74px; vertical-align: middle;" />
+                            <span style="position: absolute; font-size: 10px; color: #000; left: 0; right: -28px; bottom: -10px; text-transform: uppercase; font-weight: 800;">blog</span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="explorebg2">
-        <img src="{{ asset('home/images/connectbg.png') }}" alt="Image of background" title="background" />
+
+    <div class="explorebg2" style="position: absolute; bottom: 0; width: 100%; z-index: -1;">
+        <img src="{{ asset('home/images/connectbg.png') }}" alt="Image of background" title="background" style="width: 100%; height: auto;" />
     </div>
 </section>
+
 
 <section id="branding">
     <div class="container">
