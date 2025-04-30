@@ -140,14 +140,14 @@
 
 </section>
 
-{{-- <section id="explore">
+<section id="qr">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <h2>"Contribute For Our Website:<b> WWW.DEWASHARIF.COM"</b></h2>
             </div>
 
-            <div class="col-md-4  ">
+            <div class="col-md-2">
                 <ul>
                     <li><img src="home/images/dewasharif/qr.jpg" alt="qr"
                             title="QR" />
@@ -158,11 +158,11 @@
 
         </div>
     </div>
-    <div class="explorebg2">
+    <div class="explorebg3">
         <img src="{{ asset('home/images/explorebg2.png')}}" alt="Background" title="Background" />
     </div>
 
-</section> --}}
+</section>
 
 <section id="upmap">
     <div class="container">
