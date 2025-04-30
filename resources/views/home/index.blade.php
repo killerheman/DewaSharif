@@ -140,7 +140,7 @@
 
 </section>
 
-<section id="explore">
+<section id="explores">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
