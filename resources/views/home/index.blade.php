@@ -140,29 +140,6 @@
 
 </section>
 
-{{-- <section id="qr">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <h2>"Contribute For Our Website:<b> WWW.DEWASHARIF.COM"</b></h2>
-            </div>
-
-            <div class="col-md-2">
-                <ul>
-                    <li><img src="home/images/dewasharif/qr.jpg" alt="qr"
-                            title="QR" />
-                        <h4>www.dewasharif.com</h4>
-                    </li>
-                <ul>
-            </div>
-
-        </div>
-    </div>
-    <div class="explorebg3">
-        <img src="{{ asset('home/images/explorebg2.png')}}" alt="Background" title="Background" />
-    </div>
-
-</section> --}}
 
 <section id="upmap">
     <div class="container">
