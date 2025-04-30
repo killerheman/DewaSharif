@@ -38,3 +38,7 @@
 
   gtag('config', 'G-S2E3VENDPG');
 </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2658553012188142"
+crossorigin="anonymous">
+</script>
+<meta name="google-adsense-account" content="ca-pub-2658553012188142">
