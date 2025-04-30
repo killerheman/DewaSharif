@@ -140,7 +140,7 @@
 
 </section>
 
-<section id="explores">
+{{-- <section id="explore">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -162,7 +162,7 @@
         <img src="{{ asset('home/images/explorebg2.png')}}" alt="Background" title="Background" />
     </div>
 
-</section>
+</section> --}}
 
 <section id="upmap">
     <div class="container">
