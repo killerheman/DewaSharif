@@ -112,7 +112,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-2 leader">
+            {{-- <div class="col-md-2 leader">
                 <ul>
                     <li><img src="home/images/dewasharif/walidsahab.jpeg" alt="Rajab"
                             title="Ramazan" />
@@ -120,7 +120,7 @@
                           <p><b><i>Barkat Ali Kirana Store</i></b> <br /> <b>www.dewasharif.com</b></p>
                     </li>
                 <ul>
-            </div>
+            </div> --}}
 
             <div class="col-md-2 leader ">
                 <ul>
