@@ -140,7 +140,6 @@
 
 </section>
 
-
 <section id="upmap">
     <div class="container">
         <div class="title row">
@@ -178,9 +177,6 @@
     </video>
     <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
 </div>
-
-
-
 
 <section id="festive">
     <div class="container">
@@ -393,6 +389,8 @@
         </div>
     </div>
 </section>
+
+
 
 
 <section id="trip">

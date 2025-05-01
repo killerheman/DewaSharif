@@ -15,9 +15,9 @@ p {
 @media only screen and (max-width:767px) {
 
   .feedbackbtn img {
-  
+
     width: 32px !important;
-   
+
 }
 
   .circuits li:hover {
@@ -233,7 +233,7 @@ p {
   }
 
   #banner {
-    height: 198px;
+    max-height: 198px;
   }
 
   .dropdown>a::after {
