@@ -112,7 +112,7 @@
                     </li>
                 </ul>
             </div>
-            {{-- <div class="col-md-2 leader">
+            <div class="col-md-2 leader">
                 <ul>
                     <li><img src="home/images/dewasharif/walidsahab.jpeg" alt="Rajab"
                             title="Ramazan" />
@@ -120,7 +120,7 @@
                           <p><b><i>Barkat Ali Kirana Store</i></b> <br /> <b>www.dewasharif.com</b></p>
                     </li>
                 <ul>
-            </div> --}}
+            </div>
 
             <div class="col-md-2 leader ">
                 <ul>
@@ -426,6 +426,47 @@
     </div>
 </section>
 
+<section id="festive" style="padding: 40px 0; background: url('{{ asset('home/images/explorebg2.png') }}') no-repeat center center; background-size: cover;">
+    <div class="container" style="position: relative; z-index: 2;">
+        <div class="title" style="text-align: center; margin-bottom: 30px;">
+            <p style="color: #0a5c36; font-size: 18px;">
+                <b><i>مالی تعاون کریں</i></b> -&nbsp;&nbsp; <b><i>कृपया सहयोग करें</i></b> -&nbsp;&nbsp; <b><i>Kindly Contribute</i></b> -&nbsp;&nbsp; for this website:
+            </p>
+            <h1 style="color: #03be64; font-weight: bold; font-size: 32px;">www.dewasharif.com</h1>
+        </div>
+        <div class="row" style="align-items: center;">
+            <!-- Left Side Content -->
+            <div class="col-md-8 col-12" style="padding: 20px;">
+                <div style="font-size: 16px; color: #0a5c36;">
+                    <p>
+                     <strong>Urdu:</strong><b>"اگر آپ چاہتے ہیں کہ یہ ویب سائٹ آئندہ بھی چلتی رہے اور لوگوں تک مفید دینی معلومات، تقریبات، اور اپڈیٹس پہنچتی رہیں، تو آپ اس کارِ خیر میں اپنا حصہ ڈال سکتے ہیں۔ نیچے دیے گئے QR کوڈ یا UPI ID <strong>ashz82462@ybl</strong> کے ذریعے تعاون کریں۔ آپ کا چھوٹا سا تعاون بھی بہت قیمتی ہے۔ جزاکم اللہ خیراً!"</b>
+                    </p><br><br>
+                   <p>
+                     <strong>हिन्दी:</strong> देवाशरीफ की यह वेबसाइट आप सभी के लिए एक आध्यात्मिक जानकारी का स्रोत है। यदि आप चाहते हैं कि यह वेबसाइट भविष्य में भी चलती रहे और नई जानकारी व अपडेट्स देती रहे, तो कृपया सहयोग करें। आप नीचे दिए गए QR कोड या UPI ID <strong>ashz82462@ybl</strong> के माध्यम से अपना योगदान दे सकते हैं।
+                   </p><br><br>
+                   <p>
+                     <strong>English:</strong> This Dewasharif website is a spiritual source of knowledge for all. To keep it alive and updated for the future, your support is valuable. Please consider contributing via the QR code below or through UPI ID <strong>ashz82462@ybl</strong>.
+                   </p>
+
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                
+                </div>
+            </div>
+
+            <!-- Right Side Image -->
+            <div class="col-md-4 col-12" style="padding: 20px;">
+                <img src="{{ asset('home/images/dewasharif/qr.jpeg') }}" alt="Dewa Sharif URS" title="Dewa Sharif URS 2024"
+                    style="width: 100%; max-height: 100%; object-fit: cover; border-radius: 8px;" />
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="unfold">
     <div class="container">
         <div class="title">
@@ -539,7 +580,6 @@
 
     </div>
 </section>
-
 
 @include('home.includes.footer')
 @endsection
