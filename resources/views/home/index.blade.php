@@ -502,7 +502,7 @@
                     <span class="arrow2"><img src="{{ asset('home/images/arrow2.png') }}" /></span>
                 </div>
 
-                <ul class="sm-icon">
+                <ul class="sm-icon" style="padding-left: 2px">
                     <li><a href="https://www.facebook.com/dewasharif707?mibextid=ZbWKwL" target="_blank" rel="noopener"
                             class="external none" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="https://x.com/dewasharif707?t=V7INlftOKGRvkXpyxt8hcg&s=09" target="_blank"

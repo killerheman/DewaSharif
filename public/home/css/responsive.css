@@ -77,7 +77,7 @@ p {
   }
 
   .sm-icon li {
-    width: auto;
+    /* width: auto; */
   }
 
   .dList {
