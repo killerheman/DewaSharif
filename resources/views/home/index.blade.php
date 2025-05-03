@@ -116,7 +116,7 @@
                 <ul>
                     <li><img src="home/images/dewasharif/walidsahab.jpeg" alt="Rajab"
                             title="Ramazan" />
-                        <h4>BARKAT ALI <br>[WAALID SAHAB]</h4>
+                        <h4>BARKAT ALI <br>[WAALID SAHAB /FATHER]</h4>
                           <p><b><i>Barkat Ali Kirana Store</i></b> <br /> <b>www.dewasharif.com</b></p>
                     </li>
                 <ul>
@@ -389,8 +389,6 @@
         </div>
     </div>
 </section>
-
-
 
 
 <section id="trip">
