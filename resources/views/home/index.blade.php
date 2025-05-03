@@ -438,30 +438,23 @@
             <!-- Left Side Content -->
             <div class="col-md-8 col-12" style="padding: 20px;">
                 <div style="font-size: 16px; color: #0a5c36;">
-                    <p>
+                   <p>
                      <strong>Urdu:</strong><b>"اگر آپ چاہتے ہیں کہ یہ ویب سائٹ آئندہ بھی چلتی رہے اور لوگوں تک مفید دینی معلومات، تقریبات، اور اپڈیٹس پہنچتی رہیں، تو آپ اس کارِ خیر میں اپنا حصہ ڈال سکتے ہیں۔ نیچے دیے گئے QR کوڈ یا UPI ID <strong>ashz82462@ybl</strong> کے ذریعے تعاون کریں۔ آپ کا چھوٹا سا تعاون بھی بہت قیمتی ہے۔ جزاکم اللہ خیراً!"</b>
-                    </p><br><br>
+                   </p><br><br><h1><center><b>****************************</b></center></h1><br><br>
                    <p>
                      <strong>हिन्दी:</strong> देवाशरीफ की यह वेबसाइट आप सभी के लिए एक आध्यात्मिक जानकारी का स्रोत है। यदि आप चाहते हैं कि यह वेबसाइट भविष्य में भी चलती रहे और नई जानकारी व अपडेट्स देती रहे, तो कृपया सहयोग करें। आप नीचे दिए गए QR कोड या UPI ID <strong>ashz82462@ybl</strong> के माध्यम से अपना योगदान दे सकते हैं।
-                   </p><br><br>
+                   </p><br><br><h1><center><b>****************************</b></center></h1><br><br>
                    <p>
                      <strong>English:</strong> This Dewasharif website is a spiritual source of knowledge for all. To keep it alive and updated for the future, your support is valuable. Please consider contributing via the QR code below or through UPI ID <strong>ashz82462@ybl</strong>.
                    </p>
 
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                   <br>
-                
                 </div>
             </div>
 
             <!-- Right Side Image -->
             <div class="col-md-4 col-12" style="padding: 20px;">
                 <img src="{{ asset('home/images/dewasharif/qr.jpeg') }}" alt="Dewa Sharif URS" title="Dewa Sharif URS 2024"
-                    style="width: 100%; max-height: 100%; object-fit: cover; border-radius: 8px;" />
+                    style="width: 100%; max-height: 80%; object-fit: cover; border-radius: 8px;" />
             </div>
         </div>
     </div>
