@@ -2,7 +2,7 @@
 @section('content')
 <section id="banner">
     <video width="300" height="150" id="myVideo" loop="loop" muted="" autoplay="autoplay">
-        <source src="{{ asset('home/images/dewasharif/Hajjvid.mp4') }}" type="video/mp4" />
+        <source src="{{ asset('home/images/dewasharif/topvideo/safar.mp4') }}" type="video/mp4" />
     </video>
     <div class="videocontrol">
         <button onclick="playVid()" type="button"><i class="fa fa-play" aria-hidden="true"></i></button>
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="title">
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
-            <p style="color:#03be64">Ramadan Kareem -The Holi Month Coming </p>
+            <p style="color:#03be64">Safar Mela</p>
         </div>
         <ul class="utsav impfestive owl-carousel owl-theme">
             <li>
@@ -114,14 +114,13 @@
             </div>
             <div class="col-md-2 leader">
                 <ul>
-                    <li><img src="home/images/dewasharif/walidsahab.jpeg" alt="Rajab"
-                            title="Ramazan" />
-                        <h4>BARKAT ALI <br>[WAALID SAHAB /FATHER]</h4>
+                    <li><img src="home/images/dewasharif/walidsahab.jpeg" alt="Father"
+                            title="BArkat Ali" />
+                        <h4>BARKAT ALI <br>[FATHER]</h4>
                           <p><b><i>Barkat Ali Kirana Store</i></b> <br /> <b>www.dewasharif.com</b></p>
                     </li>
                 <ul>
             </div>
-
             <div class="col-md-2 leader ">
                 <ul>
                     <li><img src="home/images/dewasharif/masharratwarsi.jpg" alt="Shahzade Alam"
@@ -131,7 +130,6 @@
                     </li>
                 <ul>
             </div>
-
         </div>
     </div>
     <div class="explorebg2">
@@ -173,7 +171,7 @@
 <div class="kumbh-25">
     <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
     <video height="30%" width="100%" autoplay loop muted>
-        <source src="{{ asset('home/images/dewasharif/pagebackground/bakreed.mp4') }}" type="video/mp4">
+        <source src="{{ asset('home/images/dewasharif/pagebackground/muharram.mp4') }}" type="video/mp4">
     </video>
     <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
 </div>
@@ -424,7 +422,7 @@
     </div>
 </section>
 
-<section id="festive" style="padding: 40px 0; background: url('{{ asset('home/images/explorebg2.png') }}') no-repeat center center; background-size: cover;">
+{{-- <section id="festive" style="padding: 40px 0; background: url('{{ asset('home/images/explorebg2.png') }}') no-repeat center center; background-size: cover;">
     <div class="container" style="position: relative; z-index: 2;">
         <div class="title" style="text-align: center; margin-bottom: 30px;">
             <p style="color: #0a5c36; font-size: 18px;">
@@ -456,7 +454,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <section id="unfold">
     <div class="container">
