@@ -115,11 +115,13 @@
             <div class="col-md-2 leader">
                 <ul>
                     <li><img src="home/images/dewasharif/walidsahab.jpeg" alt="Father"
-                            title="BArkat Ali" />
+                            title="Barkat Ali" />
                         <h4>BARKAT ALI <br>[FATHER]</h4>
-                          <p><b><i>Barkat Ali Kirana Store</i></b> <br /> <b>www.dewasharif.com</b></p>
+                          <p><b><i>Barkat Ali KiranaStore</i></b> <br /> <b>www.dewasharif.com</b></p>
                     </li>
+                    
                 <ul>
+
             </div>
             <div class="col-md-2 leader ">
                 <ul>
