@@ -2,7 +2,7 @@
 @section('content')
 <section id="banner">
     <video width="300" height="150" id="myVideo" loop="loop" muted="" autoplay="autoplay">
-        <source src="{{ asset('home/images/dewasharif/topvideo/safar.mp4') }}" type="video/mp4" />
+        <source src="{{ asset('home/images/dewasharif/topvideo/Makkah Madina.mp4') }}" type="video/mp4" />
     </video>
     <div class="videocontrol">
         <button onclick="playVid()" type="button"><i class="fa fa-play" aria-hidden="true"></i></button>
@@ -119,7 +119,7 @@
                         <h4>BARKAT ALI <br>[FATHER]</h4>
                           <p><b><i>Barkat Ali KiranaStore</i></b> <br /> <b>www.dewasharif.com</b></p>
                     </li>
-                    
+
                 <ul>
 
             </div>
