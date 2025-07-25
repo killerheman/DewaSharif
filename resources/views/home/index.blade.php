@@ -178,6 +178,7 @@
     <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
 </div>
 
+
 <section id="festive">
     <div class="container">
         <div class="title">
@@ -423,6 +424,60 @@
         <img src="{{ asset('home/images/tribg2.png') }}" alt="Image of background" title="background" />
     </div>
 </section>
+<section id="trip2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 trip-plan">
+                <h2 style="color: #0a5c36; text-align: center;">Coming Soon <b>***Eid Milaad-Un-Nabi***</b></h2>
+
+                <ul style="display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; margin-top: 20px; justify-content: center; align-items: center;">
+
+                     <li style="text-align: center;">
+                        <a href="{{ route('allah') }}" target="_blank" rel="noopener">
+                            <img src="{{ asset('home/images/icons/allah.jpg') }}" alt="Allah S.W.T" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                            <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Allah (S.W.T)</span>
+                        </a>
+                    </li>
+
+
+                    <li style="text-align: center;">
+                        <a href="{{ route('hazratmuhammad') }}" target="_blank" rel="noopener">
+                            <img src="{{ asset('home/images/icons/muhammad.jpg') }}" alt="Hz. Muhammad" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                            <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Hz. Muhammad (S.A.W)</span>
+                        </a>
+                    </li>
+                    <li style="text-align: center;">
+                        <a href="{{ route('khanaekaaba') }}" target="_blank" rel="noopener">
+                            <img src="{{ asset('home/images/icons/kaba2.jpg') }}" alt="Khana-e-Kaaba" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                            <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Khana-e-Ka'aba</span>
+                        </a>
+                    </li>
+                    <li style="text-align: center;">
+                        <a href="{{ route('muhammad') }}" target="_blank" rel="noopener">
+                            <img src="{{ asset('home/images/icons/jumapic.jpg') }}" alt="Hotel" title="Image of Hotel" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                            <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Raoza-E-Rasool (S.A.W)</span>
+                        </a>
+                    </li>
+
+                    <li style="text-align: center;">
+                        <a href="{{ route('hajiwarisalishah') }}" target="_blank" rel="noopener">
+                            <img src="{{ asset('home/images/icons/melalogo.jpg') }}" alt="Haji Waris Ali Shah R.A." style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                            <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Haji Waris Ali Shah R.A.</span>
+                        </a>
+                    </li>
+                    <li style="text-align: center;">
+                        <a href="https://dewasharif.com" target="_blank" rel="noopener">
+                            <img src="{{ asset('home/images/icons/panjatanpaak.jpg') }}" alt="Panjatan Pak" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                            <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Panjatan Pak</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 {{-- <section id="festive" style="padding: 40px 0; background: url('{{ asset('home/images/explorebg2.png') }}') no-repeat center center; background-size: cover;">
     <div class="container" style="position: relative; z-index: 2;">
