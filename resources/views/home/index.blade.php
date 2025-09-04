@@ -28,7 +28,7 @@
             <li>
                 <a href="#" class="utsav-thumb" rel="noopener">
                     <span class="imgthumb">
-                        <img src="{{ asset('home/images/dewasharif/event/event-2.jpeg') }}" caption="false"
+                        <img src="{{ asset('home/images/dewasharif/event/event-2.jpg') }}" caption="false"
                             style="height: 300px; width: 500px; object-fit: fill;" />
                     </span>
                 </a>
@@ -173,7 +173,7 @@
 <div class="kumbh-25">
     <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
     <video height="30%" width="100%" autoplay loop muted>
-        <source src="{{ asset('home/images/dewasharif/pagebackground/muharram.mp4') }}" type="video/mp4">
+        <source src="{{ asset('home/images/dewasharif/pagebackground/Eid.mp4') }}" type="video/mp4">
     </video>
     <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
 </div>
