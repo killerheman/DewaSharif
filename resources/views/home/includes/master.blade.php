@@ -19,7 +19,7 @@
         </div>
 
     </div>
-    @include('home.includes.foot')
+    @include('home.includes.footer')
     @yield('script-area')
 </body>
 

@@ -5,7 +5,7 @@
             <div class="row g-0">
                 <div class="col-md-3 col-xs-12">
                     <div class="logo">
-                        <a href="#">
+                        <a href="{{ route('index') }}">
                             <img src="{{ asset('home/images/dewasharif/anim_dewa_logo2.gif') }}" class="img-responsive"
                                 alt="Logo of Dewa sharif Dot Com" title="Dewa Sharif" />
                         </a>
@@ -369,17 +369,17 @@
                                         </li> --}}
 
                                         <li class="dropdown mega-dropdown"><a class="dropdown-toggle"
-                                                href="JavaScript:void(0);">Online Booking</a>
+                                                href="{{ route('index') }}">Online Booking</a>
                                             <ul class="dropdown-menu mega-dropdown-menu online-tag">
                                                 <li class=""><a class="" target="_blank"
-                                                        href="#">COMING SOON</a></li>
+                                                        href="{{ route('index') }}">COMING SOON</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown mega-dropdown"><a class="dropdown-toggle"
-                                                href="JavaScript:void(0);">Register-Business</a>
+                                                href="{{ route('index') }}">Register-Business</a>
                                             <ul class="dropdown-menu mega-dropdown-menu online-tag">
                                                 <li class=""><a class="" target="_blank"
-                                                        href="#">COMING SOON</a></li>
+                                                        href="#{{ route('index') }}">COMING SOON</a></li>
                                             </ul>
                                         </li>
                                         <div id="google_translate_element"></div>
