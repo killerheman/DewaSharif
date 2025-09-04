@@ -428,7 +428,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 trip-plan">
-                <h2 style="color: #0a5c36; text-align: center;">Coming Soon <b>***Eid Milaad-Un-Nabi***</b></h2>
+                <!-- <h2 style="color: #0a5c36; text-align: center;">Coming Soon <b>***Eid Milaad-Un-Nabi***</b></h2> -->
 
                 <ul style="display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; margin-top: 20px; justify-content: center; align-items: center;">
 

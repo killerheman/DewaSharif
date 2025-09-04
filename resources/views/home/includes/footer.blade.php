@@ -82,7 +82,7 @@
                             India.<br /> Content on this website is published and managed by SHAHZADE ALAM [Masharrat
                             Warsi] Dewa Sharif.<br /> For any Business, Advertisement, Query, Suggession or Complaint regarding this website,
                             please contact us  <a href="#"> "info@dewasharif.com"   or <br />+91 9648777223</a>.</p>
-                        <p><br />Last Updated On : 04/09/2025 | 03:33 PM </p>
+                        <p><br />Last Updated On : 04/09/2025 | 08:22 PM </p>
                     </div>
                     <div class="text-center col-md-3">
                         <a href='http://www.freevisitorcounters.com'>Live People </a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=23e39fd5bf12ae257e2a8d54487f701a7c14f812'></script>
