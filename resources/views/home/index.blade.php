@@ -14,7 +14,7 @@
     <div class="container">
         <div class="title">
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
-            <p style="color:#03be64">Safar Mela</p>
+            <p style="color:#03be64">Jashn-E-Eid Milad-Un-Nabi</p>
         </div>
         <ul class="utsav impfestive owl-carousel owl-theme">
             <li>
