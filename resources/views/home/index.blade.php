@@ -16,46 +16,30 @@
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
             <p style="color:#03be64">Jashn-E-Eid Milad-Un-Nabi</p>
         </div>
-        <ul class="utsav impfestive owl-carousel owl-theme">
-            <li>
-                <a href="#" class="utsav-thumb" rel="noopener">
-                    <span class="imgthumb">
-                        <img src="{{ asset('home/images/dewasharif/event/event-1.jpeg') }}" caption="false"
-                            style="height: 300px; width: 500px; object-fit: fill;" />
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="utsav-thumb" rel="noopener">
-                    <span class="imgthumb">
-                        <img src="{{ asset('home/images/dewasharif/event/event-2.jpg') }}" caption="false"
-                            style="height: 300px; width: 500px; object-fit: fill;" />
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="utsav-thumb" rel="noopener">
-                    <span class="imgthumb">
-                        <img src="{{ asset('home/images/dewasharif/event/event-3.jpeg') }}" caption="false"
-                            style="height: 300px; width: 500px; object-fit: fill;" />
-                    </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="utsav-thumb" rel="noopener">
-                    <span class="imgthumb">
-                        <img src="{{ asset('home/images/dewasharif/event/event-7.jpeg') }}" caption="false"
-                            style="height: 300px; width: 500px; object-fit: fill;" />
-                    </span>
-                </a>
-            </li>
-            <!-- Repeat for all other images -->
-        </ul>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <img src="{{ asset('home/images/dewasharif/event/event-1.jpeg') }}" 
+                     class="img-fluid" style="height:300px; object-fit:cover;">
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="{{ asset('home/images/dewasharif/event/event-2.jpg') }}" 
+                     class="img-fluid" style="height:300px; object-fit:cover;">
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="{{ asset('home/images/dewasharif/event/event-3.jpeg') }}" 
+                     class="img-fluid" style="height:300px; object-fit:cover;">
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <img src="{{ asset('home/images/dewasharif/event/event-7.jpeg') }}" 
+                     class="img-fluid" style="height:300px; object-fit:cover;">
+            </div>
+        </div>
     </div>
     <div class="explorebg2">
         <img src="{{ asset('home/images/Festive_Delights_divider.png') }}" alt="Background" title="Background" />
     </div>
 </section>
+
 
 <section id="explore">
     <div class="container">
@@ -138,36 +122,6 @@
         <img src="{{ asset('home/images/explorebg2.png')}}" alt="Background" title="Background" />
     </div>
 
-</section>
-
-<section id="upmap">
-    <div class="container">
-        <div class="title row">
-            <div class="col-md-9">
-                <p>Click on any district to explore more details.</p>
-                <h1><b>Discover </b>Uttar Pradesh</h1>
-            </div>
-            <div class="col-md-3">
-                <!-- Nav tabs -->
-                <ul class="nav nav-pills new_tab29042024 nav-justified" role="tablist">
-                    <li role="presentation"><a class="active" href="#Circuit" aria-controls="Circuit" role="tab"
-                            data-toggle="tab">Circuit</a></li>
-                    <li role="presentation"><a href="#district" aria-controls="district" role="tab"
-                            data-toggle="tab">District</a></li>
-                </ul>
-            </div>
-        </div>
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="Circuit">
-                <div class="row">
-                    <div class="col-md-6">
-                        <svg id="map-svg-circuit"></svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 
 <div class="kumbh-25">
@@ -519,65 +473,60 @@
             <p style="color: #0a5c36">Dive In And Discover</p>
             <h1 style="color: #03be64"><b>Visual Library</b></h1>
         </div>
-        <ul class="visual_library visuallibrary pcard-wrap owl-carousel owl-theme">
-            <li>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
                 <div class="pcard">
                     <a href="#" target="_blank" rel="noopener">
-                        <img src="{{ asset('home/images/1.jpg') }}" alt="Blog" title="Blog" />
-                        <span class="inner-block"><i class="slider-top-right"></i></span>
+                        <img src="{{ asset('home/images/1.jpg') }}" alt="Blog" class="img-fluid" />
                     </a>
-                    <div class="box">
-                        <a href="#" target="_blank" rel="noopener"><img src="{{ asset('home/images/blog.png') }}"
-                                alt="Blog" title="Blog" /></a>
-                        <h4><a href="#" target="_blank" rel="noopener">Blog</a></h4>
+                    <div class="box text-center">
+                        <a href="#" target="_blank" rel="noopener">
+                            <img src="{{ asset('home/images/blog.png') }}" alt="Blog" class="img-fluid" />
+                        </a>
+                        <h4><a href="#">Blog</a></h4>
                     </div>
                 </div>
-            </li>
-            <li>
+            </div>
+            <div class="col-md-3 col-sm-6">
                 <div class="pcard">
                     <a href="#" rel="noopener">
-                        <img src="{{ asset('home/images/2.jpg') }}" alt="Photo Gallery" title="Photo Gallery" />
-                        <span class="inner-block"><i class="slider-top-right"></i></span>
+                        <img src="{{ asset('home/images/2.jpg') }}" alt="Photo Gallery" class="img-fluid" />
                     </a>
-                    <div class="box">
-                        <a href="#" rel="noopener"><img src="{{ asset('home/images/Visual_Library1.png') }}"
-                                alt="Photo Gallery" title="Photo Gallery" /></a>
-                        <h4><a href="#" rel="noopener">Photo Gallery</a></h4>
+                    <div class="box text-center">
+                        <a href="#"><img src="{{ asset('home/images/Visual_Library1.png') }}" alt="Photo Gallery" class="img-fluid" /></a>
+                        <h4><a href="#">Photo Gallery</a></h4>
                     </div>
                 </div>
-            </li>
-            <li>
+            </div>
+            <div class="col-md-3 col-sm-6">
                 <div class="pcard">
                     <a href="#" rel="noopener">
-                        <img src="{{ asset('home/images/3.jpg') }}" alt="Video Gallery" title="Video Gallery" />
-                        <span class="inner-block"><i class="slider-top-right"></i></span>
+                        <img src="{{ asset('home/images/3.jpg') }}" alt="Video Gallery" class="img-fluid" />
                     </a>
-                    <div class="box">
-                        <a href="#" rel="noopener"><img src="{{ asset('home/images/Visual_Library2.png') }}"
-                                alt="Video Gallery" title="Video Gallery" /></a>
-                        <h4><a href="#" rel="noopener">Video Gallery</a></h4>
+                    <div class="box text-center">
+                        <a href="#"><img src="{{ asset('home/images/Visual_Library2.png') }}" alt="Video Gallery" class="img-fluid" /></a>
+                        <h4><a href="#">Video Gallery</a></h4>
                     </div>
                 </div>
-            </li>
-            <li>
+            </div>
+            <div class="col-md-3 col-sm-6">
                 <div class="pcard">
                     <a href="#" rel="noopener">
-                        <img src="{{ asset('home/images/dewasharif/india.jpg') }}" alt="India" title="India" />
-                        <span class="inner-block"><i class="slider-top-right"></i></span>
+                        <img src="{{ asset('home/images/dewasharif/india.jpg') }}" alt="India" class="img-fluid" />
                     </a>
-                    <div class="box">
-                        <a href="#" rel="noopener"><img src="{{ asset('home/images/icons/oneday.png') }}" alt="India"
-                                title="India" /></a>
-                        <h4><a href="#" rel="noopener">India</a></h4>
+                    <div class="box text-center">
+                        <a href="#"><img src="{{ asset('home/images/icons/oneday.png') }}" alt="India" class="img-fluid" /></a>
+                        <h4><a href="#">India</a></h4>
                     </div>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
     <div class="explorebg2">
-        <img src="{{ asset('home/images/unfoldbg.png') }}" alt="Image of Background" title="background" />
+        <img src="{{ asset('home/images/unfoldbg.png') }}" alt="Image of Background" />
     </div>
 </section>
+
 
 <section id="connect">
     <div class="container">
@@ -626,6 +575,4 @@
 
     </div>
 </section>
-
-@include('home.includes.footer')
 @endsection
