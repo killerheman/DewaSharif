@@ -290,7 +290,7 @@
     }
 
     .dropdown:hover .dropdown-toggle {
-        background-color: #337ab7;
+        background-color: #074121;
         color: white;
     }
 }
