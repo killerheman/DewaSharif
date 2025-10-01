@@ -14,7 +14,7 @@
     <div class="container">
         <div class="title">
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
-            <p style="color:#03be64">Jashn-E-Eid Milad-Un-Nabi</p>
+            <p style="color:#03be64">Dewa Mela </p>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-6">
@@ -22,7 +22,7 @@
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/event-2.jpg') }}" 
+                <img src="{{ asset('home/images/dewasharif/event/event-2.jpeg') }}" 
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
             <div class="col-md-3 col-sm-6">
