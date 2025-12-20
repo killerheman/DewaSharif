@@ -22,7 +22,7 @@
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/event-2.jpeg') }}" 
+                <img src="{{ asset('home/images/dewasharif/event/event-five (1).jpeg') }}" 
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
             <div class="col-md-3 col-sm-6">
@@ -30,7 +30,7 @@
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/event-7.jpeg') }}" 
+                <img src="{{ asset('home/images/dewasharif/event/event-five (2).jpeg') }}" 
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
         </div>
