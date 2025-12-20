@@ -14,7 +14,7 @@
     <div class="container">
         <div class="title">
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
-            <p style="color:#03be64">Dewa Mela // 8 October 2025</p>
+            <p style="color:#03be64">Urs Khwaja Garib Nawaz (Hazrat Khwaja Moinuddin Chishti R.A)</p>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-6">
