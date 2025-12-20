@@ -33,7 +33,7 @@
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/event-five (2).jpg') }}" 
+                <img src="{{ asset('home/images/dewasharif/event/event-five (4).jpg') }}" 
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
         </div>
