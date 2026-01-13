@@ -18,11 +18,12 @@
                 <!-- MENU + TRANSLATE -->
                 <div class="col-md-9 col-xs-12">
                     <div class="menu">
-                        <nav class="navbar navbar-inverse" role="navigation">
+                        <nav class="navbar navbar-inverse">
 
-                            <!-- MOBILE TOGGLE BUTTON -->
                             <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                                <button class="navbar-toggle" type="button"
+                                        data-toggle="collapse"
+                                        data-target="#navbar-collapse">
                                     <span class="sr-only">Toggle navigation</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
@@ -30,7 +31,6 @@
                                 </button>
                             </div>
 
-                            <!-- MENU ITEMS -->
                             <div class="collapse navbar-collapse" id="navbar-collapse">
                                 <ul class="nav navbar-nav coimncount">
 
@@ -69,7 +69,7 @@
                                         </ul>
                                     </li>
 
-                                    <!-- BUZURGAN-E-ISLAM -->
+                                    <!-- Buzurgan-E-Islam -->
                                     <li class="dropdown mega-dropdown">
                                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Buzurgan-E-Islam</a>
                                         <ul class="dropdown-menu mega-dropdown-menu dest-tag">
@@ -107,10 +107,11 @@
                                         </ul>
                                     </li>
 
-                                    <!-- ISLAM -->
+                                    <!-- Islam -->
                                     <li class="dropdown mega-dropdown">
                                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Islam</a>
                                         <ul class="dropdown-menu mega-dropdown-menu exp-tag">
+
                                             <li class="col-md-3 menu-heading">
                                                 <a href="#">Mecca</a>
                                                 <ul>
@@ -150,7 +151,7 @@
                                         </ul>
                                     </li>
 
-                                    <!-- ONLINE BOOKING -->
+                                    <!-- Online Booking -->
                                     <li class="dropdown mega-dropdown">
                                         <a class="dropdown-toggle" href="#">Online Booking</a>
                                         <ul class="dropdown-menu mega-dropdown-menu online-tag">
@@ -158,7 +159,7 @@
                                         </ul>
                                     </li>
 
-                                    <!-- REGISTER BUSINESS -->
+                                    <!-- Register Business -->
                                     <li class="dropdown mega-dropdown">
                                         <a class="dropdown-toggle" href="#">Register-Business</a>
                                         <ul class="dropdown-menu mega-dropdown-menu online-tag">
@@ -173,6 +174,7 @@
 
                                 </ul>
                             </div>
+
                         </nav>
                     </div>
                 </div>
@@ -182,7 +184,8 @@
     </section>
 </header>
 
-<!-- ===================== CSS ===================== -->
+
+<!-- ===================== CSS FIX ===================== -->
 <style>
 .p0 { padding: 0; }
 .g-0 { margin: 0; }
@@ -190,43 +193,54 @@
 .logo { padding: 15px; }
 .logo img { max-height: 60px; }
 
-/* MOBILE MENU */
-@media (max-width: 767px) {
-    .navbar-nav .dropdown-menu {
-        display: none;
-        position: static;
-        float: none;
-        width: 100%;
-    }
-    .navbar-nav .open > .dropdown-menu {
+/* NAV HOVER FIX (Universal) */
+.navbar-nav > li:hover > a,
+.navbar-nav > li > a:hover {
+    background-color: #074121 !important;
+    color: #fff !important;
+}
+
+/* Mega menu inside link hover */
+.mega-dropdown-menu li a:hover {
+    background-color: #074121 !important;
+    color: #fff !important;
+}
+
+/* Mega menu heading hover */
+.mega-dropdown-menu .menu-heading > a:hover {
+    background-color: #074121 !important;
+    color: #fff !important;
+}
+
+/* Dropdown on hover for desktop */
+@media (min-width: 768px) {
+    .dropdown:hover .dropdown-menu {
         display: block;
     }
 }
 
-/* DESKTOP HOVER */
-@media (min-width: 768px) {
-    .dropdown:hover .dropdown-menu { display: block; }
-    .navbar-nav > li:hover > a,
-    .navbar-nav > li > a:hover,
-    .mega-dropdown-menu li a:hover {
-        background-color: #074121 !important;
-        color: #fff !important;
-    }
+/* Google Translate styling */
+.google-translate-wrapper {
+    padding-top: 10px;
+    margin-left: 10px;
 }
-
-/* GOOGLE TRANSLATE */
-.google-translate-wrapper { padding: 10px 0; }
-#google_translate_element select { padding: 4px; }
+#google_translate_element select {
+    padding: 4px;
+}
 </style>
 
-<!-- JS -->
+
+<!-- ===================== JS ===================== -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- GOOGLE TRANSLATE -->
 <script type="text/javascript">
 function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    new google.translate.TranslateElement(
+        {pageLanguage: 'en'},
+        'google_translate_element'
+    );
 }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
