@@ -81,8 +81,8 @@
                         <p>This is the information provider website of Dewa Sharif, Barabanki , Uttar Pradesh,
                             India.<br /> Content on this website is published and managed by SHAHZADE ALAM [Masharrat
                             Warsi] Dewa Sharif.<br /> For any Business, Advertisement, Query, Suggession or Complaint regarding this website,
-                            please contact us  <a href="#"> "info@dewasharif.com"   or <br />+91 9648777223</a>.</p>
-                        <p><br />Last Updated On : 20/12/2025 | 02:05 PM </p>
+                            please contact us  <a href="#"> "info@dewasharif.com"</a>.</p>
+                        <p><br />Last Updated On : 13/01/2025 | 12:12 PM </p>
                     </div>
                     <div class="text-center col-md-3">
                         <a href='http://www.freevisitorcounters.com'>Live People <br> 152707 </a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=23e39fd5bf12ae257e2a8d54487f701a7c14f812'></script>
