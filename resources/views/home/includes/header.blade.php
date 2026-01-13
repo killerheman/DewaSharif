@@ -18,7 +18,7 @@
                 <!-- MENU + TRANSLATE -->
                 <div class="col-md-9 col-xs-12">
                     <div class="menu">
-                        <nav class="navbar navbar-inverse">
+                        <nav class="navbar navbar-inverse" role="navigation">
 
                             <div class="navbar-header">
                                 <button class="navbar-toggle" type="button"
@@ -69,7 +69,7 @@
                                         </ul>
                                     </li>
 
-                                    <!-- Buzurgan-E-Islam -->
+                                    <!-- BUZURGAN-E-ISLAM -->
                                     <li class="dropdown mega-dropdown">
                                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Buzurgan-E-Islam</a>
                                         <ul class="dropdown-menu mega-dropdown-menu dest-tag">
@@ -107,7 +107,7 @@
                                         </ul>
                                     </li>
 
-                                    <!-- Islam -->
+                                    <!-- ISLAM -->
                                     <li class="dropdown mega-dropdown">
                                         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Islam</a>
                                         <ul class="dropdown-menu mega-dropdown-menu exp-tag">
@@ -151,7 +151,7 @@
                                         </ul>
                                     </li>
 
-                                    <!-- Online Booking -->
+                                    <!-- ONLINE BOOKING -->
                                     <li class="dropdown mega-dropdown">
                                         <a class="dropdown-toggle" href="#">Online Booking</a>
                                         <ul class="dropdown-menu mega-dropdown-menu online-tag">
@@ -159,7 +159,7 @@
                                         </ul>
                                     </li>
 
-                                    <!-- Register Business -->
+                                    <!-- REGISTER BUSINESS -->
                                     <li class="dropdown mega-dropdown">
                                         <a class="dropdown-toggle" href="#">Register-Business</a>
                                         <ul class="dropdown-menu mega-dropdown-menu online-tag">
@@ -184,7 +184,6 @@
     </section>
 </header>
 
-
 <!-- ===================== CSS FIX ===================== -->
 <style>
 .p0 { padding: 0; }
@@ -193,44 +192,39 @@
 .logo { padding: 15px; }
 .logo img { max-height: 60px; }
 
-/* NAV HOVER FIX (Universal) */
-.navbar-nav > li:hover > a,
-.navbar-nav > li > a:hover {
-    background-color: #074121 !important;
-    color: #fff !important;
+/* MOBILE FIX — Hover disable on mobile */
+@media (max-width: 767px) {
+    .dropdown-menu {
+        display: none !important;
+    }
+    .dropdown.open .dropdown-menu {
+        display: block !important;
+    }
 }
 
-/* Mega menu inside link hover */
-.mega-dropdown-menu li a:hover {
-    background-color: #074121 !important;
-    color: #fff !important;
-}
-
-/* Mega menu heading hover */
-.mega-dropdown-menu .menu-heading > a:hover {
-    background-color: #074121 !important;
-    color: #fff !important;
-}
-
-/* Dropdown on hover for desktop */
+/* DESKTOP HOVER */
 @media (min-width: 768px) {
     .dropdown:hover .dropdown-menu {
         display: block;
     }
+    .navbar-nav > li:hover > a,
+    .navbar-nav > li > a:hover,
+    .mega-dropdown-menu li a:hover {
+        background-color: #074121 !important;
+        color: #fff !important;
+    }
 }
 
-/* Google Translate styling */
+/* GOOGLE TRANSLATE */
 .google-translate-wrapper {
-    padding-top: 10px;
-    margin-left: 10px;
+    padding: 10px 0;
 }
 #google_translate_element select {
     padding: 4px;
 }
 </style>
 
-
-<!-- ===================== JS ===================== -->
+<!-- JS -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
