@@ -18,7 +18,7 @@
             <h1 style="color:#03be64"><b>"यह वेबसाइट किसी भी प्रकार के शिर्क की अनुमति न देती है और न समर्थन करती है। अल्लाह ("परमेश्वर अर्थात सर्वोच्च, एक, निराकार, सृष्टिकर्ता") के सिवा कोई माबूद नहीं, और मुहम्मद ﷺ अल्लाह के रसूल हैं। औलिया-अल्लाह की दरगाहों पर बेअदबी से बचें और उन सभी कार्यों से दूर रहें जिनकी इस्लाम में अनुमति नहीं है।"</b></h1><br>
             <h1 style="color:#03be64"><b>"This website does not permit or endorse any form of shirk. There is no deity worthy of worship except Allah (“God, meaning the Supreme One — the One, Formless, and the Creator of the universe.”), and Muhammad (ﷺ) is the Messenger of Allah. We advise everyone to avoid any act of disrespect at the shrines of the Awliya Allah and to refrain from anything that is not permitted in Islam."</b></h1> <br><br><br>
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
-            <p style="color:#03be64">Urs Khwaja Garib Nawaz (Hazrat Khwaja Moinuddin Chishti R.A)</p>
+            <p style="color:#03be64"> Ramazan Mubarak </p>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-6">
@@ -26,7 +26,7 @@
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/event-five (1).jpg') }}" 
+                <img src="{{ asset('home/images/dewasharif/event/ramadan2.jpg') }}" 
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
             <div class="col-md-3 col-sm-6">
@@ -34,7 +34,7 @@
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
             <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/event-five 4.jpg') }}" 
+                <img src="{{ asset('home/images/dewasharif/event/ramadan1.jpg') }}" 
                      class="img-fluid" style="height:300px; object-fit:cover;">
             </div>
         </div>
@@ -131,7 +131,7 @@
 <div class="kumbh-25">
     <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
     <video height="30%" width="100%" autoplay loop muted>
-        <source src="{{ asset('home/images/dewasharif/pagebackground/Eid.mp4') }}" type="video/mp4">
+        <source src="{{ asset('home/images/dewasharif/pagebackground/RamzanMubarak.MP4') }}" type="video/mp4">
     </video>
     <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
 </div>
