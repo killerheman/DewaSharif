@@ -5753,14 +5753,17 @@ td.visible-print, th.visible-print {
 }
 /* MOBILE MENU TEXT CUT FIX */
 @media (max-width: 767px) {
+
+    /* NAV LINKS FIX */
     .navbar-nav > li > a {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        padding: 12px 20px !important;
         text-align: left !important;
         display: block !important;
         width: 100% !important;
+        white-space: normal !important;
     }
 
+    /* REMOVE EXTRA GAP */
     .navbar-nav {
         margin: 0 !important;
         padding: 0 !important;
@@ -5769,13 +5772,37 @@ td.visible-print, th.visible-print {
     .navbar-collapse {
         padding-left: 0 !important;
         padding-right: 0 !important;
+        overflow-x: hidden !important; /* IMPORTANT */
     }
 
+    /* DROPDOWN FULL WIDTH */
+    .dropdown-menu {
+        position: static !important;
+        width: 100% !important;
+        float: none !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* MEGA MENU FIX */
     .mega-dropdown-menu {
-        padding-left: 15px !important;
+        padding: 10px 15px !important;
+    }
+
+    .mega-dropdown-menu li {
+        width: 100% !important;
+        float: none !important;
     }
 
     .mega-dropdown-menu li a {
+        display: block !important;
+        padding: 10px 15px !important;
         white-space: normal !important;
     }
+
+    /* TEXT CUT FIX (MOST IMPORTANT) */
+    .navbar-nav > li {
+        overflow: visible !important;
+    }
+
 }

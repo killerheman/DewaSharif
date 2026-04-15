@@ -246,15 +246,36 @@ function googleTranslateElementInit() {
 <script>
 $(document).ready(function () {
 
-    // FIX 1 — Mobile menu toggle working forcefully
-    $('.navbar-toggle').click(function () {
-        $('#navbar-collapse').slideToggle(200);
+    // MOBILE TOGGLE FIX — perfect bootstrap compatible
+    $('.navbar-toggle').on('click', function () {
+        $('#navbar-collapse').toggleClass('in');  
     });
 
-    // FIX 2 — Mega menu hover disable on mobile
-    if ($(window).width() < 768) {
-        $('.dropdown').off('mouseenter mouseleave');
+    // REMOVE slideToggle (Bootstrap 3 में जरूरत नहीं)
+    // $('#navbar-collapse').slideToggle(); ← इसे remove रहने दो
+
+    // DESKTOP hover (>=768px)
+    if ($(window).width() >= 768) {
+        $('.dropdown').hover(
+            function () {
+                $(this).addClass('open');
+            },
+            function () {
+                $(this).removeClass('open');
+            }
+        );
     }
+
+    // MOBILE click dropdown (<768px)
+    else {
+        $('.dropdown').off('mouseenter mouseleave'); // hover disable
+
+        $('.dropdown > a').on('click', function (e) {
+            e.preventDefault(); // link disable
+            $(this).parent().toggleClass('open');
+        });
+    }
+
 });
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
