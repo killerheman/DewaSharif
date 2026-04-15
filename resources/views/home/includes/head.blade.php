@@ -26,6 +26,7 @@
 <link href="{{ asset('home/en_Themes/style.css') }}" rel="stylesheet" id="theme" />
 <link rel="stylesheet" href="{{ asset('home/css/jquery.flipster.min.css') }}" />
 <link href="{{ asset('home/css/responsive.css') }}" rel="stylesheet" />
+<link rel="stylesheet" href="{{ asset('home/css/style.css') }}?v=3">
 
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PRDT0Y2NKY"></script>

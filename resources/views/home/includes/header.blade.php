@@ -234,27 +234,15 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<!-- GOOGLE TRANSLATE -->
-<script type="text/javascript">
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-        {pageLanguage: 'en'},
-        'google_translate_element'
-    );
-}
-</script>
 <script>
 $(document).ready(function () {
 
-    // MOBILE TOGGLE FIX — perfect bootstrap compatible
-    $('.navbar-toggle').on('click', function () {
-        $('#navbar-collapse').toggleClass('in');  
+    // MOBILE TOGGLE FIX
+    $('.navbar-toggle').click(function () {
+        $('#navbar-collapse').toggleClass('in');
     });
 
-    // REMOVE slideToggle (Bootstrap 3 में जरूरत नहीं)
-    // $('#navbar-collapse').slideToggle(); ← इसे remove रहने दो
-
-    // DESKTOP hover (>=768px)
+    // DESKTOP hover
     if ($(window).width() >= 768) {
         $('.dropdown').hover(
             function () {
@@ -266,16 +254,24 @@ $(document).ready(function () {
         );
     }
 
-    // MOBILE click dropdown (<768px)
-    else {
-        $('.dropdown').off('mouseenter mouseleave'); // hover disable
-
-        $('.dropdown > a').on('click', function (e) {
-            e.preventDefault(); // link disable
+    // MOBILE dropdown click
+    if ($(window).width() < 768) {
+        $('.dropdown > a').click(function (e) {
+            e.preventDefault();
             $(this).parent().toggleClass('open');
         });
     }
 
 });
+</script>
+
+<!-- GOOGLE TRANSLATE -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+        {pageLanguage: 'en'},
+        'google_translate_element'
+    );
+}
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
