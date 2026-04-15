@@ -5755,9 +5755,11 @@ td.visible-print, th.visible-print {
 /* ===== MOBILE MENU COMPLETE FIX ===== */
 @media (max-width: 767px) {
 
+    /* NAVBAR MAIN RESET */
     .navbar-nav {
         margin: 0 !important;
         padding: 0 !important;
+        width: 100% !important;
     }
 
     .navbar-nav > li {
@@ -5766,31 +5768,38 @@ td.visible-print, th.visible-print {
         overflow: visible !important;
     }
 
+    /* MAIN MENU TEXT FIX (NO CUTTING) */
     .navbar-nav > li > a {
         display: block !important;
         width: 100% !important;
-        padding: 12px 20px !important;
+        padding: 12px 20px !important;   /* LEFT & RIGHT padding — IMPORTANT */
         text-align: left !important;
         white-space: normal !important;
         font-size: 14px;
     }
 
+    /* COLLAPSE BOX (DON'T ADD 20px PADDING HERE) */
     .navbar-collapse {
         padding-left: 0 !important;
         padding-right: 0 !important;
         overflow-x: hidden !important;
+        border: none !important;
     }
 
+    /* REGULAR DROPDOWN */
     .dropdown-menu {
         position: static !important;
         width: 100% !important;
         float: none !important;
         box-shadow: none !important;
         border: none !important;
+        padding-left: 0 !important;
     }
 
+    /* MEGA MENU */
     .mega-dropdown-menu {
-        padding: 10px 15px !important;
+        padding: 5px 15px !important;
+        width: 100% !important;
     }
 
     .mega-dropdown-menu li {
