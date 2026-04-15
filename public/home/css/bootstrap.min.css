@@ -5751,8 +5751,31 @@ td.visible-print, th.visible-print {
 	display: none!important
 }
 }
+/* MOBILE MENU TEXT CUT FIX */
 @media (max-width: 767px) {
-    .dropdown:hover .dropdown-menu {
-        display: none !important;
+    .navbar-nav > li > a {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        text-align: left !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .navbar-nav {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .navbar-collapse {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .mega-dropdown-menu {
+        padding-left: 15px !important;
+    }
+
+    .mega-dropdown-menu li a {
+        white-space: normal !important;
     }
 }
