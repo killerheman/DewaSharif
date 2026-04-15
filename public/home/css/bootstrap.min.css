@@ -5751,3 +5751,8 @@ td.visible-print, th.visible-print {
 	display: none!important
 }
 }
+@media (max-width: 767px) {
+    .dropdown:hover .dropdown-menu {
+        display: none !important;
+    }
+}

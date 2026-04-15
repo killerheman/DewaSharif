@@ -243,4 +243,18 @@ function googleTranslateElementInit() {
     );
 }
 </script>
+<script>
+$(document).ready(function () {
+
+    // FIX 1 — Mobile menu toggle working forcefully
+    $('.navbar-toggle').click(function () {
+        $('#navbar-collapse').slideToggle(200);
+    });
+
+    // FIX 2 — Mega menu hover disable on mobile
+    if ($(window).width() < 768) {
+        $('.dropdown').off('mouseenter mouseleave');
+    }
+});
+</script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
