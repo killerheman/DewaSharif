@@ -15,7 +15,7 @@
                             </li>
                             <li>
                                 <div class="icon"><img src="{{ asset('home/images/f_i_2.png') }}" /></div>
-                                <div class="text"><a href="#" class="local">info@dewasharif.com</a></div>
+                                <div class="text"><a href="#" class="local">shahzade.alam707@gmail.com</a></div>
                             </li>
                         </ul>
                     </div>
@@ -82,7 +82,7 @@
                             India.<br /> Content on this website is published and managed by SHAHZADE ALAM [Masharrat
                             Warsi] Dewa Sharif.<br /> For any Business, Advertisement, Query, Suggession or Complaint regarding this website,
                             please contact us  <a href="#"> "info@dewasharif.com"</a>.</p>
-                        <p><br />Last Updated On : 22/02/2026 | 01:01 AM </p>
+                        <p><br />Last Updated On : 16/04/2026 | 03:33 PM </p>
                     </div>
                     <div class="text-center col-md-3">
                         <a href='http://www.freevisitorcounters.com'>Live People <br> 152707 </a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=23e39fd5bf12ae257e2a8d54487f701a7c14f812'></script>
