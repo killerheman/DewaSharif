@@ -322,7 +322,8 @@ p {
   .navbar-header {
     z-index: 1000;
     background-color: #03be64;
-    margin: 0-15px
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   .navbar-inverse .navbar-toggle .icon-bar {
