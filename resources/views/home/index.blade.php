@@ -132,7 +132,7 @@
 <div class="MasjidALWaris">
 
      <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" 
-         height="100%" width="100%" alt="background image">
+         height="30%" width="100%" alt="background image">
  
 </div>
 
