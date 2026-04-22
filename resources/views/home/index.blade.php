@@ -113,7 +113,7 @@
             </div>
             <div class="col-md-2 leader ">
                 <ul>
-                    <li><img src="home/images/dewasharif/.jpeg" alt="Shahzade Alam"
+                    <li><img src="home/images/dewasharif/IUL.jpeg" alt="Shahzade Alam"
                             title="Shahzade Alam" />
                         <h4>Shahzade Alam <br>[مشرت وارثی]</h4>
                         <p><b><i>Software Developer</i></b> <br /> <b>www.dewasharif.com</b></p>
@@ -129,13 +129,13 @@
 </section>
 
 {{-- Masjid AL Waris --}}
-<div class="kumbh-25">
+<div class="MasjidALWaris">
 
      <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" 
          height="100%" width="100%" alt="background image">
   
 </div>
-<div><div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div></div>
+
 
 {{-- Masjid AL Waris ke niche ki mp4 canwa  --}}
 <div class="kumbh-25">
