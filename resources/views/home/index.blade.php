@@ -128,42 +128,14 @@
 
 </section>
 
-<div class="kumbh-25" style="position:relative;">
-
-    <!-- HEADING -->
-    <h1 style="
-        position:absolute;
-        top:20px;
-        width:100%;
-        text-align:center;
-        margin:0;
-        font-size:42px;
-        font-weight:900;
-        color:#03be64;
-        letter-spacing:2px;
-        z-index:20;
-        text-shadow: 2px 3px 6px rgba(0,0,0,0.3);
-    ">
-        MASJID AL WARIS DEWA SHARIF
-    </h1>
-
-    <!-- LEFT SHAPE -->
-    <div class="kumbhshape-1" style="position:absolute; top:0; left:0; z-index:5;">
-        <img src="{{ asset('home/images/kumbh-2.png') }}" alt="">
-    </div>
-
-    <!-- MAIN IMAGE -->
-    <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" 
-         height="30%" width="100%" alt="background image"
-         style="display:block;">
-
-    <!-- RIGHT SHAPE -->
-    <div class="kumbhshape-2" style="position:absolute; bottom:0; right:0; z-index:5;">
-        <img src="{{ asset('home/images/kumbh-1.png') }}" alt="">
-    </div>
-
+{{-- Masjid AL Waris --}}
+<div class="kumbh-25">
+    <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
+     <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" 
+         height="30%" width="100%" alt="background image">
+    <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
 </div>
-
+{{-- Masjid AL Waris ke niche ki mp4 canwa  --}}
 <div class="kumbh-25">
     <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
     <video height="30%" width="100%" autoplay loop muted>
