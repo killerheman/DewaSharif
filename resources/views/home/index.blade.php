@@ -130,10 +130,10 @@
 
 {{-- Masjid AL Waris --}}
 <div class="kumbh-25">
-    <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
+    <div class="kumbhshape-1"><img src="{{ asset('home/images/Festive_Delights_divider.png') }}" alt="" /></div>
      <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" 
          height="30%" width="100%" alt="background image">
-    <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
+    <div class="kumbhshape-2"><img src="{{ asset('home/images/Festive_Delights_divider.png') }}" alt="" /></div>
 </div>
 {{-- Masjid AL Waris ke niche ki mp4 canwa  --}}
 <div class="kumbh-25">
