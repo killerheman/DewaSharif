@@ -231,16 +231,8 @@
 
 
 <!-- ===================== JS ===================== -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 <script>
 $(document).ready(function () {
-
-    // MOBILE TOGGLE FIX
-    $('.navbar-toggle').click(function () {
-        $('#navbar-collapse').toggleClass('in');
-    });
 
     // DESKTOP hover
     if ($(window).width() >= 768) {
@@ -254,11 +246,13 @@ $(document).ready(function () {
         );
     }
 
-    // MOBILE dropdown click
+    // MOBILE dropdown click (for nested items)
     if ($(window).width() < 768) {
         $('.dropdown > a').click(function (e) {
-            e.preventDefault();
-            $(this).parent().toggleClass('open');
+            if ($(this).next('.dropdown-menu').length > 0) {
+                e.preventDefault();
+                $(this).parent().toggleClass('open');
+            }
         });
     }
 
@@ -275,3 +269,4 @@ function googleTranslateElementInit() {
 }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+

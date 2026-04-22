@@ -20,6 +20,7 @@
 
     </div>
     @include('home.includes.footer')
+    @include('home.includes.foot')
     @yield('script-area')
 </body>
 
