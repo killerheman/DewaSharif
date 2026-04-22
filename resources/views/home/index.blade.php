@@ -130,20 +130,30 @@
 
 {{-- Masjid AL Waris --}}
 <div class="MasjidALWaris">
-
      <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" 
-         height="100%" width="100%" alt="background image">
-  
+         style="width:100%; height:auto; display:block; margin-bottom:10px;"
+         alt="background image">
 </div>
 
-
-{{-- Masjid AL Waris ke niche ki mp4 canwa  --}}
+{{-- MP4 Section --}}
 <div class="kumbh-25">
-    <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
-    <video height="30%" width="100%" autoplay loop muted>
+
+    <div class="kumbhshape-1">
+        <img src="{{ asset('home/images/kumbh-2.png') }}" 
+             style="width:100%; height:auto; display:block; margin-bottom:10px;" alt="">
+    </div>
+
+    <video 
+        autoplay loop muted 
+        style="width:100%; height:auto; display:block; margin-bottom:10px;">
         <source src="{{ asset('home/images/dewasharif/pagebackground/horizontal.mp4') }}" type="video/mp4">
     </video>
-    <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
+
+    <div class="kumbhshape-2">
+        <img src="{{ asset('home/images/kumbh-1.png') }}" 
+             style="width:100%; height:auto; display:block; margin-bottom:10px;" alt="">
+    </div>
+
 </div>
 
 <section id="festive">
