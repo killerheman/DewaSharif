@@ -122,18 +122,18 @@
             </div>
         </div>
     </div>
-    <div class="explorebg2">
+    {{-- <div class="explorebg2">
         <img src="{{ asset('home/images/explorebg2.png')}}"  width="100%" alt="Background" title="Background" />
-    </div>
+    </div> --}}
 
 </section>
 
 {{-- Masjid AL Waris --}}
-<div class="MasjidALWaris">
-
+<div class="kumbh-25">
+ <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
      <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" 
-         height="30%" width="100%" alt="background image">
- 
+         height="100%" width="100%" alt="background image">
+ <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}"  style=" margin-bottom:9px;" alt="" /></div>
 </div>
 
 
