@@ -133,7 +133,8 @@
  <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
      <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" 
          height="100%" width="100%" alt="background image">
- <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}"  style=" margin-bottom:9px;" alt="" /></div>
+         <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" style=margin-bottom:9px alt="" /></div>
+ 
 </div>
 
 
