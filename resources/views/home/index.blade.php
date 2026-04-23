@@ -20,34 +20,34 @@
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
             <p style="color:#03be64"> Ramazan Mubarak </p>
         </div>
-      <div class="row" style="margin:0;">
+<div class="row" style="margin:0;">
 
     <div class="col-md-3 col-sm-6 col-12"
-         style="padding:2px; width:90%; margin-left:5%; margin-right:5%;">
-        <img src="{{ asset('home/images/dewasharif/event/event-1.jpeg') }}" 
+         style="padding:2px; margin-left:auto; margin-right:auto; width:auto;">
+        <img src="{{ asset('home/images/dewasharif/event/event-1.jpeg') }}"
              class="img-fluid"
              style="height:300px; object-fit:cover; width:100%;">
     </div>
 
     <div class="col-md-3 col-sm-6 col-12"
-         style="padding:2px; width:90%; margin-left:5%; margin-right:5%;">
-        <img src="{{ asset('home/images/dewasharif/event/ali2.jpg') }}" 
+         style="padding:2px; margin-left:auto; margin-right:auto; width:auto;">
+        <img src="{{ asset('home/images/dewasharif/event/event-2.png') }}"
              class="img-fluid"
              style="height:300px; object-fit:cover; width:100%;">
     </div>
 
     <div class="col-md-3 col-sm-6 col-12"
-         style="padding:2px; width:90%; margin-left:5%; margin-right:5%;">
-        <img src="{{ asset('home/images/dewasharif/event/event-3.jpeg') }}" 
+         style="padding:2px; margin-left:auto; margin-right:auto; width:auto;">
+        <img src="{{ asset('home/images/dewasharif/event/event-3.jpeg') }}"
              class="img-fluid"
              style="height:300px; object-fit:cover; width:100%;">
     </div>
 
     <div class="col-md-3 col-sm-6 col-12"
-         style="padding:2px; width:90%; margin-left:5%; margin-right:5%;">
-        <img src="{{ asset('home/images/dewasharif/event/event-shop.png') }}" 
+         style="padding:2px; margin-left:auto; margin-right:auto; width:auto;">
+        <img src="{{ asset('home/images/dewasharif/event/event-shop.png') }}"
              class="img-fluid"
-             style="height:320px; object-fit:cover; width:100%;">
+             style="height:300px; object-fit:cover; width:100%;">
     </div>
 
 </div>
