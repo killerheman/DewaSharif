@@ -123,7 +123,7 @@
         </div>
     </div>
     <div class="explorebg2">
-        <img src="{{ asset('home/images/explorebg2.png')}}" alt="Background" title="Background" />
+        <img src="{{ asset('home/images/explorebg2.png')}}"  width="100%" alt="Background" title="Background" />
     </div>
 
 </section>
