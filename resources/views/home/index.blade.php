@@ -45,9 +45,9 @@
 
     <div class="col-md-3 col-sm-6 col-12"
          style="padding:2px; width:90%; margin-left:5%; margin-right:5%;">
-        <img src="{{ asset('home/images/dewasharif/event/shop4.jpg') }}" 
+        <img src="{{ asset('home/images/dewasharif/event/event-shop.png') }}" 
              class="img-fluid"
-             style="height:300px; object-fit:cover; width:100%;">
+             style="height:320px; object-fit:cover; width:100%;">
     </div>
 
 </div>
