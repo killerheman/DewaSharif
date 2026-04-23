@@ -20,24 +20,37 @@
             <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
             <p style="color:#03be64"> Ramazan Mubarak </p>
         </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/event-1.jpeg') }}" 
-                     class="img-fluid" style="height:300px; object-fit:cover;">
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/ali2.jpg') }}" 
-                     class="img-fluid" style="height:300px; object-fit:cover;">
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/event-3.jpeg') }}" 
-                     class="img-fluid" style="height:300px; object-fit:cover;">
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <img src="{{ asset('home/images/dewasharif/event/shop4.jpg') }}" 
-                     class="img-fluid" style="height:300px; object-fit:cover;">
-            </div>
-        </div>
+      <div class="row" style="margin:0;">
+
+    <div class="col-md-3 col-sm-6 col-12"
+         style="padding:2px; width:90%; margin-left:5%; margin-right:5%;">
+        <img src="{{ asset('home/images/dewasharif/event/event-1.jpeg') }}" 
+             class="img-fluid"
+             style="height:300px; object-fit:cover; width:100%;">
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12"
+         style="padding:2px; width:90%; margin-left:5%; margin-right:5%;">
+        <img src="{{ asset('home/images/dewasharif/event/ali2.jpg') }}" 
+             class="img-fluid"
+             style="height:300px; object-fit:cover; width:100%;">
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12"
+         style="padding:2px; width:90%; margin-left:5%; margin-right:5%;">
+        <img src="{{ asset('home/images/dewasharif/event/event-3.jpeg') }}" 
+             class="img-fluid"
+             style="height:300px; object-fit:cover; width:100%;">
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-12"
+         style="padding:2px; width:90%; margin-left:5%; margin-right:5%;">
+        <img src="{{ asset('home/images/dewasharif/event/shop4.jpg') }}" 
+             class="img-fluid"
+             style="height:300px; object-fit:cover; width:100%;">
+    </div>
+
+</div>
     </div>
     <div class="explorebg2">
         <img src="{{ asset('home/images/Festive_Delights_divider.png') }}" alt="Background" title="Background" />
@@ -122,9 +135,6 @@
             </div>
         </div>
     </div>
-    {{-- <div class="explorebg2">
-        <img src="{{ asset('home/images/explorebg2.png')}}"  width="100%" alt="Background" title="Background" />
-    </div> --}}
 
 </section>
 
