@@ -1,16 +1,6 @@
 @extends('home.includes.master')
 @section('content')
 
-   {{-- Masjid AL Waris --}}
-    <div class="kumbh-25">
-        <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
-        <img src="{{ asset('home/images/dewasharif/pesh-imam.jpg') }}" height="100%" width="100%"
-            alt="background image">
-        <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" style=margin-bottom:9px
-                alt="" /></div>
-
-    </div>
-
     <section id="banner">
         <video width="300" height="150" id="myVideo" loop="loop" muted="" autoplay="autoplay">
             <source src="{{ asset('home/images/dewasharif/topvideo/Makkah Madina.mp4') }}" type="video/mp4" />
