@@ -29,14 +29,15 @@
 
 
 <!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PRDT0Y2NKY"></script>
+<!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2E3VENDPG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  // Config GA
-  gtag('config', 'G-PRDT0Y2NKY');
+  gtag('config', 'G-S2E3VENDPG');
 </script>
 
 <!-- Google AdSense -->
