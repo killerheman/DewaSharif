@@ -1,54 +1,7 @@
 @extends('home.includes.master')
 @section('content')
 
-  {{-- Masjid AL Waris --}}
-   <div class="kumbh-25" style="position: relative; width:100%;">
 
-    <!-- YOUR BANNER -->
-    <img src="{{ asset('home/images/dewasharif/advertise.png') }}" 
-         width="100%" height="100%" alt="banner">
-
-    <!-- ICON LINKS ON BANNER -->
-   
-    <div style="
-    position:absolute;
-    bottom:12px;
-    left:50%;
-    width:47.5%;
-    display:flex;
-    justify-content:center;
-    gap:75px; /* icons ke beech zyada space */
-    background:#074121;
-    padding:10px 25px;
-    border-radius:40px;
-">
-<!-- Contact Us (Left) -->
-    <span style="font-size:20px; bottom:12px; color:#fff; font-weight:400;">
-    Contact Us On 
-    <span style="font-size:26px; transform:scaleX(1.25); display:inline-block;">
-        👉
-    </span>
-</span>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/masharrat_bin_barkat/" 
-           target="_blank"
-           style="display:flex; align-items:center; text-decoration:none; color:#fff;">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" 
-                 width="35" height="35" style="margin-right:8px;">
-            <span style="font-size:18px;">Instagram</span>
-        </a>
-
-        <!-- Email -->
-       <a href="https://mail.google.com/mail/u/0/"
-   style="display:flex; align-items:center; text-decoration:none; color:#fff;">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
-         width="35" height="35" style="margin-right:8px;">
-    <span style="font-size:18px;">Email</span>
-</a>
-
-    </div>
-
-</div>
     <section id="banner">
         <video width="300" height="150" id="myVideo" loop="loop" muted="" autoplay="autoplay">
             <source src="{{ asset('home/images/dewasharif/topvideo/Makkah Madina.mp4') }}" type="video/mp4" />
