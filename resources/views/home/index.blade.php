@@ -7,7 +7,7 @@
         <img src="{{ asset('home/images/kumbh-2.png') }}" alt="" />
     </div> --}}
 
-    <img src="{{ asset('home/images/dewasharif/advertisements.png') }}" height="100%" width="100%" alt="background image">
+    <img src="{{ asset('home/images/dewasharif/advertisement.webp') }}" height="100%" width="100%" alt="background image">
 </div>
 
 <!-- CONTACT US SECTION -->
