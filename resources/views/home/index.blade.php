@@ -189,7 +189,7 @@
     <div class="kumbh-25">
         <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
         <video height="30%" width="100%" autoplay loop muted>
-            <source src="{{ asset('home/images/dewasharif/pagebackground/horizontal.mp4') }}" type="video/mp4">
+            <source src="{{ asset('home/images/dewasharif/pagebackground/horizontals.webm') }}" type="video/mp4">
         </video>
         {{-- <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div> --}}
     </div>
@@ -198,7 +198,7 @@
     <div class="kumbh-25">
         <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
         <video height="30%" width="100%" autoplay loop muted>
-            <source src="{{ asset('home/images/dewasharif/pagebackground/bakreed.mp4') }}" type="video/mp4">
+            <source src="{{ asset('home/images/dewasharif/pagebackground/bakried.webm') }}" type="video/mp4">
         </video>
         <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
     </div>
