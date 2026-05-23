@@ -1,6 +1,37 @@
 @extends('home.includes.master')
 @section('content')
 
+ {{-- Advertise --}}
+<div class="kumbh-25" style="margin-bottom: 2px;">
+    {{-- <div class="kumbhshape-1">
+        <img src="{{ asset('home/images/kumbh-2.png') }}" alt="" />
+    </div> --}}
+
+    <img src="{{ asset('home/images/dewasharif/Advertise.jpeg') }}" height="100%" width="100%" alt="background image">
+</div>
+
+<!-- CONTACT US SECTION -->
+<div style="margin-top: 10px; text-align:center; padding:10px 0;">
+
+    <h3 style="margin-bottom:10px; font-weight:600;">Contact Us</h3>
+
+    <!-- INSTAGRAM -->
+    <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank"
+        style="margin-right:15px; display:inline-block;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+             alt="Instagram"
+             style="width:45px; height:45px;">
+    </a>
+
+    <!-- EMAIL -->
+<a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=shahzade.alam707@gmail.com"
+    target="_blank" style="display:inline-block;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+         alt="Email"
+         style="width:45px; height:45px;">
+</a>
+
+</div>
 
     <section id="banner">
         <video width="300" height="150" id="myVideo" loop="loop" muted="" autoplay="autoplay">
@@ -31,7 +62,7 @@
                         in Islam."</b></h1> <br><br><br>
                 <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
                 <h3>
-                    <p style="color:#03be64"> Dhul-Qi’dah – ذو القعدة </p>
+                    <p style="color:#03be64"> Zil-Hijjah (Dhul Hijjah) [Bakreed] – ذُو ٱلْحِجَّة</p>
                 </h3>
             </div>
             <div class="row" style="margin:0;">
@@ -159,6 +190,15 @@
         <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
         <video height="30%" width="100%" autoplay loop muted>
             <source src="{{ asset('home/images/dewasharif/pagebackground/horizontal.mp4') }}" type="video/mp4">
+        </video>
+        <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
+    </div>
+
+    {{-- Masjid AL Waris ke niche ki mp4 canwa  --}}
+    <div class="kumbh-25">
+        <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
+        <video height="30%" width="100%" autoplay loop muted>
+            <source src="{{ asset('home/images/dewasharif/pagebackground/bakreed.mp4') }}" type="video/mp4">
         </video>
         <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
     </div>
@@ -595,7 +635,7 @@
                         <li><a href="https://x.com/dewasharif707?t=V7INlftOKGRvkXpyxt8hcg&s=09" target="_blank"
                                 rel="noopener" class="external none" title="Twitter"><i class="fa fa-twitter"></i></a>
                         </li>
-                        <li><a href="https://www.instagram.com/dewa.sharif707/profilecard/?igsh=NzR1YjdubmRndGJ5"
+                        <li><a href="https://www.instagram.com/masharrat_bin_barkat/"
                                 target="_blank" rel="noopener" class="external none" title="Instagram"><i
                                     class="fa fa-instagram"></i></a></li>
                         <li><a href="https://www.youtube.com/@DewaSharif707" target="_blank" rel="noopener"
