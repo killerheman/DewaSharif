@@ -191,7 +191,7 @@
         <video height="30%" width="100%" autoplay loop muted>
             <source src="{{ asset('home/images/dewasharif/pagebackground/horizontal.mp4') }}" type="video/mp4">
         </video>
-        <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
+        {{-- <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div> --}}
     </div>
 
     {{-- Masjid AL Waris ke niche ki mp4 canwa  --}}
