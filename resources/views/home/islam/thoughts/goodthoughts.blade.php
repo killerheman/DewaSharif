@@ -5,9 +5,9 @@
 
             <h1 style="margin-bottom:18px; font-size:35px;">*** Good Thoughts ***</h1>
 
-            <h1 style="margin-bottom:18px; font-size:26px;">We Love Allah (s.w.t)</h1>
+            <h1 style="margin-bottom:18px; font-size:26px;"> 🌹 We Love Allah (s.w.t) 🌹</h1>
 
-            <h1 style="margin-bottom:18px; font-size:26px;">We Love Muhammad (s.a.w)</h1>
+            <h1 style="margin-bottom:18px; font-size:26px;">🌹 We Love Muhammad (s.a.w) 🌹</h1>
 
         </div>
 
