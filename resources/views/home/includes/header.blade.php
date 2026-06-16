@@ -6,7 +6,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3 col-xs-12">
                     <div class="logo">
-                        <a href="#">
+                        <a href="{{ route('index') }}">
                             <img src="{{ asset('home/images/dewasharif/anim_dewa_logo2.gif') }}"
                                  class="img-responsive"
                                  alt="Logo of Dewa sharif Dot Com"
