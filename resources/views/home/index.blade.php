@@ -1,6 +1,12 @@
 @extends('home.includes.master')
 @section('content')
-
+  <div class="kumbh-25">
+        <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
+        <video height="30%" width="100%" autoplay loop muted>
+            <source src="{{ asset('home/images/dewasharif/pagebackground/muharram.mp4') }}" type="video/mp4">
+        </video>
+        <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
+    </div>
  {{-- Advertise --}}
 <div class="kumbh-25" style="margin-bottom: 2px;">
     {{-- <div class="kumbhshape-1">
@@ -194,14 +200,14 @@
         {{-- <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div> --}}
     </div>
 
-    {{-- Masjid AL Waris ke niche ki mp4 canwa  --}}
-    <div class="kumbh-25">
+    {{-- Masjid AL Waris ke niche ki mp4 canwa --}}
+    {{-- <div class="kumbh-25">
         <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
         <video height="30%" width="100%" autoplay loop muted>
             <source src="{{ asset('home/images/dewasharif/pagebackground/muharram.mp4') }}" type="video/mp4">
         </video>
         <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
-    </div>
+    </div> --}}
 
     <section id="festive">
         <div class="container">
