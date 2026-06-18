@@ -190,6 +190,19 @@
 .p0 { padding: 0; }
 .g-0 { margin: 0; }
 
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    background: #fff;
+}
+
+body{
+    padding-top: 100px; /* header ki height ke hisab se adjust karein */
+}
+
 .logo { padding: 15px; }
 .logo img { max-height: 60px; }
 

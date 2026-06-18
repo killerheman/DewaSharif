@@ -89,76 +89,85 @@
             </div>
         </div>
         <div class="footbtm">
-    <div class="container">
+            <div class="container">
 
-        <div class="row">
-            <div class="col-md-9">
-                <p>
-                    This is the information provider website of Dewa Sharif, Barabanki, Uttar Pradesh, India.<br>
-                    Content on this website is published and managed by
-                    <strong>SHAHZADE ALAM [Masharrat Warsi]</strong>, Dewa Sharif.<br>
+                <div class="row">
+                    <div class="col-md-9">
+                        <p>
+                            This is the information provider website of Dewa Sharif, Barabanki, Uttar Pradesh,
+                            India.<br>
+                            Content on this website is published and managed by
+                            <strong>SHAHZADE ALAM [Masharrat Warsi]</strong>, Dewa Sharif.<br>
 
-                    For any Business, Advertisement, Query, Suggestion or Complaint regarding this website,
-                    please contact us:
-                </p>
+                            For any Business, Advertisement, Query, Suggestion or Complaint regarding this website,
+                            please contact us:
+                        </p>
 
-                <!-- INSTAGRAM -->
-                <a href="https://www.instagram.com/masharrat_bin_barkat/"
-                    target="_blank"
-                    style="margin-right:15px; display:inline-block;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
-                        alt="Instagram"
-                        style="width:45px; height:36.6px;">
-                </a>
+                        <!-- INSTAGRAM -->
+                        <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank"
+                            style="margin-right:15px; display:inline-block;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+                                alt="Instagram" style="width:45px; height:36.6px;">
+                        </a>
 
-                <!-- EMAIL -->
-                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=shahzade.alam707@gmail.com"
-                    target="_blank" style="display:inline-block;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
-                        alt="Email"
-                        style="width:45px; height:45px;">
-                </a>
+                        <!-- EMAIL -->
+                        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=shahzade.alam707@gmail.com"
+                            target="_blank" style="display:inline-block;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+                                alt="Email" style="width:45px; height:45px;">
+                        </a>
 
-                <br><br>
+                        <br><br>
 
-                <strong>Email:</strong>
-                <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=shahzade.alam707@gmail.com"  target="_blank">
-                    shahzade.alam707@gmail.com
-                </a>
+                        <strong>Email:</strong>
+                        <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=shahzade.alam707@gmail.com"
+                            target="_blank">
+                            shahzade.alam707@gmail.com
+                        </a>
 
-                <p class="mt-2">
-                    Last Updated On : 16 June 2026 | 01:01 PM
-                </p>
-            </div>
+                        <p class="mt-2">
+                            Last Updated On : 16 June 2026 | 01:01 PM
+                        </p>
+                    </div>
 
-            <div class="col-md-3 text-center">
-                <a href="http://www.freevisitorcounters.com" target="_blank">
-                    <strong>Live Visitors</strong><br>
-                    170764
-                </a>
+                    <div class="col-md-3 text-center">
+                        <a href="http://www.freevisitorcounters.com" target="_blank">
+                            <strong>Live Visitors</strong><br>
+                            170764
+                        </a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row text-center">
+                    <div class="col-12">
+                        <span>
+                            &copy; 2026
+                            <strong>
+                                <a href="https://dewasharif.com/" target="_blank" class="footer-link">
+                                    dewasharif.com
+                                </a>
+                            </strong>.
+                            All Rights Reserved.
+                        </span>
+
+                        <span class="mx-2">|</span>
+
+                        <span>
+                            Designed &amp; Developed by
+                            <strong>
+                                <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank"
+                                    class="footer-link">
+                                    Shahzade Alam
+                                </a>
+                            </strong>
+                        </span>
+                    </div>
+                </div>
+                <hr style="border: 0; height: 2px; background-color: #03be64;">
             </div>
         </div>
-
-        <hr>
-
-        <div class="row text-center">
-            <div class="col-12">
-                <span>
-                    &copy; 2026 <strong style="color: #03be64">dewasharif.com</strong>.
-                    All Rights Reserved.
-                </span>
-
-                <span class="mx-2">|</span>
-
-                <span>
-                    Designed &amp; Developed by
-                    <strong style="color: #03be64">Shahzade Alam</strong>
-                </span>
-            </div>
-        </div>
-<hr style="border: 0; height: 2px; background-color: #03be64;">
-    </div>
-</div>
     </div>
 </footer>
 <div class="modal" id="basicExampleModal" role="dialog" tabindex="-1">
@@ -173,3 +182,11 @@
     </div>
 
 </div>
+
+<style>
+    .footer-link:hover{
+    color: #edf762;
+    text-decoration: blink;
+    transform: scale(1.05);
+}
+</style>
