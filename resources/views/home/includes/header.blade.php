@@ -98,7 +98,7 @@
                                                     <li><a href="{{ route('hazrattajuddin') }}">Hazrat Tajuddin</a>
                                                     </li>
                                                     <li><a href="{{ route('khammanpeer') }}">Khamman Peer</a></li>
-                                                    <li><a href="{{ route('muinuddinchisti') }}">Muinuddin Chisti</a>
+                                                    <li><a href="{{ route('muinuddinchisti') }}">Khwaja Muinuddin Chisti</a>
                                                     </li>
                                                     <li><a href="{{ route('syedmasoodghazi') }}">Syed Masood Ghazi</a>
                                                     </li>
