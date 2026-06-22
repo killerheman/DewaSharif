@@ -130,7 +130,7 @@
                         </p>
                     </div>
 
-                    <div class="col-md-3 text-center">
+                    <div class="col-md-3 ">
                         <a href="http://www.freevisitorcounters.com" target="_blank">
                             <strong>Live Visitors</strong><br>
                             707707
