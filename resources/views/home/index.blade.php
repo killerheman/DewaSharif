@@ -5,16 +5,16 @@
         <video height="30%" width="100%" autoplay loop muted>
             <source src="{{ asset('home/images/dewasharif/pagebackground/muharram.mp4') }}" type="video/mp4">
         </video>
-        <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
+        {{-- <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div> --}}
     </div>
  {{-- Advertise --}}
-<div class="kumbh-25" style="margin-bottom: 2px;">
+{{-- <div class="kumbh-25" style="margin-bottom: 2px;"> --}}
     {{-- <div class="kumbhshape-1">
         <img src="{{ asset('home/images/kumbh-2.png') }}" alt="" />
     </div> --}}
 
-    <img src="{{ asset('home/images/dewasharif/advertisement.webp') }}" height="100%" width="100%" alt="background image">
-</div>
+    {{-- <img src="{{ asset('home/images/dewasharif/advertisement.webp') }}" height="100%" width="100%" alt="background image">
+</div> --}}
 
 <!-- CONTACT US SECTION -->
 <div style="margin-top: 10px; text-align:center; padding:10px 0;">
