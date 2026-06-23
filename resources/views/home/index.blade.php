@@ -171,7 +171,7 @@
                     <ul>
                         <li><img src="home/images/dewasharif/shahzadealam.jpeg" alt="Shahzade Alam" title="Shahzade Alam" />
                             <h4>Shahzade Alam <br>[مشرت وارثی]</h4>
-                            <p><b><i>Software Developer</i></b> <br /> <b>www.dewasharif.com</b></p>
+                            <p><b><i>Software Engineer</i></b> <br /> <b>www.dewasharif.com</b></p>
                         </li>
                         <ul>
                 </div>
