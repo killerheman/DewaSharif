@@ -8,34 +8,34 @@
         {{-- <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div> --}}
     </div>
  {{-- Advertise --}}
-{{-- <div class="kumbh-25" style="margin-bottom: 2px;"> --}}
+<div class="kumbh-25" style="margin-bottom: 2px;">
     {{-- <div class="kumbhshape-1">
         <img src="{{ asset('home/images/kumbh-2.png') }}" alt="" />
     </div> --}}
 
-    {{-- <img src="{{ asset('home/images/dewasharif/advertisement.webp') }}" height="100%" width="100%" alt="background image">
-</div> --}}
+    <img src="{{ asset('home/images/dewasharif/advertisement.webp') }}" height="100%" width="100%" alt="background image">
+</div>
 
 <!-- CONTACT US SECTION -->
-{{-- <div style="margin-top: 10px; text-align:center; padding:10px 0;">
+<div style="margin-top: 10px; text-align:center; padding:10px 0;">
 
-    <h3 style="margin-bottom:10px; font-weight:600;">Contact Us</h3> --}}
+    <h3 style="margin-bottom:10px; font-weight:600;">Contact Us</h3>
 
     <!-- INSTAGRAM -->
-    {{-- <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank"
+    <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank"
         style="margin-right:15px; display:inline-block;">
         <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
              alt="Instagram"
              style="width:45px; height:36.6px;">
-    </a> --}}
+    </a>
 
     <!-- EMAIL -->
-{{-- <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=shahzade.alam707@gmail.com"
+<a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=shahzade.alam707@gmail.com"
     target="_blank" style="display:inline-block;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
          alt="Email"
          style="width:45px; height:45px;">
-</a> --}}
+</a>
 
 </div>
 
