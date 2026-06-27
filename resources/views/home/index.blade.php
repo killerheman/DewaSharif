@@ -68,7 +68,7 @@
                         in Islam."</b></h1> <br><br><br>
                 <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
                 <h3>
-                    <p style="color:#03be64"> Zil-Hijjah (Dhul Hijjah) [Bakreed] – ذُو ٱلْحِجَّة</p>
+                    <p style="color:#03be64">Muharram - المحرم</p>
                 </h3>
             </div>
             <div class="row" style="margin:0;">
