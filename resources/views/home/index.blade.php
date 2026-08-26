@@ -68,7 +68,7 @@
                         in Islam."</b></h1> <br><br><br>
                 <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
                 <h3>
-                    <p style="color:#03be64">Chehallum - چہلم </p>
+                    <p style="color:#03be64">Eid Milad-un-Nabi عید میلاد النبی ﷺ</p>
                 </h3>
             </div>
             <div class="row" style="margin:0;">
@@ -195,7 +195,7 @@
     <div class="kumbh-25">
         <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
         <video height="30%" width="100%" autoplay loop muted>
-            <source src="{{ asset('home/images/dewasharif/pagebackground/horizontals.webm') }}" type="video/mp4">
+            <source src="{{ asset('home/images/dewasharif/pagebackground/Eid.mp4') }}" type="video/mp4">
         </video>
         {{-- <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div> --}}
     </div>
