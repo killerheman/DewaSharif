@@ -152,7 +152,7 @@
 <link rel="stylesheet" href="{{ asset('home/css/jquery.flipster.min.css') }}" />
 <link href="{{ asset('home/css/responsive.css') }}" rel="stylesheet" />
 
-<!-- GOOGLE ANALYTICS & ADSENSE -->
+<!-- GOOGLE ANALYTICS -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2E3VENDPG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -160,5 +160,7 @@
   gtag('js', new Date());
   gtag('config', 'G-S2E3VENDPG');
 </script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2658553012188142" crossorigin="anonymous"></script>
-<meta name="google-adsense-account" content="ca-pub-2658553012188142">
+
+<!-- GOOGLE ADSENSE CODE (VERIFIED ID) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2450708618747309" crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-2450708618747309">
