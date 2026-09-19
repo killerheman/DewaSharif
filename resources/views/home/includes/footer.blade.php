@@ -126,7 +126,7 @@
                         </a>
 
                         <p class="mt-2">
-                            Last Updated On : 26 August 2026 | 11:44 PM
+                            Last Updated On : 19 September 2026 5:55 PM 
                         </p>
                     </div>
 
