@@ -1,43 +1,74 @@
 @extends('home.includes.master')
 @section('content')
-  {{-- <div class="kumbh-25">
-        <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
-        <video height="30%" width="100%" autoplay loop muted>
-            <source src="{{ asset('home/images/dewasharif/pagebackground/muharram.mp4') }}" type="video/mp4">
-        </video>
-        <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
-    </div> --}}
- {{-- Advertise --}}
-<div class="kumbh-25" style="margin-bottom: 2px;">
-    {{-- <div class="kumbhshape-1">
-        <img src="{{ asset('home/images/kumbh-2.png') }}" alt="" />
-    </div> --}}
 
-    <img src="{{ asset('home/images/dewasharif/advertisement.webp') }}" height="100%" width="100%" alt="background image">
-</div>
+    <!-- Dewa Mela Hero Section -->
+    <div style="background: linear-gradient(135deg, rgba(3, 37, 20, 0.92), rgba(4, 22, 12, 0.96)), url('{{ asset('home/images/dewa-bg.jpg') }}') center/cover no-repeat; color: #fff; padding: 75px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: inset 0 0 100px rgba(0,0,0,0.6);">
 
-<!-- CONTACT US SECTION -->
-<div style="margin-top: 10px; text-align:center; padding:10px 0;">
+        <!-- Badge -->
+        <span style="background: #e8a824; color: #111; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+            Official Fair Dates Announced
+        </span>
 
-    <h3 style="margin-bottom:10px; font-weight:600;">Contact Us</h3>
+        <!-- Heading -->
+        <h1 id="mela-title"
+            onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#ffeb3b';"
+            ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#ffeb3b';"
+            style="color: #ffeb3b; font-size: 36px; font-weight: 800; margin: 0 0 16px 0; line-height: 1.35; text-align: center; width: 100%; max-width: 800px; cursor: pointer; transition: color 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.7);">
+            Dewa Sharif Mela 2026<br>
+            27 October To 5 November
+        </h1>
 
-    <!-- INSTAGRAM -->
-    <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank"
-        style="margin-right:15px; display:inline-block;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
-             alt="Instagram"
-             style="width:45px; height:36.6px;">
-    </a>
+        <!-- Subtitle -->
+        <p id="mela-sub"
+            onmouseover="this.style.color='#ffeb3b';" onmouseout="this.style.color='#00e676';"
+            ontouchstart="this.style.color='#ffeb3b';" ontouchend="this.style.color='#00e676';"
+            style="color: #00e676; font-size: 17px; max-width: 680px; margin: 0 auto 28px auto; font-weight: 600; line-height: 1.6; text-align: center; cursor: pointer; transition: color 0.3s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.6);">
+            Nearby Hotels, Guest House Bookings, &amp; Direct Transport Guide Auto &amp; Car Bookings from Lucknow &amp; Barabanki.
+        </p>
 
-    <!-- EMAIL -->
-<a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=shahzade.alam707@gmail.com"
-    target="_blank" style="display:inline-block;">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
-         alt="Email"
-         style="width:45px; height:45px;">
-</a>
+        <!-- Big Bold Coming Soon Box -->
+        <div style="margin-bottom: 20px; text-align: center; width: 100%;">
+            <div style="display: inline-block; background: rgba(0, 15, 8, 0.92); border: 2.5px dashed #ffeb3b; padding: 18px 45px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.7);">
+                <h2 style="font-size: 36px; font-weight: 900; color: #ffeb3b; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 16px rgba(255, 235, 59, 0.7); display: flex; align-items: center; justify-content: center; gap: 10px;">
+                    <span>🌹</span><span>COMING SOON</span> <span>🌹</span>
+                </h2>
+                <p style="color: #00e676; font-size: 16px; margin: 10px 0 0 0; font-weight: 700;">
+                    Online Prebooking &amp; travel assistance jald hi shuru hogi! InshaAllah
+                </p>
+            </div>
+        </div>
 
-</div>
+        <!-- Buttons Row -->
+        <div style="display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <a href="javascript:void(0)"
+                style="background: #25D366; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); display: inline-flex; align-items: center; cursor: default; border: 2px solid transparent;">
+                🏨 Book Hotels / Stay
+            </a>
+            <a href="javascript:void(0)"
+                style="background: transparent; color: #ffeb3b; border: 2px solid #ffeb3b; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; cursor: default; box-shadow: 0 4px 14px rgba(0,0,0,0.2);">
+                🚗 Cab &amp; Travel Help
+            </a>
+        </div>
+    </div>
+
+    <!-- CONTACT US SECTION -->
+    <div style="background: linear-gradient(135deg, rgba(3, 37, 20, 0.95), rgba(4, 22, 12, 0.98)); border-top: 1px solid rgba(255, 235, 59, 0.25); border-bottom: 1px solid rgba(255, 235, 59, 0.25); padding: 18px 0; text-align: center; margin: 0; box-shadow: inset 0 0 50px rgba(0,0,0,0.5);">
+        <h3 style="margin-bottom: 12px; font-weight: 700; font-size: 16px; color: #ffeb3b; text-transform: uppercase; letter-spacing: 1.5px; text-shadow: 0 0 10px rgba(255, 235, 59, 0.5);">
+            Contact Us
+        </h3>
+
+        <div style="display: flex; justify-content: center; align-items: center; gap: 18px;">
+            <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener"
+                style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(255, 255, 255, 0.08); border-radius: 50%; border: 1.5px solid rgba(255, 235, 59, 0.4); text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
+            </a>
+
+            <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=shahzade.alam707@gmail.com" target="_blank" rel="noopener"
+                style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: rgba(255, 255, 255, 0.08); border-radius: 50%; border: 1.5px solid rgba(255, 235, 59, 0.4); text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email" style="width: 24px; height: 24px; object-fit: contain;">
+            </a>
+        </div>
+    </div>
 
     <section id="banner">
         <video width="300" height="150" id="myVideo" loop="loop" muted="" autoplay="autoplay">
@@ -52,47 +83,30 @@
     <section class="important-event">
         <div class="container">
             <div class="title">
+                <h1 style="color:#03be64"><b>"یہ ویب سائٹ کسی بھی قسم کے شرک کی نہ اجازت دیتی ہے اور نہ اس کی پیروی کرتی ہے۔ اللہ ("یعنی اعلیٰ ذات — واحد، بےشکل، اور کائنات کا خالق۔") کے سوا کوئی معبود نہیں اور محمد ﷺ اللہ کے رسول ہیں۔ اولیاء اللہ کے مزارات پر بے ادبی سے بچیں اور ہر اس چیز سے پرہیز کریں جس کی اسلام اجازت نہیں دیتا۔"</b></h1><br>
+                <h1 style="color:#03be64"><b>"यह वेबसाइट किसी भी प्रकार के शिर्क की अनुमति न देती है और न समर्थन करती है। अल्लाह ("परमेश्वर अर्थात सर्वोच्च, एक, निराकार, सृष्टिकर्ता") के सिवा कोई माबूद नहीं, और मुहम्मद ﷺ अल्लाह के रसूल हैं। औलिया-अल्लाह की दरगाहों पर बेअदबी से बचें और उन सभी कार्यों से दूर रहें जिनकी इस्लाम में अनुमति नहीं है।"</b></h1><br>
+                <h1 style="color:#03be64"><b>"This website does not permit or endorse any form of shirk. There is no deity worthy of worship except Allah (“God, meaning the Supreme One — the One, Formless, and the Creator of the universe.”), and Muhammad (ﷺ) is the Messenger of Allah. We advise everyone to avoid any act of disrespect at the shrines of the Awliya Allah and to refrain from anything that is not permitted in Islam."</b></h1><br><br><br>
 
-                <h1 style="color:#03be64"><b>"یہ ویب سائٹ کسی بھی قسم کے شرک کی نہ اجازت دیتی ہے اور نہ اس کی پیروی کرتی ہے۔
-                        اللہ ("یعنی اعلیٰ ذات — واحد، بےشکل، اور کائنات کا خالق۔") کے سوا کوئی معبود نہیں اور محمد ﷺ اللہ کے
-                        رسول ہیں۔ اولیاء اللہ کے مزارات پر بے ادبی سے بچیں اور ہر اس چیز سے پرہیز کریں جس کی اسلام اجازت
-                        نہیں دیتا۔"</b></h1><br>
-                <h1 style="color:#03be64"><b>"यह वेबसाइट किसी भी प्रकार के शिर्क की अनुमति न देती है और न समर्थन करती है।
-                        अल्लाह ("परमेश्वर अर्थात सर्वोच्च, एक, निराकार, सृष्टिकर्ता") के सिवा कोई माबूद नहीं, और मुहम्मद ﷺ
-                        अल्लाह के रसूल हैं। औलिया-अल्लाह की दरगाहों पर बेअदबी से बचें और उन सभी कार्यों से दूर रहें जिनकी
-                        इस्लाम में अनुमति नहीं है।"</b></h1><br>
-                <h1 style="color:#03be64"><b>"This website does not permit or endorse any form of shirk. There is no deity
-                        worthy of worship except Allah (“God, meaning the Supreme One — the One, Formless, and the Creator
-                        of the universe.”), and Muhammad (ﷺ) is the Messenger of Allah. We advise everyone to avoid any act
-                        of disrespect at the shrines of the Awliya Allah and to refrain from anything that is not permitted
-                        in Islam."</b></h1> <br><br><br>
                 <h1 style="color:#0cff8a"><b>What&rsquo;s New</b> in <b>DEWA SHARIF </b>?</h1>
                 <h3>
-                    <p style="color:#03be64">Eid Milad-un-Nabi عید میلاد النبی ﷺ</p>
+                    <p style="color:#03be64; font-weight: 800; font-size: 22px; margin: 10px 0;">
+                        DEWA MELA <span style="color: #ffeb3b; font-weight: 700;">(27 October 2026 – 5 November 2026)</span>
+                    </p>
                 </h3>
             </div>
             <div class="row" style="margin:0;">
-
                 <div class="col-md-3 col-sm-6 col-12" style="padding:2px; margin-left:auto; margin-right:auto; width:auto;">
-                    <img src="{{ asset('home/images/dewasharif/event/event-1.jpeg') }}" class="img-fluid"
-                        style="height:300px; object-fit:cover; width:100%;">
+                    <img src="{{ asset('home/images/dewasharif/event/event-1.jpeg') }}" class="img-fluid" style="height:300px; object-fit:cover; width:100%;">
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-12" style="padding:2px; margin-left:auto; margin-right:auto; width:auto;">
-                    <img src="{{ asset('home/images/dewasharif/event/event-2.png') }}" class="img-fluid"
-                        style="height:300px; object-fit:cover; width:100%;">
+                    <img src="{{ asset('home/images/dewasharif/event/event-2.png') }}" class="img-fluid" style="height:300px; object-fit:cover; width:100%;">
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-12" style="padding:2px; margin-left:auto; margin-right:auto; width:auto;">
-                    <img src="{{ asset('home/images/dewasharif/event/event-3.jpeg') }}" class="img-fluid"
-                        style="height:300px; object-fit:cover; width:100%;">
+                    <img src="{{ asset('home/images/dewasharif/event/event-3.jpeg') }}" class="img-fluid" style="height:300px; object-fit:cover; width:100%;">
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-12" style="padding:2px; margin-left:auto; margin-right:auto; width:auto;">
-                    <img src="{{ asset('home/images/dewasharif/event/event-shop.png') }}" class="img-fluid"
-                        style="height:300px; object-fit:cover; width:100%;">
+                    <img src="{{ asset('home/images/dewasharif/event/event-shop.png') }}" class="img-fluid" style="height:300px; object-fit:cover; width:100%;">
                 </div>
-
             </div>
         </div>
         <div class="explorebg2">
@@ -100,128 +114,74 @@
         </div>
     </section>
 
-
     <section id="explore">
         <div class="container">
             <div class="row">
                 <div class="col-md-10">
                     <h2>"Dewa Sharif:<b> A Legacy of Love, Faith, Spirituality, Humanity, Peace And Devotion"</b></h2>
                     <ul class="letters">
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/1.png') }}" alt="DEVOTION"
-                                    title="DEVOTION" /></a>
-                            <p>DEVOTION</p>
-                        </li>
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/2.png') }}" alt="EDUCATION"
-                                    title="EDUCATION" /></a>
-                            <p>EDUCATION</p>
-                        </li>
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/3.png') }}" alt="WARSI" title="WARSI" /></a>
-                            <p>WARSI</p>
-                        </li>
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/4.png') }}" alt="AZAAN" title="AZAAN" /></a>
-                            <p>AZAAN</p>
-                        </li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/1.png') }}" alt="DEVOTION" title="DEVOTION" /></a><p>DEVOTION</p></li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/2.png') }}" alt="EDUCATION" title="EDUCATION" /></a><p>EDUCATION</p></li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/3.png') }}" alt="WARSI" title="WARSI" /></a><p>WARSI</p></li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/4.png') }}" alt="AZAAN" title="AZAAN" /></a><p>AZAAN</p></li>
                     </ul>
                     <ul class="letters">
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/5.png') }}" alt="SPRITUALITY"
-                                    title="SPRITUALITY" /></a>
-                            <p>SPRITUALITY</p>
-                        </li>
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/6.png') }}" alt="HUMANITY"
-                                    title="HUMANITY" /></a>
-                            <p>HUMANITY</p>
-                        </li>
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/7.png') }}" alt="AWLIYA" title="AWLIYA" /></a>
-                            <p>AWLIYA</p>
-                        </li>
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/8.png') }}" alt="RELIGIOUS"
-                                    title="RELIGIOUS" /></a>
-                            <p>RELIGIOUS</p>
-                        </li>
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/9.png') }}" alt="ISLAM" title="ISLAM" /></a>
-                            <p>ISLAM</p>
-                        </li>
-                        <li><a href="#">
-                                <img src="{{ asset('home/images/dewasharif/10.png') }}" alt="FAITH"
-                                    title="FAITH" /></a>
-                            <p>FAITH</p>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/5.png') }}" alt="SPRITUALITY" title="SPRITUALITY" /></a><p>SPRITUALITY</p></li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/6.png') }}" alt="HUMANITY" title="HUMANITY" /></a><p>HUMANITY</p></li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/7.png') }}" alt="AWLIYA" title="AWLIYA" /></a><p>AWLIYA</p></li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/8.png') }}" alt="RELIGIOUS" title="RELIGIOUS" /></a><p>RELIGIOUS</p></li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/9.png') }}" alt="ISLAM" title="ISLAM" /></a><p>ISLAM</p></li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/10.png') }}" alt="FAITH" title="FAITH" /></a><p>FAITH</p></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 leader">
+                    <ul>
+                        <li>
+                            <img src="{{ asset('home/images/dewasharif/walidsahab.jpeg') }}" alt="Father" title="Barkat Ali" />
+                            <h4>BARKAT ALI <br>[FATHER]</h4>
+                            <p><b><i>Barkat Ali KiranaStore</i></b> <br /> <b>www.dewasharif.com</b></p>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-2 leader">
                     <ul>
-                        <li><img src="home/images/dewasharif/walidsahab.jpeg" alt="Father" title="Barkat Ali" />
-                            <h4>BARKAT ALI <br>[FATHER]</h4>
-                            <p><b><i>Barkat Ali KiranaStore</i></b> <br /> <b>www.dewasharif.com</b></p>
-                        </li>
-
-                        <ul>
-
-                </div>
-                <div class="col-md-2 leader ">
-                    <ul>
-                        <li><img src="home/images/dewasharif/shahzadealam.jpeg" alt="Shahzade Alam" title="Shahzade Alam" />
+                        <li>
+                            <img src="{{ asset('home/images/dewasharif/shahzadealam.jpeg') }}" alt="Shahzade Alam" title="Shahzade Alam" />
                             <h4>Shahzade Alam <br>[مشرت وارثی]</h4>
                             <p><b><i>Software Engineer</i></b> <br /> <b>www.dewasharif.com</b></p>
                         </li>
-                        <ul>
+                    </ul>
                 </div>
             </div>
         </div>
-
     </section>
 
     {{-- Masjid AL Waris --}}
     <div class="kumbh-25">
         <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
-        <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" height="100%" width="100%"
-            alt="background image">
-        <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" style=margin-bottom:9px
-                alt="" /></div>
-
+        <img src="{{ asset('home/images/dewasharif/trip0.jpeg') }}" height="100%" width="100%" alt="background image">
+        <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" style="margin-bottom:9px;" alt="" /></div>
     </div>
 
-
-    {{-- Masjid AL Waris ke niche ki mp4 canwa  --}}
+    {{-- Masjid AL Waris Video --}}
     <div class="kumbh-25">
         <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
         <video height="30%" width="100%" autoplay loop muted>
             <source src="{{ asset('home/images/dewasharif/pagebackground/Eid.mp4') }}" type="video/mp4">
         </video>
-        {{-- <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div> --}}
     </div>
-
-    {{-- Masjid AL Waris ke niche ki mp4 canwa --}}
-    {{-- <div class="kumbh-25">
-        <div class="kumbhshape-1"><img src="{{ asset('home/images/kumbh-2.png') }}" alt="" /></div>
-        <video height="30%" width="100%" autoplay loop muted>
-            <source src="{{ asset('home/images/dewasharif/pagebackground/muharram.mp4') }}" type="video/mp4">
-        </video>
-        <div class="kumbhshape-2"><img src="{{ asset('home/images/kumbh-1.png') }}" alt="" /></div>
-    </div> --}}
 
     <section id="festive">
         <div class="container">
             <div class="title">
-                <p style="color: #0a5c36">Checkout <i>Festivals </i> &amp; <i>Events </i> of <b><i>Islam </i></b> &
-                    <b><i>Dewa Sharif</i></b>
-                </p>
+                <p style="color: #0a5c36">Checkout <i>Festivals </i> &amp; <i>Events </i> of <b><i>Islam </i></b> & <b><i>Dewa Sharif</i></b></p>
                 <h1 style="color: #03be64"> <b>Islamic Festive Seasons</b></h1>
             </div>
             <div class="row">
                 <div class="col-md-3">
                     <ul class="nav nav-tabs tabs-left">
                         <li><a href="#January" data-toggle="tab">January</a></li>
-                        <li><a href="#Febuary" data-toggle="tab">February</a></li>
+                        <li><a href="#February" data-toggle="tab">February</a></li>
                         <li><a href="#March" data-toggle="tab">March</a></li>
                         <li><a href="#April" data-toggle="tab">April</a></li>
                         <li><a href="#May" data-toggle="tab">May</a></li>
@@ -232,23 +192,22 @@
                     <div class="tab-content festivetab">
                         <div class="tab-pane" id="January">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/makarsankranti.jpg') }}"
-                                        alt="Image of Makar Sankranti" title="Makar Sankranti" />
+                                <li>
+                                    <img src="{{ asset('home/images/makarsankranti.jpg') }}" alt="Image of Makar Sankranti" title="Makar Sankranti" />
                                     <ul class="description">
                                         <li>15, January</li>
                                         <li>Makar Sankranti</li>
                                     </ul>
                                 </li>
-                                <li><img src="{{ asset('home/downloadmedia/siteContent/638616836518823820.jpg') }}"
-                                        alt="Image of Ram Mahotsav Ayodhya" title="Ram Mahotsav Ayodhya" />
+                                <li>
+                                    <img src="{{ asset('home/downloadmedia/siteContent/638616836518823820.jpg') }}" alt="Image of Ram Mahotsav Ayodhya" title="Ram Mahotsav Ayodhya" />
                                     <ul class="description">
                                         <li>14, January 2024 to 24, March 2024</li>
                                         <li>Ramotsav Ayodhya</li>
-                                        <li></li>
                                     </ul>
                                 </li>
-                                <li><img src="{{ asset('home/images/republicfest.jpg') }}" alt="Image of Republic Day"
-                                        title="Republic Day" />
+                                <li>
+                                    <img src="{{ asset('home/images/republicfest.jpg') }}" alt="Image of Republic Day" title="Republic Day" />
                                     <ul class="description">
                                         <li>26 January</li>
                                         <li>Republic Day Holiday</li>
@@ -256,10 +215,10 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="tab-pane" id="Febuary">
+                        <div class="tab-pane" id="February">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/downloadmedia/siteContent/638616836527190001.jpg') }}"
-                                        alt="Images of Mauni Amavasya Fair" title="Mauni Amavasya Fair" />
+                                <li>
+                                    <img src="{{ asset('home/downloadmedia/siteContent/638616836527190001.jpg') }}" alt="Images of Mauni Amavasya Fair" title="Mauni Amavasya Fair" />
                                     <ul class="description">
                                         <li>14 February</li>
                                         <li>Vasant Panchami</li>
@@ -269,15 +228,15 @@
                         </div>
                         <div class="tab-pane" id="March">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/shivratratifest.jpg') }}"
-                                        alt="Image of Mahashivratri" title="" />
+                                <li>
+                                    <img src="{{ asset('home/images/shivratratifest.jpg') }}" alt="Image of Mahashivratri" title="" />
                                     <ul class="description">
                                         <li>8 March</li>
                                         <li>Mahashivratri Festival, Lakhimpur</li>
                                     </ul>
                                 </li>
-                                <li><img src="{{ asset('home/downloadmedia/siteContent/Year_2024/638616836534354221.jpg') }}"
-                                        alt="Image of Holi" title="Holi" />
+                                <li>
+                                    <img src="{{ asset('home/downloadmedia/siteContent/Year_2024/638616836534354221.jpg') }}" alt="Image of Holi" title="Holi" />
                                     <ul class="description">
                                         <li>24, 25 March</li>
                                         <li>Holi</li>
@@ -287,9 +246,8 @@
                         </div>
                         <div class="tab-pane" id="April">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/downloadmedia/siteContent/Year_2024/638616836537688102.jpg') }}"
-                                        alt="Image of Ram Navami" title="Ram Navami" caption="false" width="570"
-                                        height="469" />
+                                <li>
+                                    <img src="{{ asset('home/downloadmedia/siteContent/Year_2024/638616836537688102.jpg') }}" alt="Image of Ram Navami" title="Ram Navami" width="570" height="469" />
                                     <ul class="description">
                                         <li>17 April</li>
                                         <li>Ram Navami</li>
@@ -299,8 +257,8 @@
                         </div>
                         <div class="tab-pane" id="May">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/budthfestival.jpg') }}"
-                                        alt="Image of Buddha Purnima Celebrations" title="Buddha Purnima Celebrations" />
+                                <li>
+                                    <img src="{{ asset('home/images/budthfestival.jpg') }}" alt="Image of Buddha Purnima Celebrations" title="Buddha Purnima Celebrations" />
                                     <ul class="description">
                                         <li>23 May</li>
                                         <li>Buddha Purnima Celebrations, kushinagar</li>
@@ -310,9 +268,8 @@
                         </div>
                         <div class="tab-pane" id="June">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/magofesteveal.jpg') }}"
-                                        alt="Image of Uttar Pradesh Mango Festival"
-                                        title="Uttar Pradesh Mango Festival" />
+                                <li>
+                                    <img src="{{ asset('home/images/magofesteveal.jpg') }}" alt="Image of Uttar Pradesh Mango Festival" title="Uttar Pradesh Mango Festival" />
                                     <ul class="description">
                                         <li>June</li>
                                         <li>Uttar Pradesh Mango Festival</li>
@@ -322,8 +279,8 @@
                         </div>
                         <div class="tab-pane" id="July">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/servanafest.jpg') }}" alt="Image of Shravana"
-                                        title="Shravana" />
+                                <li>
+                                    <img src="{{ asset('home/images/servanafest.jpg') }}" alt="Image of Shravana" title="Shravana" />
                                     <ul class="description">
                                         <li>July</li>
                                         <li>Shravana</li>
@@ -333,29 +290,29 @@
                         </div>
                         <div class="tab-pane" id="August">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/kylasmela.jpg') }}" alt="Image of Kailash Mela"
-                                        title="Kailash Mela" />
+                                <li>
+                                    <img src="{{ asset('home/images/kylasmela.jpg') }}" alt="Image of Kailash Mela" title="Kailash Mela" />
                                     <ul class="description">
                                         <li>12 August</li>
                                         <li>Kailash Mela, Sikandra, Agra</li>
                                     </ul>
                                 </li>
-                                <li><img src="{{ asset('home/images/15augustfest.jpg') }}"
-                                        alt="Image of Independence Day" title="Independence Day" />
+                                <li>
+                                    <img src="{{ asset('home/images/15augustfest.jpg') }}" alt="Image of Independence Day" title="Independence Day" />
                                     <ul class="description">
                                         <li>15 August</li>
                                         <li>Independence Day</li>
                                     </ul>
                                 </li>
-                                <li><img src="{{ asset('home/images/rakshbandhanfest.jpg') }}"
-                                        alt="Image of Raksha Bandhan" title="Raksha Bandhan" />
+                                <li>
+                                    <img src="{{ asset('home/images/rakshbandhanfest.jpg') }}" alt="Image of Raksha Bandhan" title="Raksha Bandhan" />
                                     <ul class="description">
                                         <li>19 August</li>
                                         <li>Raksha Bandhan</li>
                                     </ul>
                                 </li>
-                                <li><img src="{{ asset('home/images/janmasthami.jpg') }}" alt="Image of Janmashtami"
-                                        title="Janmashtami" />
+                                <li>
+                                    <img src="{{ asset('home/images/janmasthami.jpg') }}" alt="Image of Janmashtami" title="Janmashtami" />
                                     <ul class="description">
                                         <li>26 August</li>
                                         <li>Janmashtami</li>
@@ -365,19 +322,16 @@
                         </div>
                         <div class="tab-pane active" id="September">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif URS" title="Dewa Sharif URS 2024" />
-                                    <ul class="description">
-                                        {{--  <li>18 October to 27 October</li>
-                                    <li>Dewa Sharif URS 2024</li>  --}}
-                                    </ul>
+                                <li>
+                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif URS" title="Dewa Sharif URS 2024" />
+                                    <ul class="description"></ul>
                                 </li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="October">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/depawalifest.jpg') }}" alt="Image of Diwali"
-                                        title="Diwali" />
+                                <li>
+                                    <img src="{{ asset('home/images/depawalifest.jpg') }}" alt="Image of Diwali" title="Diwali" />
                                     <ul class="description">
                                         <li>31 October</li>
                                         <li>Diwali</li>
@@ -387,8 +341,8 @@
                         </div>
                         <div class="tab-pane" id="November">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/guyruparv.jpg') }}"
-                                        alt="Image of Guru Nanak Gurpurab" title="Guru Nanak Gurpurab" />
+                                <li>
+                                    <img src="{{ asset('home/images/guyruparv.jpg') }}" alt="Image of Guru Nanak Gurpurab" title="Guru Nanak Gurpurab" />
                                     <ul class="description">
                                         <li>15 November</li>
                                         <li>Guru Nanak Gurpurab</li>
@@ -398,8 +352,8 @@
                         </div>
                         <div class="tab-pane" id="December">
                             <ul class="festivals owl-carousel">
-                                <li><img src="{{ asset('home/images/crismaxdayfestivel.jpg') }}"
-                                        alt="Image of Christmas Day" title="Christmas Day" />
+                                <li>
+                                    <img src="{{ asset('home/images/crismaxdayfestivel.jpg') }}" alt="Image of Christmas Day" title="Christmas Day" />
                                     <ul class="description">
                                         <li>25 December</li>
                                         <li>Christmas Day</li>
@@ -413,7 +367,7 @@
                     <ul class="nav nav-tabs tabs-left">
                         <li><a href="#July" data-toggle="tab">July</a></li>
                         <li><a href="#August" data-toggle="tab">August</a></li>
-                        <li><a href="#September" data-toggle="tab">September</a></li>
+                        <li class="active"><a href="#September" data-toggle="tab">September</a></li>
                         <li><a href="#October" data-toggle="tab">October</a></li>
                         <li><a href="#November" data-toggle="tab">November</a></li>
                         <li><a href="#December" data-toggle="tab">December</a></li>
@@ -422,6 +376,7 @@
             </div>
         </div>
     </section>
+
     <section id="trip">
         <div class="explorebg">
             <img src="{{ asset('home/images/tribg1.png') }}" alt="Image of background" title="background" />
@@ -431,22 +386,9 @@
                 <div class="col-md-6 trip-plan">
                     <h2>Plan Your Trip</h2>
                     <ul>
-                        <li><a href="#" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/hotel.png') }}" alt="Hotel"
-                                    title="Image of Hotel" />
-                                Hotel Accommodation
-                            </a>
-                        </li>
-                        <li><a href="#" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/bus.png') }}" alt="Taxi/Bus"
-                                    title="Image of Taxi/Bus" /> Taxi / Bus
-                            </a>
-                        </li>
-                        <li><a href="#" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/guide.png') }}" alt="Authorised Travel Guides"
-                                    title="Image of Authorised Travel Guides" /> Authorised Travel Guides
-                            </a>
-                        </li>
+                        <li><a href="#" target="_blank" rel="noopener"><img src="{{ asset('home/images/icons/hotel.png') }}" alt="Hotel" title="Image of Hotel" /> Hotel Accommodation</a></li>
+                        <li><a href="#" target="_blank" rel="noopener"><img src="{{ asset('home/images/icons/bus.png') }}" alt="Taxi/Bus" title="Image of Taxi/Bus" /> Taxi / Bus</a></li>
+                        <li><a href="#" target="_blank" rel="noopener"><img src="{{ asset('home/images/icons/guide.png') }}" alt="Authorised Travel Guides" title="Image of Authorised Travel Guides" /> Authorised Travel Guides</a></li>
                     </ul>
                 </div>
             </div>
@@ -455,109 +397,53 @@
             <img src="{{ asset('home/images/tribg2.png') }}" alt="Image of background" title="background" />
         </div>
     </section>
+
     <section id="trip2">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 trip-plan">
-                    <!-- <h2 style="color: #0a5c36; text-align: center;">Coming Soon <b>***Eid Milaad-Un-Nabi***</b></h2> -->
-
-                    <ul
-                        style="display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; margin-top: 20px; justify-content: center; align-items: center;">
-
+                    <ul style="display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; margin-top: 20px; justify-content: center; align-items: center;">
                         <li style="text-align: center;">
                             <a href="{{ route('allah') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/allah.jpg') }}" alt="Allah S.W.T"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Allah
-                                    (S.W.T)</span>
+                                <img src="{{ asset('home/images/icons/allah.jpg') }}" alt="Allah S.W.T" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Allah (S.W.T)</span>
                             </a>
                         </li>
-
-
                         <li style="text-align: center;">
                             <a href="{{ route('hazratmuhammad') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/muhammad.jpg') }}" alt="Hz. Muhammad"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Hz. Muhammad
-                                    (S.A.W)</span>
+                                <img src="{{ asset('home/images/icons/muhammad.jpg') }}" alt="Hz. Muhammad" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Hz. Muhammad (S.A.W)</span>
                             </a>
                         </li>
                         <li style="text-align: center;">
                             <a href="{{ route('khanaekaaba') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/kaba2.jpg') }}" alt="Khana-e-Kaaba"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span
-                                    style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Khana-e-Ka'aba</span>
+                                <img src="{{ asset('home/images/icons/kaba2.jpg') }}" alt="Khana-e-Kaaba" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Khana-e-Ka'aba</span>
                             </a>
                         </li>
                         <li style="text-align: center;">
                             <a href="{{ route('muhammad') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/jumapic.jpg') }}" alt="Hotel"
-                                    title="Image of Hotel"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span
-                                    style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Raoza-E-Rasool
-                                    (S.A.W)</span>
+                                <img src="{{ asset('home/images/icons/jumapic.jpg') }}" alt="Raoza-E-Rasool" title="Raoza-E-Rasool" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Raoza-E-Rasool (S.A.W)</span>
                             </a>
                         </li>
-
                         <li style="text-align: center;">
                             <a href="{{ route('hajiwarisalishah') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/melalogo.jpg') }}" alt="Haji Waris Ali Shah R.A."
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Haji Waris
-                                    Ali Shah R.A.</span>
+                                <img src="{{ asset('home/images/icons/melalogo.jpg') }}" alt="Haji Waris Ali Shah R.A." style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Haji Waris Ali Shah R.A.</span>
                             </a>
                         </li>
                         <li style="text-align: center;">
                             <a href="https://dewasharif.com" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/panjatanpaak.jpg') }}" alt="Panjatan Pak"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Panjatan
-                                    Pak</span>
+                                <img src="{{ asset('home/images/icons/panjatanpaak.jpg') }}" alt="Panjatan Pak" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Panjatan Pak</span>
                             </a>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-
-
-    {{-- <section id="festive" style="padding: 40px 0; background: url('{{ asset('home/images/explorebg2.png') }}') no-repeat center center; background-size: cover;">
-    <div class="container" style="position: relative; z-index: 2;">
-        <div class="title" style="text-align: center; margin-bottom: 30px;">
-            <p style="color: #0a5c36; font-size: 18px;">
-                <b><i>مالی تعاون کریں</i></b> -&nbsp;&nbsp; <b><i>कृपया सहयोग करें</i></b> -&nbsp;&nbsp; <b><i>Kindly Contribute</i></b> -&nbsp;&nbsp; for this website:
-            </p>
-            <h1 style="color: #03be64; font-weight: bold; font-size: 32px;">www.dewasharif.com</h1>
-        </div>
-        <div class="row" style="align-items: center;">
-            <!-- Left Side Content -->
-            <div class="col-md-8 col-12" style="padding: 20px;">
-                <div style="font-size: 16px; color: #0a5c36;">
-                   <p>
-                     <strong>Urdu:</strong><b>"اگر آپ چاہتے ہیں کہ یہ ویب سائٹ آئندہ بھی چلتی رہے اور لوگوں تک مفید دینی معلومات، تقریبات، اور اپڈیٹس پہنچتی رہیں، تو آپ اس کارِ خیر میں اپنا حصہ ڈال سکتے ہیں۔ نیچے دیے گئے QR کوڈ یا UPI ID <strong>ashz82462@ybl</strong> کے ذریعے تعاون کریں۔ آپ کا چھوٹا سا تعاون بھی بہت قیمتی ہے۔ جزاکم اللہ خیراً!"</b>
-                   </p><br><br><h1><center><b>****************************</b></center></h1><br><br>
-                   <p>
-                     <strong>हिन्दी:</strong> देवाशरीफ की यह वेबसाइट आप सभी के लिए एक आध्यात्मिक जानकारी का स्रोत है। यदि आप चाहते हैं कि यह वेबसाइट भविष्य में भी चलती रहे और नई जानकारी व अपडेट्स देती रहे, तो कृपया सहयोग करें। आप नीचे दिए गए QR कोड या UPI ID <strong>ashz82462@ybl</strong> के माध्यम से अपना योगदान दे सकते हैं।
-                   </p><br><br><h1><center><b>****************************</b></center></h1><br><br>
-                   <p>
-                     <strong>English:</strong> This Dewasharif website is a spiritual source of knowledge for all. To keep it alive and updated for the future, your support is valuable. Please consider contributing via the QR code below or through UPI ID <strong>ashz82462@ybl</strong>.
-                   </p>
-
-                </div>
-            </div>
-
-            <!-- Right Side Image -->
-            <div class="col-md-4 col-12" style="padding: 20px;">
-                <img src="{{ asset('home/images/dewasharif/qr.jpeg') }}" alt="Dewa Sharif URS" title="Dewa Sharif URS 2024"
-                    style="width: 100%; max-height: 80%; object-fit: cover; border-radius: 8px;" />
-            </div>
-        </div>
-    </div>
-</section> --}}
 
     <section id="unfold">
         <div class="container">
@@ -585,8 +471,7 @@
                             <img src="{{ asset('home/images/2.jpg') }}" alt="Photo Gallery" class="img-fluid" />
                         </a>
                         <div class="box text-center">
-                            <a href="#"><img src="{{ asset('home/images/Visual_Library1.png') }}"
-                                    alt="Photo Gallery" class="img-fluid" /></a>
+                            <a href="#"><img src="{{ asset('home/images/Visual_Library1.png') }}" alt="Photo Gallery" class="img-fluid" /></a>
                             <h4><a href="#">Photo Gallery</a></h4>
                         </div>
                     </div>
@@ -597,8 +482,7 @@
                             <img src="{{ asset('home/images/3.jpg') }}" alt="Video Gallery" class="img-fluid" />
                         </a>
                         <div class="box text-center">
-                            <a href="#"><img src="{{ asset('home/images/Visual_Library2.png') }}"
-                                    alt="Video Gallery" class="img-fluid" /></a>
+                            <a href="#"><img src="{{ asset('home/images/Visual_Library2.png') }}" alt="Video Gallery" class="img-fluid" /></a>
                             <h4><a href="#">Video Gallery</a></h4>
                         </div>
                     </div>
@@ -606,12 +490,10 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="pcard">
                         <a href="#" rel="noopener">
-                            <img src="{{ asset('home/images/dewasharif/india.jpg') }}" alt="India"
-                                class="img-fluid" />
+                            <img src="{{ asset('home/images/dewasharif/india.jpg') }}" alt="India" class="img-fluid" />
                         </a>
                         <div class="box text-center">
-                            <a href="#"><img src="{{ asset('home/images/icons/oneday.png') }}" alt="India"
-                                    class="img-fluid" /></a>
+                            <a href="#"><img src="{{ asset('home/images/icons/oneday.png') }}" alt="India" class="img-fluid" /></a>
                             <h4><a href="#">India</a></h4>
                         </div>
                     </div>
@@ -623,11 +505,10 @@
         </div>
     </section>
 
-
     <section id="connect">
         <div class="container">
-            <div class="row ">
-                <div class="col-md-12 ">
+            <div class="row">
+                <div class="col-md-12">
                     <div class="text-center title">
                         <span class="arrow1"><img src="{{ asset('home/images/arrow1.png') }}" /></span>
                         <h1><b>Connect </b> &amp; <b>Engage</b></h1>
@@ -635,24 +516,14 @@
                     </div>
 
                     <ul class="sm-icon" style="padding-left: 2px">
-                        <li><a href="https://www.facebook.com/dewasharif707?mibextid=ZbWKwL" target="_blank"
-                                rel="noopener" class="external none" title="Facebook"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="https://x.com/dewasharif707?t=V7INlftOKGRvkXpyxt8hcg&s=09" target="_blank"
-                                rel="noopener" class="external none" title="Twitter"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="https://www.instagram.com/masharrat_bin_barkat/"
-                                target="_blank" rel="noopener" class="external none" title="Instagram"><i
-                                    class="fa fa-instagram"></i></a></li>
-                        <li><a href="https://www.youtube.com/@DewaSharif707" target="_blank" rel="noopener"
-                                class="external none" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a href="https://www.facebook.com/dewasharif707?mibextid=ZbWKwL" target="_blank" rel="noopener" class="external none" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://x.com/dewasharif707?t=V7INlftOKGRvkXpyxt8hcg&s=09" target="_blank" rel="noopener" class="external none" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener" class="external none" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.youtube.com/@DewaSharif707" target="_blank" rel="noopener" class="external none" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
                         <li>
-                            <a href="#" target="_blank" rel="noopener" class="external none"
-                                title="UP Tourism Blog" style="position: relative;">
-                                <img src="{{ asset('home/images/blog.png') }}"
-                                    style="filter: contrast(0%) brightness(20%); width: 74px;" />
-                                <span
-                                    style="position: absolute; font-size: 10px; color: #000; left: 0; right: -28px; bottom: -10px; text-transform: uppercase; font-weight: 800;">blog</span>
+                            <a href="#" target="_blank" rel="noopener" class="external none" title="UP Tourism Blog" style="position: relative;">
+                                <img src="{{ asset('home/images/blog.png') }}" style="filter: contrast(0%) brightness(20%); width: 74px;" />
+                                <span style="position: absolute; font-size: 10px; color: #000; left: 0; right: -28px; bottom: -10px; text-transform: uppercase; font-weight: 800;">blog</span>
                             </a>
                         </li>
                     </ul>
@@ -667,10 +538,8 @@
     <section id="branding">
         <div class="container">
             <div class="title">
-                <h1 style="color: #074121"><b>Mother's Love</b> is the <b>Fragrance</b> of <b>Jannat</b> <i><b>- MASHARRAT WARSI
-                        </b></i></h1>
+                <h1 style="color: #074121"><b>Mother's Love</b> is the <b>Fragrance</b> of <b>Jannat</b> <i><b>- MASHARRAT WARSI</b></i></h1>
             </div>
-
         </div>
     </section>
 @endsection
