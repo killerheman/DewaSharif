@@ -8,7 +8,7 @@
             <div class="footer-column">
                 <div class="row">
 
-                    <!-- Col 1: Contact Info & Local SEO Entity -->
+                    <!-- Col 1: Contact Info & Local Guidance Entity -->
                     <div class="col-md-3 col-sm-6">
                         <h3 class="footer-heading">Contact Info</h3>
                         <ul class="connect_new">
@@ -49,9 +49,9 @@
                                 <h3 class="footer-heading">Services &amp; Stay</h3>
                                 <ul class="f-link">
                                     <li><a href="{{ route('guesthouse') }}">Hotels &amp; Guest House</a></li>
-                                    <li><a href="https://wa.me/919999999999?text=Assalam%20Alaikum,%20Mujhe%20Dewa%20Sharif%20me%20Cab%20Taxi%20booking%20chahiye" target="_blank" rel="noopener">Lucknow - Dewa Cab</a></li>
-                                    <li><a href="https://wa.me/919999999999?text=Assalam%20Alaikum,%20Mujhe%20Biryani%20Degh%20aur%20Chadar%20peshi%20karwani%20hai" target="_blank" rel="noopener">Degh Niyaz &amp; Chadar</a></li>
-                                    <li><a href="https://wa.me/919999999999?text=Assalam%20Alaikum,%20Mujhe%20Warsi%20Attar%20aur%20Tasbih%20chahiye" target="_blank" rel="noopener">Warsi Attar &amp; Tasbih</a></li>
+                                    <li><a href="https://wa.me/919648777223?text=Assalam%20Alaikum,%20Mujhe%20Dewa%20Sharif%20me%20Cab%20Taxi%20booking%20chahiye" target="_blank" rel="noopener">Lucknow - Dewa Cab</a></li>
+                                    <li><a href="https://wa.me/919648777223?text=Assalam%20Alaikum,%20Mujhe%20Biryani%20Degh%20aur%20Chadar%20peshi%20karwani%20hai" target="_blank" rel="noopener">Degh Niyaz &amp; Chadar</a></li>
+                                    <li><a href="https://wa.me/919648777223?text=Assalam%20Alaikum,%20Mujhe%20Warsi%20Attar%20aur%20Tasbih%20chahiye" target="_blank" rel="noopener">Warsi Attar &amp; Tasbih</a></li>
                                     <li><a href="{{ route('mela') }}">Dewa Mela 2026 Dates</a></li>
                                     <li><a href="{{ route('langarkhana') }}">Langarkhana &amp; Tabarruk</a></li>
                                 </ul>
@@ -91,11 +91,20 @@
                 <div class="row">
                     <div class="col-md-9">
                         <p style="line-height: 1.7; font-size: 13.5px; color: #ffffff;">
-                            Official informational guide and pilgrimage directory of <strong>Dewa Sharif, Barabanki, Uttar Pradesh, India</strong>. Dedicated to the universal Sufi teachings of <strong>Hazrat Haji Waris Ali Shah (R.A.)</strong>, <strong>Dewa Mela 2026</strong> updates, hotels, travel cabs from Lucknow, Degh Niyaz, and Islamic heritage.<br>
-                            Content on this website is published and managed by
-                            <strong class="color-toggle-yellow">SHAHZADE ALAM [Masharrat Warsi]</strong>, Dewa Sharif.<br>
-                            For any Business, Advertisement, Hotel Listing, Suggestion or Complaint, please contact us:
+                            Informational guide and pilgrimage assistance portal for visitors traveling to <strong>Dewa Sharif, Barabanki, Uttar Pradesh, India</strong>. Dedicated to the universal Sufi teachings of <strong>Hazrat Haji Waris Ali Shah (R.A.)</strong>, <strong>Dewa Mela 2026</strong> updates, nearby accommodations, travel cabs from Lucknow, and ziyarat guidance.<br>
+                            Content on this website is voluntarily created and independently managed by
+                            <strong class="color-toggle-yellow">SHAHZADE ALAM [Masharrat Warsi]</strong>, Dewa Sharif.
                         </p>
+
+                        <!-- Legal Safe Notice & Safe Harbor Clause -->
+                        <div style="background: rgba(0, 0, 0, 0.45); border-left: 3px solid #ffeb3b; padding: 10px 14px; margin: 12px 0; border-radius: 4px;">
+                            <p style="margin: 0; line-height: 1.6; font-size: 12px; color: #f0f0f0;">
+                                <strong style="color: #ffeb3b;">LEGAL NOTICE &amp; DISCLAIMER:</strong> This is a privately run, independent community facilitation portal. It is <strong>NOT</strong> an official portal of, nor run by, nor affiliated with the <strong>Official Dargah Committee, Trust, Waqf Board, or any Government Administration</strong>. We do not claim official authority nor collect any official religious donations on their behalf.
+                            </p>
+                            <p style="margin: 6px 0 0 0; line-height: 1.5; font-size: 11.5px; color: #00e676;">
+                                <strong>Grievance &amp; Content Clarification:</strong> All information is provided in good faith for visitor convenience. If any authority, trust, or individual has any concern, suggestion, copyright inquiry, or objection regarding any content or photo, please write to us immediately at our direct email. We will address, correct, or promptly remove the content within 24 to 48 hours without dispute.
+                            </p>
+                        </div>
 
                         <!-- Social Handles -->
                         <div style="margin: 12px 0;">
@@ -112,19 +121,19 @@
                             </a>
                         </div>
 
-                        <strong style="color: #ffffff;">Direct Email:</strong>
+                        <strong style="color: #ffffff;">Direct Email for Inquiries &amp; Grievances:</strong>
                         <a href="mailto:shahzade.alam707@gmail.com" class="color-toggle-yellow footer-link">
                             shahzade.alam707@gmail.com
                         </a>
 
-                        <!-- High Visibility Update Line (Pehle Green -> Hover par Yellow) -->
+                        <!-- High Visibility Update Line -->
                         <p class="mt-2 color-toggle-green" style="font-size: 14px; font-weight: 700; letter-spacing: 0.4px; margin-top: 10px; cursor: pointer;">
-                            Last Updated On: September 2026 7:07 PM | Portal Focus: Dewa Sharif, Sufism &amp; Universal Peace
+                            Last Updated On: September 2026 | Portal Focus: Dewa Sharif Visitor Guidance &amp; Universal Peace
                         </p>
                     </div>
 
                     <div class="col-md-3 text-right">
-                        <!-- Live Visitors Box (Border/Number Green -> Hover par Yellow) -->
+                        <!-- Live Visitors Box -->
                         <div class="live-visitor-box">
                             <strong class="color-toggle-yellow" style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Live Visitors</strong><br>
                             <span class="visitor-count">786,707</span>
@@ -132,7 +141,7 @@
                     </div>
                 </div>
 
-                <!-- Clean Visible Middle Divider (Pehle Yellow -> Hover par Green) -->
+                <!-- Clean Visible Middle Divider -->
                 <hr class="divider-toggle" style="border: 0; height: 1.5px; margin: 20px 0;">
 
                 <div class="row text-center" style="font-size: 13.5px; color: #ffffff;">
@@ -144,13 +153,13 @@
                                     dewasharif.com
                                 </a>
                             </strong>.
-                            All Rights Reserved.
+                            (Independent Private Portal). All Rights Reserved.
                         </span>
 
                         <span class="mx-2 color-toggle-green">|</span>
 
                         <span>
-                            Designed &amp; Developed by
+                            Designed &amp; Managed by
                             <strong>
                                 <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener"
                                     class="color-toggle-green footer-link">
