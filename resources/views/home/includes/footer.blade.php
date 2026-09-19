@@ -136,7 +136,7 @@
                         <!-- Live Visitors Box -->
                         <div class="live-visitor-box">
                             <strong class="color-toggle-yellow" style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Live Visitors</strong><br>
-                            <span class="visitor-count">786,707</span>
+                            <span class="visitor-count">786707</span>
                         </div>
                     </div>
                 </div>
