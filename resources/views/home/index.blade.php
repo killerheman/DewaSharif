@@ -505,14 +505,13 @@
         </div>
     </section>
 
+    <!-- CONNECT SECTION -->
     <section id="connect">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center title">
-                        <span class="arrow1"><img src="{{ asset('home/images/arrow1.png') }}" /></span>
                         <h1><b>Connect </b> &amp; <b>Engage</b></h1>
-                        <span class="arrow2"><img src="{{ asset('home/images/arrow2.png') }}" /></span>
                     </div>
 
                     <ul class="sm-icon" style="padding-left: 2px">
@@ -542,4 +541,5 @@
             </div>
         </div>
     </section>
+
 @endsection
