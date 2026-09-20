@@ -32,7 +32,7 @@
                 <h2 style="font-size: 36px; font-weight: 900; color: #ffeb3b; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 16px rgba(255, 235, 59, 0.7); display: flex; align-items: center; justify-content: center; gap: 10px;">
                     <span>🌹</span><span>COMING SOON</span> <span>🌹</span>
                 </h2>
-                <p style="color: #00e676; font-size: 16px; margin: 5px 0 0 0; font-weight: 700;">
+                <p style="color: #00e676; font-size: 16px; margin: 10px 0 0 0; font-weight: 700;">
                     Online Prebooking &amp; travel assistance jald hi shuru hogi! InshaAllah
                 </p>
             </div>
