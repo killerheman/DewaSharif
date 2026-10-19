@@ -599,12 +599,6 @@ class HomeController extends Controller
         return view('home.dewa.safayiheroes');
     }
 
-    public function creater()
-    {
-        return view('home.islam.makkah.allah');
-    }
-
-
     // Aulia-Allah
 
     public function baghdad()
