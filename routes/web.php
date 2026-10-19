@@ -45,21 +45,24 @@ Route::get('/api/location/countries', [LocationController::class, 'getCountries'
 Route::get('/api/location/states/{country}', [LocationController::class, 'getStates'])->name('api.states');
 Route::get('/api/location/cities/{state}', [LocationController::class, 'getCities'])->name('api.cities');
 Route::get('/debug-ping', function () {
-    $user4 = null;
-    $usersCount = 0;
+    $dbError = null;
+    $dbConnected = false;
     try {
-        if (\Illuminate\Support\Facades\Schema::hasTable('users')) {
-            $user4 = \Illuminate\Support\Facades\DB::table('users')->where('id', 4)->first();
-            $usersCount = \Illuminate\Support\Facades\DB::table('users')->count();
-        }
+        \Illuminate\Support\Facades\DB::connection()->getPdo();
+        $dbConnected = true;
     } catch (\Throwable $e) {
-        $user4 = $e->getMessage();
+        $dbError = $e->getMessage();
     }
+
     return response()->json([
         'status' => 'ok',
-        'build' => 'v2_login_fix',
-        'users_count' => $usersCount,
-        'user4' => $user4,
+        'build' => 'v3_check_db',
+        'db_connected' => $dbConnected,
+        'db_error' => $dbError,
+        'pdo_drivers' => \PDO::getAvailableDrivers(),
+        'env_db_database' => env('DB_DATABASE'),
+        'env_db_username' => env('DB_USERNAME'),
+        'env_db_host' => env('DB_HOST'),
     ]);
 });
 Route::get('/sitemap.xml', function () {
