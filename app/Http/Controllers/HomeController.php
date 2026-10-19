@@ -8,11 +8,18 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $shopCategories = \Illuminate\Support\Facades\DB::table('shop_categories')
-            ->where('status', 'active')
-            ->orderBy('order_num', 'asc')
-            ->orderBy('id', 'asc')
-            ->get();
+        $shopCategories = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
+                $shopCategories = \Illuminate\Support\Facades\DB::table('shop_categories')
+                    ->where('status', 'active')
+                    ->orderBy('order_num', 'asc')
+                    ->orderBy('id', 'asc')
+                    ->get();
+            }
+        } catch (\Throwable $e) {
+            $shopCategories = collect();
+        }
 
         return view('home.index', compact('shopCategories'));
     }
@@ -152,12 +159,19 @@ class HomeController extends Controller
     public function hotels()
     {
         $hotels = \App\Helpers\DataStore::getCollection('hotels');
-        $hotelReviews = \Illuminate\Support\Facades\DB::table('reviews')
-            ->where('service_type', 'hotel')
-            ->where('status', 'approved')
-            ->orderBy('created_at', 'desc')
-            ->take(6)
-            ->get();
+        $hotelReviews = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('reviews')) {
+                $hotelReviews = \Illuminate\Support\Facades\DB::table('reviews')
+                    ->where('service_type', 'hotel')
+                    ->where('status', 'approved')
+                    ->orderBy('created_at', 'desc')
+                    ->take(6)
+                    ->get();
+            }
+        } catch (\Throwable $e) {
+            $hotelReviews = collect();
+        }
         return view('home.hotels.hotel', compact('hotels', 'hotelReviews'));
     }
 
@@ -268,12 +282,19 @@ class HomeController extends Controller
             'contact_phone' => '+91 9648777223',
             'details' => 'Electric E-Rickshaw service for local shrine visits, Dargah Sharif tours, bazaar shopping & railway station connectivity.'
         ];
-        $cabReviews = \Illuminate\Support\Facades\DB::table('reviews')
-            ->where('service_type', 'cab')
-            ->where('status', 'approved')
-            ->orderBy('created_at', 'desc')
-            ->take(6)
-            ->get();
+        $cabReviews = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('reviews')) {
+                $cabReviews = \Illuminate\Support\Facades\DB::table('reviews')
+                    ->where('service_type', 'cab')
+                    ->where('status', 'approved')
+                    ->orderBy('created_at', 'desc')
+                    ->take(6)
+                    ->get();
+            }
+        } catch (\Throwable $e) {
+            $cabReviews = collect();
+        }
         return view('home.cabs.cab', compact('cabs', 'vehicles', 'erickshaw', 'locations', 'cabReviews'));
     }
 
@@ -361,7 +382,15 @@ class HomeController extends Controller
             return redirect()->route('shops.category', 'degh');
         }
 
-        $dbProducts = \Illuminate\Support\Facades\DB::table('shop_products')->get()->keyBy('id');
+        $dbProducts = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_products')) {
+                $dbProducts = \Illuminate\Support\Facades\DB::table('shop_products')->get()->keyBy('id');
+            }
+        } catch (\Throwable $e) {
+            $dbProducts = collect();
+        }
+
         foreach ($allProducts as &$p) {
             $pId = $p['id'] ?? null;
             if ($pId && isset($dbProducts[$pId])) {
@@ -395,18 +424,32 @@ class HomeController extends Controller
             $products = $allProducts;
         }
 
-        $categories = \Illuminate\Support\Facades\DB::table('shop_categories')
-            ->where('status', 'active')
-            ->orderBy('order_num', 'asc')
-            ->orderBy('id', 'asc')
-            ->get();
+        $categories = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
+                $categories = \Illuminate\Support\Facades\DB::table('shop_categories')
+                    ->where('status', 'active')
+                    ->orderBy('order_num', 'asc')
+                    ->orderBy('id', 'asc')
+                    ->get();
+            }
+        } catch (\Throwable $e) {
+            $categories = collect();
+        }
 
-        $shopReviews = \Illuminate\Support\Facades\DB::table('reviews')
-            ->where('service_type', 'shop')
-            ->where('status', 'approved')
-            ->orderBy('created_at', 'desc')
-            ->take(6)
-            ->get();
+        $shopReviews = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('reviews')) {
+                $shopReviews = \Illuminate\Support\Facades\DB::table('reviews')
+                    ->where('service_type', 'shop')
+                    ->where('status', 'approved')
+                    ->orderBy('created_at', 'desc')
+                    ->take(6)
+                    ->get();
+            }
+        } catch (\Throwable $e) {
+            $shopReviews = collect();
+        }
 
         return view('home.shops.shop', compact('products', 'selectedCategory', 'allProducts', 'categories', 'shopReviews'));
     }
@@ -415,7 +458,14 @@ class HomeController extends Controller
     public function shopProductDetail($slug)
     {
         $allProducts = \App\Helpers\DataStore::getCollection('products');
-        $dbProducts = \Illuminate\Support\Facades\DB::table('shop_products')->get()->keyBy('id');
+        $dbProducts = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_products')) {
+                $dbProducts = \Illuminate\Support\Facades\DB::table('shop_products')->get()->keyBy('id');
+            }
+        } catch (\Throwable $e) {
+            $dbProducts = collect();
+        }
 
         // Sync stock & real-time fields
         foreach ($allProducts as &$p) {
@@ -446,15 +496,19 @@ class HomeController extends Controller
         }
 
         if (!$matched) {
-            $dbItem = \Illuminate\Support\Facades\DB::table('shop_products')
-                ->where('slug', $slug)
-                ->orWhere('id', is_numeric($slug) ? (int)$slug : 0)
-                ->first();
-            if ($dbItem) {
-                $matched = (array)$dbItem;
-                $matched['image'] = $matched['thumbnail'] ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg';
-                $matched['category'] = $matched['category_slug'] ?? 'attar';
-            }
+            try {
+                if (\Illuminate\Support\Facades\Schema::hasTable('shop_products')) {
+                    $dbItem = \Illuminate\Support\Facades\DB::table('shop_products')
+                        ->where('slug', $slug)
+                        ->orWhere('id', is_numeric($slug) ? (int)$slug : 0)
+                        ->first();
+                    if ($dbItem) {
+                        $matched = (array)$dbItem;
+                        $matched['image'] = $matched['thumbnail'] ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg';
+                        $matched['category'] = $matched['category_slug'] ?? 'attar';
+                    }
+                }
+            } catch (\Throwable $e) {}
         }
 
         if (!$matched && !empty($allProducts[0])) {
@@ -469,19 +523,33 @@ class HomeController extends Controller
             return redirect()->route('shops.category', 'degh');
         }
 
-        $category = \Illuminate\Support\Facades\DB::table('shop_categories')->where('slug', $categorySlug)->first();
+        $category = null;
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
+                $category = \Illuminate\Support\Facades\DB::table('shop_categories')->where('slug', $categorySlug)->first();
+            }
+        } catch (\Throwable $e) {
+            $category = null;
+        }
 
         // Related products in the same category
         $relatedProducts = array_values(array_filter($allProducts, function($item) use ($categorySlug, $product) {
             return ($item['category'] ?? '') === $categorySlug && ($item['id'] ?? 0) != ($product['id'] ?? 0);
         }));
 
-        $shopReviews = \Illuminate\Support\Facades\DB::table('reviews')
-            ->where('service_type', 'shop')
-            ->where('status', 'approved')
-            ->orderBy('created_at', 'desc')
-            ->take(6)
-            ->get();
+        $shopReviews = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('reviews')) {
+                $shopReviews = \Illuminate\Support\Facades\DB::table('reviews')
+                    ->where('service_type', 'shop')
+                    ->where('status', 'approved')
+                    ->orderBy('created_at', 'desc')
+                    ->take(6)
+                    ->get();
+            }
+        } catch (\Throwable $e) {
+            $shopReviews = collect();
+        }
 
         return view('home.shops.product_detail', compact('product', 'category', 'relatedProducts', 'shopReviews'));
     }
@@ -1877,7 +1945,13 @@ public function faqs()
             return response()->json(['success' => false, 'message' => 'Please enter a coupon code.']);
         }
 
-        $coupon = \Illuminate\Support\Facades\DB::table('coupons')->where('code', $code)->first();
+        $coupon = null;
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('coupons')) {
+                $coupon = \Illuminate\Support\Facades\DB::table('coupons')->where('code', $code)->first();
+            }
+        } catch (\Throwable $e) {}
+
         if ($coupon) {
             $discountPct = (float)($coupon->discount ?? 10);
             $discountVal = round(($subtotal * $discountPct) / 100);
@@ -1925,20 +1999,24 @@ public function faqs()
             return response()->json(['success' => false, 'message' => 'Please provide a comment for your review.'], 422);
         }
 
-        \Illuminate\Support\Facades\DB::table('reviews')->insert([
-            'user_id' => auth()->id() ?? null,
-            'service_type' => in_array($serviceType, ['shop', 'hotel', 'cab']) ? $serviceType : 'shop',
-            'item_id' => $itemId,
-            'item_name' => $itemName,
-            'customer_name' => $name,
-            'customer_phone' => $phone,
-            'rating' => $rating,
-            'title' => $title,
-            'comment' => $comment,
-            'status' => 'approved',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('reviews')) {
+                \Illuminate\Support\Facades\DB::table('reviews')->insert([
+                    'user_id' => auth()->id() ?? null,
+                    'service_type' => in_array($serviceType, ['shop', 'hotel', 'cab']) ? $serviceType : 'shop',
+                    'item_id' => $itemId,
+                    'item_name' => $itemName,
+                    'customer_name' => $name,
+                    'customer_phone' => $phone,
+                    'rating' => $rating,
+                    'title' => $title,
+                    'comment' => $comment,
+                    'status' => 'approved',
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+            }
+        } catch (\Throwable $e) {}
 
         return response()->json([
             'success' => true,
@@ -1960,19 +2038,23 @@ public function faqs()
             return response()->json(['success' => false, 'message' => 'Please enter your feedback message.'], 422);
         }
 
-        \Illuminate\Support\Facades\DB::table('feedbacks')->insert([
-            'user_id' => auth()->id() ?? null,
-            'service_type' => in_array($serviceType, ['shop', 'hotel', 'cab', 'general']) ? $serviceType : 'general',
-            'customer_name' => $name,
-            'customer_phone' => $phone,
-            'customer_email' => $email,
-            'subject' => $subject,
-            'message' => $message,
-            'rating' => $rating,
-            'status' => 'new',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('feedbacks')) {
+                \Illuminate\Support\Facades\DB::table('feedbacks')->insert([
+                    'user_id' => auth()->id() ?? null,
+                    'service_type' => in_array($serviceType, ['shop', 'hotel', 'cab', 'general']) ? $serviceType : 'general',
+                    'customer_name' => $name,
+                    'customer_phone' => $phone,
+                    'customer_email' => $email,
+                    'subject' => $subject,
+                    'message' => $message,
+                    'rating' => $rating,
+                    'status' => 'new',
+                    'created_at' => now(),
+                    'updated_at' => now()
+                ]);
+            }
+        } catch (\Throwable $e) {}
 
         return response()->json([
             'success' => true,
