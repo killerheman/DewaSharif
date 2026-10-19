@@ -11,9 +11,97 @@
 @section('content')
     <div style="background: #f4f6f8; padding-bottom: 60px; min-height: 90vh;">
 
+        <style>
+            .cab-hero-section {
+                background: linear-gradient(180deg, rgba(5, 44, 22, 0.48) 0%, rgba(3, 25, 13, 0.72) 100%), url('{{ asset('home/images/dewasharif/dewapage/hero_cab_bg.jpg') }}') center/cover no-repeat;
+                color: #ffffff;
+                padding: 50px 16px 70px 16px;
+                text-align: center;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                position: relative;
+                box-sizing: border-box;
+            }
+            .cab-hero-title {
+                font-weight: 900;
+                font-size: 38px;
+                margin-top: 10px;
+                margin-bottom: 8px;
+                color: #ffea00;
+                text-shadow: 0 3px 8px rgba(0,0,0,0.95);
+                letter-spacing: -0.5px;
+                word-break: break-word;
+            }
+            .cab-hero-sub {
+                font-size: 20.5px;
+                font-weight: 900;
+                color: #ffffff;
+                margin-bottom: 6px;
+                text-shadow: 0 3px 8px rgba(0,0,0,0.95);
+                letter-spacing: 0.4px;
+                word-break: break-word;
+            }
+            .cab-hero-desc {
+                font-size: 15.5px;
+                color: #ffffff;
+                max-width: 780px;
+                margin: 10px auto 0 auto;
+                line-height: 1.6;
+                font-weight: 600;
+                text-shadow: 0 2px 6px rgba(0,0,0,0.85);
+                padding: 0 8px;
+                word-break: break-word;
+            }
+            .cab-booking-box {
+                background: #ffffff;
+                border-radius: 14px;
+                padding: 25px 28px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+                border: 1.5px solid #cbd5e1;
+                margin-bottom: 30px;
+                box-sizing: border-box;
+            }
+            @media (max-width: 768px) {
+                .cab-hero-section {
+                    padding: 38px 12px 55px 12px !important;
+                }
+                .cab-hero-title {
+                    font-size: 22px !important;
+                    line-height: 1.35 !important;
+                }
+                .cab-hero-sub {
+                    font-size: 14.5px !important;
+                    line-height: 1.45 !important;
+                }
+                .cab-hero-desc {
+                    font-size: 13px !important;
+                    line-height: 1.5 !important;
+                    padding: 0 4px !important;
+                }
+                .cab-booking-box {
+                    padding: 16px 12px !important;
+                }
+            }
+            @media (max-width: 360px) {
+                .cab-hero-section {
+                    padding: 30px 8px 45px 8px !important;
+                }
+                .cab-hero-title {
+                    font-size: 19px !important;
+                }
+                .cab-hero-sub {
+                    font-size: 13px !important;
+                }
+                .cab-hero-desc {
+                    font-size: 12px !important;
+                }
+                .cab-booking-box {
+                    padding: 12px 8px !important;
+                }
+            }
+        </style>
+
         <!-- TOP HERO BANNER -->
-        <div
-            style="background: linear-gradient(180deg, rgba(5, 44, 22, 0.48) 0%, rgba(3, 25, 13, 0.72) 100%), url('{{ asset('home/images/dewasharif/dewapage/hero_cab_bg.jpg') }}') center/cover no-repeat; color: #ffffff; padding: 50px 0 70px 0; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative;">
+        <div class="cab-hero-section">
             <div class="container">
                 <div style="margin-bottom: 12px;">
                     <span
@@ -22,16 +110,13 @@
                     </span>
                 </div>
 
-                <h1
-                    style="font-weight: 900; font-size: 38px; margin-top: 10px; margin-bottom: 8px; color: #ffea00; text-shadow: 0 3px 8px rgba(0,0,0,0.95); letter-spacing: -0.5px;">
+                <h1 class="cab-hero-title">
                     Dewa Sharif - Lucknow - Dewa Sharif
                 </h1>
-                <div style="font-size: 20.5px; font-weight: 900; color: #ffffff; margin-bottom: 6px; text-shadow: 0 3px 8px rgba(0,0,0,0.95); letter-spacing: 0.4px;">
+                <div class="cab-hero-sub">
                     Station , Airport &amp; Outstation Cabs | Lucknow &amp; Outstation Tour Booking Cabs
                 </div>
-                <p
-                    style="font-size: 15.5px; color: #ffffff; max-width: 780px; margin: 10px auto 0 auto; line-height: 1.6; font-weight: 600; text-shadow: 0 2px 6px rgba(0,0,0,0.85);">
-                    <!-- <center style="font-weight: 900; color: #ffffff; font-size: 17px; text-shadow: 0 3px 8px rgba(0,0,0,0.95); margin-bottom: 4px;">Lucknow, Barabanki, Kanpur.</center> -->
+                <p class="cab-hero-desc">
                     <span style="color: #ffffff; font-weight: 700; text-shadow: 0 2px 6px rgba(0,0,0,0.85);">24/7 fixed fare cab &amp; auto booking. Zero surge pricing also in Dewa Sharif Urs/mela season.</span>
                 </p>
             </div>
@@ -40,8 +125,7 @@
         <div class="container" style="margin-top: -35px; position: relative; z-index: 10;">
 
             <!-- STANDARD FARE CALCULATOR & BOOKING BOX -->
-            <div
-                style="background: #ffffff; border-radius: 14px; padding: 25px 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 1.5px solid #cbd5e1; margin-bottom: 30px;">
+            <div class="cab-booking-box">
                 @php
                     $standardLocations = [
                         'Dewa Sharif',
@@ -280,8 +364,37 @@
                 $eStatus = strtolower($erickshaw['status'] ?? 'active');
             @endphp
             <div class="col-12 mb-5">
-                <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border-radius: 16px; border: 2px solid #f59e0b; padding: 28px 32px; box-shadow: 0 8px 25px rgba(245, 158, 11, 0.18); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
-                    <div style="flex: 1; min-width: 300px;">
+                <style>
+                    .cab-erickshaw-box {
+                        background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+                        border-radius: 16px;
+                        border: 2px solid #f59e0b;
+                        padding: 28px 32px;
+                        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.18);
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 20px;
+                        box-sizing: border-box;
+                    }
+                    .cab-erickshaw-content {
+                        flex: 1;
+                        min-width: 280px;
+                    }
+                    @media (max-width: 768px) {
+                        .cab-erickshaw-box {
+                            padding: 20px 14px !important;
+                            gap: 14px !important;
+                        }
+                        .cab-erickshaw-content {
+                            min-width: 0 !important;
+                            width: 100% !important;
+                        }
+                    }
+                </style>
+                <div class="cab-erickshaw-box">
+                    <div class="cab-erickshaw-content">
                         <div style="display: inline-block; background: #ffffff; color: #15803d; border: 1.5px solid #16a34a; font-size: 11.5px; font-weight: 900; padding: 5px 16px; border-radius: 20px; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px; box-shadow: 0 2px 6px rgba(22,163,74,0.12);">
                             🛺 LOCAL TRANSPORT (ONLY DEWA SHARIF SHRINE)
                         </div>
@@ -426,21 +539,123 @@
             </div>
 
             <!-- CAB REVIEWS & PASSENGER EXPERIENCES SECTION -->
-            <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
-                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-                    <div>
-                        <h4 style="font-weight: 900; color: #074121; margin: 0; font-size: 22px;">
+            <style>
+                .cab-reviews-container {
+                    margin-top: 50px;
+                    padding-top: 30px;
+                    border-top: 2px solid #e2e8f0;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    box-sizing: border-box;
+                }
+                .cab-reviews-header-box {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    margin-bottom: 24px;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                .cab-reviews-title-box {
+                    flex: 1 1 auto;
+                }
+                .cab-reviews-title {
+                    font-weight: 900;
+                    color: #074121;
+                    margin: 0;
+                    font-size: 22px;
+                    word-break: break-word;
+                }
+                .cab-reviews-desc {
+                    margin: 4px 0 0 0;
+                    color: #64748b;
+                    font-size: 13.5px;
+                    font-weight: 600;
+                    word-break: break-word;
+                }
+                .cab-reviews-actions {
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    flex-shrink: 0;
+                }
+                .cab-reviews-btn {
+                    font-weight: 800;
+                    font-size: 13px;
+                    padding: 8px 16px;
+                    border-radius: 25px;
+                    white-space: nowrap;
+                    text-align: center;
+                    cursor: pointer;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                @media (max-width: 768px) {
+                    .cab-reviews-container {
+                        padding-left: 4px;
+                        padding-right: 4px;
+                        margin-top: 35px;
+                        padding-top: 20px;
+                    }
+                    .cab-reviews-header-box {
+                        flex-direction: column !important;
+                        align-items: flex-start !important;
+                        gap: 12px !important;
+                        margin-bottom: 18px !important;
+                    }
+                    .cab-reviews-title-box {
+                        width: 100% !important;
+                    }
+                    .cab-reviews-title {
+                        font-size: 18px !important;
+                        line-height: 1.3 !important;
+                    }
+                    .cab-reviews-desc {
+                        font-size: 12.5px !important;
+                        line-height: 1.4 !important;
+                    }
+                    .cab-reviews-actions {
+                        width: 100% !important;
+                        display: flex !important;
+                        gap: 8px !important;
+                    }
+                    .cab-reviews-btn {
+                        flex: 1 1 0% !important;
+                        width: 48% !important;
+                        font-size: 11.5px !important;
+                        padding: 8px 8px !important;
+                        box-sizing: border-box !important;
+                    }
+                }
+                @media (max-width: 340px) {
+                    .cab-reviews-actions {
+                        flex-direction: column !important;
+                    }
+                    .cab-reviews-btn {
+                        width: 100% !important;
+                    }
+                }
+            </style>
+
+            <div class="cab-reviews-container">
+                <div class="cab-reviews-header-box">
+                    <div class="cab-reviews-title-box">
+                        <h4 class="cab-reviews-title">
                             ⭐ Passenger Reviews &amp; Taxi Experiences
                         </h4>
-                        <p style="margin: 4px 0 0 0; color: #64748b; font-size: 13.5px; font-weight: 600;">
+                        <p class="cab-reviews-desc">
                             Verified reviews from pilgrims using Dewa Sharif airport, station &amp; local cab duties
                         </p>
                     </div>
-                    <div class="d-flex gap-2">
-                        <button type="button" class="btn btn-sm btn-warning font-weight-bold px-3 py-2 rounded-pill shadow-xs text-dark" onclick="openCabReviewModal()" data-toggle="modal" data-target="#writeCabReviewModal" data-bs-toggle="modal" data-bs-target="#writeCabReviewModal" style="background: #f59e0b; border: none; font-weight: 800;">
+                    <div class="cab-reviews-actions">
+                        <button type="button" class="btn btn-warning cab-reviews-btn text-dark" onclick="openCabReviewModal()" data-toggle="modal" data-target="#writeCabReviewModal" data-bs-toggle="modal" data-bs-target="#writeCabReviewModal" style="background: #f59e0b; border: none; font-weight: 800;">
                             ✍️ Write Cab Review
                         </button>
-                        <button type="button" class="btn btn-sm btn-outline-warning font-weight-bold px-3 py-2 rounded-pill text-dark" onclick="openCabFeedbackModal()" data-toggle="modal" data-target="#sendCabFeedbackModal" data-bs-toggle="modal" data-bs-target="#sendCabFeedbackModal" style="font-weight: 800;">
+                        <button type="button" class="btn btn-outline-warning cab-reviews-btn text-dark" onclick="openCabFeedbackModal()" data-toggle="modal" data-target="#sendCabFeedbackModal" data-bs-toggle="modal" data-bs-target="#sendCabFeedbackModal" style="border: 1.5px solid #f59e0b; background: #ffffff; font-weight: 800;">
                             💬 Send Feedback
                         </button>
                     </div>

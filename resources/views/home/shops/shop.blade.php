@@ -15,25 +15,129 @@
         <div style="height: 60px; width: 100%;"></div>
 
         <!-- TOP ANNOUNCEMENT BAR -->
-        <div
-            style="background: #111827; color: #f59e0b; padding: 10px 0; font-size: 13px; font-weight: 700; text-align: center; border-bottom: 2px solid #f59e0b; letter-spacing: 0.5px;">
+        <div class="shop-announcement-bar"
+            style="background: #111827; color: #f59e0b; padding: 10px 14px; font-size: 13px; font-weight: 700; text-align: center; border-bottom: 2px solid #f59e0b; letter-spacing: 0.5px; box-sizing: border-box;">
             🚚 Shipping Across India on Orders | 100% Guaranteed Sacred &amp; Original Quality
         </div>
 
+        <style>
+            .shop-hero-section {
+                background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(17, 24, 39, 0.88)), url('{{ asset('home/images/dewasharif/dewapage/hero_shop_bg.jpg') }}') center/cover no-repeat;
+                color: #ffffff;
+                padding: 55px 16px 70px 16px;
+                text-align: center;
+                position: relative;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                box-sizing: border-box;
+            }
+            .shop-hero-title {
+                font-weight: 900;
+                font-size: 36px;
+                margin-top: 14px;
+                margin-bottom: 12px;
+                background: linear-gradient(135deg, #0db161ff, #22c55e);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+                word-break: break-word;
+            }
+            .shop-hero-desc {
+                font-size: 16px;
+                color: #e2e8f0;
+                max-width: 760px;
+                margin: 0 auto 24px auto;
+                line-height: 1.6;
+                font-weight: 600;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                padding: 0 10px;
+                word-break: break-word;
+            }
+            .shop-main-container {
+                margin-top: 25px;
+                width: 100%;
+                max-width: 100%;
+                padding-left: 20px;
+                padding-right: 20px;
+                box-sizing: border-box;
+            }
+            @media (max-width: 768px) {
+                .shop-announcement-bar {
+                    padding: 9px 10px !important;
+                    font-size: 11.5px !important;
+                    line-height: 1.4 !important;
+                }
+                .shop-hero-section {
+                    padding: 38px 12px 50px 12px !important;
+                }
+                .shop-hero-title {
+                    font-size: 22px !important;
+                    line-height: 1.3 !important;
+                }
+                .shop-hero-desc {
+                    font-size: 13.5px !important;
+                    line-height: 1.5 !important;
+                    padding: 0 4px !important;
+                    margin-bottom: 18px !important;
+                }
+                .shop-main-container {
+                    padding-left: 12px !important;
+                    padding-right: 12px !important;
+                }
+                #deghNiyazBannerBox {
+                    padding: 20px 14px !important;
+                }
+            }
+            .prod-card-item {
+                box-sizing: border-box !important;
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+            @media (max-width: 768px) {
+                .prod-card-item {
+                    padding-left: 6px !important;
+                    padding-right: 6px !important;
+                    margin-bottom: 20px !important;
+                }
+            }
+            @media (max-width: 360px) {
+                .shop-announcement-bar {
+                    font-size: 10.5px !important;
+                }
+                .shop-hero-section {
+                    padding: 28px 8px 40px 8px !important;
+                }
+                .shop-hero-title {
+                    font-size: 18px !important;
+                }
+                .shop-hero-desc {
+                    font-size: 12px !important;
+                }
+                .shop-main-container {
+                    padding-left: 8px !important;
+                    padding-right: 8px !important;
+                }
+                #deghNiyazBannerBox {
+                    padding: 16px 10px !important;
+                }
+                .prod-card-item {
+                    padding-left: 4px !important;
+                    padding-right: 4px !important;
+                    margin-bottom: 16px !important;
+                }
+            }
+        </style>
+
         <!-- HERO BANNER WITH REAL ORIENTAL SACRED BAZAAR IMAGE BACKGROUND -->
-        <div
-            style="background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(17, 24, 39, 0.88)), url('{{ asset('home/images/dewasharif/dewapage/hero_shop_bg.jpg') }}') center/cover no-repeat; color: #ffffff; padding: 60px 0 75px 0; text-align: center; position: relative; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+        <div class="shop-hero-section">
             <div class="container">
                 <span
                     style="background: #f59e0b; color: #ffffffff; padding: 6px 18px; border-radius: 20px; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; display: inline-block; box-shadow: 0 2px 8px rgba(245,158,11,0.4);">
                     ⭐ Hazrat Waris-e-Pak - Sacred Bazaar
                 </span>
-                <h1
-                    style="font-weight: 900; font-size: 36px; margin-top: 14px; margin-bottom: 12px; background: linear-gradient(135deg, #0db161ff, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 3px 6px rgba(0,0,0,0.3);">
+                <h1 class="shop-hero-title">
                     Dewa Sharif Online E-Commerce Store
                 </h1>
-                <p
-                    style="font-size: 16px; color: #e2e8f0; max-width: 760px; margin: 0 auto 24px auto; line-height: 1.6; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                <p class="shop-hero-desc">
                     Sarkar Waris-e-Pak ke tabarrukat, khushbu-e-attar, chaadar with good fragrance aur mitti ke bartan etc sidhe order karein.
                 </p>
 
@@ -86,7 +190,7 @@
         </div>
 
         <!-- MAIN DYNAMIC PRODUCT CATALOGUE -->
-        <div class="container-fluid" style="margin-top: 25px; width: 100%; max-width: 100%; padding-left: 20px; padding-right: 20px;">
+        <div class="container-fluid shop-main-container">
 
             <!-- UNIFIED LUXURY DEGH NIYAZ HIGHLIGHT CARD -->
             <div id="deghNiyazBannerBox" class="rounded-4 shadow-sm" style="{{ ($selectedCategory ?? '') == 'degh' ? 'display: block;' : 'display: none;' }} width: 100%; background: linear-gradient(135deg, #074121 0%, #047857 55%, #064e3b 100%); color: #ffffff; border: 2px solid #10b981; position: relative; overflow: hidden; margin-bottom: 30px; padding: 35px 40px; box-sizing: border-box;">
@@ -372,21 +476,116 @@
             </div>
 
             <!-- REVIEWS & RATINGS SECTION -->
-            <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
-                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-                    <div>
-                        <h4 style="font-weight: 900; color: #074121; margin: 0; font-size: 22px;">
+            <style>
+                .shop-reviews-wrap {
+                    margin-top: 55px;
+                    padding-top: 25px;
+                    border-top: 2px solid #e2e8f0;
+                    box-sizing: border-box;
+                    width: 100%;
+                }
+                .shop-reviews-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                    margin-bottom: 22px;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                .shop-reviews-title-box {
+                    flex: 1 1 300px;
+                }
+                .shop-reviews-title {
+                    font-weight: 900;
+                    color: #074121;
+                    margin: 0;
+                    font-size: 22px;
+                    line-height: 1.3;
+                    word-break: break-word;
+                }
+                .shop-reviews-desc {
+                    margin: 4px 0 0 0;
+                    color: #64748b;
+                    font-size: 13.5px;
+                    font-weight: 600;
+                    line-height: 1.4;
+                    word-break: break-word;
+                }
+                .shop-reviews-btn-box {
+                    display: flex;
+                    gap: 8px;
+                    flex-wrap: wrap;
+                    flex-shrink: 0;
+                }
+                .shop-reviews-btn {
+                    font-weight: 800;
+                    font-size: 13px;
+                    padding: 9px 18px;
+                    border-radius: 25px;
+                    white-space: nowrap;
+                    box-sizing: border-box;
+                }
+                @media (max-width: 768px) {
+                    .shop-reviews-wrap {
+                        margin-top: 35px;
+                        padding-top: 18px;
+                    }
+                    .shop-reviews-header {
+                        flex-direction: column !important;
+                        align-items: flex-start !important;
+                        gap: 12px !important;
+                    }
+                    .shop-reviews-title-box {
+                        width: 100% !important;
+                        flex: 1 1 100% !important;
+                    }
+                    .shop-reviews-title {
+                        font-size: 18px !important;
+                    }
+                    .shop-reviews-desc {
+                        font-size: 12.5px !important;
+                    }
+                    .shop-reviews-btn-box {
+                        width: 100% !important;
+                        display: flex !important;
+                        gap: 8px !important;
+                    }
+                    .shop-reviews-btn {
+                        flex: 1 1 48% !important;
+                        width: 48% !important;
+                        text-align: center !important;
+                        font-size: 11.5px !important;
+                        padding: 8px 6px !important;
+                    }
+                }
+                @media (max-width: 340px) {
+                    .shop-reviews-btn-box {
+                        flex-direction: column !important;
+                    }
+                    .shop-reviews-btn {
+                        width: 100% !important;
+                        flex: 1 1 100% !important;
+                    }
+                }
+            </style>
+
+            <div class="shop-reviews-wrap">
+                <div class="shop-reviews-header">
+                    <div class="shop-reviews-title-box">
+                        <h4 class="shop-reviews-title">
                             ⭐ Devotee Reviews &amp; Blessed Experiences
                         </h4>
-                        <p style="margin: 4px 0 0 0; color: #64748b; font-size: 13.5px; font-weight: 600;">
+                        <p class="shop-reviews-desc">
                             Real customer ratings direct from Dewa Sharif Pilgrims &amp; Zaireen
                         </p>
                     </div>
-                    <div class="d-flex gap-2">
-                        <button type="button" class="btn btn-sm btn-gradient-green text-white font-weight-bold px-3 py-2 rounded-pill shadow-xs" data-toggle="modal" data-target="#writeReviewModal">
+                    <div class="shop-reviews-btn-box">
+                        <button type="button" class="btn btn-sm btn-gradient-green text-white shop-reviews-btn shadow-xs" data-toggle="modal" data-target="#writeReviewModal">
                             ✍️ Write a Review
                         </button>
-                        <button type="button" class="btn btn-sm btn-outline-success font-weight-bold px-3 py-2 rounded-pill" data-toggle="modal" data-target="#sendFeedbackModal">
+                        <button type="button" class="btn btn-sm btn-outline-success shop-reviews-btn" data-toggle="modal" data-target="#sendFeedbackModal">
                             💬 Send Feedback
                         </button>
                     </div>

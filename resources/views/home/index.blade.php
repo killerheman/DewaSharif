@@ -400,6 +400,13 @@
     </section>
 
     <section class="important-event">
+        <style>
+            @media (max-width: 767px) {
+                .important-event {
+                    padding: 30px 12px 50px 12px !important;
+                }
+            }
+        </style>
         <div class="container">
             <div class="title">
                 <h1 style="color:#03be64"><b>"یہ ویب سائٹ کسی بھی قسم کے شرک کی نہ اجازت دیتی ہے اور نہ اس کی پیروی کرتی
@@ -530,81 +537,197 @@
             <div class="row">
                 <div class="col-md-10">
                     <h2>"Dewa Sharif:<b> A Legacy of Love, Faith, Spirituality, Humanity, Peace And Devotion"</b></h2>
-                    <ul class="letters" style="display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0;">
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/1.png') }}" alt="DEVOTION"
-                                    title="DEVOTION" /></a>
-                            <p>DEVOTION</p>
-                        </li>
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/2.png') }}" alt="EDUCATION"
-                                    title="EDUCATION" /></a>
-                            <p>EDUCATION</p>
-                        </li>
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/3.png') }}" alt="WARSI"
-                                    title="WARSI" /></a>
-                            <p>WARSI</p>
-                        </li>
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/4.png') }}" alt="AZAAN"
-                                    title="AZAAN" /></a>
-                            <p>AZAAN</p>
-                        </li>
-                    </ul>
-                    <ul class="letters" style="display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0;">
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/5.png') }}" alt="SPRITUALITY"
-                                    title="SPRITUALITY" /></a>
-                            <p>SPRITUALITY</p>
-                        </li>
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/6.png') }}" alt="HUMANITY"
-                                    title="HUMANITY" /></a>
-                            <p>HUMANITY</p>
-                        </li>
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/7.png') }}" alt="AWLIYA"
-                                    title="AWLIYA" /></a>
-                            <p>AWLIYA</p>
-                        </li>
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/8.png') }}" alt="RELIGIOUS"
-                                    title="RELIGIOUS" /></a>
-                            <p>RELIGIOUS</p>
-                        </li>
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/9.png') }}" alt="ISLAM"
-                                    title="ISLAM" /></a>
-                            <p>ISLAM</p>
-                        </li>
-                        <li style="margin-right: 10px;"><a href="#"><img
-                                    src="{{ asset('home/images/dewasharif/10.png') }}" alt="FAITH"
-                                    title="FAITH" /></a>
-                            <p>FAITH</p>
-                        </li>
-                    </ul>
+                    <style>
+                        .letters-wrap-box {
+                            width: 100%;
+                            margin: 15px auto;
+                            text-align: center;
+                            padding: 0 12px;
+                            box-sizing: border-box;
+                        }
+                        .letters-row {
+                            display: flex !important;
+                            justify-content: center !important;
+                            align-items: flex-start !important;
+                            list-style: none !important;
+                            padding: 0 !important;
+                            margin: 0 auto 18px auto !important;
+                            gap: 20px;
+                            flex-wrap: nowrap !important;
+                        }
+                        .letters-row li {
+                            text-align: center;
+                            margin: 0 !important;
+                            padding: 0 2px;
+                            transition: transform 0.3s ease;
+                            flex: 0 0 auto;
+                        }
+                        .letters-row li a {
+                            display: block;
+                            pointer-events: none;
+                        }
+                        .letters-row li img {
+                            height: 120px;
+                            display: block;
+                            margin: 5px auto;
+                            max-width: 100%;
+                            object-fit: contain;
+                        }
+                        .letters-row li p {
+                            color: #005c29;
+                            font-size: 13px;
+                            font-weight: 700;
+                            text-align: center;
+                            margin-top: 4px;
+                            letter-spacing: 0.4px;
+                        }
+                        .letters-row li:hover {
+                            transform: translateY(-8px);
+                        }
+                        @media (max-width: 991px) {
+                            .letters-row {
+                                gap: 14px;
+                            }
+                            .letters-row li img {
+                                height: 85px;
+                            }
+                            .letters-row li p {
+                                font-size: 11px;
+                            }
+                        }
+                        @media (max-width: 768px) {
+                            .letters-row {
+                                gap: 8px;
+                                margin-bottom: 12px !important;
+                            }
+                            .letters-row li img {
+                                height: 50px;
+                            }
+                            .letters-row li p {
+                                font-size: 8px;
+                                letter-spacing: 0;
+                            }
+                        }
+                        @media (max-width: 480px) {
+                            .letters-wrap-box {
+                                padding: 0 8px;
+                            }
+                            .letters-row {
+                                gap: 5px;
+                                margin-bottom: 10px !important;
+                            }
+                            .letters-row li img {
+                                height: 38px;
+                                max-width: 32px;
+                            }
+                            .letters-row li p {
+                                font-size: 6.5px;
+                                margin-top: 2px;
+                            }
+                        }
+                        @media (max-width: 360px) {
+                            .letters-wrap-box {
+                                padding: 0 6px;
+                            }
+                            .letters-row {
+                                gap: 3px;
+                            }
+                            .letters-row li img {
+                                height: 30px;
+                                max-width: 25px;
+                            }
+                            .letters-row li p {
+                                font-size: 5.5px;
+                            }
+                        }
+                        @media (max-width: 300px) {
+                            .letters-wrap-box {
+                                padding: 0 4px;
+                            }
+                            .letters-row {
+                                gap: 2px;
+                            }
+                            .letters-row li img {
+                                height: 26px;
+                                max-width: 22px;
+                            }
+                            .letters-row li p {
+                                font-size: 5px;
+                            }
+                        }
+                    </style>
+
+                    <div class="letters-wrap-box">
+                        <!-- LINE 1: DEWA (Centered directly over H-A-R-I) -->
+                        <ul class="letters-row">
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/1.png') }}" alt="DEVOTION"
+                                        title="DEVOTION" /></a>
+                                <p>DEVOTION</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/2.png') }}" alt="EDUCATION"
+                                        title="EDUCATION" /></a>
+                                <p>EDUCATION</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/3.png') }}" alt="WARSI"
+                                        title="WARSI" /></a>
+                                <p>WARSI</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/4.png') }}" alt="AZAAN"
+                                        title="AZAAN" /></a>
+                                <p>AZAAN</p>
+                            </li>
+                        </ul>
+
+                        <!-- LINE 2: SHARIF (Centered, 6 letters) -->
+                        <ul class="letters-row">
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/5.png') }}" alt="SPRITUALITY"
+                                        title="SPRITUALITY" /></a>
+                                <p>SPRITUALITY</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/6.png') }}" alt="HUMANITY"
+                                        title="HUMANITY" /></a>
+                                <p>HUMANITY</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/7.png') }}" alt="AWLIYA"
+                                        title="AWLIYA" /></a>
+                                <p>AWLIYA</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/8.png') }}" alt="RELIGIOUS"
+                                        title="RELIGIOUS" /></a>
+                                <p>RELIGIOUS</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/9.png') }}" alt="ISLAM"
+                                        title="ISLAM" /></a>
+                                <p>ISLAM</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/10.png') }}" alt="FAITH"
+                                        title="FAITH" /></a>
+                                <p>FAITH</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-2 leader">
-                    <ul>
-                        <li>
-                            <img src="{{ asset('home/images/dewasharif/walidsahab.jpeg') }}" alt="Father"
-                                title="Barkat Ali" />
-                            <h4>BARKAT ALI <br>[FATHER]</h4>
-                            <p><b><i>Barkat Ali KiranaStore</i></b> <br /> <b>www.dewasharif.com</b></p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-2 leader">
-                    <ul>
-                        <li>
-                            <img src="{{ asset('home/images/dewasharif/masharrat.jpg') }}" alt="Shahzade Alam"
-                                title="Shahzade Alam" />
-                            <h4>Shahzade Alam <br>[مشرت وارثی]</h4>
-                            <p><b><i>Software Engineer</i></b> <br /> <b>www.dewasharif.com</b></p>
-                        </li>
-                    </ul>
-                </div>
+                <div class="row justify-content-center text-center">
+    <div class="row justify-content-center text-center">
+    <!-- Father Card -->
+    <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
+        <div style="border: 1px solid #ccc; border-radius: 8px; padding: 15px 10px; background: #fff;">
+            <img src="{{ asset('home/images/dewasharif/walidsahab.jpeg') }}" alt="Father" title="Barkat Ali" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
+            <h4 style="font-size: 18px; font-weight: 800; text-align: center; margin-top: 10px; color: #14412a;">BARKAT ALI <br><span style="font-size: 14px;">[FATHER]</span></h4>
+            <p style="margin: 0; text-align: center; font-size: 14px;"><b><i>Barkat Ali Kirana Store</i></b> <br /> <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b></p>
+        </div>
+    </div>
+
+    <!-- Shahzade Alam Card -->
+    <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
+        <div style="border: 1px solid #ccc; border-radius: 8px; padding: 15px 10px; background: #fff;">
+            <img src="{{ asset('home/images/dewasharif/masharrat.jpg') }}" alt="Shahzade Alam" title="Shahzade Alam" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
+            <h4 style="font-size: 18px; text-align: center; font-weight: 800; margin-top: 10px; color: #14412a;">Shahzade Alam <br><span style="font-size: 14px;">[مشرت وارثی]</span></h4>
+            <p style="margin: 0; text-align: center; font-size: 14px;"><b><i>Software Engineer</i></b> <br /> <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b></p>
+        </div>
+    </div>
+</div>
+</div>
             </div>
         </div>
     </section>
@@ -934,7 +1057,92 @@
                         <h1><b>Connect </b> &amp; <b>Engage</b></h1>
                     </div>
 
-                    <ul class="sm-icon" style="padding-left: 2px">
+                    <style>
+                        #connect .sm-icon {
+                            display: flex !important;
+                            flex-wrap: wrap !important;
+                            justify-content: center !important;
+                            align-items: center !important;
+                            list-style: none !important;
+                            padding: 0 !important;
+                            margin: 25px auto 10px auto !important;
+                            gap: 16px;
+                            width: 100%;
+                            max-width: 780px;
+                            box-sizing: border-box;
+                        }
+                        #connect .sm-icon li {
+                            display: flex !important;
+                            justify-content: center !important;
+                            align-items: center !important;
+                            float: none !important;
+                            width: auto !important;
+                            padding: 0 !important;
+                            margin: 0 !important;
+                        }
+                        #connect .sm-icon li a {
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
+                            width: 100px !important;
+                            height: 100px !important;
+                            border-radius: 50% !important;
+                            background: #ffffff !important;
+                            font-size: 48px !important;
+                            line-height: 1 !important;
+                            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+                            transition: transform 0.25s ease, box-shadow 0.25s ease;
+                            margin: 0 !important;
+                        }
+                        #connect .sm-icon li a:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+                        }
+                        @media (max-width: 768px) {
+                            #connect .sm-icon {
+                                gap: 14px 12px !important;
+                                padding: 0 10px !important;
+                            }
+                            #connect .sm-icon li a {
+                                width: 72px !important;
+                                height: 72px !important;
+                                font-size: 34px !important;
+                            }
+                            #connect .sm-icon li a img {
+                                width: 38px !important;
+                            }
+                            #connect .sm-icon li a span {
+                                font-size: 8px !important;
+                                bottom: -20px !important;
+                            }
+                        }
+                        @media (max-width: 360px) {
+                            #connect .sm-icon {
+                                gap: 12px 10px !important;
+                                padding: 0 6px !important;
+                            }
+                            #connect .sm-icon li a {
+                                width: 64px !important;
+                                height: 64px !important;
+                                font-size: 28px !important;
+                            }
+                            #connect .sm-icon li a img {
+                                width: 32px !important;
+                            }
+                        }
+                        @media (max-width: 300px) {
+                            #connect .sm-icon {
+                                gap: 10px 8px !important;
+                            }
+                            #connect .sm-icon li a {
+                                width: 56px !important;
+                                height: 56px !important;
+                                font-size: 24px !important;
+                            }
+                        }
+                    </style>
+
+                    <ul class="sm-icon">
                         <li><a href="https://www.facebook.com/dewasharif707?mibextid=ZbWKwL" target="_blank"
                                 rel="noopener" class="external none" title="Facebook"><i class="fa fa-facebook"></i></a>
                         </li>

@@ -459,6 +459,17 @@
     #google_translate_element .goog-te-gadget a {
         color: #ffeb3b !important;
     }
+
+    @media (max-width: 768px) {
+        .footer .container {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            box-sizing: border-box !important;
+        }
+        .footer-column {
+            padding: 20px 10px !important;
+        }
+    }
 </style>
 <!-- GOOGLE TRANSLATE IN FOOTER -->
 <script type="text/javascript">

@@ -36,9 +36,130 @@
 @section('content')
     <div style="background: #f4f6f8; padding-bottom: 60px; min-height: 90vh;">
 
+        <style>
+            .hotel-hero-section {
+                background: linear-gradient(180deg, rgba(5, 44, 22, 0.48) 0%, rgba(3, 25, 13, 0.72) 100%), url('{{ asset('home/images/dewasharif/dewapage/hero_hotel_bg.jpg') }}') center/cover no-repeat;
+                color: #ffffff;
+                padding: 55px 16px 70px 16px;
+                text-align: center;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                position: relative;
+                box-sizing: border-box;
+            }
+            .hotel-hero-title {
+                font-weight: 900;
+                font-size: 36px;
+                margin-top: 10px;
+                margin-bottom: 12px;
+                color: #00e676;
+                text-shadow: 0 3px 8px rgba(0,0,0,0.95);
+                word-break: break-word;
+            }
+            .hotel-hero-desc {
+                font-size: 16px;
+                color: #f1f5f9;
+                max-width: 740px;
+                margin: 0 auto;
+                line-height: 1.6;
+                font-weight: 600;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                padding: 0 8px;
+                word-break: break-word;
+            }
+            .hotel-mela-box {
+                background-color: #f8ea6dff;
+                padding: 20px 16px;
+                text-align: center;
+                border-radius: 8px;
+                margin: 10px auto 14px auto;
+                max-width: 900px;
+                width: 100%;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+                box-sizing: border-box;
+            }
+            .hotel-mela-title {
+                font-weight: 900;
+                font-size: 30px;
+                color: #226902ff;
+                margin: 0 0 8px 0;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+                word-break: break-word;
+            }
+            .hotel-mela-subtitle {
+                font-weight: 700;
+                font-size: 17px;
+                text-align: center;
+                color: #046912ff;
+                margin: 0;
+                text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+                word-break: break-word;
+            }
+            .hotel-custom-box {
+                background: #ffffff;
+                border-radius: 14px;
+                padding: 25px 28px;
+                color: #111827;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+                margin-top: 25px;
+                margin-bottom: 25px;
+                border: 1.5px solid #cbd5e1;
+                box-sizing: border-box;
+            }
+            @media (max-width: 768px) {
+                .hotel-hero-section {
+                    padding: 38px 12px 55px 12px !important;
+                }
+                .hotel-hero-title {
+                    font-size: 21px !important;
+                    line-height: 1.35 !important;
+                }
+                .hotel-hero-desc {
+                    font-size: 13.5px !important;
+                    line-height: 1.5 !important;
+                    padding: 0 4px !important;
+                }
+                .hotel-mela-box {
+                    padding: 14px 10px !important;
+                }
+                .hotel-mela-title {
+                    font-size: 18px !important;
+                    line-height: 1.35 !important;
+                }
+                .hotel-mela-subtitle {
+                    font-size: 13px !important;
+                    line-height: 1.45 !important;
+                }
+                .hotel-custom-box {
+                    padding: 16px 12px !important;
+                }
+            }
+            @media (max-width: 360px) {
+                .hotel-hero-section {
+                    padding: 30px 8px 45px 8px !important;
+                }
+                .hotel-hero-title {
+                    font-size: 18px !important;
+                }
+                .hotel-hero-desc {
+                    font-size: 12.5px !important;
+                }
+                .hotel-mela-box {
+                    padding: 10px 6px !important;
+                }
+                .hotel-mela-title {
+                    font-size: 15.5px !important;
+                }
+                .hotel-mela-subtitle {
+                    font-size: 12px !important;
+                }
+                .hotel-custom-box {
+                    padding: 12px 8px !important;
+                }
+            }
+        </style>
+
         <!-- TOP HERO BANNER FOR DEWA STAYS WITH REAL LUXURY HOTEL IMAGE BACKGROUND -->
-        <div
-            style="background: linear-gradient(180deg, rgba(5, 44, 22, 0.48) 0%, rgba(3, 25, 13, 0.72) 100%), url('{{ asset('home/images/dewasharif/dewapage/hero_hotel_bg.jpg') }}') center/cover no-repeat; color: #ffffff; padding: 55px 0 70px 0; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative;">
+        <div class="hotel-hero-section">
             <div class="container">
                 <div style="margin-bottom: 12px;">
                     <span
@@ -46,12 +167,10 @@
                         🏨 Dargah Waris-e-Pak Nearby Stays
                     </span>
                 </div>
-                <h1
-                    style="font-weight: 900; font-size: 36px; margin-top: 10px; margin-bottom: 12px; color: #00e676; text-shadow: 0 3px 8px rgba(0,0,0,0.95);">
+                <h1 class="hotel-hero-title">
                     Hotels &amp; Guest Houses in Dewa Sharif
                 </h1>
-                <p
-                    style="font-size: 16px; color: #f1f5f9; max-width: 740px; margin: 0 auto; line-height: 1.6; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                <p class="hotel-hero-desc">
                     Book AC Rooms, Non-AC Rooms, Hotels, Guest Houses, Halls, Party Halls & Marriage Halls.
                 </p>
             </div>
@@ -116,20 +235,15 @@
                 </div> -->
 
             <!-- SEPARATE CUSTOM GROUP & FAMILY HALL STAY BOX -->
-            <div
-                style="background: #ffffff; border-radius: 14px; padding: 25px 28px; color: #111827; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-top: 25px; margin-bottom: 25px; border: 1.5px solid #cbd5e1;">
+            <div class="hotel-custom-box">
                 <div
                     style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
 
-
-                    <div
-                        style="background-color: #f8ea6dff; padding: 20px; text-align: center; border-radius: 8px; margin: 10px auto 12px auto; max-width: 900px; box-shadow: 0 3px 8px rgba(0,0,0,0.2);">
-                        <h1
-                            style="font-weight: 900; font-size: 32px; color: #226902ff; margin: 0 0 8px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">
+                    <div class="hotel-mela-box">
+                        <h2 class="hotel-mela-title">
                             Special Package for Dewa Sharif Urs (Mela) 2026
-                        </h1>
-                        <p
-                            style="font-weight: 700; font-size: 18px; text-align: center; color: #046912ff; margin: 0; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">
+                        </h2>
+                        <p class="hotel-mela-subtitle">
                             Package available 3 Days, 4 Days, 5 Days, 10 Days or More — Prebooking Start Now
                         </p>
                     </div>
@@ -231,6 +345,23 @@
                     display: flex !important;
                     align-items: stretch !important;
                     margin-bottom: 30px;
+                    box-sizing: border-box !important;
+                    padding-left: 10px !important;
+                    padding-right: 10px !important;
+                }
+                @media (max-width: 768px) {
+                    .hotel-card-item {
+                        padding-left: 6px !important;
+                        padding-right: 6px !important;
+                        margin-bottom: 20px !important;
+                    }
+                }
+                @media (max-width: 360px) {
+                    .hotel-card-item {
+                        padding-left: 4px !important;
+                        padding-right: 4px !important;
+                        margin-bottom: 16px !important;
+                    }
                 }
 
                 .hotel-card-item[style*="display: none"] {
@@ -469,29 +600,131 @@
             </div>
 
             <!-- HOTEL REVIEWS & GUEST EXPERIENCES SECTION -->
-            <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
-                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-                    <div>
-                        <h4 style="font-weight: 900; color: #074121; margin: 0; font-size: 22px;">
+            <style>
+                .hotel-reviews-container {
+                    margin-top: 50px;
+                    padding-top: 30px;
+                    border-top: 2px solid #e2e8f0;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    box-sizing: border-box;
+                }
+                .hotel-reviews-header-box {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    margin-bottom: 24px;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                .hotel-reviews-title-box {
+                    flex: 1 1 auto;
+                }
+                .hotel-reviews-title {
+                    font-weight: 900;
+                    color: #074121;
+                    margin: 0;
+                    font-size: 22px;
+                    word-break: break-word;
+                }
+                .hotel-reviews-desc {
+                    margin: 4px 0 0 0;
+                    color: #64748b;
+                    font-size: 13.5px;
+                    font-weight: 600;
+                    word-break: break-word;
+                }
+                .hotel-reviews-actions {
+                    display: flex;
+                    gap: 10px;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    flex-shrink: 0;
+                }
+                .hotel-reviews-btn {
+                    font-weight: 800;
+                    font-size: 13px;
+                    padding: 8px 16px;
+                    border-radius: 25px;
+                    white-space: nowrap;
+                    text-align: center;
+                    cursor: pointer;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                @media (max-width: 768px) {
+                    .hotel-reviews-container {
+                        padding-left: 4px;
+                        padding-right: 4px;
+                        margin-top: 35px;
+                        padding-top: 20px;
+                    }
+                    .hotel-reviews-header-box {
+                        flex-direction: column !important;
+                        align-items: flex-start !important;
+                        gap: 12px !important;
+                        margin-bottom: 18px !important;
+                    }
+                    .hotel-reviews-title-box {
+                        width: 100% !important;
+                    }
+                    .hotel-reviews-title {
+                        font-size: 18px !important;
+                        line-height: 1.3 !important;
+                    }
+                    .hotel-reviews-desc {
+                        font-size: 12.5px !important;
+                        line-height: 1.4 !important;
+                    }
+                    .hotel-reviews-actions {
+                        width: 100% !important;
+                        display: flex !important;
+                        gap: 8px !important;
+                    }
+                    .hotel-reviews-btn {
+                        flex: 1 1 0% !important;
+                        width: 48% !important;
+                        font-size: 11.5px !important;
+                        padding: 8px 8px !important;
+                        box-sizing: border-box !important;
+                    }
+                }
+                @media (max-width: 340px) {
+                    .hotel-reviews-actions {
+                        flex-direction: column !important;
+                    }
+                    .hotel-reviews-btn {
+                        width: 100% !important;
+                    }
+                }
+            </style>
+
+            <div class="hotel-reviews-container">
+                <div class="hotel-reviews-header-box">
+                    <div class="hotel-reviews-title-box">
+                        <h4 class="hotel-reviews-title">
                             ⭐ Guest Reviews &amp; Stay Experiences
                         </h4>
-                        <p style="margin: 4px 0 0 0; color: #64748b; font-size: 13.5px; font-weight: 600;">
+                        <p class="hotel-reviews-desc">
                             Verified reviews from pilgrims staying near Dewa Sharif Dargah
                         </p>
                     </div>
-                    <div class="d-flex gap-2">
+                    <div class="hotel-reviews-actions">
                         <button type="button"
-                            class="btn btn-sm btn-success font-weight-bold px-3 py-2 rounded-pill shadow-xs"
+                            class="btn btn-success hotel-reviews-btn"
                             onclick="$('#writeHotelReviewModal').modal('show')" data-toggle="modal"
                             data-target="#writeHotelReviewModal" data-bs-toggle="modal"
-                            data-bs-target="#writeHotelReviewModal" style="background: #16a34a; border: none;">
+                            data-bs-target="#writeHotelReviewModal" style="background: #16a34a; border: none; color: #ffffff;">
                             ✍️ Write Hotel Review
                         </button>
                         <button type="button"
-                            class="btn btn-sm btn-outline-success font-weight-bold px-3 py-2 rounded-pill"
+                            class="btn btn-outline-success hotel-reviews-btn"
                             onclick="$('#sendHotelFeedbackModal').modal('show')" data-toggle="modal"
                             data-target="#sendHotelFeedbackModal" data-bs-toggle="modal"
-                            data-bs-target="#sendHotelFeedbackModal">
+                            data-bs-target="#sendHotelFeedbackModal" style="border: 1.5px solid #16a34a; color: #16a34a; background: #ffffff;">
                             💬 Send Feedback
                         </button>
                     </div>

@@ -1,9 +1,16 @@
-<footer style="background: #111827; color: #f3f4f6; padding: 45px 0 20px 0; margin-top: 50px; font-family: inherit;">
+<footer style="background: #111827; color: #f3f4f6; padding: 45px 16px 20px 16px; margin-top: 50px; font-family: inherit; box-sizing: border-box;">
+    <style>
+        @media (max-width: 768px) {
+            .hotel-footer-col {
+                margin-bottom: 25px;
+            }
+        }
+    </style>
     <div class="container">
         <div class="row g-4">
 
             <!-- Col 1: Brand & Overview -->
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-6 hotel-footer-col">
                 <h4 style="color: #22c55e; font-weight: 800; margin-bottom: 15px; font-size: 20px;">
                     🏨 Dewa Stays &amp; Hotels
                 </h4>

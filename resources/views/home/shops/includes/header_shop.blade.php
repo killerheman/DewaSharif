@@ -1,27 +1,134 @@
 <header class="shop-header"
     style="position: fixed; top: 0; left: 0; width: 100%; height: 72px; z-index: 99999; background: #ffffff; border-bottom: 3px solid #074121; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 0;">
-    <div
-        style="display: flex; align-items: center; justify-content: space-between; height: 100%; width: 100%; max-width: 100%; padding: 0 16px; box-sizing: border-box; flex-wrap: nowrap;">
+    <style>
+        .shop-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+            padding: 0 16px;
+            box-sizing: border-box;
+            flex-wrap: nowrap;
+        }
+        .shop-desktop-nav {
+            display: block;
+            flex-shrink: 0;
+        }
+        .shop-mobile-nav {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .shop-header-logo-title {
+            font-size: 17px;
+            font-weight: 900;
+            color: #074121;
+            display: block;
+            line-height: 1.1;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+        }
+        .shop-header-logo-sub {
+            font-size: 9.5px;
+            color: #555555;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+        }
+        .shop-header-logo-img {
+            height: 40px;
+            width: auto;
+        }
+        @media (max-width: 860px) {
+            .shop-header-inner {
+                padding: 0 10px !important;
+                gap: 8px !important;
+            }
+            .shop-desktop-nav {
+                display: none !important;
+            }
+            .shop-mobile-nav {
+                display: flex !important;
+            }
+            .shop-header-logo-title {
+                font-size: 14.5px !important;
+            }
+            .shop-header-logo-sub {
+                font-size: 8.5px !important;
+            }
+            .shop-header-logo-img {
+                height: 36px !important;
+            }
+        }
+        @media (max-width: 420px) {
+            .shop-header-inner {
+                padding: 0 8px !important;
+                gap: 6px !important;
+            }
+            .shop-header-logo-title {
+                font-size: 13px !important;
+            }
+            .shop-header-logo-sub {
+                display: none !important;
+            }
+            .shop-header-logo-img {
+                height: 32px !important;
+            }
+            .shop-mobile-nav {
+                gap: 5px !important;
+            }
+            .shop-mobile-cart-btn {
+                padding: 5px 8px !important;
+                font-size: 11px !important;
+            }
+            .shop-mobile-home-btn {
+                padding: 5px 7px !important;
+                font-size: 10.5px !important;
+            }
+        }
+        @media (max-width: 280px) {
+            .shop-header-inner {
+                padding: 0 4px !important;
+                gap: 3px !important;
+            }
+            .shop-header-logo-title {
+                font-size: 11px !important;
+            }
+            .shop-header-logo-img {
+                height: 25px !important;
+            }
+            .shop-mobile-cart-btn {
+                padding: 4px 5px !important;
+                font-size: 9.5px !important;
+            }
+            .shop-mobile-home-btn {
+                padding: 4px 5px !important;
+                font-size: 9px !important;
+            }
+        }
+    </style>
+    <div class="shop-header-inner">
 
         <!-- Logo & Title -->
         <a href="{{ !empty($shopDeghOnlyMode) ? route('shops.category', 'degh') : route('shops') }}"
             style="text-decoration: none; display: flex; align-items: center; gap: 8px; white-space: nowrap; flex-shrink: 0;">
-            <img src="{{ asset('home/images/dewasharif/dewalogos.png') }}" alt="Dewa Shop"
-                style="height: 40px; width: auto;">
+            <img src="{{ asset('home/images/dewasharif/dewalogos.png') }}" alt="Dewa Shop" class="shop-header-logo-img">
             <div>
-                <span
-                    style="font-size: 17px; font-weight: 900; color: #074121; display: block; line-height: 1.1; letter-spacing: -0.3px; white-space: nowrap;">
+                <span class="shop-header-logo-title">
                     🛍️ DEWA SHARIF
                 </span>
-                <span
-                    style="font-size: 9.5px; color: #555555; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; white-space: nowrap;">
+                <span class="shop-header-logo-sub">
                     Attar, Bartan &amp; Sacred Items
                 </span>
             </div>
         </a>
 
         <!-- Desktop Navigation (Strict 1 Single Row - 100% Guaranteed Right Visibility) -->
-        <nav class="d-none d-md-block" style="flex-shrink: 0;">
+        <nav class="shop-desktop-nav">
             <ul class="shop-nav-list"
                 style="list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; align-items: center; font-weight: 750; font-size: 12px; white-space: nowrap; flex-wrap: nowrap;">
 
@@ -146,6 +253,19 @@
 
             </ul>
         </nav>
+        <!-- Mobile Navigation (Compact, Never Cut Off) -->
+        <div class="shop-mobile-nav">
+            <a href="{{ route('shops.cart') }}" class="shop-mobile-cart-btn"
+                style="position: relative; background: #074121; color: #ffffff; padding: 6px 11px; border-radius: 20px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; white-space: nowrap;">
+                <span>🛒 Cart</span>
+                <span class="cart-count-badge"
+                    style="background: #ef4444; color: #ffffff; font-size: 9px; font-weight: 900; padding: 1px 5px; border-radius: 10px;">0</span>
+            </a>
+            <a href="{{ route('index') }}" class="shop-mobile-home-btn"
+                style="background: #074121; color: #ffffff; padding: 6px 9px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 11px; white-space: nowrap;">
+                ← Home
+            </a>
+        </div>
 
     </div>
 </header>
