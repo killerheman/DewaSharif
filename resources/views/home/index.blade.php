@@ -9,12 +9,6 @@
             style="background: #e8a824; color: #111; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
             🎉 Official Dewa Sharif Urs(Mela) Dates Announced 🎉
         </span>
-        <span
-            style="background: #e8a824; color: #111; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-            ⚠️ Website is Under Maintenance. Please do not make any bookings (19/10/2026 - 11:30 PM). For urgent
-            inquiries,
-            please Contact via WhatsApp or Call.
-         </span>
 
         <!-- Heading -->
         <h1 id="mela-title" onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#ffeb3b';"
@@ -23,6 +17,14 @@
             Dewa Sharif Mela 2026<br>
             27 October - 5 November
         </h1>
+
+           <span
+            style="background: #faf9f9ff; color: #111; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+            ⚠️ Website is Under Maintenance. Please do not make any bookings from (19/10/2026 - 11:30 PM).
+            <br> For urgent
+            inquiries, or Bookings
+            please Contact via WhatsApp or Call.
+         </span>
 
         <!-- Subtitle -->
         <!-- <p id="mela-sub" onmouseover="this.style.color='#ffeb3b';" onmouseout="this.style.color='#00e676';"
@@ -941,6 +943,8 @@
                         </li>
                         <li><a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener"
                                 class="external none" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://wa.me/919648777223" target="_blank" rel="noopener"
+                                class="external none" title="WhatsApp"><i class="fa fa-whatsapp"></i></a></li>
                         <li><a href="https://www.youtube.com/@DewaSharif707" target="_blank" rel="noopener"
                                 class="external none" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
                         <li>

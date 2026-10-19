@@ -5,6 +5,13 @@
     $siteEmail = ($curSetting->website_email ?? null) ?: (($curSetting->company_email ?? null) ?: 'info@dewasharif.com');
     $siteAddress = ($curSetting->address ?? null) ?: 'Town Dewa Sharif, Barabanki, Uttar Pradesh - 225301, India';
     $siteWhatsappDigits = preg_replace('/\D+/', '', $siteWhatsapp);
+    if (strlen($siteWhatsappDigits) === 10) {
+        $cleanWaDigits = '91' . $siteWhatsappDigits;
+    } elseif (strlen($siteWhatsappDigits) === 11 && str_starts_with($siteWhatsappDigits, '0')) {
+        $cleanWaDigits = '91' . substr($siteWhatsappDigits, 1);
+    } else {
+        $cleanWaDigits = $siteWhatsappDigits ?: '919648777223';
+    }
 @endphp
 
 <div class="monument_footer">
@@ -36,7 +43,7 @@
                             </li>
                             <li>
                                 <div class="icon"><img src="{{ asset('home/images/f_i_1.png') }}" alt="WhatsApp" /></div>
-                                <div class="text"><a href="https://wa.me/{{ $siteWhatsappDigits }}" target="_blank" rel="noopener">WhatsApp: {{ $siteWhatsapp }}</a></div>
+                                <div class="text"><a href="https://wa.me/{{ $cleanWaDigits }}" target="_blank" rel="noopener">WhatsApp: {{ $siteWhatsapp }}</a></div>
                             </li>
                             <li>
                                 <div class="icon"><img src="{{ asset('home/images/f_i_2.png') }}" alt="Email" /></div>
@@ -155,17 +162,30 @@
                         </div>
 
                         <!-- Social Handles -->
-                        <div style="margin: 12px 0;">
+                        <div style="margin: 14px 0; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
                             <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener"
-                                style="margin-right:15px; display:inline-block;">
+                                title="Follow on Instagram"
+                                style="display:inline-block; transition: transform 0.2s ease, filter 0.2s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
-                                    alt="Instagram" style="width:36px; height:36px;">
+                                    alt="Instagram" style="width:36px; height:36px; border-radius: 9px; vertical-align: middle;">
+                            </a>
+
+                            <a href="https://wa.me/{{ $cleanWaDigits }}" target="_blank" rel="noopener"
+                                title="Chat on WhatsApp ({{ $siteWhatsapp }})"
+                                style="display:inline-block; transition: transform 0.2s ease, filter 0.2s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                <img src="{{ asset('home/images/whatsapp.svg') }}" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'"
+                                    alt="WhatsApp" style="width:36px; height:36px; vertical-align: middle;">
                             </a>
 
                             <a href="mailto:{{ $siteEmail }}"
-                                target="_blank" rel="noopener" style="display:inline-block;">
+                                title="Send Email ({{ $siteEmail }})"
+                                target="_blank" rel="noopener"
+                                style="display:inline-block; transition: transform 0.2s ease, filter 0.2s ease;"
+                                onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
-                                    alt="Email" style="width:36px; height:36px;">
+                                    alt="Email" style="width:36px; height:36px; vertical-align: middle;">
                             </a>
                         </div>
 
