@@ -1,8 +1,9 @@
 @php
-    $sitePhone = $setting->website_phone ?: ($setting->phone ?: ($setting->support_phone ?: '+91 9648777223'));
-    $siteWhatsapp = $setting->whatsapp ?: $sitePhone;
-    $siteEmail = $setting->website_email ?: ($setting->company_email ?: 'info@dewasharif.com');
-    $siteAddress = $setting->address ?: 'Town Dewa Sharif, Barabanki, Uttar Pradesh - 225301, India';
+    $curSetting = $setting ?? new \App\Models\Setting();
+    $sitePhone = ($curSetting->website_phone ?? null) ?: (($curSetting->phone ?? null) ?: (($curSetting->support_phone ?? null) ?: '+91 9648777223'));
+    $siteWhatsapp = ($curSetting->whatsapp ?? null) ?: $sitePhone;
+    $siteEmail = ($curSetting->website_email ?? null) ?: (($curSetting->company_email ?? null) ?: 'info@dewasharif.com');
+    $siteAddress = ($curSetting->address ?? null) ?: 'Town Dewa Sharif, Barabanki, Uttar Pradesh - 225301, India';
     $siteWhatsappDigits = preg_replace('/\D+/', '', $siteWhatsapp);
 @endphp
 

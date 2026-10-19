@@ -22,14 +22,17 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrapFive();
 
+        $sharedSetting = null;
         try {
             if (\Illuminate\Support\Facades\Schema::hasTable('settings')) {
-                $setting = \App\Models\Setting::firstOrCreate(['id' => 1]);
-                \Illuminate\Support\Facades\View::share('setting', $setting);
+                $sharedSetting = \App\Models\Setting::firstOrCreate(['id' => 1]);
             }
-        } catch (\Throwable $e) {
-            \Illuminate\Support\Facades\View::share('setting', new \App\Models\Setting());
+        } catch (\Throwable $e) {}
+
+        if (!$sharedSetting) {
+            $sharedSetting = new \App\Models\Setting();
         }
+        \Illuminate\Support\Facades\View::share('setting', $sharedSetting);
 
         // Auto-ensure User 4 (Imran Ahmed Peshimam) and his active cab booking exist in DB
         try {
