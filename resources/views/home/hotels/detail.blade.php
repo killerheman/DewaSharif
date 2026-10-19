@@ -1,5 +1,33 @@
 @extends('home.includes.master')
 
+@section('title', ($hotel['name'] ?? 'Hotel Details') . ' - Dewa Sharif Hotel Booking')
+@section('meta_title', ($hotel['name'] ?? 'Hotel') . ' | Verified Stay Near Waris Pak Dargah')
+@section('meta_description', 'Book ' . ($hotel['name'] ?? 'Hotel') . ' in Dewa Sharif located ' . ($hotel['distance'] ?? 'near Dargah') . '. Rooms starting at ₹' . ($hotel['price_per_night'] ?? ($hotel['price'] ?? '999')) . ' per night. Family friendly with 24/7 service.')
+@section('og_title', ($hotel['name'] ?? 'Hotel') . ' - Dewa Sharif')
+@section('og_description', 'Book ' . ($hotel['name'] ?? 'Hotel') . ' in Dewa Sharif located ' . ($hotel['distance'] ?? 'near Dargah') . '. Best prices and verified bookings.')
+
+@section('head-area')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "{{ $hotel['name'] ?? 'Dewa Sharif Hotel' }}",
+  "description": "{{ $hotel['description'] ?? 'Comfortable and affordable stay in Dewa Sharif near Dargah Hazrat Haji Waris Ali Shah.' }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Dewa Sharif",
+    "addressLocality": "Barabanki",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "225301",
+    "addressCountry": "IN"
+  },
+  "priceRange": "₹{{ $hotel['price_per_night'] ?? ($hotel['price'] ?? '999') }}",
+  "telephone": "+91-shahzade.alam707@gmail.com"
+}
+</script>
+@endsection
+
+
 @php
     if (!function_exists('safeHotelAsset')) {
         function safeHotelAsset($path, $fallback) {

@@ -2,13 +2,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- PRIMARY ULTRA HIGH-RANKING SEO TITLE & META -->
-<title>Dewa Sharif | Hazrat Haji Waris Ali Shah Dargah | Dewa Sharif, Barabanki, UP, India.</title>
+<title>@yield('title', 'Dewa Sharif | Hazrat Haji Waris Ali Shah Dargah | Dewa Sharif, Barabanki, UP, India.')</title>
 <meta name="title"
-  content="Dewa Sharif | Hazrat Haji Waris Ali Shah Dargah, Hotels, Cab, Degh &amp; Islamic Store" />
+  content="@yield('meta_title', 'Dewa Sharif | Hazrat Haji Waris Ali Shah Dargah, Hotels, Cab, Degh & Islamic Store')" />
 <meta name="description"
-  content="Dewa Sharif (Barabanki, UP). Complete guide for Hazrat Haji Waris Ali Shah Dargah, Dewa Mela 2026 dates, nearby hotel booking, direct cabs from Lucknow, Biryani Degh Niyaz, Chadar peshi, original Warsi Attar, Janamaz, Tasbih, Quran, Sahaba &amp; Awliya history." />
+  content="@yield('meta_description', 'Dewa Sharif (Barabanki, UP). Complete guide for Hazrat Haji Waris Ali Shah Dargah, Dewa Mela 2026 dates, nearby hotel booking, direct cabs from Lucknow, Biryani Degh Niyaz, Chadar peshi, original Warsi Attar, Janamaz, Tasbih, Quran, Sahaba & Awliya history.')" />
 <meta name="keywords"
-  content="Dewa, Dewa Sharif, Dewa Barabanki, Dewa Sharif Dargah, Hazrat Haji Waris Ali Shah, Waris Pak, Dewa Mela 2026, Dewa Mela Dates, Dewa Sharif Hotels, Dewa Guest House, Lucknow to Dewa Sharif Cab, Barabanki to Dewa Taxi, Dewa Biryani Degh, Dewa Zarda Niyaz, Dewa Sharif Chadar, Pure Warsi Attar, Janamaz, Tasbih, Islamic Books, Holy Quran, Ahle Bayt, Sahaba, Awliya Allah, Sufism UP India" />
+  content="@yield('meta_keywords', 'Dewa, Dewa Sharif, Dewa Barabanki, Dewa Sharif Dargah, Hazrat Haji Waris Ali Shah, Waris Pak, Dewa Mela 2026, Dewa Mela Dates, Dewa Sharif Hotels, Dewa Guest House, Lucknow to Dewa Sharif Cab, Barabanki to Dewa Taxi, Dewa Biryani Degh, Dewa Zarda Niyaz, Dewa Sharif Chadar, Pure Warsi Attar, Janamaz, Tasbih, Islamic Books, Holy Quran, Ahle Bayt, Sahaba, Awliya Allah, Sufism UP India')" />
 <meta name="author" content="Shahzade Alam [Masharrat Warsi]" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <meta name="language" content="English, Hindi, Urdu" />
@@ -16,24 +16,24 @@
 <meta name="geo.placename" content="Dewa Sharif, Barabanki" />
 <meta name="geo.position" content="27.0385;81.1717" />
 <meta name="ICBM" content="27.0385, 81.1717" />
-<link rel="canonical" href="https://dewasharif.com" />
+<link rel="canonical" href="@yield('canonical', url()->current())" />
 
 <!-- OPEN GRAPH (WHATSAPP, FACEBOOK, SOCIAL PREVIEW) -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://dewasharif.com/" />
-<meta property="og:title" content="Dewa Sharif | Waris Pak Dargah, Mela 2026, Hotels &amp; Islamic Services" />
+<meta property="og:url" content="{{ url()->current() }}" />
+<meta property="og:title" content="@yield('og_title', 'Dewa Sharif | Waris Pak Dargah, Mela 2026, Hotels & Islamic Services')" />
 <meta property="og:description"
-  content="Dewa Mela 2026 schedule, hotels, Lucknow cabs, Degh Niyaz, Chadar, and sacred Sufi traditions in Barabanki." />
-<meta property="og:image" content="{{ asset('home/images/dewa-bg.jpg') }}" />
+  content="@yield('og_description', 'Dewa Mela 2026 schedule, hotels, Lucknow cabs, Degh Niyaz, Chadar, and sacred Sufi traditions in Barabanki.')" />
+<meta property="og:image" content="@yield('og_image', asset('home/images/dewa-bg.jpg'))" />
 <meta property="og:site_name" content="Dewa Sharif" />
 
 <!-- TWITTER CARD -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content="https://dewasharif.com/" />
-<meta name="twitter:title" content="Dewa Sharif | Dargah Waris Pak &amp; Complete Guide" />
+<meta name="twitter:url" content="{{ url()->current() }}" />
+<meta name="twitter:title" content="@yield('og_title', 'Dewa Sharif | Dargah Waris Pak & Complete Guide')" />
 <meta name="twitter:description"
-  content="Explore Dewa Sharif: hotel bookings, direct travel cabs, Degh Niyaz, and Islamic literature." />
-<meta name="twitter:image" content="{{ asset('home/images/dewa-bg.jpg') }}" />
+  content="@yield('og_description', 'Explore Dewa Sharif: hotel bookings, direct travel cabs, Degh Niyaz, and Islamic literature.')" />
+<meta name="twitter:image" content="@yield('og_image', asset('home/images/dewa-bg.jpg'))" />
 
 <!-- GOOGLE STRUCTURED SCHEMA: KNOWLEDGE GRAPH + SERVICES + STORE + PILGRIMAGE HUB -->
 <script type="application/ld+json">

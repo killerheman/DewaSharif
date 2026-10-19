@@ -45,6 +45,13 @@ Route::get('/api/location/countries', [LocationController::class, 'getCountries'
 Route::get('/api/location/states/{country}', [LocationController::class, 'getStates'])->name('api.states');
 Route::get('/api/location/cities/{state}', [LocationController::class, 'getCities'])->name('api.cities');
 Route::get('/allah', [HomeController::class, 'creater'])->name('allah');
+Route::get('/sitemap.xml', function () {
+    $path = public_path('sitemap.xml');
+    if (file_exists($path)) {
+        return response()->file($path, ['Content-Type' => 'application/xml']);
+    }
+    abort(404);
+})->name('sitemap');
 
 /*
 |--------------------------------------------------------------------------

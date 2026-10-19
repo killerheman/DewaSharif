@@ -1,5 +1,13 @@
 @extends('home.includes.master')
 
+@section('title', 'Book Hotels & Guest Houses in Dewa Sharif | Near Waris Pak Dargah')
+@section('meta_title', 'Best Hotels & AC Rooms in Dewa Sharif | Near Dargah Waris Pak')
+@section('meta_description', 'Book verified hotels, guest houses, and deluxe AC/Non-AC family rooms in Dewa Sharif near Hazrat Haji Waris Ali Shah Dargah. Best rates for Dewa Mela 2026.')
+@section('meta_keywords', 'Dewa Sharif Hotels, Dewa Guest House, Rooms in Dewa Sharif, Stay near Waris Pak Dargah, Dewa Mela accommodation, cheap hotel Dewa')
+@section('og_title', 'Dewa Sharif Hotels & Guest House Booking | Near Dargah')
+@section('og_description', 'Book verified rooms, family suites, and guest houses near Hazrat Waris Ali Shah Dargah with 24/7 assistance.')
+
+
 @php
     if (!function_exists('safeHotelAsset')) {
         function safeHotelAsset($path, $fallback)

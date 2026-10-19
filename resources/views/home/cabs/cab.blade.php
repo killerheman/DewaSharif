@@ -1,5 +1,13 @@
 @extends('home.includes.master')
 
+@section('title', 'Direct Cab Booking: Lucknow to Dewa Sharif Taxi | Airport & Railway Station')
+@section('meta_title', 'Lucknow to Dewa Sharif Cab Booking | Fixed Rate Taxi Service')
+@section('meta_description', 'Book guaranteed direct cabs and taxis between Lucknow Airport (CCS), Charbagh Railway Station, and Dewa Sharif Dargah. Fixed fare Sedan, SUV, and Auto for Dewa Mela 2026.')
+@section('meta_keywords', 'Lucknow to Dewa Sharif Cab, Dewa Sharif Taxi, Charbagh to Dewa Cab, Lucknow Airport to Dewa Sharif Taxi, Dewa Cab Booking, Dewa Mela Taxi')
+@section('og_title', 'Direct Cab Booking: Lucknow to Dewa Sharif Taxi')
+@section('og_description', 'Guaranteed direct cabs & fixed rate taxis between Lucknow and Dewa Sharif Dargah with 24/7 instant booking.')
+
+
 @section('content')
     <div style="background: #f4f6f8; padding-bottom: 60px; min-height: 90vh;">
 

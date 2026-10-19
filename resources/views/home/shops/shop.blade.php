@@ -1,5 +1,13 @@
 @extends('home.includes.master')
 
+@section('title', 'Dewa Sharif Online Store | Degh Niyaz, Pure Warsi Attar, Janamaz & Tasbih')
+@section('meta_title', 'Online Degh Niyaz & Sacred Bazaar | Dewa Sharif Store')
+@section('meta_description', 'Book authentic Biryani & Zarda Degh Niyaz, pure Warsi Attar, Janamaz, Tasbih, and sacred tabarruk online with verified direct delivery across India.')
+@section('meta_keywords', 'Dewa Sharif Store, Degh Niyaz Booking, Biryani Degh Dewa, Warsi Attar, Chadar peshi Dewa Sharif, Janamaz, Islamic Store Barabanki')
+@section('og_title', 'Dewa Sharif Online Store & Sacred Bazaar')
+@section('og_description', 'Authentic Biryani Degh Niyaz, pure Warsi Attar, Janamaz, and Sufi tabarruk delivered across India.')
+
+
 @section('content')
     <div style="background: #f8fafc; min-height: 100vh; padding-bottom: 80px;">
 

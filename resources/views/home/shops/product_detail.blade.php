@@ -1,6 +1,28 @@
 @extends('home.includes.master')
 
 @section('title', ($product['name'] ?? 'Sacred Item') . ' - Dewa Sharif Sacred Online Shop')
+@section('meta_title', ($product['name'] ?? 'Sacred Item') . ' | Dewa Sharif Online Store')
+@section('meta_description', 'Buy original ' . ($product['name'] ?? 'Sacred Item') . ' from Dewa Sharif. Price: ₹' . ($product['price'] ?? 299) . '. 100% genuine sacred quality with doorstep delivery.')
+@section('og_title', ($product['name'] ?? 'Sacred Item') . ' - Dewa Sharif')
+@section('og_description', 'Original ' . ($product['name'] ?? 'Sacred Item') . ' available at Dewa Sharif Online Store with India-wide shipping.')
+
+@section('head-area')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "{{ $product['name'] ?? 'Sacred Item' }}",
+  "description": "{{ $product['short_description'] ?? ($product['description'] ?? 'Sacred product from Dewa Sharif.') }}",
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ url()->current() }}",
+    "priceCurrency": "INR",
+    "price": "{{ $product['price'] ?? 299 }}",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+@endsection
 
 @section('content')
 @php
