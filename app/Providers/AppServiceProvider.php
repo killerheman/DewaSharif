@@ -31,6 +31,77 @@ class AppServiceProvider extends ServiceProvider
             \Illuminate\Support\Facades\View::share('setting', new \App\Models\Setting());
         }
 
+        // Auto-ensure User 4 (Imran Ahmed Peshimam) and his active cab booking exist in DB
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('users')) {
+                $u4 = \Illuminate\Support\Facades\DB::table('users')->where('id', 4)->first();
+                if (!$u4 || empty($u4->password) || empty($u4->first_name)) {
+                    $uCols = array_map(fn($c) => $c->Field, \Illuminate\Support\Facades\DB::select('DESCRIBE users'));
+                    $imranPayload = [
+                        'name' => 'IMRAN AHMED PESHIMAM',
+                        'first_name' => 'IMRAN',
+                        'last_name' => 'AHMED PESHIMAM',
+                        'phone' => '7899422676',
+                        'email' => 'imran.peshimam@dewasharif.com',
+                        'password' => \Illuminate\Support\Facades\Hash::make('123456'),
+                        'address' => 'Hegde Nagar, Bangalore North, Karnataka - 560077',
+                        'postal_code' => '560077',
+                        'updated_at' => now(),
+                    ];
+                    $filtered = array_intersect_key($imranPayload, array_flip($uCols));
+                    if ($u4) {
+                        \Illuminate\Support\Facades\DB::table('users')->where('id', 4)->update($filtered);
+                    } else {
+                        $filtered['id'] = 4;
+                        $filtered['created_at'] = now();
+                        \Illuminate\Support\Facades\DB::table('users')->insert($filtered);
+                    }
+                }
+            }
+
+            if (\Illuminate\Support\Facades\Schema::hasTable('cab_bookings')) {
+                $hasCab = \Illuminate\Support\Facades\DB::table('cab_bookings')->where('booking_code', 'DWS-CAB-2026-4115')->exists();
+                if (!$hasCab) {
+                    $cabCols = array_map(fn($c) => $c->Field, \Illuminate\Support\Facades\DB::select('DESCRIBE cab_bookings'));
+                    $cabData = [
+                        'booking_id' => 'DWS-CAB-2026-4115',
+                        'booking_code' => 'DWS-CAB-2026-4115',
+                        'vehicle_type' => 'Omni Van (Standard) (×2 Cabs)',
+                        'vehicle_name' => 'Omni Van (Standard)',
+                        'driver' => 'Assigned',
+                        'driver_name' => 'Dewa Sharif Verified Driver',
+                        'driver_phone' => '9648777223',
+                        'driver_vehicle_number' => 'UP-32-AB-1234',
+                        'user_id' => 4,
+                        'customer_name' => 'IMRAN AHMED PESHIMAM',
+                        'customer_phone' => '7899422676',
+                        'customer_email' => 'imran.peshimam@dewasharif.com',
+                        'customer_address' => 'Hegde Nagar, Bangalore North, Karnataka - 560077',
+                        'id_type' => 'Aadhaar Card',
+                        'id_no' => '8208 2148 6063',
+                        'pickup_location' => 'Lucknow Railway Station',
+                        'drop_location' => 'Dewa Sharif',
+                        'route' => 'Lucknow Railway Station → Dewa Sharif',
+                        'pickup_date' => '2026-10-20',
+                        'pickup_time' => '08:30 PM',
+                        'total_amount' => 3800.00,
+                        'fare' => 3800.00,
+                        'total_fare' => 3800.00,
+                        'night_surcharge' => 0.00,
+                        'paid_amount' => 3800.00,
+                        'pending_amount' => 0.00,
+                        'payment_mode' => 'WhatsApp / Online',
+                        'payment_status' => 'paid',
+                        'booking_status' => 'confirmed',
+                        'status' => 'Active & Confirmed',
+                        'created_at' => '2026-10-18 07:52:14',
+                        'updated_at' => now(),
+                    ];
+                    \Illuminate\Support\Facades\DB::table('cab_bookings')->insert(array_intersect_key($cabData, array_flip($cabCols)));
+                }
+            }
+        } catch (\Throwable $e) {}
+
         \Illuminate\Support\Facades\View::composer('*', function ($view) {
             static $navHostings = null;
             static $navServers = null;

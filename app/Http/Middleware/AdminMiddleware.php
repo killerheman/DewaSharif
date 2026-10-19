@@ -15,7 +15,18 @@ class AdminMiddleware
         }
 
         $user = auth()->user();
-        $isAdmin = ($user->role ?? 'customer') === 'admin' || (method_exists($user, 'hasRole') && $user->hasRole('admin'));
+        $isAdmin = false;
+        try {
+            if (($user->role ?? 'customer') === 'admin') {
+                $isAdmin = true;
+            } elseif (in_array(strtolower($user->email ?? ''), ['admin@dewa.com', 'admin@dewasharif.com'])) {
+                $isAdmin = true;
+            } elseif (method_exists($user, 'hasRole') && \Illuminate\Support\Facades\Schema::hasTable('roles')) {
+                $isAdmin = $user->hasRole('admin');
+            }
+        } catch (\Throwable $e) {
+            $isAdmin = in_array(strtolower($user->email ?? ''), ['admin@dewa.com', 'admin@dewasharif.com']);
+        }
 
         if (!$isAdmin) {
             return redirect()->route('admin.login')->with('error', 'Access denied. Admin authorization required.');

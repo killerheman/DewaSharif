@@ -55,9 +55,9 @@ class CustomerPortalController extends Controller
                 'last_name' => $lastName,
                 'phone' => $dbPhone,
                 'email' => $dbUser->email ?? '',
-                'country' => $dbUser->country ?? 'India',
-                'state' => $dbUser->state ?? 'Uttar Pradesh',
-                'city' => $dbUser->city ?? 'Barabanki',
+                'country' => is_string($dbUser->country ?? null) ? $dbUser->country : (is_object($dbUser->country ?? null) ? ($dbUser->country->name ?? 'India') : 'India'),
+                'state' => is_string($dbUser->state ?? null) ? $dbUser->state : (is_object($dbUser->state ?? null) ? ($dbUser->state->name ?? 'Uttar Pradesh') : 'Uttar Pradesh'),
+                'city' => is_string($dbUser->city ?? null) ? $dbUser->city : (is_object($dbUser->city ?? null) ? ($dbUser->city->name ?? 'Barabanki') : 'Barabanki'),
                 'pincode' => $dbUser->postal_code ?? ($dbUser->pincode ?? '225301'),
                 'address' => $dbUser->address ?? 'Dewa Sharif, Barabanki, UP - 225301',
                 'avatar' => $avatar
