@@ -44,6 +44,7 @@ use App\Http\Controllers\Admin\Auth\ChangePasswordController;
 Route::get('/api/location/countries', [LocationController::class, 'getCountries'])->name('api.countries');
 Route::get('/api/location/states/{country}', [LocationController::class, 'getStates'])->name('api.states');
 Route::get('/api/location/cities/{state}', [LocationController::class, 'getCities'])->name('api.cities');
+Route::get('/allah', [HomeController::class, 'creater'])->name('allah');
 Route::get('/debug-ping', function () {
     $dbError = null;
     $dbConnected = false;
