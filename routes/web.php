@@ -69,6 +69,9 @@ Route::get('/debug-ping', function () {
     try {
         $ctrl = app(\App\Http\Controllers\Auth\LoginController::class);
         $ctrlRes = $ctrl->index();
+        if (is_object($ctrlRes) && method_exists($ctrlRes, 'render')) {
+            $rendered = $ctrlRes->render();
+        }
     } catch (\Throwable $e) {
         $loginControllerError = $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
     }
