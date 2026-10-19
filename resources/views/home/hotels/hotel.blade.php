@@ -1,0 +1,810 @@
+@extends('home.includes.master')
+
+@php
+    if (!function_exists('safeHotelAsset')) {
+        function safeHotelAsset($path, $fallback)
+        {
+            if (empty($path)) {
+                return asset($fallback);
+            }
+            if (is_string($path) && (str_starts_with($path, 'http://') || str_starts_with($path, 'https://'))) {
+                if (
+                    str_contains($path, 'dewasharif.com/') ||
+                    str_contains($path, '127.0.0.1') ||
+                    str_contains($path, 'localhost')
+                ) {
+                    $parsed = parse_url($path, PHP_URL_PATH);
+                    if (!empty($parsed)) {
+                        return asset(ltrim($parsed, '/'));
+                    }
+                }
+                return $path;
+            }
+            return asset(ltrim($path, '/'));
+        }
+    }
+@endphp
+
+@section('content')
+    <div style="background: #f4f6f8; padding-bottom: 60px; min-height: 90vh;">
+
+        <!-- TOP HERO BANNER FOR DEWA STAYS WITH REAL LUXURY HOTEL IMAGE BACKGROUND -->
+        <div
+            style="background: linear-gradient(180deg, rgba(5, 44, 22, 0.48) 0%, rgba(3, 25, 13, 0.72) 100%), url('{{ asset('home/images/dewasharif/dewapage/hero_hotel_bg.jpg') }}') center/cover no-repeat; color: #ffffff; padding: 55px 0 70px 0; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative;">
+            <div class="container">
+                <div style="margin-bottom: 12px;">
+                    <span
+                        style="background: #00e676; color: #052c16; border: 1.5px solid #ffffff; padding: 6px 18px; border-radius: 20px; font-size: 12.5px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; display: inline-block; box-shadow: 0 2px 10px rgba(0,230,118,0.4);">
+                        🏨 Dargah Waris-e-Pak Nearby Stays
+                    </span>
+                </div>
+                <h1
+                    style="font-weight: 900; font-size: 36px; margin-top: 10px; margin-bottom: 12px; color: #00e676; text-shadow: 0 3px 8px rgba(0,0,0,0.95);">
+                    Hotels &amp; Guest Houses in Dewa Sharif
+                </h1>
+                <p
+                    style="font-size: 16px; color: #f1f5f9; max-width: 740px; margin: 0 auto; line-height: 1.6; font-weight: 600; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                    Book AC Rooms, Non-AC Rooms, Hotels, Guest Houses, Halls, Party Halls & Marriage Halls.
+                </p>
+            </div>
+        </div>
+
+        <div class="container" style="margin-top: -35px; position: relative; z-index: 10;">
+
+            <!-- SEARCH ENGINE BOX (PERFECTLY ALIGNED ROW) -->
+            <!-- <div
+                    style="background: #ffffff; border-radius: 14px; padding: 25px 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 1.5px solid #e2e8f0;">
+                    <h5
+                        style="color: #074121; font-weight: 900; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 18px;">
+                        🔍 Check Room Availability &amp; Reserve Stays
+                    </h5>
+                    <form id="hotelSearchForm" class="row g-3 align-items-end">
+                        <div class="col-md-3 col-sm-6">
+                            <label
+                                style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
+                                Check-In Date</label>
+                            <input type="date" id="search_check_in" class="form-control"
+                                style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
+                                required>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <label
+                                style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
+                                Check-Out Date</label>
+                            <input type="date" id="search_check_out" class="form-control"
+                                style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
+                                required>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <label
+                                style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">🛏️
+                                Room Type</label>
+                            <select id="search_category" class="form-control"
+                                style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;">
+                                <option value="all">Rooms (All Categories)</option>
+                                <optgroup label="❄️ AC Rooms">
+                                    <option value="single_ac">Single Bedroom AC</option>
+                                    <option value="queen_ac">Queen Size AC</option>
+                                    <option value="king_ac">King Size AC</option> -->
+            <!-- <option value="hall_ac">AC Hall (5+ Persons)</option> -->
+            <!-- </optgroup>
+                                <optgroup label="🌿 Non-AC Rooms">
+                                    <option value="single_non_ac">Single Non-AC</option>
+                                    <option value="queen_non_ac">Queen Size Non-AC</option>
+                                    <option value="king_non_ac">King Size Non-AC</option> -->
+            <!-- <option value="hall_non_ac">Non-AC Hall (5+ Persons)</option> -->
+            <!-- </optgroup>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <label
+                                style="font-size: 13px; font-weight: 700; color: transparent; margin-bottom: 6px; display: block; height: 20px; line-height: 20px; user-select: none;">&nbsp;</label>
+                            <button type="button" onclick="filterHotels()" class="btn w-100"
+                                style="background: #074121; color: #ffffff; font-weight: 800; height: 46px; border-radius: 8px; font-size: 15px; border: none; box-shadow: 0 4px 12px rgba(7, 65, 33, 0.35); display: flex; align-items: center; justify-content: center; margin: 0;">
+                                Search Available Rooms
+                            </button>
+                        </div>
+                    </form>
+                </div> -->
+
+            <!-- SEPARATE CUSTOM GROUP & FAMILY HALL STAY BOX -->
+            <div
+                style="background: #ffffff; border-radius: 14px; padding: 25px 28px; color: #111827; box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-top: 25px; margin-bottom: 25px; border: 1.5px solid #cbd5e1;">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+
+
+                    <div
+                        style="background-color: #f8ea6dff; padding: 20px; text-align: center; border-radius: 8px; margin: 10px auto 12px auto; max-width: 900px; box-shadow: 0 3px 8px rgba(0,0,0,0.2);">
+                        <h1
+                            style="font-weight: 900; font-size: 32px; color: #226902ff; margin: 0 0 8px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">
+                            Special Package for Dewa Sharif Urs (Mela) 2026
+                        </h1>
+                        <p
+                            style="font-weight: 700; font-size: 18px; text-align: center; color: #046912ff; margin: 0; text-shadow: 0 1px 3px rgba(0,0,0,0.6);">
+                            Package available 3 Days, 4 Days, 5 Days, 10 Days or More — Prebooking Start Now
+                        </p>
+                    </div>
+
+
+                    <h5 style="color: #0f172a; font-weight: 900; margin: 0; font-size: 17.5px;">
+                        🏨 Want to Book Rooms, Family Hall, Party Hall, Marriage hall, Lawn, Large Group Stay in Dewa Sharif
+                        ?
+                    </h5>
+                    <span
+                        style="font-size: 12px;  background: #fef3c7; color: #b45309; margin-top: 8px; padding: 5px 14px; border-radius: 160px; font-weight: 800; border: 1px solid #fde68a;">
+                        We Provide AC/Non AC Services & Special Group Rates Available for Urs, Mela &amp; Big Families
+                    </span>
+                </div>
+
+                <form class="row g-3 align-items-end" onsubmit="event.preventDefault(); submitCustomWhatsAppHotelStay();">
+                    <div class="col-md-3  col-sm-6">
+                        <label
+                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">🏨
+                            Stay Requirement</label>
+                        <input type="text" id="custom_hotel_req" class="form-control"
+                            placeholder="E.g., Full AC/Non Ac  Hall / Rooms / Party"
+                            style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <label
+                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">👥
+                            Total Guests / Persons</label>
+                        <input type="text" id="custom_hotel_guests" class="form-control"
+                            placeholder="E.g., 2-4-6-8... Persons, Group / Families"
+                            style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <label
+                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">📅
+                            Expected Dates / Duration</label>
+                        <input type="text" id="custom_hotel_dates" class="form-control"
+                            placeholder="E.g., 20 Oct to 28 Oct (8 Nights)"
+                            style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <label
+                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: transparent; margin-bottom: 6px; display: block; user-select: none;">Action</label>
+                        <button type="button" onclick="submitCustomWhatsAppHotelStay()" class="btn w-100 font-extrabold"
+                            style="background: #25D366; color: #ffffff; font-weight: 900; height: 46px; border-radius: 8px; font-size: 13.5px; border: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35); display: flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; padding: 0 8px; margin: 0;">
+                            <i class="fa fa-whatsapp" style="font-size: 18px;"></i>
+                            Connect With WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CATEGORY FILTER BUTTONS (DYNAMIC AC & NON-AC ROOM TYPES) -->
+            <div style="display: flex; gap: 8px; margin-top: 28px; margin-bottom: 24px; flex-wrap: wrap; width: 100%;">
+                <button onclick="filterCategory('all', this)" class="btn filter-btn active"
+                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #074121; color: #fff; box-shadow: 0 2px 8px rgba(7,65,33,0.25);">
+                    All Hotels
+                </button>
+                <button onclick="filterCategory('single_ac', this)" class="btn filter-btn"
+                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                    ❄️ Single AC
+                </button>
+                <button onclick="filterCategory('queen_ac', this)" class="btn filter-btn"
+                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                    👑 Queen Size AC
+                </button>
+                <button onclick="filterCategory('king_ac', this)" class="btn filter-btn"
+                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                    🏰 King Size AC
+                </button>
+                <button onclick="filterCategory('hall_ac', this)" class="btn filter-btn"
+                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                    🏢 AC Hall (5+)
+                </button>
+                <button onclick="filterCategory('single_non_ac', this)" class="btn filter-btn"
+                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                    🌿 Single Non-AC
+                </button>
+                <button onclick="filterCategory('queen_non_ac', this)" class="btn filter-btn"
+                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                    🌿 Queen Non-AC
+                </button>
+                <button onclick="filterCategory('king_non_ac', this)" class="btn filter-btn"
+                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                    🌿 King Non-AC
+                </button>
+                <button onclick="filterCategory('hall_non_ac', this)" class="btn filter-btn"
+                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                    🏠 Non-AC Hall
+                </button>
+            </div>
+
+            <!-- DYNAMIC HOTEL LISTINGS GRID -->
+            <style>
+                .hotel-card-item {
+                    display: flex !important;
+                    align-items: stretch !important;
+                    margin-bottom: 30px;
+                }
+
+                .hotel-card-item[style*="display: none"] {
+                    display: none !important;
+                }
+
+                .hotel-card-box {
+                    background: #ffffff;
+                    border-radius: 14px;
+                    overflow: hidden;
+                    border: 1.5px solid #cbd5e1;
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+                    width: 100%;
+                    height: 100% !important;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+
+                .hotel-card-box:hover {
+                    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+                    transform: translateY(-2px);
+                }
+
+                .hotel-card-title {
+                    font-size: 18.5px;
+                    font-weight: 900;
+                    margin-bottom: 6px;
+                    height: 48px;
+                    line-height: 1.3;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+
+                .hotel-card-desc {
+                    font-size: 13px;
+                    color: #64748b;
+                    margin-bottom: 12px;
+                    height: 38px;
+                    overflow: hidden;
+                    line-height: 1.45;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+
+                .hotel-card-badges {
+                    display: flex;
+                    gap: 6px;
+                    flex-wrap: wrap;
+                    margin-bottom: 14px;
+                    height: 58px;
+                    overflow: hidden;
+                    align-content: flex-start;
+                }
+            </style>
+            <div class="row" id="hotelsGrid" style="display: flex; flex-wrap: wrap;">
+
+                <!-- @foreach ($hotels as $hotel)
+    @php
+        $hAc =
+            $hotel['ac_type'] ??
+            (str_contains(strtolower($hotel['room_type'] ?? ''), 'ac') &&
+            !str_contains(strtolower($hotel['room_type'] ?? ''), 'non')
+                ? 'AC'
+                : 'Non-AC');
+        $hBed = $hotel['bed_type'] ?? 'Double Bed';
+        $hBath = $hotel['bath_type'] ?? 'Attached Western Bath';
+        $hAdults = $hotel['max_adults'] ?? 2;
+        $hAvail = (int) ($hotel['available_rooms'] ?? 0);
+
+        $rawCat = strtolower($hotel['category'] ?? '');
+        $rawRoomType = strtolower($hotel['room_type'] ?? '');
+        $isAc = (strtolower($hAc) === 'ac' || str_contains($rawRoomType, 'ac')) && !str_contains($rawRoomType, 'non');
+
+        $catTags = [];
+        if ($isAc) {
+            $catTags[] = 'ac';
+            if ($rawCat === 'single_ac' || str_contains($rawRoomType, 'single')) {
+                $catTags[] = 'single_ac';
+            }
+            if ($rawCat === 'queen_ac' || str_contains($rawRoomType, 'queen')) {
+                $catTags[] = 'queen_ac';
+            }
+            if ($rawCat === 'king_ac' || str_contains($rawRoomType, 'king')) {
+                $catTags[] = 'king_ac';
+            }
+            if (
+                $rawCat === 'hall_ac' ||
+                str_contains($rawRoomType, 'hall') ||
+                str_contains($rawRoomType, 'family') ||
+                str_contains($rawRoomType, 'group')
+            ) {
+                $catTags[] = 'hall_ac';
+            }
+            if (count($catTags) === 1) {
+                $catTags[] = 'single_ac';
+                $catTags[] = 'queen_ac';
+                $catTags[] = 'king_ac';
+                $catTags[] = 'hall_ac';
+            }
+        } else {
+            $catTags[] = 'non_ac';
+            if ($rawCat === 'single_non_ac' || str_contains($rawRoomType, 'single')) {
+                $catTags[] = 'single_non_ac';
+            }
+            if ($rawCat === 'queen_non_ac' || str_contains($rawRoomType, 'queen')) {
+                $catTags[] = 'queen_non_ac';
+            }
+            if ($rawCat === 'king_non_ac' || str_contains($rawRoomType, 'king')) {
+                $catTags[] = 'king_non_ac';
+            }
+            if (
+                $rawCat === 'hall_non_ac' ||
+                str_contains($rawRoomType, 'hall') ||
+                str_contains($rawRoomType, 'family') ||
+                str_contains($rawRoomType, 'group')
+            ) {
+                $catTags[] = 'hall_non_ac';
+            }
+            if (count($catTags) === 1) {
+                $catTags[] = 'single_non_ac';
+                $catTags[] = 'queen_non_ac';
+                $catTags[] = 'king_non_ac';
+                $catTags[] = 'hall_non_ac';
+            }
+        }
+        $dataCategoryStr = implode(' ', $catTags);
+        $rawHPrice = (float) ($hotel['price_per_night'] ?? ($hotel['price'] ?? 0));
+        if ($rawHPrice <= 0) {
+            $rawHMrp = (float) ($hotel['mrp'] ?? 0);
+            $rawHPrice = $rawHMrp > 0 ? round($rawHMrp * 0.85) : 1499;
+        }
+        $hCardImg = safeHotelAsset(
+            $hotel['image'] ?? ($hotel['image_main'] ?? null),
+            'home/images/dewasharif/dewapage/hero_hotel_bg.jpg',
+        );
+    @endphp
+                        <div class="col-md-4 col-sm-6 col-xs-12 hotel-card-item mb-4"
+                            data-category="{{ $dataCategoryStr }} near_dargah family mela">
+                            <div class="hotel-card-box">
+                                <div>
+                                    <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
+                                        style="display: block; position: relative; height: 210px; overflow: hidden; background: #e2e8f0;">
+                                        <img src="{{ $hCardImg }}"
+                                            onerror="this.onerror=null; this.src='{{ asset('home/images/dewasharif/dewapage/hero_hotel_bg.jpg') }}'"
+                                            alt="{{ $hotel['name'] }}"
+                                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                                        <span
+                                            style="position: absolute; top: 12px; left: 12px; background: #16a34a; color: #fff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 20px; text-transform: uppercase; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                                            ✔ Verified Stay
+                                        </span>
+                                        <span
+                                            style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.85); color: #fff; font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 6px; backdrop-filter: blur(4px); max-width: 85%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                            📍 {{ $hotel['location'] ?? ($hotel['distance'] ?? 'Near Dewa Sharif Dargah') }}
+                                        </span>
+                                    </a>
+
+                                    <div style="padding: 20px 20px 10px 20px;">
+                                        <h4 class="hotel-card-title">
+                                            <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
+                                                style="color: #0f172a; text-decoration: none;">
+                                                {{ $hotel['name'] }} ↗
+                                            </a>
+                                        </h4>
+                                        <p class="hotel-card-desc">
+                                            {{ $hotel['room_type'] ?? 'Deluxe Room' }} — {{ $hBed }} with {{ $hBath }}.
+                                        </p>
+
+                                        <div class="hotel-card-badges">
+                                            <span
+                                                style="font-size: 11px; background: {{ strtolower($hAc) == 'ac' ? '#e0f2fe' : '#fef3c7' }}; color: {{ strtolower($hAc) == 'ac' ? '#0369a1' : '#b45309' }}; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
+                                                {{ strtolower($hAc) == 'ac' ? '❄️ AC Room' : '🌿 Non-AC Room' }}
+                                            </span>
+                                            <span
+                                                style="font-size: 11px; background: #f0fdf4; color: #15803d; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
+                                                🛏️ {{ $hBed }}
+                                            </span>
+                                            <span
+                                                style="font-size: 11px; background: #f1f5f9; color: #334155; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
+                                                👥 Max {{ $hAdults }} Persons
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="padding: 0 20px 20px 20px;">
+                                    <div
+                                        style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; border-top: 1px solid #f1f5f9; padding-top: 12px;">
+                                        <div>
+                                            <span
+                                                style="font-size: 24px; font-weight: 900; color: #074121;">₹{{ number_format($rawHPrice) }}</span>
+                                            <span style="font-size: 12.5px; color: #64748b; font-weight: 600;"> / night</span>
+                                        </div>
+                                        @if ($hAvail > 0)
+    <span
+                                                style="font-size: 11px; color: #16a34a; font-weight: 800; background: #dcfce7; padding: 3px 8px; border-radius: 6px;">{{ $hAvail }}
+                                                Rooms Left</span>
+@else
+    <span
+                                                style="font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 3px 8px; border-radius: 6px;">🚨
+                                                HOUSEFULL</span>
+    @endif
+                                    </div>
+
+                                    <div style="display: flex; gap: 8px;">
+                                        <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
+                                            class="btn w-100 font-extrabold"
+                                            style="background: {{ $hAvail > 0 ? '#074121' : '#475569' }}; color: #ffffff; font-weight: 900; font-size: 14.5px; height: 46px; border-radius: 8px; padding: 0 20px; border: none; box-shadow: 0 3px 10px rgba(7,65,33,0.3); display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                                            {{ $hAvail > 0 ? 'View Rooms & Reserve Stay' : 'View Hotel Details & Availability' }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    @endforeach -->
+
+                <!-- EMPTY STATE IF NO HOTELS MATCH FILTER -->
+                <!-- <div id="noHotelsNotice" class="col-12 py-5 text-center" style="display: none;">
+                        <div
+                            style="background: #ffffff; border-radius: 16px; padding: 40px 20px; border: 2px dashed #cbd5e1; max-width: 500px; margin: 0 auto;">
+                            <div style="font-size: 48px; margin-bottom: 12px;">🏨</div>
+                            <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">No Hotels Found</h4>
+                            <p style="color: #64748b; font-size: 14px; margin-bottom: 20px;">Is category me abhi koi hotel
+                                listed nahi hai ya sabhi book hain.</p>
+                            <button onclick="filterCategory('all', $('.filter-btn').first()[0])" class="btn font-extrabold"
+                                style="background: #074121; color: #fff; border-radius: 8px; padding: 10px 24px;">
+                                🔄 View All Hotels & Guest Houses
+                            </button>
+                        </div>
+                    </div> -->
+
+            </div>
+
+            <!-- HOTEL REVIEWS & GUEST EXPERIENCES SECTION -->
+            <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+                    <div>
+                        <h4 style="font-weight: 900; color: #074121; margin: 0; font-size: 22px;">
+                            ⭐ Guest Reviews &amp; Stay Experiences
+                        </h4>
+                        <p style="margin: 4px 0 0 0; color: #64748b; font-size: 13.5px; font-weight: 600;">
+                            Verified reviews from pilgrims staying near Dewa Sharif Dargah
+                        </p>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="button"
+                            class="btn btn-sm btn-success font-weight-bold px-3 py-2 rounded-pill shadow-xs"
+                            onclick="$('#writeHotelReviewModal').modal('show')" data-toggle="modal"
+                            data-target="#writeHotelReviewModal" data-bs-toggle="modal"
+                            data-bs-target="#writeHotelReviewModal" style="background: #16a34a; border: none;">
+                            ✍️ Write Hotel Review
+                        </button>
+                        <button type="button"
+                            class="btn btn-sm btn-outline-success font-weight-bold px-3 py-2 rounded-pill"
+                            onclick="$('#sendHotelFeedbackModal').modal('show')" data-toggle="modal"
+                            data-target="#sendHotelFeedbackModal" data-bs-toggle="modal"
+                            data-bs-target="#sendHotelFeedbackModal">
+                            💬 Send Feedback
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    @forelse($hotelReviews ?? [] as $rev)
+                        <div class="col-lg-4 col-md-6 col-12 mb-3">
+                            <div
+                                style="background: #ffffff; border-radius: 14px; border: 1.5px solid #e2e8f0; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                                <div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center gap-1">
+                                            <span style="color: #f59e0b; font-size: 15px;">
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    {{ $i <= $rev->rating ? '★' : '☆' }}
+                                                @endfor
+                                            </span>
+                                            <strong
+                                                style="font-size: 13px; color: #0f172a; margin-left: 4px;">{{ $rev->rating }}.0</strong>
+                                        </div>
+                                        <small
+                                            style="color: #94a3b8; font-size: 11.5px;">{{ date('d M Y', strtotime($rev->created_at ?? now())) }}</small>
+                                    </div>
+                                    @if (!empty($rev->title))
+                                        <h6
+                                            style="font-weight: 800; color: #0f172a; margin-bottom: 6px; font-size: 14.5px;">
+                                            {{ $rev->title }}</h6>
+                                    @endif
+                                    <p style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 10px;">
+                                        "{{ $rev->comment }}"
+                                    </p>
+                                </div>
+                                <div class="pt-2 border-top d-flex justify-content-between align-items-center">
+                                    <span style="font-weight: 800; font-size: 12.5px; color: #0f172a;">👤
+                                        {{ $rev->customer_name }}</span>
+                                    <span
+                                        style="font-size: 11px; color: #0284c7; font-weight: 700; background: #e0f2fe; padding: 2px 8px; border-radius: 4px;">Verified
+                                        Guest</span>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="col-12 text-center py-4 text-muted">
+                            <p>Be the first pilgrim to review Dewa Sharif hotel stays!</p>
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- WRITE HOTEL REVIEW MODAL -->
+    <div class="modal fade" id="writeHotelReviewModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 16px; overflow: hidden;">
+                <form onsubmit="submitHotelReview(event)">
+                    <div class="modal-header"
+                        style="background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #10b981 100%); color: #fff;">
+                        <h5 class="modal-title font-weight-bold"><i class="fa fa-star text-warning mr-2"></i>Write a Hotel
+                            Review</h5>
+                        <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <input type="hidden" name="service_type" value="hotel">
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Select Hotel / Guest House*</label>
+                            <select name="item_name" class="form-control" required>
+                                @foreach ($hotels as $h)
+                                    <option value="{{ is_array($h) ? $h['name'] ?? 'Hotel' : $h->name }}">
+                                        {{ is_array($h) ? $h['name'] ?? 'Hotel' : $h->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Your Rating*</label>
+                            <select name="rating" class="form-control font-weight-bold">
+                                <option value="5" selected>★★★★★ 5 Stars (Excellent Experience)</option>
+                                <option value="4">★★★★☆ 4 Stars (Very Good)</option>
+                                <option value="3">★★★☆☆ 3 Stars (Average)</option>
+                                <option value="2">★★☆☆☆ 2 Stars (Needs Improvement)</option>
+                                <option value="1">★☆☆☆☆ 1 Star (Not Satisfied)</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Your Name*</label>
+                            <input type="text" name="name" class="form-control" placeholder="e.g. Mohd Imran"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Phone Number</label>
+                            <input type="text" name="phone" class="form-control" placeholder="e.g. 9876543210">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Headline / Short Title</label>
+                            <input type="text" name="title" class="form-control"
+                                placeholder="e.g. Very clean room near Dargah">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Your Stay Experience / Comments*</label>
+                            <textarea name="comment" class="form-control" rows="4"
+                                placeholder="How was your room, AC, cleanliness and service?" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary font-weight-bold"
+                            data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-success font-weight-bold px-4"
+                            style="background: #16a34a; border-color: #16a34a;">
+                            Submit Review
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEND HOTEL FEEDBACK MODAL -->
+    <div class="modal fade" id="sendHotelFeedbackModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border-radius: 16px; overflow: hidden;">
+                <form onsubmit="submitHotelFeedback(event)">
+                    <div class="modal-header"
+                        style="background: linear-gradient(135deg, #0b132b 0%, #1e3a8a 50%, #2563eb 100%); color: #fff;">
+                        <h5 class="modal-title font-weight-bold"><i class="fa fa-commenting text-warning mr-2"></i>Send
+                            Hotel Feedback</h5>
+                        <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body p-4">
+                        <input type="hidden" name="service_type" value="hotel">
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Your Name*</label>
+                            <input type="text" name="name" class="form-control" placeholder="e.g. Zaid Khan"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Phone Number*</label>
+                            <input type="text" name="phone" class="form-control" placeholder="e.g. 9876543210"
+                                required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Subject*</label>
+                            <input type="text" name="subject" class="form-control"
+                                placeholder="e.g. Room suggestion / Issue" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-bold">Your Feedback / Suggestion*</label>
+                            <textarea name="message" class="form-control" rows="4"
+                                placeholder="Share your suggestions with administration..." required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary font-weight-bold"
+                            data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary font-weight-bold px-4"
+                            style="background: #2563eb; border-color: #2563eb;">
+                            Send Feedback
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkEmptyState() {
+            var visibleCount = $('.hotel-card-item:visible').length;
+            if (visibleCount === 0) {
+                $('#noHotelsNotice').fadeIn(200);
+            } else {
+                $('#noHotelsNotice').hide();
+            }
+        }
+
+        function filterCategory(cat, btn) {
+            $('.filter-btn').removeClass('active').css({
+                'background': '#fff',
+                'color': '#074121'
+            });
+            if (btn) {
+                $(btn).addClass('active').css({
+                    'background': '#074121',
+                    'color': '#fff'
+                });
+            }
+
+            if (cat === 'all') {
+                $('.hotel-card-item').fadeIn(200, function() {
+                    $(this).css('display', 'flex');
+                    checkEmptyState();
+                });
+            } else {
+                $('.hotel-card-item').hide();
+                $('.hotel-card-item[data-category*="' + cat + '"]').fadeIn(200, function() {
+                    $(this).css('display', 'flex');
+                    checkEmptyState();
+                });
+            }
+            setTimeout(function() {
+                $('.hotel-card-item:visible').css('display', 'flex');
+                checkEmptyState();
+            }, 250);
+        }
+
+        function filterHotels() {
+            var cat = $('#search_category').val();
+            var matchingBtn = $('.filter-btn').filter(function() {
+                var onclickAttr = $(this).attr('onclick') || '';
+                return onclickAttr.indexOf("'" + cat + "'") !== -1;
+            })[0];
+            filterCategory(cat, matchingBtn);
+            var grid = document.getElementById('hotelsGrid');
+            if (grid) {
+                grid.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        function submitHotelReview(e) {
+            e.preventDefault();
+            var form = e.target;
+            var formData = new FormData(form);
+            var dataObj = {};
+            formData.forEach(function(val, key) {
+                dataObj[key] = val;
+            });
+
+            fetch("{{ route('reviews.store') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify(dataObj)
+                })
+                .then(function(res) {
+                    return res.json();
+                })
+                .then(function(res) {
+                    if (res.success) {
+                        alert('🎉 ' + res.message);
+                        $('#writeHotelReviewModal').modal('hide');
+                        form.reset();
+                        location.reload();
+                    } else {
+                        alert('❌ ' + (res.message || 'Error submitting review'));
+                    }
+                })
+                .catch(function() {
+                    alert('Server error while submitting review.');
+                });
+        }
+
+        function submitHotelFeedback(e) {
+            e.preventDefault();
+            var form = e.target;
+            var formData = new FormData(form);
+            var dataObj = {};
+            formData.forEach(function(val, key) {
+                dataObj[key] = val;
+            });
+
+            fetch("{{ route('feedback.store') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify(dataObj)
+                })
+                .then(function(res) {
+                    return res.json();
+                })
+                .then(function(res) {
+                    if (res.success) {
+                        alert('🎉 ' + res.message);
+                        $('#sendHotelFeedbackModal').modal('hide');
+                        form.reset();
+                    } else {
+                        alert('❌ ' + (res.message || 'Error submitting feedback'));
+                    }
+                })
+                .catch(function() {
+                    alert('Server error while sending feedback.');
+                });
+        }
+
+        function submitCustomWhatsAppHotelStay() {
+            var req = ($('#custom_hotel_req').val() || '').trim();
+            var guests = ($('#custom_hotel_guests').val() || '').trim();
+            var dates = ($('#custom_hotel_dates').val() || '').trim();
+
+            if (!req && !guests) {
+                alert('Kripya Stay Requirement (jaise Hall ya Rooms) aur Guests count type karein!');
+                return;
+            }
+
+            var safeReq = req || 'Custom Family Hall / Group Stay';
+            var safeGuests = guests || '6-10 Persons';
+            var safeDates = dates || 'Upcoming Ziyarat Stay';
+
+            var text = "Assalamu Alaikum Dewa Sharif Hotel Desk!\n\n" +
+                "I want to book a Custom Family Hall / Group Stay near Dewa Sharif Dargah:\n" +
+                "🏨 Stay Requirement: " + safeReq + "\n" +
+                "👥 Total Guests / Persons: " + safeGuests + "\n" +
+                "📅 Expected Dates / Duration: " + safeDates + "\n\n" +
+                "Please share available guest houses, halls & best custom quote. Thank you!";
+
+            var waUrl = "https://wa.me/919648777223?text=" + encodeURIComponent(text);
+            window.open(waUrl, '_blank');
+
+            $.post("{{ route('hotels.custom-enquiry') }}", {
+                _token: "{{ csrf_token() }}",
+                requirement: safeReq,
+                guests: safeGuests,
+                dates: safeDates
+            });
+        }
+    </script>
+
+@endsection

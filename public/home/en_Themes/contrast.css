@@ -336,9 +336,7 @@ a:hover {
 .select.form-control,
 select {
 	min-height: auto !important;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	background: #fff url(../frmErrorPageed31.html) no-repeat 95% 12px;
+	background: #fff;
 	font-size: 15px;
 	height: 42px;
 	border: 1px solid #ddd;
@@ -4106,14 +4104,6 @@ section {
 
 select {
 	min-height: auto !important;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	background-image: url(../images/select-dropdwn.png) !important;
-	background-repeat: no-repeat;
-	background-position: 94% 10px;
-	-webkit-transition: all .1s linear;
-	-moz-transition: all .1s linear;
-	transition: all .1s linear;
 	cursor: pointer;
 }
 

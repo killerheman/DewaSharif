@@ -1,62 +1,217 @@
 @extends('home.includes.master')
+
 @section('content')
-<div class="container">
-    <div class="maroon">
-        <h1>*** Terms & Conditions ***</h1>
+<style>
+    .policy-wrapper {
+        background: #f4f6f8;
+        padding: 45px 0 70px;
+        min-height: 85vh;
+    }
+    
+    .policy-wrapper .d-flex {
+        justify-content: flex-start !important;
+    }
+    
+    .policy-hero {
+        background: linear-gradient(135deg, #063820 0%, #0b5e36 50%, #16a34a 100%);
+        border-radius: 20px;
+        padding: 40px 30px;
+        color: #ffffff;
+        box-shadow: 0 12px 30px rgba(11, 94, 54, 0.25);
+        margin-bottom: 35px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .policy-hero .badge-pill {
+        background: rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(8px);
+        color: #ffeb3b;
+        padding: 6px 18px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: 15px;
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    /* Green Gradient to Yellow Gradient Header Effect */
+    .gradient-heading {
+        background: linear-gradient(135deg, #0b5e36 0%, #16a34a 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        transition: all 0.35s ease-in-out;
+        cursor: pointer;
+        display: inline-block;
+        text-align: left;
+    }
+    
+    .gradient-heading:hover,
+    .gradient-heading:focus,
+    .gradient-heading:active {
+        background: linear-gradient(135deg, #f7de01ff 0%, #f59e0b 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        transform: translateY(-2px);
+    }
+    
+    .hero-title {
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+        font-size: 36px;
+        font-weight: 800;
+        margin-bottom: 12px;
+        transition: all 0.35s ease-in-out;
+        cursor: pointer;
+    }
+    
+    .hero-title:hover {
+        background: linear-gradient(135deg, #fef08a 0%, #f59e0b 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    .policy-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 25px;
+        border: 1px solid rgba(11, 94, 54, 0.08);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s ease;
+    }
+    
+    .policy-card:hover {
+        box-shadow: 0 8px 25px rgba(11, 94, 54, 0.12);
+        border-color: rgba(22, 163, 74, 0.3);
+    }
+    
+    .heading-icon-badge {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: rgba(11, 94, 54, 0.1);
+        color: #0b5e36;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        margin-right: 12px;
+        vertical-align: middle;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+        -webkit-text-fill-color: #0b5e36 !important;
+    }
+    
+    .policy-card:hover .heading-icon-badge {
+        background: #0b5e36;
+        color: #ffffff !important;
+        -webkit-text-fill-color: #ffffff !important;
+    }
+
+    .policy-section-content {
+        padding-left: 52px;
+    }
+
+    @media (max-width: 576px) {
+        .policy-section-content {
+            padding-left: 0px;
+        }
+    }
+</style>
+
+<div class="policy-wrapper">
+    <div class="container">
+        <!-- Hero Header -->
+        <div class="policy-hero">
+            <span class="badge-pill"><i class="fa fa-user-secret"></i> Data Protection &amp; Trust</span>
+            <h1 class="hero-title" title="Hover / Tap to view Yellow Gradient">Privacy Policy</h1>
+            <p style="font-size: 16px; opacity: 0.95; max-width: 780px; margin: 0 auto;">
+                At dewasharif.com, we are committed to safeguarding your personal details and booking data with industry-leading encryption and security standards.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="policy-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="heading-icon-badge"><i class="fa fa-database"></i></span>
+                        <h3 class="gradient-heading m-0" style="font-size: 22px; font-weight: 700;" title="Hover/Tap to highlight">
+                            1. Information We Collect
+                        </h3>
+                    </div>
+                    <div class="policy-section-content">
+                        <p style="color: #4b5563; line-height: 1.7; margin-bottom: 10px;">
+                            When you register an account, book hotel rooms, schedule cab pickups, or purchase items on dewasharif.com, we collect necessary personal details including:
+                        </p>
+                        <ul style="color: #4b5563; line-height: 1.7; margin: 0; padding-left: 20px;">
+                            <li><strong>Account Details:</strong> Name, Email Address, Phone Number, and Delivery Address.</li>
+                            <li><strong>Government Photo ID:</strong> Aadhaar / ID details required for hotel booking verification.</li>
+                            <li><strong>Payment Information:</strong> Transacted securely via Razorpay / Bank gateways. We do not store raw Credit/Debit card numbers or CVV.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="heading-icon-badge"><i class="fa fa-shield"></i></span>
+                        <h3 class="gradient-heading m-0" style="font-size: 22px; font-weight: 700;" title="Hover/Tap to highlight">
+                            2. How We Use Your Data
+                        </h3>
+                    </div>
+                    <div class="policy-section-content">
+                        <p style="color: #4b5563; line-height: 1.7; margin-bottom: 10px;">
+                            Your data is strictly used to fulfill your service bookings and communicate vital updates:
+                        </p>
+                        <ul style="color: #4b5563; line-height: 1.7; margin: 0; padding-left: 20px;">
+                            <li>Sending instant booking confirmation vouchers, SMS/Email receipts, and PDF invoices.</li>
+                            <li>Sharing room reservation details with hotel reception desk for seamless check-in.</li>
+                            <li>Dispatching cab driver details and store delivery updates.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="policy-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="heading-icon-badge"><i class="fa fa-lock"></i></span>
+                        <h3 class="gradient-heading m-0" style="font-size: 22px; font-weight: 700;" title="Hover/Tap to highlight">
+                            3. Data Protection &amp; Zero Third-Party Selling
+                        </h3>
+                    </div>
+                    <div class="policy-section-content">
+                        <p style="color: #4b5563; line-height: 1.7; margin: 0;">
+                            We enforce strict 256-bit SSL encryption across all website pages. Your personal information is <strong>never sold, rented, or commercialized</strong> to third-party advertisers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="policy-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="heading-icon-badge"><i class="fa fa-envelope"></i></span>
+                        <h3 class="gradient-heading m-0" style="font-size: 22px; font-weight: 700;" title="Hover/Tap to highlight">
+                            4. Contact Our Data Privacy Officer
+                        </h3>
+                    </div>
+                    <div class="policy-section-content">
+                        <p style="color: #4b5563; line-height: 1.7; margin-bottom: 10px;">
+                            If you have questions regarding data privacy or wish to request data modification/deletion, please contact our support team at:
+                        </p>
+                        <p style="color: #0b5e36; font-weight: 700; margin: 0;">
+                            <i class="fa fa-envelope me-2"></i> privacy@dewasharif.com | <i class="fa fa-phone me-2"></i> +91 94150 00000
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <form action="{{ route('privacy') }}" method="POST">
-        <p>
-            <h4>1. Introduction :</h4>
-            At www.dewasharif.com, we are committed to protecting the privacy and personal information of our users.
-            This Privacy Policy outlines how we collect, use, and safeguard your information when you use our website.
-
-            <h4>2. Information We Collect :</h4>
-
-            <i><h5>Personal  :</h5></i> We may collect personal details such as your name, email address, and other contact
-            information when you voluntarily provide them (e.g., through contact forms or subscriptions).
-
-            <i><h5>Usage Data :</h5></i> We automatically collect certain information about your device and usage patterns, including IP
-            address, browser type, and pages visited. This helps us analyze website performance and enhance user
-            experience.
-
-            <h4>3. How We Use Your Information :</h4>
-            To provide and maintain our website and services.
-            To respond to your inquiries, comments, or requests.
-            To improve our website content and functionality.
-            To send occasional updates or newsletters if you have subscribed (you can opt out at any time).
-            4. Cookies and Tracking Technologies
-            www.dewasharif.com uses cookies to collect information about how our website is accessed and used. Cookies
-            help us remember your preferences, enhance user experience, and understand visitor interactions. You may
-            choose to disable cookies in your browser settings.
-
-            <h4>5. Third-Party Links :</h4>
-            Our website may contain links to third-party sites. www.dewasharif.com is not responsible for the privacy
-            practices or content of these external websites. We encourage you to review their privacy policies before
-            sharing personal information.
-
-            <h4>6. Data Security :</h4>
-            We implement industry-standard measures to protect your personal information from unauthorized access,
-            disclosure, or misuse. However, please be aware that no method of data transmission or storage is entirely
-            secure.
-
-            <h4>7. Children’s Privacy :</h4>
-            www.dewasharif.com is not intended for children under the age of 13. We do not knowingly collect personal
-            information from children. If we discover that a child has provided us with personal information, we will
-            take steps to delete it promptly.
-
-            <h4> 8. Changes to This Privacy Policy :</h4>
-            We may update our Privacy Policy from time to time. Changes will be posted on this page, and we encourage
-            you to review it periodically.
-
-            <h4>9. Contact Us :</h4>
-            If you have any questions about this Privacy Policy, please contact us via the contact information provided
-            on our website
-        </p>
-
-
-    </form>
-    </div>
-
 </div>
 @endsection

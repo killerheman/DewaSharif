@@ -17,6 +17,7 @@ function func1()
 */
 $(document).ready(function () {
     var svgplcs = document.getElementById('map-svg-circuit');
+    if (!svgplcs) return;
     var tooltip_kbrj = svgplcs.getElementById('tooltip-kbrj');
 //    alert(tooltip_kbrj)
    // tooltip_kbrj.setAttributeNS(null, "visibility", "hidden");

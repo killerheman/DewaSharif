@@ -13,7 +13,7 @@
 
         </p>
         <div class="col-sm-12">
-            <img src="{{asset('home/images/dewasharif/makkah/arafat.jpg')}}" alt="" style="width: 100%">
+            <img src="{{asset('home/images/dewasharif/makkah/arafaat.jpg')}}" alt="" style="width: 100%">
         </div>
     </div>
     <div class="row">

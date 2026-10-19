@@ -313,9 +313,7 @@ a:hover {
 .select.form-control,
 select {
 	min-height: auto !important;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	background: #fff url(../frmErrorPageed31.html) no-repeat 95% 12px;
+	background: #ffffff;
 	font-size: 15px;
 	height: 42px;
 	border: 1px solid #ddd;
@@ -1910,15 +1908,16 @@ path:hover {
 }
 
 .tabs-left li a {
-	color: #fff;
+	color: #fff !important;
 	text-transform: uppercase;
 	font-size: 1.3em;
-	font-weight: 600;
+	font-weight: 700;
 	border-radius: 6px;
 	border: 3px solid #004D28;
 	position: relative;
 	padding: 14px 15px 14px 58px;
 	background-repeat: no-repeat;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.7);
 	transition-duration: .3s;
 }
 
@@ -1930,68 +1929,99 @@ path:hover {
 	font-weight: 300;
 	top: 4px;
 	left: 12px;
+	color: #ffffff !important;
+	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
+.tabs-left li.active a,
+.tabs-left li.active a:focus,
+.tabs-left li.active a:hover,
 .tabs-left li a.active,
 .tabs-left li a:hover {
-	color: #000;
-	background-image: url(../images/btn-hover.png);
-	background-color: #fff;
-	background-position: top right;
+	color: #ffffff !important;
+	border: 3px solid #f59e0b !important;
+	box-shadow: 0 0 16px rgba(245, 158, 11, 0.8), 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+	transform: scale(1.03);
 }
 
+.tabs-left li.active a:before,
 .tabs-left li a.active:before,
 .tabs-left li a:hover::before {
-	color: #e64353;
+	color: #f59e0b !important;
 }
 
 .tabs-left a[href="#January"] {
-	background-image: url(../images/dewasharif/calender/january.jpg);
+	background-image: url(../images/dewasharif/calender/january.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
     width: 100%;
 }
 
-.tabs-left a[href="#Febuary"] {
-	background-image: url(../images/dewasharif/calender/feb.jpg);
+.tabs-left a[href="#Febuary"],
+.tabs-left a[href="#February"] {
+	background-image: url(../images/dewasharif/calender/feb.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#March"] {
-	background-image: url(../images/dewasharif/calender/mar.jpg);
+	background-image: url(../images/dewasharif/calender/mar.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#April"] {
-	background-image: url(../images/dewasharif/calender/apr.jpg);
+	background-image: url(../images/dewasharif/calender/apr.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#May"] {
-	background-image: url(../images/dewasharif/calender/may.jpg);
+	background-image: url(../images/dewasharif/calender/may.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#June"] {
-	background-image: url(../images/dewasharif/calender/june.jpg);
+	background-image: url(../images/dewasharif/calender/june.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#July"] {
-	background-image: url(../images/dewasharif/calender/july.jpg);
+	background-image: url(../images/dewasharif/calender/july.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#August"] {
-	background-image: url(../images/dewasharif/calender/aug.jpg);
+	background-image: url(../images/dewasharif/calender/aug.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#September"] {
-	background-image: url(../images/dewasharif/calender/sep.jpg);
+	background-image: url(../images/dewasharif/calender/sep.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#October"] {
-	background-image: url(../images/dewasharif/calender/oct.jpg);
+	background-image: url(../images/dewasharif/calender/oct.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#November"] {
-	background-image: url(../images/dewasharif/calender/nov.jpg);
+	background-image: url(../images/dewasharif/calender/nov.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .tabs-left a[href="#December"] {
-	background-image: url(../images/dewasharif/calender/dec.jpg);
+	background-image: url(../images/dewasharif/calender/dec.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
 }
 
 .festivetab .festivals {
@@ -4063,14 +4093,6 @@ section {
 
 select {
 	min-height: auto !important;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	background-image: url(../images/select-dropdwn.png) !important;
-	background-repeat: no-repeat;
-	background-position: 94% 10px;
-	-webkit-transition: all .1s linear;
-	-moz-transition: all .1s linear;
-	transition: all .1s linear;
 	cursor: pointer;
 }
 

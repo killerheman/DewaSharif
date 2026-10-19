@@ -80,13 +80,17 @@
 <script src="{{ asset('home/js/animate.js') }}"></script><noscript class="hidden">Javascipt has been disabled.</noscript>
 <script src="{{ asset('home/js/jquery.flipster.min.js') }}"></script>
 <script>
-    var coverflow = $("#coverflow").flipster();
-    var carousel = $("#cityhighlight").flipster({
-        style: 'carousel',
-        spacing: -0.2,
-        nav: false,
-        buttons: true,
-    });
+    if ($("#coverflow").length) {
+        var coverflow = $("#coverflow").flipster();
+    }
+    if ($("#cityhighlight").length) {
+        var carousel = $("#cityhighlight").flipster({
+            style: 'carousel',
+            spacing: -0.2,
+            nav: false,
+            buttons: true,
+        });
+    }
 </script>
 
 <script>
