@@ -54,16 +54,25 @@ Route::get('/debug-ping', function () {
         $dbError = $e->getMessage();
     }
 
+    $user4 = null;
+    $cabsCount = 0;
+    try {
+        if (\Illuminate\Support\Facades\Schema::hasTable('users')) {
+            $user4 = \Illuminate\Support\Facades\DB::table('users')->where('id', 4)->first();
+        }
+        if (\Illuminate\Support\Facades\Schema::hasTable('cab_bookings')) {
+            $cabsCount = \Illuminate\Support\Facades\DB::table('cab_bookings')->count();
+        }
+    } catch (\Throwable $e) {}
+
     return response()->json([
         'status' => 'ok',
-        'build' => 'v4_check_conn',
+        'build' => 'v5_sqlite_fallback',
         'db_connected' => $dbConnected,
         'db_error' => $dbError,
         'default_connection' => config('database.default'),
-        'env_db_connection' => env('DB_CONNECTION'),
-        'env_db_database' => env('DB_DATABASE'),
-        'env_db_username' => env('DB_USERNAME'),
-        'env_db_host' => env('DB_HOST'),
+        'user4' => $user4,
+        'cabs_count' => $cabsCount,
         'sqlite_file_exists' => file_exists(database_path('database.sqlite')),
     ]);
 });
