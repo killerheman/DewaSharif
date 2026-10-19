@@ -108,7 +108,11 @@ class LoginController extends Controller
             }
 
             if ($authenticated) {
-                $request->session()->regenerate();
+                try {
+                    if ($request->hasSession()) {
+                        $request->session()->regenerate();
+                    }
+                } catch (\Throwable $se) {}
                 $user = Auth::user();
 
                 if (($user->role ?? 'customer') === 'admin') {

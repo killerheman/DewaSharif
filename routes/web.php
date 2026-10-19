@@ -77,34 +77,12 @@ Route::get('/debug-ping', function () {
         $loginControllerError = $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
     }
 
-    $storeResult = null;
-    $storeError = null;
-    try {
-        $loginReq = \Illuminate\Http\Request::create('/login', 'POST', [
-            'email_or_phone' => '7899422676',
-            'password' => '123456'
-        ]);
-        $loginReq->setLaravelSession(app('session.store'));
-        $storeRes = $ctrl->store($loginReq);
-        $storeResult = [
-            'status' => method_exists($storeRes, 'getStatusCode') ? $storeRes->getStatusCode() : 'none',
-            'target' => method_exists($storeRes, 'getTargetUrl') ? $storeRes->getTargetUrl() : 'none',
-            'auth_check' => auth()->check(),
-            'auth_user' => auth()->check() ? auth()->user()->name : null,
-            'session_error' => session('error'),
-        ];
-    } catch (\Throwable $e) {
-        $storeError = $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
-    }
-
     return response()->json([
         'status' => 'ok',
-        'build' => 'v7_test_login_store',
+        'build' => 'v8_ready',
         'db_connected' => $dbConnected,
         'db_error' => $dbError,
         'login_call_error' => $loginControllerError,
-        'store_result' => $storeResult,
-        'store_error' => $storeError,
         'user4' => $user4,
     ]);
 });
