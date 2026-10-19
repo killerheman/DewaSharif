@@ -65,15 +65,21 @@ Route::get('/debug-ping', function () {
         }
     } catch (\Throwable $e) {}
 
+    $loginControllerError = null;
+    try {
+        $ctrl = app(\App\Http\Controllers\Auth\LoginController::class);
+        $ctrlRes = $ctrl->index();
+    } catch (\Throwable $e) {
+        $loginControllerError = $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
+    }
+
     return response()->json([
         'status' => 'ok',
-        'build' => 'v5_sqlite_fallback',
+        'build' => 'v6_debug_login_error',
         'db_connected' => $dbConnected,
         'db_error' => $dbError,
-        'default_connection' => config('database.default'),
+        'login_call_error' => $loginControllerError,
         'user4' => $user4,
-        'cabs_count' => $cabsCount,
-        'sqlite_file_exists' => file_exists(database_path('database.sqlite')),
     ]);
 });
 Route::get('/sitemap.xml', function () {
