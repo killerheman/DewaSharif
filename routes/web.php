@@ -56,13 +56,15 @@ Route::get('/debug-ping', function () {
 
     return response()->json([
         'status' => 'ok',
-        'build' => 'v3_check_db',
+        'build' => 'v4_check_conn',
         'db_connected' => $dbConnected,
         'db_error' => $dbError,
-        'pdo_drivers' => \PDO::getAvailableDrivers(),
+        'default_connection' => config('database.default'),
+        'env_db_connection' => env('DB_CONNECTION'),
         'env_db_database' => env('DB_DATABASE'),
         'env_db_username' => env('DB_USERNAME'),
         'env_db_host' => env('DB_HOST'),
+        'sqlite_file_exists' => file_exists(database_path('database.sqlite')),
     ]);
 });
 Route::get('/sitemap.xml', function () {
