@@ -23,8 +23,8 @@ class LoginController extends Controller
             }
             return view('admin.auth.login');
         } catch (\Throwable $e) {
-            return response("LOGIN INDEX ERROR: " . $e->getMessage() . " in " . $e->getFile() . ":" . $e->getLine() . "\n" . $e->getTraceAsString(), 500)
-                ->header('Content-Type', 'text/plain');
+            Log::error("Login view error: " . $e->getMessage());
+            return view('admin.auth.login');
         }
     }
 

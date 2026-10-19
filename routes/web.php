@@ -45,47 +45,6 @@ Route::get('/api/location/countries', [LocationController::class, 'getCountries'
 Route::get('/api/location/states/{country}', [LocationController::class, 'getStates'])->name('api.states');
 Route::get('/api/location/cities/{state}', [LocationController::class, 'getCities'])->name('api.cities');
 Route::get('/allah', [HomeController::class, 'creater'])->name('allah');
-Route::get('/debug-ping', function () {
-    $dbError = null;
-    $dbConnected = false;
-    try {
-        \Illuminate\Support\Facades\DB::connection()->getPdo();
-        $dbConnected = true;
-    } catch (\Throwable $e) {
-        $dbError = $e->getMessage();
-    }
-
-    $user4 = null;
-    $cabsCount = 0;
-    try {
-        if (\Illuminate\Support\Facades\Schema::hasTable('users')) {
-            $user4 = \Illuminate\Support\Facades\DB::table('users')->where('id', 4)->first();
-        }
-        if (\Illuminate\Support\Facades\Schema::hasTable('cab_bookings')) {
-            $cabsCount = \Illuminate\Support\Facades\DB::table('cab_bookings')->count();
-        }
-    } catch (\Throwable $e) {}
-
-    $loginControllerError = null;
-    try {
-        $ctrl = app(\App\Http\Controllers\Auth\LoginController::class);
-        $ctrlRes = $ctrl->index();
-        if (is_object($ctrlRes) && method_exists($ctrlRes, 'render')) {
-            $rendered = $ctrlRes->render();
-        }
-    } catch (\Throwable $e) {
-        $loginControllerError = $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine();
-    }
-
-    return response()->json([
-        'status' => 'ok',
-        'build' => 'v8_ready',
-        'db_connected' => $dbConnected,
-        'db_error' => $dbError,
-        'login_call_error' => $loginControllerError,
-        'user4' => $user4,
-    ]);
-});
 Route::get('/sitemap.xml', function () {
     $path = public_path('sitemap.xml');
     if (file_exists($path)) {
