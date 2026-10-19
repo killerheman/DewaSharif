@@ -18,46 +18,46 @@
             27 October - 5 November
         </h1>
 
-           <span
+        <span
             style="background: #faf9f9ff; color: #111; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
             ⚠️ Website is Under Maintenance. Please do not make any bookings from (19/10/2026 - 11:30 PM).
             <br> For urgent
             inquiries, or Bookings
             please Contact via WhatsApp or Call.
-         </span>
+        </span>
 
         <!-- Subtitle -->
         <!-- <p id="mela-sub" onmouseover="this.style.color='#ffeb3b';" onmouseout="this.style.color='#00e676';"
-                    ontouchstart="this.style.color='#ffeb3b';" ontouchend="this.style.color='#00e676';"
-                    style="color: #00e676; font-size: 17px; max-width: 680px; margin: 0 auto 28px auto; font-weight: 600; line-height: 1.6; text-align: center; cursor: pointer; transition: color 0.3s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.6);">
-                    Nearby Hotels &amp; Cabs Bookings, Airport & Railway Station Lucknow & Custom Places , Degh Niyaz
-                </p> -->
+                        ontouchstart="this.style.color='#ffeb3b';" ontouchend="this.style.color='#00e676';"
+                        style="color: #00e676; font-size: 17px; max-width: 680px; margin: 0 auto 28px auto; font-weight: 600; line-height: 1.6; text-align: center; cursor: pointer; transition: color 0.3s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.6);">
+                        Nearby Hotels &amp; Cabs Bookings, Airport & Railway Station Lucknow & Custom Places , Degh Niyaz
+                    </p> -->
 
         <!-- Big Bold Coming Soon Box -->
         <!-- <div style="margin-bottom: 20px; text-align: center; width: 100%;">
-                    <div
-                        style="display: inline-block; background: rgba(0, 15, 8, 0.92); border: 2.5px dashed #ffeb3b; padding: 18px 45px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.7);">
-                        <h2
-                            style="font-size: 36px; font-weight: 900; color: #ffeb3b; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 16px rgba(255, 235, 59, 0.7); display: flex; align-items: center; justify-content: center; gap: 10px;">
-                            <span>🌹</span><span>COMING SOON</span> <span>🌹</span>
-                        </h2>
-                        <p style="color: #00e676; font-size: 16px; margin: 10px 0 0 0; font-weight: 700;">
-                            Online Prebooking &amp; travel assistance jald hi shuru hogi! InshaAllah
-                        </p>
-                    </div>-
-                </div> -->
+                        <div
+                            style="display: inline-block; background: rgba(0, 15, 8, 0.92); border: 2.5px dashed #ffeb3b; padding: 18px 45px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.7);">
+                            <h2
+                                style="font-size: 36px; font-weight: 900; color: #ffeb3b; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 16px rgba(255, 235, 59, 0.7); display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                <span>🌹</span><span>COMING SOON</span> <span>🌹</span>
+                            </h2>
+                            <p style="color: #00e676; font-size: 16px; margin: 10px 0 0 0; font-weight: 700;">
+                                Online Prebooking &amp; travel assistance jald hi shuru hogi! InshaAllah
+                            </p>
+                        </div>-
+                    </div> -->
 
         <!-- Buttons Row -->
         <!-- <div style="display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap;">
-                    <a href="javascript:void(0)"
-                        style="background: #25D366; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); display: inline-flex; align-items: center; cursor: default; border: 2px solid transparent;">
-                        🏨 Book Hotels / Stay
-                    </a>
-                    <a href="javascript:void(0)"
-                        style="background: transparent; color: #ffeb3b; border: 2px solid #ffeb3b; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; cursor: default; box-shadow: 0 4px 14px rgba(0,0,0,0.2);">
-                        🚗 Cab &amp; Travel Help
-                    </a>
-                </div> -->
+                        <a href="javascript:void(0)"
+                            style="background: #25D366; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); display: inline-flex; align-items: center; cursor: default; border: 2px solid transparent;">
+                            🏨 Book Hotels / Stay
+                        </a>
+                        <a href="javascript:void(0)"
+                            style="background: transparent; color: #ffeb3b; border: 2px solid #ffeb3b; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; cursor: default; box-shadow: 0 4px 14px rgba(0,0,0,0.2);">
+                            🚗 Cab &amp; Travel Help
+                        </a>
+                    </div> -->
     </div>
 
     <!-- ================= 3 FEATURED SERVICE CARDS (Green + Black + Bright Pure Yellow) ================= -->
@@ -545,6 +545,7 @@
                             padding: 0 12px;
                             box-sizing: border-box;
                         }
+
                         .letters-row {
                             display: flex !important;
                             justify-content: center !important;
@@ -555,6 +556,7 @@
                             gap: 20px;
                             flex-wrap: nowrap !important;
                         }
+
                         .letters-row li {
                             text-align: center;
                             margin: 0 !important;
@@ -562,10 +564,12 @@
                             transition: transform 0.3s ease;
                             flex: 0 0 auto;
                         }
+
                         .letters-row li a {
                             display: block;
                             pointer-events: none;
                         }
+
                         .letters-row li img {
                             height: 120px;
                             display: block;
@@ -573,6 +577,7 @@
                             max-width: 100%;
                             object-fit: contain;
                         }
+
                         .letters-row li p {
                             color: #005c29;
                             font-size: 13px;
@@ -581,76 +586,95 @@
                             margin-top: 4px;
                             letter-spacing: 0.4px;
                         }
+
                         .letters-row li:hover {
                             transform: translateY(-8px);
                         }
+
                         @media (max-width: 991px) {
                             .letters-row {
                                 gap: 14px;
                             }
+
                             .letters-row li img {
                                 height: 85px;
                             }
+
                             .letters-row li p {
                                 font-size: 11px;
                             }
                         }
+
                         @media (max-width: 768px) {
                             .letters-row {
                                 gap: 8px;
                                 margin-bottom: 12px !important;
                             }
+
                             .letters-row li img {
                                 height: 50px;
                             }
+
                             .letters-row li p {
                                 font-size: 8px;
                                 letter-spacing: 0;
                             }
                         }
+
                         @media (max-width: 480px) {
                             .letters-wrap-box {
                                 padding: 0 8px;
                             }
+
                             .letters-row {
                                 gap: 5px;
                                 margin-bottom: 10px !important;
                             }
+
                             .letters-row li img {
                                 height: 38px;
                                 max-width: 32px;
                             }
+
                             .letters-row li p {
                                 font-size: 6.5px;
                                 margin-top: 2px;
                             }
                         }
+
                         @media (max-width: 360px) {
                             .letters-wrap-box {
                                 padding: 0 6px;
                             }
+
                             .letters-row {
                                 gap: 3px;
                             }
+
                             .letters-row li img {
                                 height: 30px;
                                 max-width: 25px;
                             }
+
                             .letters-row li p {
                                 font-size: 5.5px;
                             }
                         }
+
                         @media (max-width: 300px) {
                             .letters-wrap-box {
                                 padding: 0 4px;
                             }
+
                             .letters-row {
                                 gap: 2px;
                             }
+
                             .letters-row li img {
                                 height: 26px;
                                 max-width: 22px;
                             }
+
                             .letters-row li p {
                                 font-size: 5px;
                             }
@@ -680,8 +704,8 @@
 
                         <!-- LINE 2: SHARIF (Centered, 6 letters) -->
                         <ul class="letters-row">
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/5.png') }}" alt="SPRITUALITY"
-                                        title="SPRITUALITY" /></a>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/5.png') }}"
+                                        alt="SPRITUALITY" title="SPRITUALITY" /></a>
                                 <p>SPRITUALITY</p>
                             </li>
                             <li><a href="#"><img src="{{ asset('home/images/dewasharif/6.png') }}" alt="HUMANITY"
@@ -708,26 +732,37 @@
                     </div>
                 </div>
                 <div class="row justify-content-center text-center">
-    <div class="row justify-content-center text-center">
-    <!-- Father Card -->
-    <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
-        <div style="border: 1px solid #ccc; border-radius: 8px; padding: 15px 10px; background: #fff;">
-            <img src="{{ asset('home/images/dewasharif/walidsahab.jpeg') }}" alt="Father" title="Barkat Ali" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
-            <h4 style="font-size: 18px; font-weight: 800; text-align: center; margin-top: 10px; color: #14412a;">BARKAT ALI <br><span style="font-size: 14px;">[FATHER]</span></h4>
-            <p style="margin: 0; text-align: center; font-size: 14px;"><b><i>Barkat Ali Kirana Store</i></b> <br /> <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b></p>
-        </div>
-    </div>
+                    <div class="row justify-content-center text-center">
+                        <!-- Father Card -->
+                        <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
+                            <div style="border: 1px solid #ccc; border-radius: 8px; padding: 15px 10px; background: #fff;">
+                                <img src="{{ asset('home/images/dewasharif/walidsahab.jpeg') }}" alt="Father"
+                                    title="Barkat Ali"
+                                    style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
+                                <h4
+                                    style="font-size: 18px; font-weight: 800; text-align: center; margin-top: 10px; color: #14412a;">
+                                    BARKAT ALI <br><span style="font-size: 14px;">[FATHER]</span></h4>
+                                <p style="margin: 0; text-align: center; font-size: 14px;"><b><i>Barkat Ali Kirana
+                                            Store</i></b> <br /> <b
+                                        style="word-break: break-all; color: #09532f;">www.dewasharif.com</b></p>
+                            </div>
+                        </div>
 
-    <!-- Shahzade Alam Card -->
-    <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
-        <div style="border: 1px solid #ccc; border-radius: 8px; padding: 15px 10px; background: #fff;">
-            <img src="{{ asset('home/images/dewasharif/masharrat.jpg') }}" alt="Shahzade Alam" title="Shahzade Alam" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
-            <h4 style="font-size: 18px; text-align: center; font-weight: 800; margin-top: 10px; color: #14412a;">Shahzade Alam <br><span style="font-size: 14px;">[مشرت وارثی]</span></h4>
-            <p style="margin: 0; text-align: center; font-size: 14px;"><b><i>Software Engineer</i></b> <br /> <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b></p>
-        </div>
-    </div>
-</div>
-</div>
+                        <!-- Shahzade Alam Card -->
+                        <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
+                            <div style="border: 1px solid #ccc; border-radius: 8px; padding: 15px 10px; background: #fff;">
+                                <img src="{{ asset('home/images/dewasharif/masharrat.jpg') }}" alt="Shahzade Alam"
+                                    title="Shahzade Alam"
+                                    style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
+                                <h4
+                                    style="font-size: 18px; text-align: center; font-weight: 800; margin-top: 10px; color: #14412a;">
+                                    Shahzade Alam <br><span style="font-size: 14px;">[مشرت وارثی]</span></h4>
+                                <p style="margin: 0; text-align: center; font-size: 14px;"><b><i>Software Engineer</i></b>
+                                    <br /> <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1071,6 +1106,7 @@
                             max-width: 780px;
                             box-sizing: border-box;
                         }
+
                         #connect .sm-icon li {
                             display: flex !important;
                             justify-content: center !important;
@@ -1080,6 +1116,7 @@
                             padding: 0 !important;
                             margin: 0 !important;
                         }
+
                         #connect .sm-icon li a {
                             display: flex !important;
                             align-items: center !important;
@@ -1094,46 +1131,56 @@
                             transition: transform 0.25s ease, box-shadow 0.25s ease;
                             margin: 0 !important;
                         }
+
                         #connect .sm-icon li a:hover {
                             transform: translateY(-5px);
                             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
                         }
+
                         @media (max-width: 768px) {
                             #connect .sm-icon {
                                 gap: 14px 12px !important;
                                 padding: 0 10px !important;
                             }
+
                             #connect .sm-icon li a {
                                 width: 72px !important;
                                 height: 72px !important;
                                 font-size: 34px !important;
                             }
+
                             #connect .sm-icon li a img {
                                 width: 38px !important;
                             }
+
                             #connect .sm-icon li a span {
                                 font-size: 8px !important;
                                 bottom: -20px !important;
                             }
                         }
+
                         @media (max-width: 360px) {
                             #connect .sm-icon {
                                 gap: 12px 10px !important;
                                 padding: 0 6px !important;
                             }
+
                             #connect .sm-icon li a {
                                 width: 64px !important;
                                 height: 64px !important;
                                 font-size: 28px !important;
                             }
+
                             #connect .sm-icon li a img {
                                 width: 32px !important;
                             }
                         }
+
                         @media (max-width: 300px) {
                             #connect .sm-icon {
                                 gap: 10px 8px !important;
                             }
+
                             #connect .sm-icon li a {
                                 width: 56px !important;
                                 height: 56px !important;
@@ -1151,8 +1198,8 @@
                         </li>
                         <li><a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener"
                                 class="external none" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="https://wa.me/919648777223" target="_blank" rel="noopener"
-                                class="external none" title="WhatsApp"><i class="fa fa-whatsapp"></i></a></li>
+                        <li><a href="https://wa.me/919648777223" target="_blank" rel="noopener" class="external none"
+                                title="WhatsApp"><i class="fa fa-whatsapp"></i></a></li>
                         <li><a href="https://www.youtube.com/@DewaSharif707" target="_blank" rel="noopener"
                                 class="external none" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
                         <li>
@@ -1160,8 +1207,7 @@
                                 title="UP Tourism Blog" style="position: relative;">
                                 <img src="{{ asset('home/images/blog.png') }}"
                                     style="filter: contrast(0%) brightness(20%); width: 74px;" />
-                                <span
-                                    style="position: absolute; font-size: 10px; color: #000; left: 0; right: -28px; bottom: -10px; text-transform: uppercase; font-weight: 800;">blog</span>
+
                             </a>
                         </li>
                     </ul>
