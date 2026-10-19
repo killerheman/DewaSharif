@@ -13,14 +13,19 @@ class LoginController extends Controller
 {
     public function index()
     {
-        if (Auth::check()) {
-            $user = Auth::user();
-            if (($user->role ?? 'customer') === 'admin') {
-                return redirect()->route('admin.dashboard');
+        try {
+            if (Auth::check()) {
+                $user = Auth::user();
+                if (($user->role ?? 'customer') === 'admin') {
+                    return redirect()->route('admin.dashboard');
+                }
+                return redirect()->route('customer.dashboard');
             }
-            return redirect()->route('customer.dashboard');
+            return view('admin.auth.login');
+        } catch (\Throwable $e) {
+            return response("LOGIN INDEX ERROR: " . $e->getMessage() . " in " . $e->getFile() . ":" . $e->getLine() . "\n" . $e->getTraceAsString(), 500)
+                ->header('Content-Type', 'text/plain');
         }
-        return view('admin.auth.login');
     }
 
     public function store(Request $request)
