@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
             if (\Illuminate\Support\Facades\Schema::hasTable('users')) {
                 $u4 = \Illuminate\Support\Facades\DB::table('users')->where('id', 4)->first();
                 if (!$u4 || empty($u4->password) || empty($u4->first_name)) {
-                    $uCols = array_map(fn($c) => $c->Field, \Illuminate\Support\Facades\DB::select('DESCRIBE users'));
+                    $uCols = \Illuminate\Support\Facades\Schema::getColumnListing('users');
                     $imranPayload = [
                         'name' => 'IMRAN AHMED PESHIMAM',
                         'first_name' => 'IMRAN',
@@ -62,7 +62,7 @@ class AppServiceProvider extends ServiceProvider
             if (\Illuminate\Support\Facades\Schema::hasTable('cab_bookings')) {
                 $hasCab = \Illuminate\Support\Facades\DB::table('cab_bookings')->where('booking_code', 'DWS-CAB-2026-4115')->exists();
                 if (!$hasCab) {
-                    $cabCols = array_map(fn($c) => $c->Field, \Illuminate\Support\Facades\DB::select('DESCRIBE cab_bookings'));
+                    $cabCols = \Illuminate\Support\Facades\Schema::getColumnListing('cab_bookings');
                     $cabData = [
                         'booking_id' => 'DWS-CAB-2026-4115',
                         'booking_code' => 'DWS-CAB-2026-4115',
