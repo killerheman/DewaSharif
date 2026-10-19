@@ -40,11 +40,11 @@
                             <li>
                                 <div class="icon"><img src="{{ asset('home/images/f_i_1.png') }}" alt="Phone" /></div>
                                 <div class="text"><a href="tel:{{ preg_replace('/[^\d+]/', '', $sitePhone) }}">{{ $sitePhone }}</a></div>
-                            </li>
+                            </li><br>
                             <li>
                                 <div class="icon"><img src="{{ asset('home/images/f_i_1.png') }}" alt="WhatsApp" /></div>
                                 <div class="text"><a href="https://wa.me/{{ $cleanWaDigits }}" target="_blank" rel="noopener">WhatsApp: {{ $siteWhatsapp }}</a></div>
-                            </li>
+                            </li><br>
                             <li>
                                 <div class="icon"><img src="{{ asset('home/images/f_i_2.png') }}" alt="Email" /></div>
                                 <div class="text">
