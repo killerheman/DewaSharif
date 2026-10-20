@@ -427,12 +427,4 @@ Route::prefix('user')->middleware('customer')->name('customer.')->group(function
     Route::post('/reviews/{id}/update', [CustomerPortalController::class, 'updateReview'])->name('reviews.update');
     Route::delete('/reviews/{id}', [CustomerPortalController::class, 'destroyReview'])->name('reviews.destroy');
 
-Route::get('/fix-server', function() {
-    Artisan::call('config:clear');
-    Artisan::call('cache:clear');
-    Artisan::call('route:clear');
-    Artisan::call('view:clear');
-    return "All Laravel Caches Cleared Successfully!";
-});
-
 });
