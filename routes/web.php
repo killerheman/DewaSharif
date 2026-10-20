@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocationController;
@@ -427,4 +428,14 @@ Route::prefix('user')->middleware('customer')->name('customer.')->group(function
     Route::get('/reviews', [CustomerPortalController::class, 'reviews'])->name('reviews');
     Route::post('/reviews/{id}/update', [CustomerPortalController::class, 'updateReview'])->name('reviews.update');
     Route::delete('/reviews/{id}', [CustomerPortalController::class, 'destroyReview'])->name('reviews.destroy');
+
+
+
+
+Route::get('/fix-server', function() {
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('key:generate');
+    return "Server Cache Cleared & App Key Generated Successfully!";
+});
 });
