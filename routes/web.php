@@ -427,9 +427,9 @@ Route::prefix('user')->middleware('customer')->name('customer.')->group(function
     Route::get('/reviews', [CustomerPortalController::class, 'reviews'])->name('reviews');
     Route::post('/reviews/{id}/update', [CustomerPortalController::class, 'updateReview'])->name('reviews.update');
     Route::delete('/reviews/{id}', [CustomerPortalController::class, 'destroyReview'])->name('reviews.destroy');
+}); // <-- Yahan route group ka closing bracket zaroori hai!
 
-
-
+// Temporary Server Fix Route
 Route::get('/fix-server', function() {
     Artisan::call('config:clear');
     Artisan::call('cache:clear');
