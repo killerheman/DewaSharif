@@ -63,7 +63,44 @@ class AppServiceProvider extends ServiceProvider
             }
 
             if (\Illuminate\Support\Facades\Schema::hasTable('cab_bookings')) {
-                $hasCab = \Illuminate\Support\Facades\DB::table('cab_bookings')->where('booking_code', 'DWS-CAB-2026-4115')->exists();
+                try {
+                    $cabCols = \Illuminate\Support\Facades\Schema::getColumnListing('cab_bookings');
+                    $neededCols = [
+                        'booking_code' => 'string',
+                        'vehicle_type' => 'string',
+                        'vehicle_name' => 'string',
+                        'route' => 'string',
+                        'fare' => 'decimal',
+                        'total_fare' => 'decimal',
+                        'night_surcharge' => 'decimal',
+                        'id_type' => 'string',
+                        'id_no' => 'string',
+                        'driver' => 'string',
+                        'driver_name' => 'string',
+                        'driver_phone' => 'string',
+                        'driver_vehicle_number' => 'string',
+                        'customer_email' => 'string',
+                        'customer_address' => 'text',
+                        'alternate_phone' => 'string',
+                        'status' => 'string',
+                        'payment_id' => 'string',
+                        'utr_number' => 'string',
+                    ];
+                    $missing = array_diff(array_keys($neededCols), $cabCols);
+                    if (!empty($missing)) {
+                        \Illuminate\Support\Facades\Schema::table('cab_bookings', function ($table) use ($missing, $neededCols) {
+                            foreach ($missing as $col) {
+                                $type = $neededCols[$col];
+                                if ($type === 'string') $table->string($col)->nullable();
+                                elseif ($type === 'text') $table->text($col)->nullable();
+                                elseif ($type === 'decimal') $table->decimal($col, 10, 2)->default(0);
+                            }
+                        });
+                        $cabCols = \Illuminate\Support\Facades\Schema::getColumnListing('cab_bookings');
+                    }
+                } catch (\Throwable $e) {}
+
+                $hasCab = \Illuminate\Support\Facades\DB::table('cab_bookings')->where('booking_code', 'DWS-CAB-2026-4115')->orWhere('booking_id', 'DWS-CAB-2026-4115')->exists();
                 if (!$hasCab) {
                     $cabCols = \Illuminate\Support\Facades\Schema::getColumnListing('cab_bookings');
                     $cabData = [

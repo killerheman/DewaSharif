@@ -322,6 +322,58 @@ class ShopAdminController extends Controller
         return back()->with('success', "Order #{$id} payment status toggled to {$newPayment}!");
     }
 
+    public function approveOrder($id)
+    {
+        $orders = DataStore::getCollection('shop_orders');
+        $order = null;
+        foreach ($orders as $o) {
+            $oId = is_array($o) ? ($o['id'] ?? null) : ($o->id ?? null);
+            if ((string)$oId === (string)$id) {
+                $order = $o;
+                break;
+            }
+        }
+
+        $amount = (float)(is_array($order) ? ($order['total_amount'] ?? ($order['amount'] ?? 0)) : ($order->total_amount ?? ($order->amount ?? 0)));
+
+        $updateData = [
+            'payment_status' => 'paid',
+            'paid_amount' => $amount,
+            'status' => 'Payment Verified & Confirmed',
+        ];
+
+        DataStore::updateItem('shop_orders', $id, $updateData);
+        try {
+            DB::table('shop_orders')->where('id', $id)->orWhere('order_id', $id)->update([
+                'payment_status' => 'paid',
+                'order_status' => 'processing',
+                'updated_at' => now()
+            ]);
+        } catch (\Throwable $e) {}
+
+        return back()->with('success', "Sacred Store Order #{$id} payment has been APPROVED & Verified! Receipt updated to PAID.");
+    }
+
+    public function rejectOrder($id)
+    {
+        $updateData = [
+            'payment_status' => 'failed',
+            'paid_amount' => 0,
+            'status' => 'Payment Failed',
+        ];
+
+        DataStore::updateItem('shop_orders', $id, $updateData);
+        try {
+            DB::table('shop_orders')->where('id', $id)->orWhere('order_id', $id)->update([
+                'payment_status' => 'failed',
+                'order_status' => 'cancelled',
+                'updated_at' => now()
+            ]);
+        } catch (\Throwable $e) {}
+
+        return back()->with('success', "Sacred Store Order #{$id} payment REJECTED as Uncredited/Fake UTR. Order is now VOID & CANCELLED.");
+    }
+
     public function destroyOrder($id)
     {
         DataStore::deleteItem('shop_orders', $id);

@@ -281,20 +281,46 @@ class CabAdminController extends Controller
     public function confirmBooking($id)
     {
         $bookings = DataStore::getCollection('cab_bookings');
-        $currentStatus = 'Confirmed & Paid';
+        $booking = null;
         foreach ($bookings as $b) {
             $bId = is_array($b) ? ($b['id'] ?? null) : ($b->id ?? null);
             if ((string)$bId === (string)$id) {
-                $currentStatus = is_array($b) ? ($b['status'] ?? 'Confirmed & Paid') : ($b->status ?? 'Confirmed & Paid');
+                $booking = $b;
                 break;
             }
         }
 
-        $newStatus = str_contains(strtolower($currentStatus), 'confirm') ? 'Pending' : 'Confirmed & Paid';
-        DataStore::updateItem('cab_bookings', $id, ['status' => $newStatus]);
+        $currentStatus = is_array($booking) ? ($booking['status'] ?? 'Pending') : ($booking->status ?? 'Pending');
+        $isConfirmed = str_contains(strtolower($currentStatus), 'confirm') || str_contains(strtolower($currentStatus), 'paid');
+        $fare = (float)(is_array($booking) ? ($booking['total_fare'] ?? ($booking['fare'] ?? ($booking['amount'] ?? 0))) : ($booking->total_fare ?? ($booking->fare ?? ($booking->amount ?? 0))));
 
-        return back()->with('success', "Cab reservation #{$id} status updated to {$newStatus}!");
+        if ($isConfirmed) {
+            $updateData = [
+                'status' => 'Pending Verification',
+                'payment_status' => 'pending',
+                'booking_status' => 'pending'
+            ];
+            $msg = "Cab reservation #{$id} status set to Pending Verification.";
+        } else {
+            $updateData = [
+                'status' => 'Confirmed & Paid',
+                'payment_status' => 'paid',
+                'paid_amount' => $fare,
+                'booking_status' => 'confirmed'
+            ];
+            $msg = "Cab reservation #{$id} has been Approved & Confirmed as PAID!";
+        }
+
+        DataStore::updateItem('cab_bookings', $id, $updateData);
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('cab_bookings')) {
+                \Illuminate\Support\Facades\DB::table('cab_bookings')->where('id', $id)->update(array_merge($updateData, ['updated_at' => now()]));
+            }
+        } catch (\Throwable $e) {}
+
+        return back()->with('success', $msg);
     }
+
 
     public function assignDriver(Request $request, $id)
     {
@@ -547,7 +573,6 @@ class CabAdminController extends Controller
                 'name' => $name,
                 'type' => $type
             ]);
-            return back()->with('success', "Location '{$name}' updated successfully!");
         }
         return back()->with('error', 'Location name cannot be empty.');
     }
@@ -557,5 +582,57 @@ class CabAdminController extends Controller
         DataStore::deleteItem('cab_locations', $id);
         return back()->with('success', "Location deleted successfully from directory!");
     }
+
+
+    public function approveBooking($id)
+    {
+        $bookings = DataStore::getCollection('cab_bookings');
+        $booking = null;
+        foreach ($bookings as $b) {
+            $bId = is_array($b) ? ($b['id'] ?? null) : ($b->id ?? null);
+            if ((string)$bId === (string)$id) {
+                $booking = $b;
+                break;
+            }
+        }
+
+        $fare = (float)(is_array($booking) ? ($booking['total_fare'] ?? ($booking['fare'] ?? ($booking['amount'] ?? 0))) : ($booking->total_fare ?? ($booking->fare ?? ($booking->amount ?? 0))));
+
+        $updateData = [
+            'payment_status' => 'paid',
+            'paid_amount' => $fare,
+            'status' => 'Confirmed & Paid',
+            'booking_status' => 'confirmed'
+        ];
+
+        DataStore::updateItem('cab_bookings', $id, $updateData);
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('cab_bookings')) {
+                \Illuminate\Support\Facades\DB::table('cab_bookings')->where('id', $id)->update(array_merge($updateData, ['updated_at' => now()]));
+            }
+        } catch (\Throwable $e) {}
+
+        return back()->with('success', "Cab Booking #{$id} payment has been APPROVED & Verified! Duty Voucher updated to PAID.");
+    }
+
+    public function rejectBooking($id)
+    {
+        $updateData = [
+            'payment_status' => 'failed',
+            'paid_amount' => 0,
+            'status' => 'Payment Failed',
+            'booking_status' => 'cancelled'
+        ];
+
+        DataStore::updateItem('cab_bookings', $id, $updateData);
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('cab_bookings')) {
+                \Illuminate\Support\Facades\DB::table('cab_bookings')->where('id', $id)->update(array_merge($updateData, ['updated_at' => now()]));
+            }
+        } catch (\Throwable $e) {}
+
+        return back()->with('success', "Cab Booking #{$id} payment REJECTED as Uncredited/Fake UTR. Customer duty voucher is now VOID & CANCELLED.");
+    }
 }
+
 

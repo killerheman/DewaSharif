@@ -118,18 +118,37 @@
                             <br>
 
                             @forelse($hotelBookings as $booking)
-                                <div style="background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; padding: 16px; margin-bottom: 12px;">
+                                @php
+                                    $hPay = strtolower($booking['payment_status'] ?? '');
+                                    $hStat = strtolower($booking['status'] ?? '');
+                                    $hIsFailed = ($hPay === 'failed' || str_contains($hStat, 'failed') || str_contains($hStat, 'cancel'));
+                                    $hIsPaid = ($hPay === 'paid' || str_contains($hStat, 'paid') || str_contains($hStat, 'confirmed'));
+                                    $hIsPending = !$hIsFailed && !$hIsPaid;
+                                @endphp
+                                <div style="background: #f8fafc; border-radius: 12px; border: 1px solid {{ $hIsFailed ? '#fecaca' : '#e2e8f0' }}; padding: 16px; margin-bottom: 12px;">
                                     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                                         <div>
-                                            <span style="font-size: 11px; font-weight: 800; color: #16a34a; background: #dcfce7; padding: 2px 8px; border-radius: 4px;">✔ {{ strtoupper($booking['status'] ?? 'CONFIRMED') }}</span>
+                                            @if($hIsFailed)
+                                                <span style="font-size: 11px; font-weight: 800; color: #dc2626; background: #fee2e2; padding: 2px 8px; border-radius: 4px;">❌ PAYMENT FAILED / VOID</span>
+                                            @elseif($hIsPending)
+                                                <span style="font-size: 11px; font-weight: 800; color: #b45309; background: #fef3c7; padding: 2px 8px; border-radius: 4px;">⏳ VERIFICATION PENDING</span>
+                                            @else
+                                                <span style="font-size: 11px; font-weight: 800; color: #16a34a; background: #dcfce7; padding: 2px 8px; border-radius: 4px;">✔ {{ strtoupper($booking['status'] ?? 'CONFIRMED') }}</span>
+                                            @endif
                                             <h5 style="font-weight: 800; color: #0f172a; margin: 6px 0 2px 0;">{{ $booking['hotel_name'] ?? 'Guest House Stay' }}</h5>
                                             <small style="color: #64748b;">Booking ID: <strong>#{{ $booking['booking_code'] ?? ($booking['booking_id'] ?? 'DWS-HTL-2026-001') }}</strong> | Check-in: <strong>{{ $booking['checkin'] ?? ($booking['check_in'] ?? '27 Oct 2026') }}</strong></small>
                                         </div>
                                         <div class="text-right">
-                                            <h5 style="font-weight: 900; color: #052c16; margin: 0;">₹{{ number_format($booking['total_amount'] ?? ($booking['amount'] ?? 2998)) }}</h5>
-                                            <a href="{{ route('customer.invoice', ['type' => 'hotel', 'id' => $booking['id'] ?? 1]) }}" target="_blank" class="btn btn-sm" style="background: #052c16; color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 6px; margin-top: 4px;">
-                                                📥 Invoice
-                                            </a>
+                                            <h5 style="font-weight: 900; color: {{ $hIsFailed ? '#dc2626' : '#052c16' }}; margin: 0;">₹{{ number_format($booking['total_amount'] ?? ($booking['amount'] ?? 2998)) }}</h5>
+                                            @if($hIsFailed)
+                                                <a href="{{ route('customer.invoice', ['type' => 'hotel', 'id' => $booking['id'] ?? 1]) }}" target="_blank" class="btn btn-sm" style="background: #dc2626; color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 6px; margin-top: 4px;">
+                                                    ❌ Void Invoice
+                                                </a>
+                                            @else
+                                                <a href="{{ route('customer.invoice', ['type' => 'hotel', 'id' => $booking['id'] ?? 1]) }}" target="_blank" class="btn btn-sm" style="background: #052c16; color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 6px; margin-top: 4px;">
+                                                    📥 Invoice
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -147,27 +166,51 @@
                             </div><br>
 
                             @forelse($cabBookings as $cab)
-                                <div style="background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; padding: 16px; margin-bottom: 12px;">
+                                @php
+                                    $cPay = strtolower($cab['payment_status'] ?? '');
+                                    $cStat = strtolower($cab['status'] ?? '');
+                                    $cIsFailed = ($cPay === 'failed' || str_contains($cStat, 'failed') || str_contains($cStat, 'cancel'));
+                                    $cIsPaid = ($cPay === 'paid' || str_contains($cStat, 'paid') || str_contains($cStat, 'confirmed'));
+                                    $cIsPending = !$cIsFailed && !$cIsPaid;
+                                @endphp
+                                <div style="background: #f8fafc; border-radius: 12px; border: 1px solid {{ $cIsFailed ? '#fecaca' : '#e2e8f0' }}; padding: 16px; margin-bottom: 12px;">
                                     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                                         <div>
                                             <span style="font-size: 11px; font-weight: 800; color: #0284c7; background: #e0f2fe; padding: 2px 8px; border-radius: 4px;">🚖 {{ strtoupper($cab['vehicle_type'] ?? 'SEDAN DZIRE') }}</span>
-                                            <h5 style="font-weight: 800; color: #0f172a; margin: 6px 0 2px 0;">{{ $cab['route'] ?? 'Lucknow Station → Dewa Sharif' }}</h5>
-                                            @php
-                                                $dName = $cab['driver_name'] ?? null;
-                                                $dString = $cab['driver'] ?? null;
-                                                $hasRealDriver = (!empty($dName) && $dName !== 'Ramesh Kumar' && $dName !== 'Assigned Duty Driver') || (!empty($dString) && !str_contains($dString, 'UP32 AB 1234') && !str_contains($dString, 'Pending') && !str_contains($dString, 'Progress'));
-                                            @endphp
-                                            @if($hasRealDriver)
-                                                <small style="color: #64748b;">Driver: <strong>{{ $dName ?: $dString }}</strong> | Vehicle: <strong>{{ $cab['driver_vehicle_number'] ?? ($cab['vehicle_number'] ?? '') }}</strong></small>
+                                            @if($cIsFailed)
+                                                <span style="font-size: 11px; font-weight: 800; color: #dc2626; background: #fee2e2; padding: 2px 8px; border-radius: 4px; margin-left: 4px;">❌ PAYMENT FAILED / VOID</span>
+                                            @elseif($cIsPending)
+                                                <span style="font-size: 11px; font-weight: 800; color: #b45309; background: #fef3c7; padding: 2px 8px; border-radius: 4px; margin-left: 4px;">⏳ VERIFICATION PENDING</span>
                                             @else
-                                                <small style="color: #0284c7; font-weight: 700;">🕒 Driver Assignment in Progress (Details sent via WhatsApp before trip)</small>
+                                                <span style="font-size: 11px; font-weight: 800; color: #16a34a; background: #dcfce7; padding: 2px 8px; border-radius: 4px; margin-left: 4px;">✔ CONFIRMED</span>
+                                            @endif
+                                            <h5 style="font-weight: 800; color: #0f172a; margin: 6px 0 2px 0;">{{ $cab['route'] ?? 'Lucknow Station → Dewa Sharif' }}</h5>
+                                            @if($cIsFailed)
+                                                <small style="color: #dc2626; font-weight: 700;">❌ Booking Cancelled (Payment Uncredited / Void)</small>
+                                            @else
+                                                @php
+                                                    $dName = $cab['driver_name'] ?? null;
+                                                    $dString = $cab['driver'] ?? null;
+                                                    $hasRealDriver = (!empty($dName) && $dName !== 'Ramesh Kumar' && $dName !== 'Assigned Duty Driver') || (!empty($dString) && !str_contains($dString, 'UP32 AB 1234') && !str_contains($dString, 'Pending') && !str_contains($dString, 'Progress'));
+                                                @endphp
+                                                @if($hasRealDriver)
+                                                    <small style="color: #64748b;">Driver: <strong>{{ $dName ?: $dString }}</strong> | Vehicle: <strong>{{ $cab['driver_vehicle_number'] ?? ($cab['vehicle_number'] ?? '') }}</strong></small>
+                                                @else
+                                                    <small style="color: #0284c7; font-weight: 700;">🕒 Driver Assignment in Progress (Details sent via WhatsApp before trip)</small>
+                                                @endif
                                             @endif
                                         </div>
                                         <div class="text-right">
-                                            <h5 style="font-weight: 900; color: #052c16; margin: 0;">₹{{ number_format($cab['total_fare'] ?? ($cab['fare'] ?? 1400)) }}</h5>
-                                            <a href="{{ route('customer.invoice', ['type' => 'cab', 'id' => $cab['id'] ?? 1]) }}" target="_blank" class="btn btn-sm" style="background: #0284c7; color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 6px; margin-top: 4px;">
-                                                📥 Duty Voucher
-                                            </a>
+                                            <h5 style="font-weight: 900; color: {{ $cIsFailed ? '#dc2626' : '#052c16' }}; margin: 0;">₹{{ number_format($cab['total_fare'] ?? ($cab['fare'] ?? 1400)) }}</h5>
+                                            @if($cIsFailed)
+                                                <a href="{{ route('customer.invoice', ['type' => 'cab', 'id' => $cab['id'] ?? 1]) }}" target="_blank" class="btn btn-sm" style="background: #dc2626; color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 6px; margin-top: 4px;">
+                                                    ❌ Void Voucher
+                                                </a>
+                                            @else
+                                                <a href="{{ route('customer.invoice', ['type' => 'cab', 'id' => $cab['id'] ?? 1]) }}" target="_blank" class="btn btn-sm" style="background: #0284c7; color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 6px; margin-top: 4px;">
+                                                    📥 Duty Voucher
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -185,18 +228,37 @@
                             </div><br>
 
                             @forelse($shopOrders as $order)
-                                <div style="background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; padding: 16px; margin-bottom: 12px;">
+                                @php
+                                    $sPay = strtolower($order['payment_status'] ?? '');
+                                    $sStat = strtolower($order['status'] ?? '');
+                                    $sIsFailed = ($sPay === 'failed' || str_contains($sStat, 'failed') || str_contains($sStat, 'cancel'));
+                                    $sIsPaid = ($sPay === 'paid' || str_contains($sStat, 'paid') || str_contains($sStat, 'dispatched') || str_contains($sStat, 'delivered'));
+                                    $sIsPending = !$sIsFailed && !$sIsPaid;
+                                @endphp
+                                <div style="background: #f8fafc; border-radius: 12px; border: 1px solid {{ $sIsFailed ? '#fecaca' : '#e2e8f0' }}; padding: 16px; margin-bottom: 12px;">
                                     <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                                         <div>
-                                            <span style="font-size: 11px; font-weight: 800; color: #86198f; background: #fae8ff; padding: 2px 8px; border-radius: 4px;">📦 {{ strtoupper($order['status'] ?? 'DISPATCHED') }}</span>
+                                            @if($sIsFailed)
+                                                <span style="font-size: 11px; font-weight: 800; color: #dc2626; background: #fee2e2; padding: 2px 8px; border-radius: 4px;">❌ PAYMENT FAILED / VOID</span>
+                                            @elseif($sIsPending)
+                                                <span style="font-size: 11px; font-weight: 800; color: #b45309; background: #fef3c7; padding: 2px 8px; border-radius: 4px;">⏳ VERIFICATION PENDING</span>
+                                            @else
+                                                <span style="font-size: 11px; font-weight: 800; color: #86198f; background: #fae8ff; padding: 2px 8px; border-radius: 4px;">📦 {{ strtoupper($order['status'] ?? 'DISPATCHED') }}</span>
+                                            @endif
                                             <h5 style="font-weight: 800; color: #0f172a; margin: 6px 0 2px 0;">{{ $order['items_summary'] ?? 'Sacred Store Order' }}</h5>
                                             <small style="color: #64748b;">Order ID: <strong>#{{ $order['order_code'] ?? ($order['order_id'] ?? 'DWS-ORD-2026-0001') }}</strong> | Tracking: <strong>{{ $order['tracking'] ?? 'DTDC Express' }}</strong></small>
                                         </div>
                                         <div class="text-right">
-                                            <h5 style="font-weight: 900; color: #052c16; margin: 0;">₹{{ number_format($order['total_amount'] ?? ($order['amount'] ?? 1497)) }}</h5>
-                                            <a href="{{ route('customer.invoice', ['type' => 'shop', 'id' => $order['id'] ?? 1]) }}" target="_blank" class="btn btn-sm" style="background: #86198f; color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 6px; margin-top: 4px;">
-                                                📥 Receipt PDF
-                                            </a>
+                                            <h5 style="font-weight: 900; color: {{ $sIsFailed ? '#dc2626' : '#052c16' }}; margin: 0;">₹{{ number_format($order['total_amount'] ?? ($order['amount'] ?? 1497)) }}</h5>
+                                            @if($sIsFailed)
+                                                <a href="{{ route('customer.invoice', ['type' => 'shop', 'id' => $order['id'] ?? 1]) }}" target="_blank" class="btn btn-sm" style="background: #dc2626; color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 6px; margin-top: 4px;">
+                                                    ❌ Void Receipt
+                                                </a>
+                                            @else
+                                                <a href="{{ route('customer.invoice', ['type' => 'shop', 'id' => $order['id'] ?? 1]) }}" target="_blank" class="btn btn-sm" style="background: #86198f; color: #fff; font-size: 11.5px; font-weight: 700; border-radius: 6px; margin-top: 4px;">
+                                                    📥 Receipt PDF
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

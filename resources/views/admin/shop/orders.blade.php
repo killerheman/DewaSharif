@@ -207,16 +207,22 @@
                                             <br><small class="text-muted">{{ $paymentMethod }}</small>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.shop.order.toggle-payment', $oId) }}" method="POST" class="d-inline">
-                                                @csrf
-                                                <button type="submit" class="border-0 bg-transparent p-0" title="Click to Toggle Payment Status">
-                                                    @if(strtolower($paymentStatus) === 'paid')
-                                                        <span class="badge bg-success shadow-sm px-2.5 d-inline-flex align-items-center" style="height: 34px; font-size: 0.82rem; cursor: pointer;"><i class="bi bi-check-circle-fill me-1"></i> Paid</span>
-                                                    @else
-                                                        <span class="badge bg-warning text-dark shadow-sm px-2.5 d-inline-flex align-items-center" style="height: 34px; font-size: 0.82rem; cursor: pointer;"><i class="bi bi-hourglass-split me-1"></i> Pending (COD)</span>
-                                                    @endif
-                                                </button>
-                                            </form>
+                                            @php
+                                                $rawPay = strtolower($paymentStatus);
+                                                $isOrderPaid = in_array($rawPay, ['paid', 'completed', 'success']);
+                                                $isOrderFailed = in_array($rawPay, ['failed', 'cancelled', 'rejected']);
+                                                $oUtr = is_array($order) ? ($order['utr_number'] ?? null) : ($order->utr_number ?? null);
+                                            @endphp
+                                            @if($isOrderPaid)
+                                                <span class="badge bg-success shadow-sm px-2.5 d-inline-flex align-items-center" style="height: 34px; font-size: 0.82rem;"><i class="bi bi-check-circle-fill me-1"></i> Paid</span>
+                                            @elseif($isOrderFailed)
+                                                <span class="badge bg-danger shadow-sm px-2.5 d-inline-flex align-items-center" style="height: 34px; font-size: 0.82rem;"><i class="bi bi-x-circle-fill me-1"></i> Payment Failed</span>
+                                            @else
+                                                <span class="badge bg-warning text-dark shadow-sm px-2.5 d-inline-flex align-items-center" style="height: 34px; font-size: 0.82rem;"><i class="bi bi-hourglass-split me-1"></i> Pending UTR</span>
+                                            @endif
+                                            @if(!empty($oUtr))
+                                                <br><small class="badge d-inline-block mt-1" style="background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 45%, #e2e8f0 75%, #cbd5e1 100%) !important; color: #0f172a !important; border: 1px solid #94a3b8 !important; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); font-family: monospace; font-size: 10.5px; font-weight: 700;">UTR: {{ $oUtr }}</small>
+                                            @endif
                                         </td>
                                         <td>
                                             <div class="d-inline-flex align-items-center" style="height: 34px;">
@@ -249,11 +255,27 @@
                                         </td>
                                         <td class="text-end pe-3">
                                             <div class="btn-group shadow-sm rounded-3 overflow-hidden" style="height: 34px;">
+                                                <!-- 1-Click Approve Button -->
+                                                <form action="{{ route('admin.shop.order.approve', $oId) }}" method="POST" class="d-inline" onsubmit="return confirm('Approve Order {{ $isDegh ? '#DGH-' : '#ORD-' }}{{ $oId }} as PAID?');">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm {{ $isOrderPaid ? 'btn-outline-success disabled' : 'btn-success' }} d-inline-flex align-items-center justify-content-center px-2.5 rounded-0" style="height: 34px;" title="Approve & Confirm Paid">
+                                                        <i class="bi bi-check-circle-fill"></i>
+                                                    </button>
+                                                </form>
+
+                                                <!-- 1-Click Reject Button -->
+                                                <form action="{{ route('admin.shop.order.reject', $oId) }}" method="POST" class="d-inline" onsubmit="return confirm('Reject Order {{ $isDegh ? '#DGH-' : '#ORD-' }}{{ $oId }}? Payment will be marked FAILED and invoice VOIDED.');">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm {{ $isOrderFailed ? 'btn-outline-danger disabled' : 'btn-danger' }} d-inline-flex align-items-center justify-content-center px-2.5 rounded-0" style="height: 34px;" title="Reject Order (Payment Failed / Fake UTR)">
+                                                        <i class="bi bi-x-circle-fill"></i>
+                                                    </button>
+                                                </form>
+
                                                 <!-- Dark Light Navy Blue Gradient Dispatch Button -->
-                                                <button class="btn btn-sm btn-gradient-navy font-bold px-3 text-nowrap d-inline-flex align-items-center" style="height: 34px;" data-bs-toggle="modal" data-bs-target="#dispatchModal{{ $oId }}">
+                                                <button class="btn btn-sm btn-gradient-navy font-bold px-3 text-nowrap d-inline-flex align-items-center rounded-0" style="height: 34px;" data-bs-toggle="modal" data-bs-target="#dispatchModal{{ $oId }}">
                                                     <i class="bi bi-send-fill me-1"></i> Dispatch Order
                                                 </button>
-                                                <a href="{{ route('customer.invoice', ['type' => 'shop', 'id' => $oId]) }}" target="_blank" class="btn btn-sm btn-gradient-white d-inline-flex align-items-center justify-content-center px-2.5" style="height: 34px;" title="View / Print Official Invoice">
+                                                <a href="{{ route('customer.invoice', ['type' => 'shop', 'id' => $oId]) }}" target="_blank" class="btn btn-sm btn-gradient-white d-inline-flex align-items-center justify-content-center px-2.5 rounded-0" style="height: 34px;" title="View / Print Official Invoice">
                                                     <i class="bi bi-printer"></i>
                                                 </a>
                                                 <form action="{{ route('admin.shop.order.destroy', $oId) }}" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete Order {{ $isDegh ? '#DGH-' : '#ORD-' }}{{ $oId }}?');">

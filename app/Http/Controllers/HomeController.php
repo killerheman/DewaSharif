@@ -1295,18 +1295,24 @@ public function faqs()
         $utrNumber = trim($request->input('utr_number', ''));
         $isQr = str_contains($paymentId, 'QR') || !empty($utrNumber);
         $gatewayName = ($mode === 'whatsapp') ? 'WhatsApp Direct' : ($isQr ? 'PhonePe QR' : 'Razorpay / SBI UPI');
-        $statusStr = ($mode === 'whatsapp') ? 'Custom WhatsApp Inquiry' : 'Confirmed & Paid';
+        $statusStr = ($mode === 'whatsapp') ? 'Custom WhatsApp Inquiry' : ($isQr ? 'Payment Submitted (UTR Verification Pending)' : 'Confirmed & Paid');
         $paymentMode = ($mode === 'whatsapp') ? 'whatsapp' : ($isQr ? 'PhonePe QR' : 'full');
-        $paymentStatus = ($mode === 'whatsapp') ? 'pending' : 'paid';
-        $paidAmount = ($mode === 'whatsapp') ? 0 : $fare;
+        $paymentStatus = ($mode === 'whatsapp') ? 'pending' : ($isQr ? 'verification_pending' : 'paid');
+        $paidAmount = ($mode === 'whatsapp' || $isQr) ? 0 : $fare;
 
         $vehicleCount = max(1, (int)$request->input('vehicle_count', 1));
         $vehicleTypeStored = $vehicleCount > 1 ? "{$vehicle} (×{$vehicleCount} Cabs)" : $vehicle;
 
+        $user = auth()->user();
+        $userId = $user ? $user->id : null;
+        $userEmail = $user ? ($user->email ?? null) : null;
+
         $booking = [
             'booking_code' => $bookingCode,
+            'user_id' => $userId,
             'customer_name' => $name,
             'customer_phone' => $rawPhone,
+            'customer_email' => $userEmail,
             'alternate_phone' => $altPhone ?: null,
             'route' => $routeStr,
             'pickup' => $pickup,
@@ -1379,10 +1385,13 @@ public function faqs()
                             "Tax Invoice & Duty Slip: " . route('customer.invoice', ['type' => 'cab', 'id' => $bookingId]) . "\n\n" .
                             "Thank you for booking with DewaSharif.com!";
 
-                \Illuminate\Support\Facades\Mail::raw($mailText, function ($message) use ($name, $bookingCode) {
-                    $message->to(env('MAIL_FROM_ADDRESS', 'shahzade.alam707@gmail.com'))
-                            ->subject("🎉 DewaSharif Cab Ride Confirmed [{$bookingCode}]");
-                });
+                $mailRecipients = array_filter([$userEmail, env('MAIL_FROM_ADDRESS', 'shahzade.alam707@gmail.com')]);
+                if (!empty($mailRecipients)) {
+                    \Illuminate\Support\Facades\Mail::raw($mailText, function ($message) use ($name, $bookingCode, $mailRecipients) {
+                        $message->to($mailRecipients)
+                                ->subject("🎉 DewaSharif Cab Ride Confirmed [{$bookingCode}]");
+                    });
+                }
             } catch (\Throwable $e) {}
 
             // Send Automatic Meta WhatsApp Cloud API Message to Customer
@@ -1479,9 +1488,9 @@ public function faqs()
         $isQr = (str_contains($paymentId, 'QR') || $request->filled('utr_number'));
         $paymentMode = ($mode === 'whatsapp') ? 'whatsapp' : ($isQr ? 'PhonePe QR' : 'full');
         $gatewayName = ($mode === 'whatsapp') ? 'WhatsApp Direct' : ($isQr ? 'PhonePe QR' : 'Razorpay / SBI UPI');
-        $statusStr = ($mode === 'whatsapp') ? 'Custom WhatsApp Inquiry' : 'Confirmed & Paid';
-        $paymentStatus = ($mode === 'whatsapp') ? 'pending' : 'paid';
-        $paidAmount = ($mode === 'whatsapp') ? 0 : $totalFare;
+        $statusStr = ($mode === 'whatsapp') ? 'Custom WhatsApp Inquiry' : ($isQr ? 'Payment Submitted (UTR Verification Pending)' : 'Confirmed & Paid');
+        $paymentStatus = ($mode === 'whatsapp') ? 'pending' : ($isQr ? 'verification_pending' : 'paid');
+        $paidAmount = ($mode === 'whatsapp' || $isQr) ? 0 : $totalFare;
 
         $booking = [
             'user_id' => auth()->id() ?? null,
@@ -1681,13 +1690,13 @@ public function faqs()
         $orderCode = $request->input('order_code') ?: (($isDegh ? 'DWS-DGH-' : 'DWS-SHP-') . date('Y') . '-' . rand(1000, 9999));
 
         $isWhatsapp = ($mode === 'whatsapp');
-        $isQrPayment = !$isWhatsapp && (stripos($paymentId, 'PhonePe') !== false || stripos($paymentId, 'QR') !== false);
+        $isQrPayment = !$isWhatsapp && (stripos($paymentId, 'PhonePe') !== false || stripos($paymentId, 'QR') !== false || $request->filled('utr_number'));
         $isCodPayment = !$isWhatsapp && (stripos($paymentId, 'COD') !== false);
         $paymentMode = $isWhatsapp ? 'whatsapp' : ($isQrPayment ? 'PhonePe QR' : ($isCodPayment ? 'cod' : 'online'));
-        $paymentStatus = $isWhatsapp ? 'pending' : (($isQrPayment && stripos($paymentId, 'pending') !== false) ? 'verification_pending' : 'paid');
+        $paymentStatus = $isWhatsapp ? 'pending' : ($isQrPayment ? 'verification_pending' : ($isCodPayment ? 'pending' : 'paid'));
         $orderStatus = $isWhatsapp ? 'pending' : 'processing';
-        $paidAmount = $isWhatsapp ? 0 : $amount;
-        $statusStr = $isWhatsapp ? 'Custom WhatsApp Inquiry' : ($isQrPayment ? 'Payment Verified (PhonePe QR)' : ($isCodPayment ? 'Pending COD' : 'Dispatched & Paid'));
+        $paidAmount = ($isWhatsapp || $isQrPayment || $isCodPayment) ? 0 : $amount;
+        $statusStr = $isWhatsapp ? 'Custom WhatsApp Inquiry' : ($isQrPayment ? 'Payment Submitted (UTR Verification Pending)' : ($isCodPayment ? 'Pending COD' : 'Dispatched & Paid'));
 
         $order = [
             'order_code' => $orderCode,

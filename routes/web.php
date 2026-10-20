@@ -270,6 +270,8 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
     Route::delete('/hotels/{id}', [HotelAdminController::class, 'destroy'])->name('hotels.destroy');
     Route::get('/hotels/bookings', [HotelAdminController::class, 'bookings'])->name('hotels.bookings');
     Route::post('/hotels/bookings/{id}/confirm', [HotelAdminController::class, 'confirmBooking'])->name('hotels.confirm');
+    Route::post('/hotels/bookings/{id}/approve', [HotelAdminController::class, 'approveBooking'])->name('hotels.bookings.approve');
+    Route::post('/hotels/bookings/{id}/reject', [HotelAdminController::class, 'rejectBooking'])->name('hotels.bookings.reject');
     Route::post('/hotels/bookings/{id}/amount', [HotelAdminController::class, 'updateBookingAmount'])->name('hotels.bookings.update-amount');
     Route::post('/hotels/bookings/{id}/update', [HotelAdminController::class, 'updateBooking'])->name('hotels.bookings.update');
     Route::delete('/hotels/bookings/{id}', [HotelAdminController::class, 'destroyBooking'])->name('hotels.bookings.destroy');
@@ -292,6 +294,8 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
     Route::get('/cabs/bookings', [CabAdminController::class, 'bookings'])->name('cabs.bookings');
     Route::post('/cabs/bookings/{id}/assign', [CabAdminController::class, 'assignDriver'])->name('cabs.assign');
     Route::post('/cabs/bookings/{id}/confirm', [CabAdminController::class, 'confirmBooking'])->name('cabs.confirm');
+    Route::post('/cabs/bookings/{id}/approve', [CabAdminController::class, 'approveBooking'])->name('cabs.bookings.approve');
+    Route::post('/cabs/bookings/{id}/reject', [CabAdminController::class, 'rejectBooking'])->name('cabs.bookings.reject');
     Route::post('/cabs/bookings/{id}/amount', [CabAdminController::class, 'updateBookingAmount'])->name('cabs.bookings.update-amount');
     Route::post('/cabs/bookings/{id}/update', [CabAdminController::class, 'updateBooking'])->name('cabs.bookings.update');
     Route::delete('/cabs/bookings/{id}', [CabAdminController::class, 'destroyBooking'])->name('cabs.bookings.destroy');
@@ -312,6 +316,8 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
     Route::post('/shop/orders/{id}/dispatch', [ShopAdminController::class, 'dispatchOrder'])->name('shop.dispatch');
     Route::post('/shop/orders/{id}/status', [ShopAdminController::class, 'updateOrderStatus'])->name('shop.order.status');
     Route::post('/shop/orders/{id}/toggle-payment', [ShopAdminController::class, 'togglePaymentStatus'])->name('shop.order.toggle-payment');
+    Route::post('/shop/orders/{id}/approve', [ShopAdminController::class, 'approveOrder'])->name('shop.order.approve');
+    Route::post('/shop/orders/{id}/reject', [ShopAdminController::class, 'rejectOrder'])->name('shop.order.reject');
     Route::delete('/shop/orders/{id}', [ShopAdminController::class, 'destroyOrder'])->name('shop.order.destroy');
 
     // Users Management

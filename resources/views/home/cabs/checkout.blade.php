@@ -830,11 +830,42 @@
                         var displayCust = name + ' (' + phone + (altPhone ? ' / Alt: ' + altPhone : '') + ')';
                         triggerCabSuccessOverlay(response, fare, displayCust);
                     } else {
-                        window.location.href = "{{ route('customer.cabs') }}";
+                        var errMsg = response.message || 'Booking save nahi ho saki. Kripya punah prayas karein.';
+                        if (typeof Swal !== 'undefined') {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Booking Failed',
+                                text: errMsg,
+                                confirmButtonColor: '#052c16'
+                            });
+                        } else {
+                            alert('⚠️ ' + errMsg);
+                        }
+                        $('#btnChkPay').prop('disabled', false).html('Pay via UPI QR');
+                        if ($('#btnConfirmCabQrPayment').length) {
+                            $('#btnConfirmCabQrPayment').prop('disabled', false).html('<i class="fa fa-check-circle" style="font-size: 18px; color: #4ade80;"></i> <span>Maine Payment Kar Diya — Confirm Booking</span>');
+                        }
                     }
                 },
-                error: function (err) {
-                    window.location.href = "{{ route('customer.cabs') }}";
+                error: function (xhr) {
+                    var errMsg = 'Booking confirm karte samay server par dikkat aayi.';
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errMsg = xhr.responseJSON.message;
+                    }
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Booking Error',
+                            text: errMsg,
+                            confirmButtonColor: '#052c16'
+                        });
+                    } else {
+                        alert('⚠️ ' + errMsg);
+                    }
+                    $('#btnChkPay').prop('disabled', false).html('Pay via UPI QR');
+                    if ($('#btnConfirmCabQrPayment').length) {
+                        $('#btnConfirmCabQrPayment').prop('disabled', false).html('<i class="fa fa-check-circle" style="font-size: 18px; color: #4ade80;"></i> <span>Maine Payment Kar Diya — Confirm Booking</span>');
+                    }
                 }
             });
         }
@@ -844,9 +875,16 @@
             $('#succAmountPaid').text('₹' + parseFloat(amount).toLocaleString('en-IN'));
             $('#succCustomerInfo').text(custInfo);
 
+            if (response.invoice_url) {
+                $('#btnSuccDutySlip').attr('href', response.invoice_url).css('display', 'flex');
+            }
+            if (response.company_whatsapp_url || response.whatsapp_url) {
+                $('#btnSuccWhatsApp').attr('href', response.company_whatsapp_url || response.whatsapp_url).css('display', 'flex');
+            }
+
             $('#paymentSuccessOverlay').css('display', 'flex');
 
-            var secondsLeft = 5;
+            var secondsLeft = 10;
             $('#succCountdown').text(secondsLeft);
             $('#succProgressBar').css('width', '100%');
 
@@ -860,7 +898,7 @@
                 secondsLeft--;
                 if (secondsLeft < 0) secondsLeft = 0;
                 $('#succCountdown').text(secondsLeft);
-                var pct = (secondsLeft / 5) * 100;
+                var pct = (secondsLeft / 10) * 100;
                 $('#succProgressBar').css('width', pct + '%');
 
                 if (secondsLeft <= 0) {
@@ -1256,11 +1294,11 @@
                 </div>
             </div>
 
-            <!-- 5-Second Countdown Bar -->
-            <div style="margin-bottom: 22px;">
-                <p style="font-weight: 800; color: #074121; font-size: 14px; margin-bottom: 10px;">
-                    ⌛ Redirecting to your Customer Dashboard in <span id="succCountdown"
-                        style="color: #e11d48; font-size: 18px; font-weight: 900;">5</span> seconds...
+            <!-- Countdown Bar -->
+            <div style="margin-bottom: 20px;">
+                <p style="font-weight: 800; color: #074121; font-size: 13.5px; margin-bottom: 8px;">
+                    ⌛ Auto-redirecting to Dashboard in <span id="succCountdown"
+                        style="color: #e11d48; font-size: 17px; font-weight: 900;">10</span> seconds...
                 </p>
                 <div style="width: 100%; height: 8px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
                     <div id="succProgressBar"
@@ -1269,11 +1307,26 @@
                 </div>
             </div>
 
-            <!-- Action Button -->
-            <div style="display: flex; gap: 12px; justify-content: center;">
+            <!-- Action Buttons Container -->
+            <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+                <!-- BUTTON 1: VIEW TAX INVOICE & DUTY SLIP -->
+                <a id="btnSuccDutySlip" href="#" target="_blank" class="btn"
+                    style="display: none; width: 100%; background: #16a34a; color: #ffffff; font-weight: 800; font-size: 14px; padding: 12px 16px; border-radius: 10px; border: none; box-shadow: 0 4px 12px rgba(22,163,74,0.3); align-items: center; justify-content: center; gap: 8px; text-decoration: none;">
+                    <i class="fa fa-file-text-o" style="font-size: 16px;"></i>
+                    <span>📄 View Duty Slip &amp; Tax Invoice (PDF)</span>
+                </a>
+
+                <!-- BUTTON 2: WHATSAPP SHARE -->
+                <a id="btnSuccWhatsApp" href="#" target="_blank" class="btn"
+                    style="display: none; width: 100%; background: #25D366; color: #ffffff; font-weight: 800; font-size: 14px; padding: 12px 16px; border-radius: 10px; border: none; box-shadow: 0 4px 12px rgba(37,211,102,0.3); align-items: center; justify-content: center; gap: 8px; text-decoration: none;">
+                    <i class="fa fa-whatsapp" style="font-size: 18px;"></i>
+                    <span>📱 Send Duty Slip to Dewa Sharif Office on WhatsApp</span>
+                </a>
+
+                <!-- BUTTON 3: DASHBOARD -->
                 <button type="button" id="btnGoDashboard" class="btn"
-                    style="background: #052c16; color: #ffffff; font-weight: 800; font-size: 14px; padding: 12px 24px; border-radius: 10px; flex: 1; border: none; box-shadow: 0 4px 12px rgba(5,44,22,0.3);">
-                    🚀 Go to Dashboard Now
+                    style="width: 100%; background: #052c16; color: #ffffff; font-weight: 800; font-size: 14px; padding: 12px 16px; border-radius: 10px; border: none; box-shadow: 0 4px 12px rgba(5,44,22,0.3);">
+                    🚀 Go to Customer Dashboard Now
                 </button>
             </div>
 

@@ -57,13 +57,38 @@ class DataStore
                 })->all();
             } elseif ($key === 'hotel_bookings' && \Illuminate\Support\Facades\Schema::hasTable('hotel_bookings')) {
                 $dbBookings = \Illuminate\Support\Facades\DB::table('hotel_bookings')->orderBy('created_at', 'desc')->get();
-                return $dbBookings->map(fn($b) => (array)$b)->all();
+                if ($dbBookings->isNotEmpty()) {
+                    return $dbBookings->map(function ($b) {
+                        $arr = (array)$b;
+                        $arr['booking_code'] = $arr['booking_code'] ?? ($arr['booking_number'] ?? ($arr['booking_id'] ?? ('#HTL-' . ($arr['id'] ?? 1))));
+                        $arr['booking_number'] = $arr['booking_number'] ?? $arr['booking_code'];
+                        $arr['hotel_name'] = $arr['hotel_name'] ?? 'Al-Waris Deluxe Guest House';
+                        $arr['room_name'] = $arr['room_name'] ?? 'Deluxe AC Room';
+                        $arr['total_amount'] = $arr['total_amount'] ?? 1499;
+                        $arr['status'] = $arr['status'] ?? ($arr['booking_status'] ?? 'Confirmed & Paid');
+                        return $arr;
+                    })->all();
+                }
             } elseif ($key === 'cabs' && \Illuminate\Support\Facades\Schema::hasTable('cabs')) {
                 $dbCabs = \Illuminate\Support\Facades\DB::table('cabs')->orderBy('id', 'asc')->get();
                 return $dbCabs->map(fn($c) => (array)$c)->all();
             } elseif ($key === 'cab_bookings' && \Illuminate\Support\Facades\Schema::hasTable('cab_bookings')) {
                 $dbCabBookings = \Illuminate\Support\Facades\DB::table('cab_bookings')->orderBy('created_at', 'desc')->get();
-                return $dbCabBookings->map(fn($b) => (array)$b)->all();
+                if ($dbCabBookings->isNotEmpty()) {
+                    return $dbCabBookings->map(function ($b) {
+                        $arr = (array)$b;
+                        $arr['booking_code'] = $arr['booking_code'] ?? ($arr['booking_id'] ?? ('#CB-' . ($arr['id'] ?? 1)));
+                        $arr['pickup'] = $arr['pickup'] ?? ($arr['pickup_location'] ?? 'Dewa Sharif');
+                        $arr['destination'] = $arr['destination'] ?? ($arr['drop_location'] ?? 'Lucknow');
+                        $arr['route'] = $arr['route'] ?? ($arr['pickup'] . ' → ' . $arr['destination']);
+                        $arr['fare'] = $arr['fare'] ?? ($arr['total_amount'] ?? 0);
+                        $arr['total_fare'] = $arr['total_fare'] ?? ($arr['total_amount'] ?? 0);
+                        $arr['vehicle_type'] = $arr['vehicle_type'] ?? ($arr['vehicle_name'] ?? 'Swift Dzire (AC)');
+                        $arr['vehicle_name'] = $arr['vehicle_name'] ?? $arr['vehicle_type'];
+                        $arr['status'] = $arr['status'] ?? ($arr['booking_status'] ?? 'Confirmed & Paid');
+                        return $arr;
+                    })->all();
+                }
             } elseif ($key === 'cab_vehicles' && \Illuminate\Support\Facades\Schema::hasTable('cab_vehicles')) {
                 $dbVehicles = \Illuminate\Support\Facades\DB::table('cab_vehicles')->orderBy('id', 'asc')->get();
                 return $dbVehicles->map(fn($v) => (array)$v)->all();
@@ -116,41 +141,67 @@ class DataStore
                     $rawDate = $item['pickup_date'] ?? date('Y-m-d');
                     $pickupDate = date('Y-m-d', strtotime($rawDate) ?: time());
 
+                    // Check if cab_id exists in cabs table to avoid foreign key failure
+                    $cabId = $item['cab_id'] ?? null;
+                    if ($cabId && \Illuminate\Support\Facades\Schema::hasTable('cabs')) {
+                        if (!\Illuminate\Support\Facades\DB::table('cabs')->where('id', $cabId)->exists()) {
+                            $cabId = null;
+                        }
+                    }
+
+                    // Check if user_id exists in users table
+                    $userId = $item['user_id'] ?? (auth()->id() ?? null);
+                    if ($userId && \Illuminate\Support\Facades\Schema::hasTable('users')) {
+                        if (!\Illuminate\Support\Facades\DB::table('users')->where('id', $userId)->exists()) {
+                            $userId = null;
+                        }
+                    }
+
+                    $cabDbData = [
+                        'booking_id' => $bCode,
+                        'booking_code' => $bCode,
+                        'cab_id' => $cabId,
+                        'user_id' => $userId,
+                        'customer_name' => $item['customer_name'] ?? 'Passenger',
+                        'customer_phone' => $item['customer_phone'] ?? '9648777223',
+                        'customer_email' => $item['customer_email'] ?? (auth()->user()->email ?? null),
+                        'customer_address' => $item['customer_address'] ?? null,
+                        'alternate_phone' => $item['alternate_phone'] ?? null,
+                        'pickup_location' => $item['pickup'] ?? ($item['pickup_location'] ?? 'Dewa Sharif'),
+                        'drop_location' => $item['destination'] ?? ($item['drop_location'] ?? 'Lucknow Charbagh Railway Station'),
+                        'route' => $item['route'] ?? (($item['pickup'] ?? 'Dewa Sharif') . ' → ' . ($item['destination'] ?? 'Lucknow')),
+                        'pickup_date' => $pickupDate,
+                        'pickup_time' => $item['pickup_time'] ?? date('Y-m-d @ H:i'),
+                        'vehicle_type' => $item['vehicle_type'] ?? 'Sedan',
+                        'vehicle_name' => $item['vehicle_name'] ?? ($item['vehicle_type'] ?? 'Swift Dzire'),
+                        'total_amount' => $fare,
+                        'fare' => $fare,
+                        'total_fare' => $fare,
+                        'paid_amount' => ($payStatus === 'paid') ? $fare : 0,
+                        'pending_amount' => ($payStatus === 'paid') ? 0 : $fare,
+                        'night_surcharge' => (float)($item['night_surcharge'] ?? 0),
+                        'id_type' => $item['id_type'] ?? 'Aadhaar Card',
+                        'id_no' => $item['id_no'] ?? 'N/A',
+                        'driver' => $item['driver'] ?? 'Driver Assignment in Progress',
+                        'driver_name' => $item['driver_name'] ?? null,
+                        'driver_phone' => $item['driver_phone'] ?? null,
+                        'driver_vehicle_number' => $item['driver_vehicle_number'] ?? null,
+                        'payment_id' => $item['payment_id'] ?? null,
+                        'utr_number' => $item['utr_number'] ?? null,
+                        'payment_mode' => $item['payment_mode'] ?? (($payStatus === 'paid') ? 'full' : 'whatsapp'),
+                        'payment_status' => $payStatus,
+                        'booking_status' => $bookStatus,
+                        'status' => $status,
+                        'created_at' => date('Y-m-d H:i:s', strtotime($item['created_at'] ?? 'now') ?: time()),
+                        'updated_at' => date('Y-m-d H:i:s')
+                    ];
+
+                    $existingCabCols = \Illuminate\Support\Facades\Schema::getColumnListing('cab_bookings');
+                    $filteredCabData = array_intersect_key($cabDbData, array_flip($existingCabCols));
+
                     \Illuminate\Support\Facades\DB::table('cab_bookings')->updateOrInsert(
                         ['booking_id' => $bCode],
-                        [
-                            'booking_id' => $bCode,
-                            'booking_code' => $bCode,
-                            'cab_id' => $item['cab_id'] ?? 1,
-                            'customer_name' => $item['customer_name'] ?? 'Passenger',
-                            'customer_phone' => $item['customer_phone'] ?? '9648777223',
-                            'alternate_phone' => $item['alternate_phone'] ?? null,
-                            'pickup_location' => $item['pickup'] ?? ($item['pickup_location'] ?? 'Dewa Sharif'),
-                            'drop_location' => $item['destination'] ?? ($item['drop_location'] ?? 'Lucknow Charbagh Railway Station'),
-                            'route' => $item['route'] ?? (($item['pickup'] ?? 'Dewa Sharif') . ' → ' . ($item['destination'] ?? 'Lucknow')),
-                            'pickup_date' => $pickupDate,
-                            'pickup_time' => $item['pickup_time'] ?? date('Y-m-d @ H:i'),
-                            'vehicle_type' => $item['vehicle_type'] ?? 'Sedan',
-                            'vehicle_name' => $item['vehicle_name'] ?? ($item['vehicle_type'] ?? 'Swift Dzire'),
-                            'total_amount' => $fare,
-                            'fare' => $fare,
-                            'total_fare' => $fare,
-                            'paid_amount' => ($payStatus === 'paid') ? $fare : 0,
-                            'pending_amount' => ($payStatus === 'paid') ? 0 : $fare,
-                            'night_surcharge' => (float)($item['night_surcharge'] ?? 0),
-                            'id_type' => $item['id_type'] ?? 'Aadhaar Card',
-                            'id_no' => $item['id_no'] ?? 'N/A',
-                            'driver' => $item['driver'] ?? 'Driver Assignment in Progress',
-                            'driver_name' => $item['driver_name'] ?? null,
-                            'driver_phone' => $item['driver_phone'] ?? null,
-                            'driver_vehicle_number' => $item['driver_vehicle_number'] ?? null,
-                            'payment_mode' => $item['payment_mode'] ?? (($payStatus === 'paid') ? 'full' : 'whatsapp'),
-                            'payment_status' => $payStatus,
-                            'booking_status' => $bookStatus,
-                            'status' => $status,
-                            'created_at' => date('Y-m-d H:i:s', strtotime($item['created_at'] ?? 'now') ?: time()),
-                            'updated_at' => date('Y-m-d H:i:s')
-                        ]
+                        $filteredCabData
                     );
                 } elseif ($key === 'cabs') {
                     $fare = (float)($item['fare'] ?? ($item['price'] ?? 1400));
@@ -225,40 +276,62 @@ class DataStore
                     $rawCheckout = $item['checkout'] ?? ($item['check_out'] ?? ($item['check_out_date'] ?? date('Y-m-d', strtotime('+1 day'))));
                     $checkoutVal = date('Y-m-d', strtotime($rawCheckout) ?: strtotime('+1 day'));
 
+                    // Check if hotel_id exists in hotels table to avoid foreign key failure
+                    $hotelId = $item['hotel_id'] ?? 1;
+                    if ($hotelId && \Illuminate\Support\Facades\Schema::hasTable('hotels')) {
+                        if (!\Illuminate\Support\Facades\DB::table('hotels')->where('id', $hotelId)->exists()) {
+                            $hotelId = null;
+                        }
+                    }
+
+                    // Check if user_id exists in users table
+                    $userId = $item['user_id'] ?? (auth()->id() ?? null);
+                    if ($userId && \Illuminate\Support\Facades\Schema::hasTable('users')) {
+                        if (!\Illuminate\Support\Facades\DB::table('users')->where('id', $userId)->exists()) {
+                            $userId = null;
+                        }
+                    }
+
+                    $htlDbData = [
+                        'booking_id' => $bCode,
+                        'booking_code' => $bCode,
+                        'booking_number' => $bCode,
+                        'hotel_id' => $hotelId,
+                        'user_id' => $userId,
+                        'hotel_name' => $item['hotel_name'] ?? ($item['hotel'] ?? 'Al-Waris Deluxe Guest House'),
+                        'room_name' => $item['room_name'] ?? ($item['room'] ?? ($item['room_type'] ?? 'Deluxe AC Room')),
+                        'customer_name' => $item['customer_name'] ?? ($item['name'] ?? 'Guest User'),
+                        'customer_phone' => $item['customer_phone'] ?? ($item['phone'] ?? '9648777223'),
+                        'customer_email' => $item['customer_email'] ?? (auth()->user()->email ?? null),
+                        'customer_address' => $item['customer_address'] ?? null,
+                        'alternate_phone' => $item['alternate_phone'] ?? null,
+                        'check_in' => $checkinVal,
+                        'check_out' => $checkoutVal,
+                        'persons' => (int)($item['guests'] ?? ($item['persons'] ?? 2)),
+                        'rooms' => (int)($item['rooms'] ?? 1),
+                        'nights' => (int)($item['nights'] ?? 1),
+                        'total_amount' => $totAmt,
+                        'paid_amount' => ($payStatus === 'paid') ? $totAmt : (float)($item['paid_amount'] ?? 0),
+                        'pending_amount' => ($payStatus === 'paid') ? 0 : $totAmt,
+                        'price_per_night' => (float)($item['price_per_night'] ?? ($item['price'] ?? 1499)),
+                        'id_type' => $item['id_type'] ?? 'Aadhaar Card',
+                        'id_no' => $item['id_no'] ?? 'N/A',
+                        'payment_id' => $item['payment_id'] ?? ('RZP_HOTEL_' . time()),
+                        'payment_mode' => $item['payment_mode'] ?? (($payStatus === 'paid') ? 'full' : 'whatsapp'),
+                        'payment_status' => $payStatus,
+                        'hotel_status' => $bookStatus,
+                        'booking_status' => $bookStatus,
+                        'status' => $status,
+                        'created_at' => date('Y-m-d H:i:s', strtotime($item['created_at'] ?? 'now') ?: time()),
+                        'updated_at' => date('Y-m-d H:i:s')
+                    ];
+
+                    $existingHtlCols = \Illuminate\Support\Facades\Schema::getColumnListing('hotel_bookings');
+                    $filteredHtlData = array_intersect_key($htlDbData, array_flip($existingHtlCols));
+
                     \Illuminate\Support\Facades\DB::table('hotel_bookings')->updateOrInsert(
                         ['booking_id' => $bCode],
-                        [
-                            'booking_id' => $bCode,
-                            'booking_code' => $bCode,
-                            'booking_number' => $bCode,
-                            'hotel_id' => $item['hotel_id'] ?? 1,
-                            'hotel_name' => $item['hotel_name'] ?? ($item['hotel'] ?? 'Al-Waris Deluxe Guest House'),
-                            'room_name' => $item['room_name'] ?? ($item['room'] ?? ($item['room_type'] ?? 'Deluxe AC Room')),
-                            'customer_name' => $item['customer_name'] ?? ($item['name'] ?? 'Guest User'),
-                            'customer_phone' => $item['customer_phone'] ?? ($item['phone'] ?? '9648777223'),
-                            'customer_email' => $item['customer_email'] ?? null,
-                            'customer_address' => $item['customer_address'] ?? null,
-                            'alternate_phone' => $item['alternate_phone'] ?? null,
-                            'check_in' => $checkinVal,
-                            'check_out' => $checkoutVal,
-                            'persons' => (int)($item['guests'] ?? ($item['persons'] ?? 2)),
-                            'rooms' => (int)($item['rooms'] ?? 1),
-                            'nights' => (int)($item['nights'] ?? 1),
-                            'total_amount' => $totAmt,
-                            'paid_amount' => ($payStatus === 'paid') ? $totAmt : (float)($item['paid_amount'] ?? 0),
-                            'pending_amount' => ($payStatus === 'paid') ? 0 : $totAmt,
-                            'price_per_night' => (float)($item['price_per_night'] ?? ($item['price'] ?? 1499)),
-                            'id_type' => $item['id_type'] ?? 'Aadhaar Card',
-                            'id_no' => $item['id_no'] ?? 'N/A',
-                            'payment_id' => $item['payment_id'] ?? ('RZP_HOTEL_' . time()),
-                            'payment_mode' => $item['payment_mode'] ?? (($payStatus === 'paid') ? 'full' : 'whatsapp'),
-                            'payment_status' => $payStatus,
-                            'hotel_status' => $bookStatus,
-                            'booking_status' => $bookStatus,
-                            'status' => $status,
-                            'created_at' => date('Y-m-d H:i:s', strtotime($item['created_at'] ?? 'now') ?: time()),
-                            'updated_at' => date('Y-m-d H:i:s')
-                        ]
+                        $filteredHtlData
                     );
                 } elseif ($key === 'hotels') {
                     $amenities = $item['amenities'] ?? ['24/7 Power Backup', 'Free Wi-Fi', 'Geyser/Hot Water'];
@@ -353,29 +426,45 @@ class DataStore
 
                     $payStatus = (str_contains(strtolower($item['payment_status'] ?? ''), 'paid') || str_contains($oStatus, 'paid')) ? 'paid' : 'pending';
 
+                    // Check if user_id exists in users table
+                    $userId = $item['user_id'] ?? (auth()->id() ?? null);
+                    if ($userId && \Illuminate\Support\Facades\Schema::hasTable('users')) {
+                        if (!\Illuminate\Support\Facades\DB::table('users')->where('id', $userId)->exists()) {
+                            $userId = null;
+                        }
+                    }
+
+                    $shopDbData = [
+                        'order_id' => $oCode,
+                        'user_id' => $userId,
+                        'customer_name' => $item['customer_name'] ?? 'Customer',
+                        'customer_phone' => $item['customer_phone'] ?? 'N/A',
+                        'customer_whatsapp' => $item['customer_whatsapp'] ?? ($item['customer_phone'] ?? null),
+                        'alternate_phone' => $item['alternate_phone'] ?? null,
+                        'shipping_address' => $item['address'] ?? ($item['shipping_address'] ?? 'Dewa Sharif'),
+                        'items_summary' => $item['items_summary'] ?? 'Sacred Items',
+                        'total_amount' => (float)($item['total_amount'] ?? ($item['amount'] ?? 1497)),
+                        'paid_amount' => ($payStatus === 'paid') ? (float)($item['total_amount'] ?? ($item['amount'] ?? 1497)) : 0,
+                        'payment_id' => $item['payment_id'] ?? 'RZP_SHP',
+                        'payment_mode' => $item['payment_mode'] ?? (($payStatus === 'paid') ? 'full' : 'whatsapp'),
+                        'payment_status' => $payStatus,
+                        'order_status' => $mappedStatus,
+                        'courier_name' => $item['courier'] ?? 'DTDC Express',
+                        'tracking_number' => $item['tracking'] ?? 'DT12345678IN',
+                        'fateha_name' => $item['fateha_name'] ?? null,
+                        'niyaz_date' => $item['niyaz_date'] ?? null,
+                        'distribution_type' => $item['distribution_type'] ?? null,
+                        'is_degh' => !empty($item['is_degh']) ? 1 : 0,
+                        'created_at' => $item['created_at'] ?? date('Y-m-d H:i:s'),
+                        'updated_at' => date('Y-m-d H:i:s')
+                    ];
+
+                    $existingShopCols = \Illuminate\Support\Facades\Schema::getColumnListing('shop_orders');
+                    $filteredShopData = array_intersect_key($shopDbData, array_flip($existingShopCols));
+
                     \Illuminate\Support\Facades\DB::table('shop_orders')->updateOrInsert(
                         ['order_id' => $oCode],
-                        [
-                            'order_id' => $oCode,
-                            'customer_name' => $item['customer_name'] ?? 'Customer',
-                            'customer_phone' => $item['customer_phone'] ?? 'N/A',
-                            'alternate_phone' => $item['alternate_phone'] ?? null,
-                            'shipping_address' => $item['address'] ?? ($item['shipping_address'] ?? 'Dewa Sharif'),
-                            'items_summary' => $item['items_summary'] ?? 'Sacred Items',
-                            'total_amount' => (float)($item['total_amount'] ?? ($item['amount'] ?? 1497)),
-                            'paid_amount' => ($payStatus === 'paid') ? (float)($item['total_amount'] ?? ($item['amount'] ?? 1497)) : 0,
-                            'payment_id' => $item['payment_id'] ?? 'RZP_SHP',
-                            'payment_status' => $payStatus,
-                            'order_status' => $mappedStatus,
-                            'courier_name' => $item['courier'] ?? 'DTDC Express',
-                            'tracking_number' => $item['tracking'] ?? 'DT12345678IN',
-                            'fateha_name' => $item['fateha_name'] ?? null,
-                            'niyaz_date' => $item['niyaz_date'] ?? null,
-                            'distribution_type' => $item['distribution_type'] ?? null,
-                            'is_degh' => !empty($item['is_degh']) ? 1 : 0,
-                            'created_at' => $item['created_at'] ?? date('Y-m-d H:i:s'),
-                            'updated_at' => date('Y-m-d H:i:s')
-                        ]
+                        $filteredShopData
                     );
                 } else {
                     $dbData = $item;
@@ -454,10 +543,13 @@ class DataStore
                     $st = strtolower($updatedData['status']);
                     if (str_contains($st, 'dispatch')) $dbUp['order_status'] = 'shipped';
                     elseif (str_contains($st, 'deliver')) $dbUp['order_status'] = 'delivered';
-                    elseif (str_contains($st, 'cancel')) $dbUp['order_status'] = 'cancelled';
+                    elseif (str_contains($st, 'cancel') || str_contains($st, 'fail')) $dbUp['order_status'] = 'cancelled';
                     else $dbUp['order_status'] = 'processing';
                 }
-                if (isset($updatedData['payment_status'])) $dbUp['payment_status'] = strtolower($updatedData['payment_status']) === 'paid' ? 'paid' : 'pending';
+                if (isset($updatedData['payment_status'])) {
+                    $ps = strtolower($updatedData['payment_status']);
+                    $dbUp['payment_status'] = ($ps === 'paid' || $ps === 'failed') ? $ps : 'pending';
+                }
                 if (isset($updatedData['courier'])) $dbUp['courier_name'] = $updatedData['courier'];
                 if (isset($updatedData['tracking'])) $dbUp['tracking_number'] = $updatedData['tracking'];
                 $dbUp['updated_at'] = date('Y-m-d H:i:s');
@@ -488,10 +580,15 @@ class DataStore
                 }
                 if (isset($updatedData['status'])) {
                     $st = strtolower($updatedData['status']);
+                    $isFailed = str_contains($st, 'fail') || str_contains($st, 'cancel') || str_contains($st, 'void');
                     $isConfirmed = str_contains($st, 'confirm') || str_contains($st, 'paid');
                     $dbUp['status'] = $updatedData['status'];
-                    $dbUp['hotel_status'] = $isConfirmed ? 'confirmed' : 'pending';
-                    $dbUp['booking_status'] = $isConfirmed ? 'confirmed' : 'pending';
+                    $dbUp['hotel_status'] = $isFailed ? 'cancelled' : ($isConfirmed ? 'confirmed' : 'pending');
+                    $dbUp['booking_status'] = $isFailed ? 'cancelled' : ($isConfirmed ? 'confirmed' : 'pending');
+                    $dbUp['payment_status'] = $isFailed ? 'failed' : ($isConfirmed ? 'paid' : 'pending');
+                }
+                if (isset($updatedData['payment_status'])) {
+                    $dbUp['payment_status'] = $updatedData['payment_status'];
                 }
                 $dbUp['updated_at'] = date('Y-m-d H:i:s');
                 \Illuminate\Support\Facades\DB::table('hotel_bookings')
@@ -520,10 +617,14 @@ class DataStore
                 }
                 if (isset($updatedData['status'])) {
                     $st = strtolower($updatedData['status']);
+                    $isFailed = str_contains($st, 'fail') || str_contains($st, 'cancel') || str_contains($st, 'void');
                     $isConfirmed = str_contains($st, 'confirm') || str_contains($st, 'paid') || str_contains($st, 'dispatch');
                     $dbUp['status'] = $updatedData['status'];
-                    $dbUp['booking_status'] = $isConfirmed ? 'assigned' : 'pending';
-                    $dbUp['payment_status'] = $isConfirmed ? 'paid' : 'pending';
+                    $dbUp['booking_status'] = $isFailed ? 'cancelled' : ($isConfirmed ? 'assigned' : 'pending');
+                    $dbUp['payment_status'] = $isFailed ? 'failed' : ($isConfirmed ? 'paid' : 'pending');
+                }
+                if (isset($updatedData['payment_status'])) {
+                    $dbUp['payment_status'] = $updatedData['payment_status'];
                 }
                 $dbUp['updated_at'] = date('Y-m-d H:i:s');
                 \Illuminate\Support\Facades\DB::table('cab_bookings')

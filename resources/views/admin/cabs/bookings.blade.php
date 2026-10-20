@@ -3,6 +3,23 @@
 @section('title', 'Cab & Taxi Duty Bookings | DewaSharif Admin')
 
 @section('content')
+<style>
+    .badge-gradient-dark {
+        background: linear-gradient(135deg, #0b132b 0%, #1e293b 50%, #1e40af 100%) !important;
+        color: #ffffff !important;
+        font-weight: 700;
+        box-shadow: 0 2px 6px rgba(15, 23, 42, 0.4);
+    }
+    .badge-silver-gradient {
+        background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 45%, #e2e8f0 75%, #cbd5e1 100%) !important;
+        color: #0f172a !important;
+        border: 1px solid #94a3b8 !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        font-family: monospace;
+        font-size: 10.5px;
+        font-weight: 700;
+    }
+</style>
 <main class="app-main">
     <div class="app-content-header">
         <div class="container-fluid">
@@ -110,6 +127,13 @@
                                         if (strlen($cleanDriverNo) === 10) {
                                              $cleanDriverNo = '91' . $cleanDriverNo;
                                         }
+                                        if (empty($cleanDriverNo)) {
+                                            $cleanPassengerNo = preg_replace('/[^0-9]/', '', $bPhone);
+                                            if (strlen($cleanPassengerNo) === 10) {
+                                                $cleanPassengerNo = '91' . $cleanPassengerNo;
+                                            }
+                                            $cleanDriverNo = $cleanPassengerNo;
+                                        }
                                         $waDirectUrl = "https://wa.me/{$cleanDriverNo}?text=" . urlencode($waMsgText);
                                     @endphp
                                     <tr>
@@ -132,8 +156,8 @@
                                         <td>
                                             <strong class="d-block text-success"><i class="bi bi-calendar-event me-1"></i>{{ $bTime }}</strong>
                                             @if($bNight)
-                                                <span class="badge bg-warning text-dark text-center d-inline-block py-1 px-2 lh-sm shadow-sm mt-1" style="font-size: 11px;">
-                                                    <i class="bi bi-moon-stars-fill me-1"></i>₹100<br>Night Charge
+                                                <span class="badge badge-gradient-dark text-white text-center d-inline-block py-1 px-2 lh-sm shadow-sm mt-1 border border-primary" style="font-size: 11px;">
+                                                    <i class="bi bi-moon-stars-fill text-warning me-1"></i>₹100<br>Night Charge
                                                 </span>
                                             @else
                                                 <span class="badge bg-light text-muted border text-center d-inline-block py-1 px-2 lh-sm mt-1" style="font-size: 11px;">
@@ -147,17 +171,20 @@
                                                 $bPayMode = is_array($booking) ? ($booking['payment_mode'] ?? null) : ($booking->payment_mode ?? null);
                                                 $bPayStatus = strtolower(is_array($booking) ? ($booking['payment_status'] ?? 'paid') : ($booking->payment_status ?? 'paid'));
                                                 $isPaidStatus = in_array($bPayStatus, ['paid', 'completed', 'success']);
+                                                $isFailedStatus = in_array($bPayStatus, ['failed', 'cancelled', 'rejected']);
                                                 $numFare = (float)$bFare;
                                             @endphp
                                             @if($numFare > 0)
                                                 <strong class="text-success fs-6">₹{{ number_format($numFare, 2) }}</strong>
                                                 @if($isPaidStatus)
                                                     <span class="badge bg-success d-block w-auto mt-1"><i class="bi bi-check-circle-fill me-1"></i>Paid</span>
+                                                @elseif($isFailedStatus)
+                                                    <span class="badge bg-danger d-block w-auto mt-1"><i class="bi bi-x-circle-fill me-1"></i>Payment Failed</span>
                                                 @else
-                                                    <span class="badge bg-danger d-block w-auto mt-1"><i class="bi bi-exclamation-circle-fill me-1"></i>Unpaid</span>
+                                                    <span class="badge bg-warning text-dark d-block w-auto mt-1"><i class="bi bi-clock-history me-1"></i>Pending UTR Check</span>
                                                 @endif
                                                 @if(!empty($bUtr))
-                                                    <small class="badge bg-warning text-dark d-block mt-1 text-wrap" style="font-family: monospace; font-size: 10.5px;">UTR: {{ $bUtr }}</small>
+                                                    <small class="badge badge-silver-gradient d-block mt-1 text-wrap">UTR: {{ $bUtr }}</small>
                                                 @elseif(!empty($bPayMode) && str_contains($bPayMode, 'QR'))
                                                     <small class="badge bg-light text-dark border d-block mt-1">PhonePe QR</small>
                                                 @endif
@@ -188,6 +215,8 @@
                                                 <span class="badge shadow-sm text-white" style="background-color: #25D366 !important; font-weight: 700;"><i class="bi bi-whatsapp me-1"></i> Custom Inquiry</span>
                                             @elseif(str_contains($bRawStatus, 'confirm') || str_contains($bRawStatus, 'paid'))
                                                 <span class="badge bg-success shadow-sm"><i class="bi bi-check-circle-fill me-1"></i> Confirmed</span>
+                                            @elseif(str_contains($bRawStatus, 'failed') || str_contains($bRawStatus, 'cancel'))
+                                                <span class="badge bg-danger shadow-sm"><i class="bi bi-x-circle-fill me-1"></i> Cancelled</span>
                                             @elseif(str_contains($bRawStatus, 'pending'))
                                                 <span class="badge bg-warning text-dark shadow-sm"><i class="bi bi-clock-history me-1"></i> Pending</span>
                                             @else
@@ -213,26 +242,28 @@
                                                     </button>
                                                 </form>
 
-                                                <!-- Row 2: Approve / Pending, Driver, WhatsApp -->
-                                                <form action="{{ route('admin.cabs.confirm', $bId) }}" method="POST" class="m-0 p-0 w-100">
+                                                <!-- Row 2: Approve, Reject, Driver -->
+                                                <form action="{{ route('admin.cabs.bookings.approve', $bId) }}" method="POST" class="m-0 p-0 w-100" onsubmit="return confirm('Approve booking #{{ $bCode }} as PAID? Customer voucher will show verified PAID.');">
                                                     @csrf
-                                                    @if($isConfirmed)
-                                                        <button type="submit" class="btn btn-sm btn-outline-warning fw-bold d-flex align-items-center justify-content-center shadow-sm w-100" title="Set to Pending" style="font-size: 11px; height: 28px; padding: 0 4px;">
-                                                            <i class="bi bi-arrow-counterclockwise me-1"></i> Pending
-                                                        </button>
-                                                    @else
-                                                        <button type="submit" class="btn btn-sm btn-success fw-bold d-flex align-items-center justify-content-center shadow-sm w-100" title="Approve &amp; Confirm" style="font-size: 11px; height: 28px; padding: 0 4px;">
-                                                            <i class="bi bi-check-circle-fill me-1"></i> Approve
-                                                        </button>
-                                                    @endif
+                                                    <button type="submit" class="btn btn-sm {{ $isPaidStatus ? 'btn-outline-success disabled' : 'btn-success' }} fw-bold d-flex align-items-center justify-content-center shadow-sm w-100" title="Approve &amp; Confirm Paid" style="font-size: 11px; height: 28px; padding: 0 4px;">
+                                                        <i class="bi bi-check-circle-fill me-1"></i> Approve
+                                                    </button>
+                                                </form>
+
+                                                <form action="{{ route('admin.cabs.bookings.reject', $bId) }}" method="POST" class="m-0 p-0 w-100" onsubmit="return confirm('Reject booking #{{ $bCode }}? UTR will be marked FAILED and customer voucher will be rendered VOID.');">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm {{ $isFailedStatus ? 'btn-outline-danger disabled' : 'btn-danger' }} fw-bold d-flex align-items-center justify-content-center shadow-sm w-100" title="Reject / Mark Failed (Fake UTR)" style="font-size: 11px; height: 28px; padding: 0 4px;">
+                                                        <i class="bi bi-x-circle-fill me-1"></i> Reject
+                                                    </button>
                                                 </form>
 
                                                 <button type="button" class="btn btn-sm btn-primary fw-bold d-flex align-items-center justify-content-center shadow-sm w-100 m-0" data-bs-toggle="modal" data-bs-target="#assignDriverModal{{ $bId }}" title="Assign/Update Driver &amp; Vehicle" style="font-size: 11.5px; height: 28px; padding: 0 4px;">
                                                     <i class="bi bi-person-plus-fill me-1"></i> Driver
                                                 </button>
 
-                                                <a href="{{ $waDirectUrl }}" target="_blank" class="btn btn-sm btn-success fw-bold d-flex align-items-center justify-content-center shadow-sm w-100 m-0" title="Open Duty Slip on WhatsApp" style="font-size: 11px; height: 28px; padding: 0 4px;">
-                                                    <i class="bi bi-whatsapp me-1"></i> WhatsApp
+                                                <!-- Row 3: WhatsApp Full Width across all 3 columns -->
+                                                <a href="{{ $waDirectUrl }}" target="_blank" class="btn btn-sm text-white fw-bold d-flex align-items-center justify-content-center shadow-sm m-0" style="grid-column: span 3; width: 100%; height: 28px; font-size: 11.5px; background-color: #25D366; border-color: #25D366; padding: 0 4px;" title="Send Duty Slip to Driver on WhatsApp">
+                                                    <i class="bi bi-whatsapp me-1" style="font-size: 13.5px;"></i> WhatsApp Duty Slip
                                                 </a>
                                             </div>
                                         </td>
@@ -294,7 +325,7 @@
                                                                 <small class="text-muted d-block">Total Fare Paid</small>
                                                                 <strong class="text-success fs-5">₹{{ number_format((float)$bFare, 2) }}</strong>
                                                                 @if($bNight)
-                                                                    <small class="text-warning d-block">(₹100 Night Surcharge)</small>
+                                                                    <small class="badge badge-gradient-dark border border-primary px-2 py-0.5 mt-1 d-inline-block" style="font-size: 11px;"><i class="bi bi-moon-stars-fill text-warning me-1"></i> ₹100 Night Surcharge</small>
                                                                 @endif
                                                             </div>
                                                             <div class="col-6">
@@ -516,12 +547,13 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <label class="form-label fw-bold small text-muted">Payment Status (Invoice Badge) *</label>
-                                                                <select name="payment_status" class="form-select fw-bold {{ $isPaidStatus ? 'border-success text-success' : 'border-danger text-danger' }}">
-                                                                    <option value="paid" {{ $isPaidStatus ? 'selected' : '' }}>✅ PAID (Mark as Paid on Invoice &amp; System)</option>
-                                                                    <option value="pending" {{ !$isPaidStatus ? 'selected' : '' }}>❌ UNPAID / PENDING (Payment Pending)</option>
+                                                                <select name="payment_status" class="form-select fw-bold {{ $isPaidStatus ? 'border-success text-success' : ($isFailedStatus ? 'border-danger text-danger' : 'border-warning text-dark') }}">
+                                                                    <option value="paid" {{ $isPaidStatus ? 'selected' : '' }}>✅ PAID (Mark as Paid &amp; Verified on Voucher)</option>
+                                                                    <option value="pending" {{ (!$isPaidStatus && !$isFailedStatus) ? 'selected' : '' }}>⏳ PENDING (Under Bank Settlement Verification)</option>
+                                                                    <option value="failed" {{ $isFailedStatus ? 'selected' : '' }}>❌ FAILED / VOID (Fake/Uncredited UTR — Mark Void)</option>
                                                                 </select>
                                                                 <small class="text-muted d-block mt-1" style="font-size: 11px;">
-                                                                    💡 <strong>Unpaid</strong> select karne se Tax Invoice par Red <strong>UNPAID / PAYMENT PENDING</strong> ka bill generate hoga. Payment aane par <strong>Paid</strong> select karein.
+                                                                    💡 <strong>Failed / Void</strong> select karne se customer ka Tax Invoice Red <strong>PAYMENT FAILED / VOID</strong> ban jayega aur customer ride claim nahi kar payega.
                                                                 </small>
                                                             </div>
                                                             <div class="col-md-6">

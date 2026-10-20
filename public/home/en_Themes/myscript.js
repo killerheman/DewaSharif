@@ -44,10 +44,10 @@ $(document).ready(function () {
     }
     });    */
 
-    $(".about-tag").append('<div class="menu-action col-md-12"><img alt="menu-sevron" src="images/tourismicon.png"><div class="menuacttitle">A unique opportunity to explore Uttar Pradesh</div></div>');
-    $(".dest-tag").append('<div class="menu-action col-md-12"><img alt="menu-sevron" src="images/tourismicon.png"><div class="menuacttitle">Meet the locals and learn the secrets of cities.</div></div>');
-    $(".exp-tag").append('<div class="menu-action col-md-12"><img alt="menu-sevron" src="images/tourismicon.png"><div class="menuacttitle">Experience the natural wonders of Uttar Pradesh – sublime and serene.</div></div>');
-    $(".plan-tag").append('<div class="menu-action col-md-12"><img alt="menu-sevron" src="images/tourismicon.png"><div class="menuacttitle">Wherever you go, go with all your heart</div></div>');
+    // $(".about-tag").append('<div class="menu-action col-md-12"><img alt="menu-sevron" src="images/tourismicon.png"><div class="menuacttitle">A unique opportunity to explore Uttar Pradesh</div></div>');
+    // $(".dest-tag").append('<div class="menu-action col-md-12"><img alt="menu-sevron" src="images/tourismicon.png"><div class="menuacttitle">Meet the locals and learn the secrets of cities.</div></div>');
+    // $(".exp-tag").append('<div class="menu-action col-md-12"><img alt="menu-sevron" src="images/tourismicon.png"><div class="menuacttitle">Experience the natural wonders of Uttar Pradesh – sublime and serene.</div></div>');
+    // $(".plan-tag").append('<div class="menu-action col-md-12"><img alt="menu-sevron" src="images/tourismicon.png"><div class="menuacttitle">Wherever you go, go with all your heart</div></div>');
     // $(".online-tag").append('<div class="menu-action col-md-12"><img alt="menu-sevron" src="images/tourismicon.png"><div class="menuacttitle">Choose your tours, ride and hotels</div></div>');
 
     $(".scrolldown").click(function () {

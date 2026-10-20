@@ -164,7 +164,7 @@
                 <div style="margin-bottom: 12px;">
                     <span
                         style="background: #00e676; color: #052c16; border: 1.5px solid #ffffff; padding: 6px 18px; border-radius: 20px; font-size: 12.5px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; display: inline-block; box-shadow: 0 2px 10px rgba(0,230,118,0.4);">
-                        🏨 Dargah Waris-e-Pak Nearby Stays
+                        🏨 Dargah Waris-e-Pak Near by Stays
                     </span>
                 </div>
                 <h1 class="hotel-hero-title">
@@ -246,7 +246,29 @@
                         <p class="hotel-mela-subtitle">
                             Package available 3 Days, 4 Days, 5 Days, 10 Days or More — Prebooking Start Now
                         </p>
-                    </div>
+                        </div>
+
+<div style="margin-top: 30px; padding: 22px 25px; background: linear-gradient(135deg, #fff9db 0%, #fff3cd 100%); border-radius: 12px; border: 2px solid #ffc107; box-shadow: 0 0 25px rgba(255, 193, 7, 0.8); animation: pulseGlow 2s infinite alternate;">
+    <p style="font-size: 16px; color: #533f00; line-height: 1.6; font-weight: 900; margin: 0; text-align: center;">
+        ✨ Hum aise rooms bhi provide karte hain jinki Roof se Dargah aur Dargah ka Ground aur dargah poori dikhayi deti hai and just attached rooms bhi available hain sirf 10-20 kadam ki distance par. CONTACT NOW 
+    </p>
+</div>
+
+<style>
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+        border-color: #ffc107;
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(255, 152, 0, 0.9), inset 0 0 10px rgba(255, 193, 7, 0.5);
+        border-color: #ff9800;
+    }
+}
+</style>
+
+                       
+                    
 
 
                     <h5 style="color: #0f172a; font-weight: 900; margin: 0; font-size: 17.5px;">
@@ -281,9 +303,18 @@
                     <div class="col-md-3 col-sm-6">
                         <label
                             style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">📅
-                            Expected Dates / Duration</label>
+                            Expected Dates </label>
                         <input type="text" id="custom_hotel_dates" class="form-control"
                             placeholder="E.g., 20 Oct to 28 Oct (8 Nights)"
+                            style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <label
+                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">📅
+                            Days</label>
+                        <input type="text" id="custom_hotel_dates" class="form-control"
+                            placeholder="E.g., 1 - 2 - 3 - 4 - 5 - 6 - 7... Days"
                             style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
                     </div>
 

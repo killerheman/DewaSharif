@@ -106,7 +106,7 @@
                             </span>
                             <span
                                 style="position: absolute; bottom: 10px; right: 12px; background: #ffffff; color: #1b5e20; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                                Starting ₹799/night
+                                Special "URS" Package Available
                             </span>
                         </div>
 
@@ -1204,7 +1204,7 @@
                                 class="external none" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
                         <li>
                             <a href="#" target="_blank" rel="noopener" class="external none"
-                                title="UP Tourism Blog" style="position: relative;">
+                                title="UP Touris m Blog" style="position: relative;">
                                 <img src="{{ asset('home/images/blog.png') }}"
                                     style="filter: contrast(0%) brightness(20%); width: 74px;" />
 

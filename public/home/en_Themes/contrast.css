@@ -973,6 +973,7 @@ header .navbar-inverse {
 }
 
 .menu-action {
+	display: none !important;
 	background-color: #000;
 	padding: 15px;
 	margin: 15px auto 0px auto;

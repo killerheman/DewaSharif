@@ -21,11 +21,27 @@
 
                     @forelse($hotelBookings as $booking)
                         <div style="background: #ffffff; border-radius: 14px; border: 1.5px solid #e2e8f0; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 16px;">
+                            @php
+                                $hPayStatus = strtolower($booking['payment_status'] ?? 'paid');
+                                $hStatus = strtolower($booking['status'] ?? '');
+                                $isPaid = in_array($hPayStatus, ['paid', 'completed', 'success']) || str_contains($hStatus, 'paid');
+                                $isFailed = in_array($hPayStatus, ['failed', 'cancelled', 'rejected']) || str_contains($hStatus, 'fail') || str_contains($hStatus, 'cancel');
+                            @endphp
                             <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3 pb-2" style="border-bottom: 1px solid #f1f5f9;">
                                 <div>
-                                    <span style="font-size: 11px; font-weight: 800; color: #16a34a; background: #dcfce7; padding: 3px 10px; border-radius: 6px;">
-                                        ✔ {{ strtoupper($booking['status'] ?? 'CONFIRMED') }}
-                                    </span>
+                                    @if($isPaid)
+                                        <span style="font-size: 11px; font-weight: 800; color: #16a34a; background: #dcfce7; padding: 3px 10px; border-radius: 6px;">
+                                            ✔ CONFIRMED &amp; PAID
+                                        </span>
+                                    @elseif($isFailed)
+                                        <span style="font-size: 11px; font-weight: 800; color: #dc2626; background: #fee2e2; padding: 3px 10px; border-radius: 6px;">
+                                            ❌ PAYMENT FAILED / CANCELLED
+                                        </span>
+                                    @else
+                                        <span style="font-size: 11px; font-weight: 800; color: #d97706; background: #fef3c7; padding: 3px 10px; border-radius: 6px;">
+                                            ⏳ VERIFICATION PENDING
+                                        </span>
+                                    @endif
                                     <h4 style="font-weight: 900; color: #0f172a; margin-top: 8px; margin-bottom: 4px; font-size: 19px;">
                                         {{ $booking['hotel_name'] ?? 'Guest House Stay' }}
                                     </h4>
@@ -35,7 +51,13 @@
                                 </div>
                                 <div class="text-right">
                                     <span style="font-size: 22px; font-weight: 900; color: #052c16; display: block;">₹{{ number_format($booking['total_amount'] ?? ($booking['amount'] ?? 2998)) }}</span>
-                                    <span style="font-size: 11px; color: #16a34a; font-weight: 700; background: #dcfce7; padding: 2px 8px; border-radius: 4px;">Paid Online</span>
+                                    @if($isPaid)
+                                        <span style="font-size: 11px; color: #16a34a; font-weight: 800; background: #dcfce7; padding: 3px 10px; border-radius: 4px;">✓ Paid Online</span>
+                                    @elseif($isFailed)
+                                        <span style="font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 3px 10px; border-radius: 4px;">❌ Payment Failed</span>
+                                    @else
+                                        <span style="font-size: 11px; color: #d97706; font-weight: 800; background: #fef3c7; padding: 3px 10px; border-radius: 4px;">⏳ Settlement Pending</span>
+                                    @endif
                                 </div>
                             </div>
 
@@ -46,11 +68,14 @@
                                     </p>
                                     <p style="font-size: 13.5px; color: #334155; margin-bottom: 0;">
                                         🛏️ <strong>Room Reserved:</strong> {{ $booking['room_name'] ?? ($booking['room_type'] ?? 'Deluxe AC Double Room with Generator Backup') }}
+                                        @if($isFailed)
+                                            <span class="text-danger fw-bold d-block mt-1">❌ Reservation Cancelled (Payment Uncredited)</span>
+                                        @endif
                                     </p>
                                 </div>
                                 <div class="col-md-4 text-md-right mt-3 mt-md-0">
-                                    <a href="{{ route('customer.invoice', ['type' => 'hotel', 'id' => $booking['id'] ?? 1]) }}" target="_blank" class="btn" style="background: #052c16; color: #ffffff; font-weight: 800; font-size: 13px; border-radius: 8px; padding: 9px 16px;">
-                                        📥 Tax Invoice PDF
+                                    <a href="{{ route('customer.invoice', ['type' => 'hotel', 'id' => $booking['id'] ?? 1]) }}" target="_blank" class="btn" style="background: {{ $isFailed ? '#dc2626' : '#052c16' }}; color: #ffffff; font-weight: 800; font-size: 13px; border-radius: 8px; padding: 9px 16px;">
+                                        {{ $isFailed ? '❌ View Void Voucher (Failed)' : '📥 Tax Invoice PDF' }}
                                     </a>
                                 </div>
                             </div>

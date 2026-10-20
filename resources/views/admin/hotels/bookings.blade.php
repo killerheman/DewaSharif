@@ -135,15 +135,20 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @php
+                                                $isFailedStatus = in_array($bPayStatus, ['failed', 'cancelled', 'rejected']);
+                                            @endphp
                                             @if($totAmt > 0)
                                                 <strong class="text-success fs-6">₹{{ number_format($totAmt, 2) }}</strong>
                                                 @if($isPaidStatus)
                                                     <span class="badge bg-success d-block w-auto mt-1"><i class="bi bi-check-circle-fill me-1"></i>Paid</span>
+                                                @elseif($isFailedStatus)
+                                                    <span class="badge bg-danger d-block w-auto mt-1"><i class="bi bi-x-circle-fill me-1"></i>Payment Failed</span>
                                                 @else
-                                                    <span class="badge bg-danger d-block w-auto mt-1"><i class="bi bi-exclamation-circle-fill me-1"></i>Unpaid</span>
+                                                    <span class="badge bg-warning text-dark d-block w-auto mt-1"><i class="bi bi-clock-history me-1"></i>Pending UTR Check</span>
                                                 @endif
                                                 @if(!empty($bUtr))
-                                                    <small class="badge bg-warning text-dark d-block mt-1 text-wrap" style="font-family: monospace; font-size: 10.5px;">UTR: {{ $bUtr }}</small>
+                                                    <small class="badge d-block mt-1 text-wrap" style="background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 45%, #e2e8f0 75%, #cbd5e1 100%) !important; color: #0f172a !important; border: 1px solid #94a3b8 !important; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); font-family: monospace; font-size: 10.5px; font-weight: 700;">UTR: {{ $bUtr }}</small>
                                                 @elseif(!empty($bPayMode) && str_contains($bPayMode, 'QR'))
                                                     <small class="badge bg-light text-dark border d-block mt-1">PhonePe QR</small>
                                                 @endif
@@ -156,9 +161,13 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if($isConfirmed)
+                                            @if($isPaidStatus || $isConfirmed)
                                                 <span class="badge bg-success text-center d-inline-block py-1 px-2 lh-sm shadow-sm" style="font-size: 11px;">
                                                     <i class="bi bi-check-circle-fill me-1"></i>Confirmed<br>&amp; Paid
+                                                </span>
+                                            @elseif($isFailedStatus)
+                                                <span class="badge bg-danger text-center d-inline-block py-1 px-2 lh-sm shadow-sm" style="font-size: 11px;">
+                                                    <i class="bi bi-x-circle-fill me-1"></i>Cancelled<br>&amp; Failed
                                                 </span>
                                             @elseif(str_contains($bStatusLower, 'whatsapp') || str_contains($bStatusLower, 'custom') || str_contains($bStatusLower, 'inquiry'))
                                                 <span class="badge shadow-sm text-white text-center d-inline-block py-1 px-2 lh-sm" style="background-color: #25D366 !important; font-weight: 700; font-size: 11px;">
@@ -191,26 +200,23 @@
                                                     </button>
                                                 </form>
 
-                                                <!-- Row 2: Approve / Pending, Invoice, WhatsApp -->
-                                                <form action="{{ route('admin.hotels.confirm', $bId) }}" method="POST" class="m-0 p-0 w-100">
+                                                <!-- Row 2: Approve (1-click), Reject (1-click), Invoice -->
+                                                <form action="{{ route('admin.hotels.bookings.approve', $bId) }}" method="POST" class="m-0 p-0 w-100" onsubmit="return confirm('Approve hotel booking #{{ $bCode }} as PAID? Customer voucher will show verified PAID.');">
                                                     @csrf
-                                                    @if($isConfirmed)
-                                                        <button type="submit" class="btn btn-sm btn-outline-warning fw-bold d-flex align-items-center justify-content-center shadow-sm w-100" title="Set to Pending" style="font-size: 11px; height: 28px; padding: 0 4px;">
-                                                            <i class="bi bi-arrow-counterclockwise me-1"></i> Pending
-                                                        </button>
-                                                    @else
-                                                        <button type="submit" class="btn btn-sm btn-success fw-bold d-flex align-items-center justify-content-center shadow-sm w-100" title="Approve &amp; Confirm" style="font-size: 11px; height: 28px; padding: 0 4px;">
-                                                            <i class="bi bi-check-circle-fill me-1"></i> Approve
-                                                        </button>
-                                                    @endif
+                                                    <button type="submit" class="btn btn-sm {{ $isPaidStatus ? 'btn-outline-success disabled' : 'btn-success' }} fw-bold d-flex align-items-center justify-content-center shadow-sm w-100" title="Approve & Confirm Paid" style="font-size: 11px; height: 28px; padding: 0 4px;">
+                                                        <i class="bi bi-check-circle-fill me-1"></i> Approve
+                                                    </button>
+                                                </form>
+
+                                                <form action="{{ route('admin.hotels.bookings.reject', $bId) }}" method="POST" class="m-0 p-0 w-100" onsubmit="return confirm('Reject hotel booking #{{ $bCode }}? UTR will be marked FAILED and stay voucher will be rendered VOID.');">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm {{ $isFailedStatus ? 'btn-outline-danger disabled' : 'btn-danger' }} fw-bold d-flex align-items-center justify-content-center shadow-sm w-100" title="Reject / Mark Failed (Fake UTR)" style="font-size: 11px; height: 28px; padding: 0 4px;">
+                                                        <i class="bi bi-x-circle-fill me-1"></i> Reject
+                                                    </button>
                                                 </form>
 
                                                 <a href="{{ route('customer.invoice', ['type' => 'hotel', 'id' => $bId]) }}" target="_blank" class="btn btn-sm btn-primary fw-bold d-flex align-items-center justify-content-center shadow-sm w-100 m-0" title="View Tax Invoice Voucher" style="font-size: 11px; height: 28px; padding: 0 4px;">
                                                     <i class="bi bi-file-earmark-pdf me-1"></i> Invoice
-                                                </a>
-
-                                                <a href="{{ $waGuestUrl }}" target="_blank" class="btn btn-sm btn-success fw-bold d-flex align-items-center justify-content-center shadow-sm w-100 m-0" title="Send Confirmation Voucher to Guest on WhatsApp" style="font-size: 11px; height: 28px; padding: 0 4px; background-color: #25D366; border-color: #25D366;">
-                                                    <i class="bi bi-whatsapp me-1"></i> WhatsApp
                                                 </a>
                                             </div>
                                         </td>
@@ -497,12 +503,13 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <label class="form-label fw-bold small text-muted">Payment Status (Invoice Badge) *</label>
-                                                                <select name="payment_status" class="form-select fw-bold {{ $isPaidStatus ? 'border-success text-success' : 'border-danger text-danger' }}">
-                                                                    <option value="paid" {{ $isPaidStatus ? 'selected' : '' }}>✅ PAID (Mark as Paid on Invoice &amp; System)</option>
-                                                                    <option value="pending" {{ !$isPaidStatus ? 'selected' : '' }}>❌ UNPAID / PENDING (Payment Pending)</option>
+                                                                <select name="payment_status" class="form-select fw-bold {{ $isPaidStatus ? 'border-success text-success' : ($isFailedStatus ? 'border-danger text-danger' : 'border-warning text-dark') }}">
+                                                                    <option value="paid" {{ $isPaidStatus ? 'selected' : '' }}>✅ PAID (Mark as Paid &amp; Verified on Voucher)</option>
+                                                                    <option value="pending" {{ (!$isPaidStatus && !$isFailedStatus) ? 'selected' : '' }}>⏳ PENDING (Under Bank Settlement Verification)</option>
+                                                                    <option value="failed" {{ $isFailedStatus ? 'selected' : '' }}>❌ FAILED / VOID (Fake/Uncredited UTR — Mark Void)</option>
                                                                 </select>
                                                                 <small class="text-muted d-block mt-1" style="font-size: 11px;">
-                                                                    💡 <strong>Unpaid</strong> select karne se Tax Invoice par Red <strong>UNPAID / PAYMENT PENDING</strong> ka bill generate hoga. Payment aane par <strong>Paid</strong> select karein.
+                                                                    💡 <strong>Failed / Void</strong> select karne se guest ka stay voucher Red <strong>PAYMENT FAILED / VOID</strong> ban jayega.
                                                                 </small>
                                                             </div>
                                                             <div class="col-md-6">

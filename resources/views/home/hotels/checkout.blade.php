@@ -703,11 +703,42 @@
                     var displayCust = name + ' (' + phone + (altPhone ? ' / Alt: ' + altPhone : '') + ')';
                     triggerHotelSuccessOverlay(response, price, displayCust);
                 } else {
-                    window.location.href = "{{ route('customer.hotels') }}";
+                    var errMsg = response.message || 'Hotel booking save nahi ho saki. Kripya punah prayas karein.';
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Booking Failed',
+                            text: errMsg,
+                            confirmButtonColor: '#074121'
+                        });
+                    } else {
+                        alert('⚠️ ' + errMsg);
+                    }
+                    $('#btnHtlPay').prop('disabled', false).html('Pay via UPI QR');
+                    if ($('#btnConfirmHtlQrPayment').length) {
+                        $('#btnConfirmHtlQrPayment').prop('disabled', false).html('Maine Payment Kar Diya — Confirm Booking');
+                    }
                 }
             },
-            error: function(err) {
-                window.location.href = "{{ route('customer.hotels') }}";
+            error: function(xhr) {
+                var errMsg = 'Hotel reservation confirm karte samay server par dikkat aayi.';
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errMsg = xhr.responseJSON.message;
+                }
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Booking Error',
+                        text: errMsg,
+                        confirmButtonColor: '#074121'
+                    });
+                } else {
+                    alert('⚠️ ' + errMsg);
+                }
+                $('#btnHtlPay').prop('disabled', false).html('Pay via UPI QR');
+                if ($('#btnConfirmHtlQrPayment').length) {
+                    $('#btnConfirmHtlQrPayment').prop('disabled', false).html('Maine Payment Kar Diya — Confirm Booking');
+                }
             }
         });
     }
@@ -717,9 +748,16 @@
         $('#succAmountPaid').text('₹' + parseFloat(amount).toLocaleString('en-IN'));
         $('#succCustomerInfo').text(custInfo);
 
+        if (response.invoice_url) {
+            $('#btnSuccHotelVoucher').attr('href', response.invoice_url).css('display', 'flex');
+        }
+        if (response.company_whatsapp_url || response.whatsapp_url) {
+            $('#btnSuccHotelWhatsApp').attr('href', response.company_whatsapp_url || response.whatsapp_url).css('display', 'flex');
+        }
+
         $('#paymentSuccessOverlay').css('display', 'flex');
 
-        var secondsLeft = 5;
+        var secondsLeft = 10;
         $('#succCountdown').text(secondsLeft);
         $('#succProgressBar').css('width', '100%');
 
@@ -733,7 +771,7 @@
             secondsLeft--;
             if (secondsLeft < 0) secondsLeft = 0;
             $('#succCountdown').text(secondsLeft);
-            var pct = (secondsLeft / 5) * 100;
+            var pct = (secondsLeft / 10) * 100;
             $('#succProgressBar').css('width', pct + '%');
 
             if (secondsLeft <= 0) {
@@ -1087,19 +1125,34 @@ function handleUpiClick(event) {
             </div>
         </div>
 
-        <!-- 5-Second Countdown Bar -->
-        <div style="margin-bottom: 22px;">
-            <p style="font-weight: 800; color: #074121; font-size: 14px; margin-bottom: 10px;">
-                ⌛ Redirecting to your Stays Dashboard in <span id="succCountdown" style="color: #e11d48; font-size: 18px; font-weight: 900;">5</span> seconds...
+        <!-- Countdown Bar -->
+        <div style="margin-bottom: 20px;">
+            <p style="font-weight: 800; color: #074121; font-size: 13.5px; margin-bottom: 8px;">
+                ⌛ Auto-redirecting to Dashboard in <span id="succCountdown" style="color: #e11d48; font-size: 17px; font-weight: 900;">10</span> seconds...
             </p>
             <div style="width: 100%; height: 8px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
                 <div id="succProgressBar" style="width: 100%; height: 100%; background: linear-gradient(90deg, #16a34a, #22c55e); transition: width 1s linear;"></div>
             </div>
         </div>
 
-        <!-- Action Button -->
-        <div style="display: flex; gap: 12px; justify-content: center;">
-            <button type="button" id="btnGoDashboard" class="btn" style="background: #074121; color: #ffffff; font-weight: 800; font-size: 14px; padding: 12px 24px; border-radius: 10px; flex: 1; border: none; box-shadow: 0 4px 12px rgba(7,65,33,0.3);">
+        <!-- Action Buttons Container -->
+        <div style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+            <!-- BUTTON 1: VIEW HOTEL STAY VOUCHER & TAX INVOICE -->
+            <a id="btnSuccHotelVoucher" href="#" target="_blank" class="btn"
+                style="display: none; width: 100%; background: #16a34a; color: #ffffff; font-weight: 800; font-size: 14px; padding: 12px 16px; border-radius: 10px; border: none; box-shadow: 0 4px 12px rgba(22,163,74,0.3); align-items: center; justify-content: center; gap: 8px; text-decoration: none;">
+                <i class="fa fa-file-text-o" style="font-size: 16px;"></i>
+                <span>📄 View Stay Voucher &amp; Tax Invoice (PDF)</span>
+            </a>
+
+            <!-- BUTTON 2: WHATSAPP SHARE -->
+            <a id="btnSuccHotelWhatsApp" href="#" target="_blank" class="btn"
+                style="display: none; width: 100%; background: #25D366; color: #ffffff; font-weight: 800; font-size: 14px; padding: 12px 16px; border-radius: 10px; border: none; box-shadow: 0 4px 12px rgba(37,211,102,0.3); align-items: center; justify-content: center; gap: 8px; text-decoration: none;">
+                <i class="fa fa-whatsapp" style="font-size: 18px;"></i>
+                <span>📱 Send Voucher to Hotel Desk on WhatsApp</span>
+            </a>
+
+            <!-- BUTTON 3: DASHBOARD -->
+            <button type="button" id="btnGoDashboard" class="btn" style="width: 100%; background: #074121; color: #ffffff; font-weight: 800; font-size: 14px; padding: 12px 16px; border-radius: 10px; border: none; box-shadow: 0 4px 12px rgba(7,65,33,0.3);">
                 🚀 Go to Hotel Dashboard Now
             </button>
         </div>

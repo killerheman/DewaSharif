@@ -949,6 +949,7 @@ header .navbar-inverse {
 }
 
 .menu-action {
+	display: none !important;
 	background-color: #e64353;
 	padding: 15px;
 	margin: 15px auto 0px auto;

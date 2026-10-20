@@ -33,11 +33,25 @@
                                     <td class="font-weight-bold">{{ $inv['invoice_no'] ?? ('#' . $inv['code']) }}</td>
                                     <td>{{ $inv['title'] }}</td>
                                     <td>{{ $inv['date'] }}</td>
-                                    <td class="font-weight-bold text-success">₹{{ number_format($inv['amount']) }}</td>
-                                    <td><span class="badge" style="background: #dcfce7; color: #16a34a; padding: 5px 12px; border-radius: 12px; font-size: 11.5px; font-weight: 800;">{{ $inv['status'] }}</span></td>
+                                    <td class="font-weight-bold {{ $inv['status'] === 'FAILED / VOID' ? 'text-danger' : 'text-success' }}">₹{{ number_format($inv['amount']) }}</td>
+                                    <td>
+                                        @if($inv['status'] === 'PAID')
+                                            <span class="badge" style="background: #dcfce7; color: #16a34a; padding: 5px 12px; border-radius: 12px; font-size: 11.5px; font-weight: 800;">✔ PAID</span>
+                                        @elseif($inv['status'] === 'FAILED / VOID')
+                                            <span class="badge" style="background: #fee2e2; color: #dc2626; padding: 5px 12px; border-radius: 12px; font-size: 11.5px; font-weight: 800;">❌ FAILED / VOID</span>
+                                        @else
+                                            <span class="badge" style="background: #fef3c7; color: #b45309; padding: 5px 12px; border-radius: 12px; font-size: 11.5px; font-weight: 800;">⏳ VERIFYING</span>
+                                        @endif
+                                    </td>
                                     <td class="text-center" style="width: 145px;">
-                                        <a href="{{ route('customer.invoice', ['type' => $inv['type'], 'id' => $inv['id']]) }}" target="_blank" class="btn btn-sm text-white font-weight-bold d-inline-flex align-items-center justify-content-center" style="background: #ef4444; color: #ffffff; border-radius: 6px; font-size: 11.5px; border: none; padding: 6px 10px; width: 128px; height: 32px; text-align: center; white-space: nowrap; box-shadow: 0 2px 6px rgba(239, 68, 68, 0.25);">
-                                            📥 {{ $inv['type'] === 'cab' ? 'Duty Voucher' : ($inv['type'] === 'hotel' ? 'Invoice PDF' : 'Receipt PDF') }}
+                                        @php
+                                            $btnBg = $inv['status'] === 'FAILED / VOID' ? '#dc2626' : '#0b5e36';
+                                            $btnText = $inv['status'] === 'FAILED / VOID' 
+                                                ? '❌ Void Doc' 
+                                                : ($inv['type'] === 'cab' ? '📥 Duty Voucher' : ($inv['type'] === 'hotel' ? '📥 Invoice PDF' : '📥 Receipt PDF'));
+                                        @endphp
+                                        <a href="{{ route('customer.invoice', ['type' => $inv['type'], 'id' => $inv['id']]) }}" target="_blank" class="btn btn-sm text-white font-weight-bold d-inline-flex align-items-center justify-content-center" style="background: {{ $btnBg }}; color: #ffffff; border-radius: 6px; font-size: 11.5px; border: none; padding: 6px 10px; width: 128px; height: 32px; text-align: center; white-space: nowrap; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+                                            {{ $btnText }}
                                         </a>
                                     </td>
                                 </tr>

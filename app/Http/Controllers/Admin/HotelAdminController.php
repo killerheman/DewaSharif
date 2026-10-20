@@ -243,6 +243,76 @@ class HotelAdminController extends Controller
         return back()->with('success', $msg);
     }
 
+    public function approveBooking($id)
+    {
+        $bookings = DataStore::getCollection('hotel_bookings');
+        $booking = null;
+        foreach ($bookings as $b) {
+            $bId = is_array($b) ? ($b['id'] ?? null) : ($b->id ?? null);
+            if ((string)$bId === (string)$id) {
+                $booking = $b;
+                break;
+            }
+        }
+
+        $amount = (float)(is_array($booking) ? ($booking['total_amount'] ?? ($booking['amount'] ?? 0)) : ($booking->total_amount ?? ($booking->amount ?? 0)));
+
+        $updateData = [
+            'payment_status' => 'paid',
+            'paid_amount' => $amount,
+            'pending_amount' => 0,
+            'status' => 'Confirmed & Paid',
+            'hotel_status' => 'confirmed',
+            'booking_status' => 'confirmed'
+        ];
+
+        DataStore::updateItem('hotel_bookings', $id, $updateData);
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('hotel_bookings')) {
+                $columns = \Illuminate\Support\Facades\Schema::getColumnListing('hotel_bookings');
+                $dbUpdate = array_intersect_key(array_merge($updateData, ['updated_at' => now()]), array_flip($columns));
+                \Illuminate\Support\Facades\DB::table('hotel_bookings')->where('id', $id)->update($dbUpdate);
+            }
+        } catch (\Throwable $e) {}
+
+        return back()->with('success', "Hotel Booking #{$id} payment has been APPROVED & Verified! Voucher updated to PAID.");
+    }
+
+    public function rejectBooking($id)
+    {
+        $bookings = DataStore::getCollection('hotel_bookings');
+        $booking = null;
+        foreach ($bookings as $b) {
+            $bId = is_array($b) ? ($b['id'] ?? null) : ($b->id ?? null);
+            if ((string)$bId === (string)$id) {
+                $booking = $b;
+                break;
+            }
+        }
+
+        $amount = (float)(is_array($booking) ? ($booking['total_amount'] ?? ($booking['amount'] ?? 0)) : ($booking->total_amount ?? ($booking->amount ?? 0)));
+
+        $updateData = [
+            'payment_status' => 'failed',
+            'paid_amount' => 0,
+            'pending_amount' => $amount,
+            'status' => 'Payment Failed',
+            'hotel_status' => 'cancelled',
+            'booking_status' => 'cancelled'
+        ];
+
+        DataStore::updateItem('hotel_bookings', $id, $updateData);
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('hotel_bookings')) {
+                $columns = \Illuminate\Support\Facades\Schema::getColumnListing('hotel_bookings');
+                $dbUpdate = array_intersect_key(array_merge($updateData, ['updated_at' => now()]), array_flip($columns));
+                \Illuminate\Support\Facades\DB::table('hotel_bookings')->where('id', $id)->update($dbUpdate);
+            }
+        } catch (\Throwable $e) {}
+
+        return back()->with('success', "Hotel Booking #{$id} payment REJECTED as Uncredited/Fake UTR. Stay voucher is now VOID & CANCELLED.");
+    }
+
     public function destroyBooking($id)
     {
         DataStore::deleteItem('hotel_bookings', $id);

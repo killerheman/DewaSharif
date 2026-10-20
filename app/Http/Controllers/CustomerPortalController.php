@@ -176,6 +176,16 @@ class CustomerPortalController extends Controller
             $created = $b['created_at'] ?? '2026-09-27 10:00:00';
             $rawId = $b['id'] ?? 1;
             $numId = is_numeric($rawId) ? str_pad($rawId, 3, '0', STR_PAD_LEFT) : $rawId;
+            $bPayStatus = strtolower($b['payment_status'] ?? 'paid');
+            $bStatus = strtolower($b['status'] ?? '');
+            if ($bPayStatus === 'failed' || str_contains($bStatus, 'fail') || str_contains($bStatus, 'cancel')) {
+                $itemStatus = 'FAILED / VOID';
+            } elseif ($bPayStatus === 'paid' || str_contains($bStatus, 'paid')) {
+                $itemStatus = 'PAID';
+            } else {
+                $itemStatus = 'VERIFICATION PENDING';
+            }
+
             $allInvoices->push([
                 'type' => 'hotel',
                 'id' => $rawId,
@@ -183,7 +193,7 @@ class CustomerPortalController extends Controller
                 'invoice_no' => 'INV-HOT-' . $numId,
                 'title' => ($b['hotel_name'] ?? 'Guest House Stay') . ' (' . ($b['room_name'] ?? ($b['room_type'] ?? 'Deluxe Room')) . ')',
                 'amount' => (float)($b['total_amount'] ?? ($b['amount'] ?? 2998)),
-                'status' => 'PAID',
+                'status' => $itemStatus,
                 'date' => date('d M Y', strtotime($created)),
                 'created_at' => $created,
                 'timestamp' => strtotime($created)
@@ -194,6 +204,16 @@ class CustomerPortalController extends Controller
             $created = $c['created_at'] ?? '2026-09-27 10:00:00';
             $rawId = $c['id'] ?? 1;
             $numId = is_numeric($rawId) ? str_pad($rawId, 3, '0', STR_PAD_LEFT) : $rawId;
+            $cPayStatus = strtolower($c['payment_status'] ?? 'paid');
+            $cStatus = strtolower($c['status'] ?? '');
+            if ($cPayStatus === 'failed' || str_contains($cStatus, 'fail') || str_contains($cStatus, 'cancel')) {
+                $itemStatus = 'FAILED / VOID';
+            } elseif ($cPayStatus === 'paid' || str_contains($cStatus, 'paid')) {
+                $itemStatus = 'PAID';
+            } else {
+                $itemStatus = 'VERIFICATION PENDING';
+            }
+
             $allInvoices->push([
                 'type' => 'cab',
                 'id' => $rawId,
@@ -201,7 +221,7 @@ class CustomerPortalController extends Controller
                 'invoice_no' => 'INV-CAB-' . $numId,
                 'title' => ($c['route'] ?? 'Cab Duty') . ' (' . ($c['vehicle_type'] ?? 'Sedan') . ')',
                 'amount' => (float)($c['total_fare'] ?? ($c['fare'] ?? 1400)),
-                'status' => 'PAID',
+                'status' => $itemStatus,
                 'date' => date('d M Y', strtotime($created)),
                 'created_at' => $created,
                 'timestamp' => strtotime($created)
@@ -212,6 +232,16 @@ class CustomerPortalController extends Controller
             $created = $o['created_at'] ?? '2026-09-27 10:00:00';
             $rawId = $o['id'] ?? 1;
             $numId = is_numeric($rawId) ? str_pad($rawId, 3, '0', STR_PAD_LEFT) : $rawId;
+            $oPayStatus = strtolower($o['payment_status'] ?? 'paid');
+            $oStatus = strtolower($o['status'] ?? '');
+            if ($oPayStatus === 'failed' || str_contains($oStatus, 'fail') || str_contains($oStatus, 'cancel')) {
+                $itemStatus = 'FAILED / VOID';
+            } elseif ($oPayStatus === 'paid' || str_contains($oStatus, 'paid')) {
+                $itemStatus = 'PAID';
+            } else {
+                $itemStatus = 'VERIFICATION PENDING';
+            }
+
             $allInvoices->push([
                 'type' => 'shop',
                 'id' => $rawId,
@@ -219,7 +249,7 @@ class CustomerPortalController extends Controller
                 'invoice_no' => 'INV-SHP-' . $numId,
                 'title' => $o['items_summary'] ?? 'Sacred Store Order',
                 'amount' => (float)($o['total_amount'] ?? ($o['amount'] ?? 1497)),
-                'status' => 'PAID',
+                'status' => $itemStatus,
                 'date' => date('d M Y', strtotime($created)),
                 'created_at' => $created,
                 'timestamp' => strtotime($created)
@@ -705,6 +735,7 @@ class CustomerPortalController extends Controller
             if (!empty($order['address'])) $customerAddress = $order['address'];
             elseif (!empty($order['customer_address'])) $customerAddress = $order['customer_address'];
             $customerEmail = !empty($order['customer_email']) ? $order['customer_email'] : (!empty($order['email']) ? $order['email'] : null);
+            $paymentStatus = $order['payment_status'] ?? ($order['status'] ?? 'paid');
 
             $totalAmount = (float)($order['total_amount'] ?? ($order['amount'] ?? 1497));
             $gst = 0.00;
