@@ -26,6 +26,47 @@
             please Contact via WhatsApp or Call.
         </span>
 
+        <div style="margin-top: 30px; padding: 25px 30px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate;">
+    
+    <!-- Heading -->
+    <h3 style="color: #ffd700; font-size: 20px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+        ✨ Complete Dewa Sharif Ziyarat & Travel Services ✨
+    </h3>
+
+    <!-- Description -->
+    <p style="font-size: 15px; color: #fdf6e2; line-height: 1.7; font-weight: 500; margin: 0 0 20px 0; text-align: center;">
+        Hum provide karte hain **Lucknow Airport & Railway Station or Custom Pickup & Drop**, 
+        <span style="color: #ffd700; font-weight: 700;">AC / Non-AC (Standard, Deluxe, Premium & Luxury Rooms)</span>, 
+        <br>sath hi complete **Guidance, Degh & Niyaz** ki poori facility Dewa Sharif mein. 
+        Book karein apna **Full Ziyarat Service Package** pickup-drop ke sath!
+    </p>
+
+    <!-- WhatsApp Button -->
+    <center style="margin: 0;">
+        <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20Dewa%20Sharif%20Ziyarat%20aur%20Room%20Booking%20package%20ki%20jaankari%20chahiye"
+            target="_blank"
+            style="background: linear-gradient(135deg, #25d366 0%, #1ebe57 100%); color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5); font-size: 16px; transition: transform 0.2s;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.558 6.558 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.012-.304.088-.403.087-.088.197-.232.296-.348.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34l-.38-.008c-.133 0-.348.048-.53.247-.182.198-.694.678-.694 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.078.38-.057 1.17-.478 1.338-.94.17-.46.17-.855.119-.94-.05-.085-.183-.138-.38-.235z"/>
+            </svg>
+            BOOK PACKAGE ON WHATSAPP
+        </a>
+    </center>
+</div>
+
+<style>
+@keyframes royalGlow {
+    0% {
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+        border-color: #d4af37;
+    }
+    100% {
+        box-shadow: 0 0 35px rgba(255, 215, 0, 0.7), inset 0 0 15px rgba(212, 175, 55, 0.2);
+        border-color: #ffd700;
+    }
+}
+</style>
+
         <!-- Subtitle -->
         <!-- <p id="mela-sub" onmouseover="this.style.color='#ffeb3b';" onmouseout="this.style.color='#00e676';"
                         ontouchstart="this.style.color='#ffeb3b';" ontouchend="this.style.color='#00e676';"

@@ -104,6 +104,43 @@ class Setting extends Model
             return $map['website_email'] ?? ($map['support_email'] ?? null);
         }
 
+        // Mail / SMTP Fallbacks
+        if ($key === 'mail_mailer') {
+            return $map['mail_mailer'] ?? env('MAIL_MAILER', 'smtp');
+        }
+        if ($key === 'mail_host') {
+            return $map['mail_host'] ?? env('MAIL_HOST', 'smtp.gmail.com');
+        }
+        if ($key === 'mail_port') {
+            return $map['mail_port'] ?? env('MAIL_PORT', 587);
+        }
+        if ($key === 'mail_username') {
+            return $map['mail_username'] ?? env('MAIL_USERNAME');
+        }
+        if ($key === 'mail_password') {
+            return $map['mail_password'] ?? env('MAIL_PASSWORD');
+        }
+        if ($key === 'mail_encryption') {
+            return $map['mail_encryption'] ?? env('MAIL_ENCRYPTION', 'tls');
+        }
+        if ($key === 'mail_from_address') {
+            return $map['mail_from_address'] ?? env('MAIL_FROM_ADDRESS');
+        }
+        if ($key === 'mail_from_name') {
+            return $map['mail_from_name'] ?? env('MAIL_FROM_NAME', 'DEWASHARIF');
+        }
+
+        // WhatsApp Cloud API Fallbacks
+        if ($key === 'whatsapp_token') {
+            return $map['whatsapp_token'] ?? env('WHATSAPP_TOKEN');
+        }
+        if ($key === 'whatsapp_phone_number_id') {
+            return $map['whatsapp_phone_number_id'] ?? env('WHATSAPP_PHONE_NUMBER_ID');
+        }
+        if ($key === 'whatsapp_business_account_id') {
+            return $map['whatsapp_business_account_id'] ?? env('WHATSAPP_BUSINESS_ACCOUNT_ID');
+        }
+
         return parent::getAttribute($key);
     }
 

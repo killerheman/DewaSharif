@@ -8,15 +8,24 @@ use Illuminate\Support\Facades\Log;
 class MetaWhatsAppService
 {
     /**
+     * Get dynamic Meta WhatsApp Cloud API credentials
+     */
+    public static function getCredentials(): array
+    {
+        $token = \App\Models\Setting::getVal('whatsapp_token', env('WHATSAPP_TOKEN'));
+        $phoneId = \App\Models\Setting::getVal('whatsapp_phone_number_id', env('WHATSAPP_PHONE_NUMBER_ID'));
+        return [$token, $phoneId];
+    }
+
+    /**
      * Send Custom Booking Confirmation Message via Meta WhatsApp Cloud API
      */
     public static function sendCustomMessage($toPhone, $booking, $type = 'Booking')
     {
-        $token = env('WHATSAPP_TOKEN');
-        $phoneId = env('WHATSAPP_PHONE_NUMBER_ID');
+        [$token, $phoneId] = static::getCredentials();
 
         if (empty($token) || empty($phoneId)) {
-            Log::warning('WhatsApp Token or Phone ID missing in .env');
+            Log::warning('WhatsApp Token or Phone ID missing in Settings and .env');
             return false;
         }
 
@@ -82,11 +91,10 @@ class MetaWhatsAppService
      */
     public static function sendDriverAssignmentMessage($toPhone, $booking)
     {
-        $token = env('WHATSAPP_TOKEN');
-        $phoneId = env('WHATSAPP_PHONE_NUMBER_ID');
+        [$token, $phoneId] = static::getCredentials();
 
         if (empty($token) || empty($phoneId)) {
-            Log::warning('WhatsApp Token or Phone ID missing in .env');
+            Log::warning('WhatsApp Token or Phone ID missing in Settings and .env');
             return false;
         }
 
@@ -146,6 +154,67 @@ class MetaWhatsAppService
         } catch (\Throwable $e) {
             Log::error('Meta WhatsApp Exception: ' . $e->getMessage());
             return false;
+        }
+    }
+
+    /**
+     * Send Live Test Message via Meta WhatsApp Cloud API
+     */
+    public static function sendTestMessage($toPhone)
+    {
+        [$token, $phoneId] = static::getCredentials();
+
+        if (empty($token) || empty($phoneId)) {
+            return [
+                'success' => false,
+                'message' => 'WhatsApp Token or Phone Number ID is missing. Please save valid credentials in WhatsApp Settings.'
+            ];
+        }
+
+        // Clean phone number (format to country code without +, default India 91 if 10 digits)
+        $cleanPhone = preg_replace('/[^0-9]/', '', (string)$toPhone);
+        if (strlen($cleanPhone) === 10) {
+            $cleanPhone = '91' . $cleanPhone;
+        }
+
+        $siteName = 'DewaSharif.com';
+        $messageText = "🌙 *{$siteName} — WhatsApp Cloud API Live Test*\n\n"
+                     . "Assalamu Alaikum / Greetings!\n\n"
+                     . "✅ Congratulations! Your Meta WhatsApp Cloud API credentials are working 100% successfully on {$siteName}.\n\n"
+                     . "📱 *Phone Number ID:* {$phoneId}\n"
+                     . "⏰ *Timestamp:* " . now()->format('d M Y, h:i:s A') . "\n\n"
+                     . "Regards,\n*{$siteName} Technical System*";
+
+        $url = "https://graph.facebook.com/v18.0/{$phoneId}/messages";
+
+        try {
+            $response = Http::withToken($token)->timeout(15)->post($url, [
+                'messaging_product' => 'whatsapp',
+                'to' => $cleanPhone,
+                'type' => 'text',
+                'text' => [
+                    'body' => $messageText
+                ]
+            ]);
+
+            if ($response->failed()) {
+                $errJson = $response->json();
+                $errMsg = $errJson['error']['message'] ?? $response->body();
+                return [
+                    'success' => false,
+                    'message' => "Meta API Error: {$errMsg}"
+                ];
+            }
+
+            return [
+                'success' => true,
+                'message' => "Live test WhatsApp message sent successfully to +{$cleanPhone}! Please check your WhatsApp app."
+            ];
+        } catch (\Throwable $e) {
+            return [
+                'success' => false,
+                'message' => "Connection Exception: " . $e->getMessage()
+            ];
         }
     }
 }

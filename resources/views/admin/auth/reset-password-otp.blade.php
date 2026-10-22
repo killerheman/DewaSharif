@@ -52,8 +52,6 @@
 
             <!-- New Password -->
             <div class="input-field">
-                <input type="password" name="password" id="password"
-                    placeholder=" " required>
                 <label for="password">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                         <defs>
@@ -72,12 +70,17 @@
                     </svg>
                     New Password*
                 </label>
+                <div class="input-box-inner">
+                    <input type="password" name="password" id="password"
+                        placeholder="Enter New Password" required>
+                    <button type="button" class="toggle-password-btn" data-target="password" title="Show / Hide Password" aria-label="Toggle password visibility">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Confirm Password -->
             <div class="input-field">
-                <input type="password" name="password_confirmation" id="password_confirmation"
-                    placeholder=" " required>
                 <label for="password_confirmation">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                         <defs>
@@ -96,22 +99,29 @@
                     </svg>
                     Confirm New Password*
                 </label>
+                <div class="input-box-inner">
+                    <input type="password" name="password_confirmation" id="password_confirmation"
+                        placeholder="Confirm New Password" required>
+                    <button type="button" class="toggle-password-btn" data-target="password_confirmation" title="Show / Hide Password" aria-label="Toggle password visibility">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                </div>
             </div>
 
-            <div style="margin-top: 24px;">
+            <div style="margin-top: 16px;">
                 <!-- Reset Password Button -->
                 <button type="submit" class="btn-glass-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right: 6px; vertical-align: middle;">
-                        <path d="M21 2L11 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="7" cy="16" r="4" fill="#ffeb3b" stroke="#ffffff" stroke-width="1.5"/>
-                        <path d="M10 13L15 18M13 16L16 19" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M21 2L11 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="7" cy="16" r="4" fill="#ffeb3b" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M10 13L15 18M13 16L16 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg> Reset Password
                 </button>
             </div>
         </form>
 
         <!-- Back to Login -->
-        <div class="register-footer" style="margin-top: 24px;">
+        <div class="register-footer" style="margin-top: 16px;">
             <a href="{{ route('login') }}"><i class="bi bi-arrow-left me-1"></i> Back to Login</a>
         </div>
 

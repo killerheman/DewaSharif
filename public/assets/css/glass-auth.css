@@ -43,7 +43,7 @@ body.auth-page {
   overflow-x: hidden;
 }
 
-/* Outer Section for Header & Footer integration */
+/* Outer Section for Header & Footer integration - Compact for Laptop Screens */
 .glass-auth-main-wrapper {
   position: relative;
   background-color: #0b130e;
@@ -53,8 +53,8 @@ body.auth-page {
   background-position: center center;
   background-size: 100% 100% !important;
   background-repeat: no-repeat;
-  padding: 45px 15px 65px 15px;
-  min-height: calc(100vh - 200px);
+  padding: 20px 15px 25px 15px !important;
+  min-height: calc(100vh - 120px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,30 +76,33 @@ body.auth-page {
 .glass-auth-wrapper input[type="password"],
 .glass-auth-wrapper input[type="email"],
 .glass-auth-wrapper input[type="tel"] {
-  height: 36px !important;
-  background: transparent !important;
+  height: 44px !important;
+  background: #ffffff !important;
   border: none !important;
   box-shadow: none !important;
-  border-radius: 0 !important;
-  color: #ffffff !important;
-  padding: 0 !important;
+  border-radius: 8px !important;
+  color: #006837 !important; /* Dewa Sharif Dark Green */
+  font-weight: 700 !important;
+  padding: 0 14px !important;
   margin: 0 !important;
-  font-size: 14px !important;
+  font-size: 15px !important;
+  caret-color: #006837 !important;
 }
 
 .glass-auth-wrapper input:-webkit-autofill,
 .glass-auth-wrapper input:-webkit-autofill:hover,
 .glass-auth-wrapper input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #ffffff !important;
+  -webkit-text-fill-color: #006837 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
   transition: background-color 5000s ease-in-out 0s !important;
 }
 
-.glass-auth-wrapper a {
+.glass-auth-wrapper a:not(.btn-glass-google):not(.btn-glass-primary) {
   color: #ffffff !important;
   text-decoration: none !important;
 }
 
-.glass-auth-wrapper a:hover {
+.glass-auth-wrapper a:not(.btn-glass-google):not(.btn-glass-primary):hover {
   color: var(--dewagreen-bright) !important;
   text-decoration: underline !important;
 }
@@ -137,27 +140,28 @@ body.auth-page::before {
   display: none !important;
 }
 
-/* Clean 100% Transparent Glass Wrapper with Thin Radium Green Glowing Outer Border */
+/* Sleek Compact Frosted Glass Wrapper with Dewa Sharif Website Light Green Gradient */
 .glass-auth-wrapper {
   width: 100%;
-  max-width: 520px;
-  min-height: 540px;
-  border-radius: 16px;
-  padding: 30px 32px;
+  max-width: 440px; /* Compact width to fit all laptop screens without overflow */
+  min-height: auto !important;
+  border-radius: 14px;
+  padding: 18px 22px !important; /* Compact padding */
   text-align: left;
-  background: rgba(0, 0, 0, 0.12) !important;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  /* Website Code Signature Light Green Gradient (--dewagreen-bright -> --dewagreen-light -> --dewadarkgreen) */
+  background: linear-gradient(145deg, rgba(0, 230, 118, 0.42) 0%, rgba(5, 130, 64, 0.82) 48%, rgba(0, 104, 55, 0.90) 100%) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.55), 0 0 30px rgba(0, 230, 118, 0.3) !important;
   color: #ffffff;
   transition: all 0.3s ease;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   position: relative;
   z-index: 10;
 
-  /* Thin Outer Radium Green Border Frame ONLY */
+  /* Radium Green Border Frame */
   border: 1.5px solid #00e676 !important;
   animation: radiumLineGlow 2.5s ease-in-out infinite;
 }
@@ -172,13 +176,13 @@ body.auth-page::before {
 }
 
 .glass-auth-wrapper.register-box-wide {
-  max-width: 560px;
-  min-height: 540px;
+  max-width: 440px !important;
+  min-height: auto;
 }
 
 .dewa-logo-header {
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px !important;
 }
 
 .dewa-logo-header a {
@@ -187,33 +191,33 @@ body.auth-page::before {
 }
 
 .dewa-logo-header img {
-  height: 72px;
-  width: 72px;
+  height: 52px !important;
+  width: 52px !important;
   object-fit: cover;
   object-position: center bottom;
   border-radius: 50%;
   border: 2px solid var(--dewagreen-bright);
-  box-shadow: 0 0 16px rgba(0, 230, 118, 0.5), 0 4px 10px rgba(0, 0, 0, 0.5);
-  margin-bottom: 8px;
+  box-shadow: 0 0 14px rgba(0, 230, 118, 0.4), 0 3px 8px rgba(0, 0, 0, 0.4);
+  margin-bottom: 4px !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #ffffff;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .dewa-logo-header a:hover img {
-  transform: scale(1.08);
-  box-shadow: 0 0 25px rgba(0, 230, 118, 0.8), 0 6px 15px rgba(0, 0, 0, 0.6);
+  transform: scale(1.06);
+  box-shadow: 0 0 20px rgba(0, 230, 118, 0.7), 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Titles: White Default -> Bright Green Hover */
 .dewa-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 32px !important;
+  font-size: 24px !important;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2px !important;
   transition: color 0.3s ease, text-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -221,13 +225,13 @@ body.auth-page::before {
 .dewa-title:hover,
 .dewa-logo-header a:hover .dewa-title {
   color: var(--dewagreen-bright);
-  text-shadow: 0 2px 12px rgba(0, 230, 118, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 230, 118, 0.8);
 }
 
 .dewa-subtitle {
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 16px !important;
-  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13.5px !important;
+  margin-bottom: 6px !important;
   transition: color 0.3s ease;
 }
 
@@ -236,11 +240,11 @@ body.auth-page::before {
 }
 
 .dewa-notice {
-  background: rgba(0, 0, 0, 0.20);
+  background: rgba(0, 0, 0, 0.45);
   border-left: 4px solid var(--dewagreen-bright);
   padding: 10px 14px;
   border-radius: 6px;
-  font-size: 15px !important;
+  font-size: 14.5px !important;
   color: #ffffff;
   margin-bottom: 14px;
   line-height: 1.45;
@@ -259,67 +263,115 @@ body.auth-page::before {
 
 .input-field {
   position: relative;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
-  margin: 28px 0 16px 0;
-  transition: all 0.25s ease;
-}
-
-.input-field:focus-within {
-  border-bottom-color: var(--dewagreen-bright);
-  box-shadow: 0 2px 10px rgba(0, 230, 118, 0.5);
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 6px 0 5px 0 !important;
+  border-bottom: none !important;
 }
 
 .input-field label {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+  order: 1 !important;
+  position: static !important;
+  transform: none !important;
   color: #ffffff !important;
-  font-size: 16px !important;
-  pointer-events: none;
-  transition: 0.2s ease all;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  margin-bottom: 3px !important;
   display: flex !important;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  pointer-events: auto !important;
 }
 
-.input-field input,
-.input-field select,
-.input-field textarea {
+/* Dedicated white input container box */
+.input-box-inner {
+  order: 2 !important;
+  position: relative;
   width: 100%;
-  height: 42px !important;
-  background: transparent !important;
+  display: flex;
+  align-items: center;
+  background: #ffffff !important;
+  border-radius: 7px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-box-inner:hover,
+.input-box-inner:focus-within {
+  border-color: #00e676 !important;
+  box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.35), 0 3px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Inputs: White background, bold Dark Green text */
+.input-box-inner input,
+.input-field > input:not([type="checkbox"]) {
+  flex: 1;
+  width: 100%;
+  height: 38px !important;
+  background: #ffffff !important;
   border: none !important;
   outline: none !important;
-  font-size: 16px !important;
-  color: #ffffff !important;
-  padding: 0 !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #006837 !important; /* Dewa Sharif Dark Green */
+  padding: 0 12px !important;
+  border-radius: 7px !important;
   box-shadow: none !important;
+  caret-color: #006837 !important;
 }
 
-.input-field select option {
-  background: #0f172a;
-  color: #ffffff;
+.input-field > input:not([type="checkbox"]) {
+  order: 2 !important;
+  border: 1.5px solid #e2e8f0 !important;
 }
 
-.input-field input:focus~label,
-.input-field input:not(:placeholder-shown)~label,
-.input-field select:focus~label,
-.input-field select:valid~label {
-  font-size: 13.5px !important;
-  top: -4px;
-  transform: translateY(-100%);
-  color: var(--dewagreen-bright) !important;
-  font-weight: 600;
+.input-field > input:not([type="checkbox"]):hover,
+.input-field > input:not([type="checkbox"]):focus {
+  border-color: #00e676 !important;
+  box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.35), 0 3px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.input-box-inner input::placeholder,
+.input-field input::placeholder {
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+}
+
+/* Password Eye Button */
+.toggle-password-btn {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 12px !important;
+  cursor: pointer;
+  color: #006837 !important;
+  font-size: 18px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.15s ease;
+  outline: none !important;
+  box-shadow: none !important;
+  height: 40px;
+  line-height: 1;
+}
+
+.toggle-password-btn:hover {
+  color: #004d26 !important;
+  transform: scale(1.15);
+}
+
+.toggle-password-btn:focus {
+  outline: none !important;
 }
 
 .forget-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 14px 0 16px 0;
+  margin: 8px 0 10px 0 !important;
   color: #ffffff;
-  font-size: 15.5px !important;
+  font-size: 13px !important;
 }
 
 .forget-row label {
@@ -330,15 +382,15 @@ body.auth-page::before {
 
 .forget-row input[type="checkbox"] {
   accent-color: var(--dewagreen-bright);
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   cursor: pointer;
 }
 
 .forget-row label p {
-  margin-left: 8px;
+  margin-left: 6px;
   margin-bottom: 0;
-  font-size: 15.5px !important;
+  font-size: 13px !important;
 }
 
 /* Links: Default White -> Hover Green */
@@ -354,83 +406,131 @@ body.auth-page::before {
   text-decoration: underline;
 }
 
-/* Primary Button */
+/* Primary Button (White Default -> Radium Green Hover/Touch) */
 .btn-glass-primary {
-  background: var(--dewadarkgreen);
-  color: #ffffff;
-  font-weight: 700;
-  border: 1px solid var(--dewagreen-light);
-  padding: 12px 20px !important;
-  height: 48px;
+  background: #ffffff !important;
+  color: var(--dewadarkgreen) !important;
+  font-weight: 700 !important;
+  border: 1.5px solid #ffffff !important;
+  padding: 0 16px !important;
+  height: 40px !important;
   cursor: pointer;
-  border-radius: 8px;
-  font-size: 17px !important;
+  border-radius: 7px;
+  font-size: 14.5px !important;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 104, 55, 0.5);
+  gap: 8px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
   letter-spacing: 0.3px;
+  text-decoration: none !important;
 }
 
 .btn-glass-primary i,
 .btn-glass-primary svg {
-  color: #ffffff;
-  font-size: 19px !important;
-  transition: all 0.3s ease;
+  color: var(--dewadarkgreen) !important;
+  font-size: 17px !important;
+  transition: all 0.25s ease;
 }
 
-.btn-glass-primary:hover {
-  background: var(--dewagreen-bright);
-  color: var(--dewadarkgreen-hover);
-  border-color: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 230, 118, 0.6);
-  transform: translateY(-2px);
+.btn-glass-primary svg [stroke="#ffffff"],
+.btn-glass-primary svg [stroke="currentColor"] {
+  stroke: var(--dewadarkgreen) !important;
+}
+
+.btn-glass-primary:hover,
+.btn-glass-primary:focus,
+.btn-glass-primary:active {
+  background: var(--dewagreen-bright) !important;
+  color: var(--dewadarkgreen-hover) !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 0 24px rgba(0, 230, 118, 0.95), 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-1px);
 }
 
 .btn-glass-primary:hover i,
-.btn-glass-primary:hover svg {
-  color: var(--dewadarkgreen-hover);
+.btn-glass-primary:hover svg,
+.btn-glass-primary:focus i,
+.btn-glass-primary:focus svg,
+.btn-glass-primary:active i,
+.btn-glass-primary:active svg {
+  color: var(--dewadarkgreen-hover) !important;
 }
 
-/* Google Button */
+.btn-glass-primary:hover svg [stroke="#ffffff"],
+.btn-glass-primary:hover svg [stroke="currentColor"],
+.btn-glass-primary:focus svg [stroke="#ffffff"],
+.btn-glass-primary:focus svg [stroke="currentColor"],
+.btn-glass-primary:active svg [stroke="#ffffff"],
+.btn-glass-primary:active svg [stroke="currentColor"] {
+  stroke: var(--dewadarkgreen-hover) !important;
+}
+
+/* Google Button (White Default with Bold Dark Green text -> Radium Green Hover/Touch) */
+.glass-auth-wrapper a.btn-glass-google,
 .btn-glass-google {
-  background: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
-  font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 11px 20px !important;
-  height: 48px;
+  background: #ffffff !important;
+  color: var(--dewadarkgreen) !important; /* Dewa Sharif Dark Green #006837 */
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  border: 1.5px solid #ffffff !important;
+  padding: 0 16px !important;
+  height: 38px !important;
   cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px !important;
+  border-radius: 7px;
+  font-size: 13.5px !important;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  text-decoration: none !important;
-  margin-top: 10px;
+  gap: 8px;
+  transition: all 0.25s ease;
+  margin-top: 3px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
 }
 
-.btn-glass-google:hover {
-  background: var(--dewadarkgreen);
-  color: #ffffff !important;
-  border-color: var(--dewagreen-bright);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 104, 55, 0.6);
+.glass-auth-wrapper a.btn-glass-google span,
+.btn-glass-google span {
+  background: transparent !important;
+  color: inherit !important;
+  font-weight: 700 !important;
+  display: inline-block;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.glass-auth-wrapper a.btn-glass-google:hover,
+.glass-auth-wrapper a.btn-glass-google:focus,
+.glass-auth-wrapper a.btn-glass-google:active,
+.btn-glass-google:hover,
+.btn-glass-google:focus,
+.btn-glass-google:active {
+  background: var(--dewagreen-bright) !important;
+  color: var(--dewadarkgreen-hover) !important; /* #004d26 */
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 0 22px rgba(0, 230, 118, 0.9), 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(-1px);
+}
+
+.glass-auth-wrapper a.btn-glass-google:hover span,
+.glass-auth-wrapper a.btn-glass-google:focus span,
+.glass-auth-wrapper a.btn-glass-google:active span,
+.btn-glass-google:hover span,
+.btn-glass-google:focus span,
+.btn-glass-google:active span {
+  background: transparent !important;
+  color: var(--dewadarkgreen-hover) !important;
 }
 
 .auth-divider {
   display: flex;
   align-items: center;
   text-align: center;
-  margin: 20px 0 14px 0;
+  margin: 10px 0 8px 0 !important;
   color: rgba(255, 255, 255, 0.85);
-  font-size: 15px !important;
+  font-size: 12.5px !important;
   font-weight: 600;
 }
 
@@ -438,18 +538,18 @@ body.auth-page::before {
 .auth-divider::after {
   content: '';
   flex: 1;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .auth-divider span {
-  padding: 0 12px;
+  padding: 0 10px;
 }
 
 .register-footer {
   text-align: center;
-  margin-top: 12px;
+  margin-top: 8px !important;
   color: rgba(255, 255, 255, 0.95);
-  font-size: 16px !important;
+  font-size: 13.5px !important;
 }
 
 .alert-glass-danger {
@@ -491,8 +591,8 @@ body.auth-page::before {
 }
 
 .auth-info-card {
-  background: rgba(0, 0, 0, 0.22);
-  border: 1px solid rgba(0, 230, 118, 0.3);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(0, 230, 118, 0.35);
   border-radius: 10px;
   padding: 12px 16px;
   margin: 10px 0 14px 0;

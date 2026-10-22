@@ -56,18 +56,33 @@
                         <input type="hidden" name="reset_type" value="password_change">
 
                         <div class="form-group mb-3">
-                            <label style="font-weight: 700; color: #334155; font-size: 13.5px;">Current Password *</label>
-                            <input type="password" name="password" class="form-control" placeholder="Enter your current password" style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-size: 14px;">
+                            <label style="font-weight: 700; color: #334155; font-size: 13.5px;" for="cust_current_password">Current Password *</label>
+                            <div style="position: relative;">
+                                <input type="password" name="password" id="cust_current_password" class="form-control" placeholder="Enter your current password" style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-size: 14px; padding-right: 44px;">
+                                <button type="button" class="toggle-password-btn" data-target="cust_current_password" title="Show / Hide Password" aria-label="Toggle password visibility" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #64748b; font-size: 16px; cursor: pointer; padding: 4px; z-index: 5;">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="form-group mb-3">
-                            <label style="font-weight: 700; color: #334155; font-size: 13.5px;">New Password *</label>
-                            <input type="password" name="new_password" required minlength="6" class="form-control" placeholder="Enter new password (min 6 characters)" style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-size: 14px;">
+                            <label style="font-weight: 700; color: #334155; font-size: 13.5px;" for="cust_new_password">New Password *</label>
+                            <div style="position: relative;">
+                                <input type="password" name="new_password" id="cust_new_password" required minlength="6" class="form-control" placeholder="Enter new password (min 6 characters)" style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-size: 14px; padding-right: 44px;">
+                                <button type="button" class="toggle-password-btn" data-target="cust_new_password" title="Show / Hide Password" aria-label="Toggle password visibility" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #64748b; font-size: 16px; cursor: pointer; padding: 4px; z-index: 5;">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="form-group mb-4">
-                            <label style="font-weight: 700; color: #334155; font-size: 13.5px;">Confirm New Password *</label>
-                            <input type="password" name="confirm_password" required minlength="6" class="form-control" placeholder="Re-enter new password" style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-size: 14px;">
+                            <label style="font-weight: 700; color: #334155; font-size: 13.5px;" for="cust_confirm_password">Confirm New Password *</label>
+                            <div style="position: relative;">
+                                <input type="password" name="confirm_password" id="cust_confirm_password" required minlength="6" class="form-control" placeholder="Re-enter new password" style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-size: 14px; padding-right: 44px;">
+                                <button type="button" class="toggle-password-btn" data-target="cust_confirm_password" title="Show / Hide Password" aria-label="Toggle password visibility" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #64748b; font-size: 16px; cursor: pointer; padding: 4px; z-index: 5;">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <div class="d-flex align-items-center gap-3">

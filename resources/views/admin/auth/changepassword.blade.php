@@ -60,6 +60,9 @@
                                     <div class="input-group">
                                         <span class="input-group-text bg-light"><i class="bi bi-lock"></i></span>
                                         <input type="password" name="password" id="password" class="form-control" placeholder="Enter current password" required>
+                                        <button class="btn btn-outline-secondary toggle-password-btn" type="button" data-target="password" title="Show / Hide Password" aria-label="Toggle password visibility">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -68,6 +71,9 @@
                                     <div class="input-group">
                                         <span class="input-group-text bg-light"><i class="bi bi-key"></i></span>
                                         <input type="password" name="newpassword" id="newpassword" class="form-control" placeholder="Enter new password (min 6 chars)" required>
+                                        <button class="btn btn-outline-secondary toggle-password-btn" type="button" data-target="newpassword" title="Show / Hide Password" aria-label="Toggle password visibility">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -76,6 +82,9 @@
                                     <div class="input-group">
                                         <span class="input-group-text bg-light"><i class="bi bi-shield-check"></i></span>
                                         <input type="password" name="newpassword_confirmation" id="newpassword_confirmation" class="form-control" placeholder="Re-enter new password" required>
+                                        <button class="btn btn-outline-secondary toggle-password-btn" type="button" data-target="newpassword_confirmation" title="Show / Hide Password" aria-label="Toggle password visibility">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
                                     </div>
                                 </div>
 

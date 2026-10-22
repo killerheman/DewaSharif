@@ -2,36 +2,39 @@
 
 @section('title', 'Book Hotels & Guest Houses in Dewa Sharif | Near Waris Pak Dargah')
 @section('meta_title', 'Best Hotels & AC Rooms in Dewa Sharif | Near Dargah Waris Pak')
-@section('meta_description', 'Book verified hotels, guest houses, and deluxe AC/Non-AC family rooms in Dewa Sharif near Hazrat Haji Waris Ali Shah Dargah. Best rates for Dewa Mela 2026.')
-@section('meta_keywords', 'Dewa Sharif Hotels, Dewa Guest House, Rooms in Dewa Sharif, Stay near Waris Pak Dargah, Dewa Mela accommodation, cheap hotel Dewa')
+@section('meta_description', 'Book verified hotels, guest houses, and deluxe AC/Non-AC family rooms in Dewa Sharif near
+    Hazrat Haji Waris Ali Shah Dargah. Best rates for Dewa Mela 2026.')
+@section('meta_keywords', 'Dewa Sharif Hotels, Dewa Guest House, Rooms in Dewa Sharif, Stay near Waris Pak Dargah, Dewa
+    Mela accommodation, cheap hotel Dewa')
 @section('og_title', 'Dewa Sharif Hotels & Guest House Booking | Near Dargah')
-@section('og_description', 'Book verified rooms, family suites, and guest houses near Hazrat Waris Ali Shah Dargah with 24/7 assistance.')
+@section('og_description', 'Book verified rooms, family suites, and guest houses near Hazrat Waris Ali Shah Dargah with
+    24/7 assistance.')
 
 
-@php
-    if (!function_exists('safeHotelAsset')) {
-        function safeHotelAsset($path, $fallback)
-        {
-            if (empty($path)) {
-                return asset($fallback);
-            }
-            if (is_string($path) && (str_starts_with($path, 'http://') || str_starts_with($path, 'https://'))) {
-                if (
-                    str_contains($path, 'dewasharif.com/') ||
-                    str_contains($path, '127.0.0.1') ||
-                    str_contains($path, 'localhost')
-                ) {
-                    $parsed = parse_url($path, PHP_URL_PATH);
-                    if (!empty($parsed)) {
-                        return asset(ltrim($parsed, '/'));
-                    }
+    @php
+        if (!function_exists('safeHotelAsset')) {
+            function safeHotelAsset($path, $fallback)
+            {
+                if (empty($path)) {
+                    return asset($fallback);
                 }
-                return $path;
+                if (is_string($path) && (str_starts_with($path, 'http://') || str_starts_with($path, 'https://'))) {
+                    if (
+                        str_contains($path, 'dewasharif.com/') ||
+                        str_contains($path, '127.0.0.1') ||
+                        str_contains($path, 'localhost')
+                    ) {
+                        $parsed = parse_url($path, PHP_URL_PATH);
+                        if (!empty($parsed)) {
+                            return asset(ltrim($parsed, '/'));
+                        }
+                    }
+                    return $path;
+                }
+                return asset(ltrim($path, '/'));
             }
-            return asset(ltrim($path, '/'));
         }
-    }
-@endphp
+    @endphp
 
 @section('content')
     <div style="background: #f4f6f8; padding-bottom: 60px; min-height: 90vh;">
@@ -42,19 +45,21 @@
                 color: #ffffff;
                 padding: 55px 16px 70px 16px;
                 text-align: center;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
                 position: relative;
                 box-sizing: border-box;
             }
+
             .hotel-hero-title {
                 font-weight: 900;
                 font-size: 36px;
                 margin-top: 10px;
                 margin-bottom: 12px;
                 color: #00e676;
-                text-shadow: 0 3px 8px rgba(0,0,0,0.95);
+                text-shadow: 0 3px 8px rgba(0, 0, 0, 0.95);
                 word-break: break-word;
             }
+
             .hotel-hero-desc {
                 font-size: 16px;
                 color: #f1f5f9;
@@ -62,10 +67,11 @@
                 margin: 0 auto;
                 line-height: 1.6;
                 font-weight: 600;
-                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
                 padding: 0 8px;
                 word-break: break-word;
             }
+
             .hotel-mela-box {
                 background-color: #f8ea6dff;
                 padding: 20px 16px;
@@ -74,84 +80,101 @@
                 margin: 10px auto 14px auto;
                 max-width: 900px;
                 width: 100%;
-                box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
                 box-sizing: border-box;
             }
+
             .hotel-mela-title {
                 font-weight: 900;
                 font-size: 30px;
                 color: #226902ff;
                 margin: 0 0 8px 0;
-                text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
                 word-break: break-word;
             }
+
             .hotel-mela-subtitle {
                 font-weight: 700;
                 font-size: 17px;
                 text-align: center;
                 color: #046912ff;
                 margin: 0;
-                text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
                 word-break: break-word;
             }
+
             .hotel-custom-box {
                 background: #ffffff;
                 border-radius: 14px;
                 padding: 25px 28px;
                 color: #111827;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
                 margin-top: 25px;
                 margin-bottom: 25px;
                 border: 1.5px solid #cbd5e1;
                 box-sizing: border-box;
             }
+
             @media (max-width: 768px) {
                 .hotel-hero-section {
                     padding: 38px 12px 55px 12px !important;
                 }
+
                 .hotel-hero-title {
                     font-size: 21px !important;
                     line-height: 1.35 !important;
                 }
+
                 .hotel-hero-desc {
                     font-size: 13.5px !important;
                     line-height: 1.5 !important;
                     padding: 0 4px !important;
                 }
+
                 .hotel-mela-box {
                     padding: 14px 10px !important;
                 }
+
                 .hotel-mela-title {
                     font-size: 18px !important;
                     line-height: 1.35 !important;
                 }
+
                 .hotel-mela-subtitle {
                     font-size: 13px !important;
                     line-height: 1.45 !important;
                 }
+
                 .hotel-custom-box {
                     padding: 16px 12px !important;
                 }
             }
+
             @media (max-width: 360px) {
                 .hotel-hero-section {
                     padding: 30px 8px 45px 8px !important;
                 }
+
                 .hotel-hero-title {
                     font-size: 18px !important;
                 }
+
                 .hotel-hero-desc {
                     font-size: 12.5px !important;
                 }
+
                 .hotel-mela-box {
                     padding: 10px 6px !important;
                 }
+
                 .hotel-mela-title {
                     font-size: 15.5px !important;
                 }
+
                 .hotel-mela-subtitle {
                     font-size: 12px !important;
                 }
+
                 .hotel-custom-box {
                     padding: 12px 8px !important;
                 }
@@ -180,59 +203,59 @@
 
             <!-- SEARCH ENGINE BOX (PERFECTLY ALIGNED ROW) -->
             <!-- <div
-                    style="background: #ffffff; border-radius: 14px; padding: 25px 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 1.5px solid #e2e8f0;">
-                    <h5
-                        style="color: #074121; font-weight: 900; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 18px;">
-                        🔍 Check Room Availability &amp; Reserve Stays
-                    </h5>
-                    <form id="hotelSearchForm" class="row g-3 align-items-end">
-                        <div class="col-md-3 col-sm-6">
-                            <label
-                                style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
-                                Check-In Date</label>
-                            <input type="date" id="search_check_in" class="form-control"
-                                style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
-                                required>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <label
-                                style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
-                                Check-Out Date</label>
-                            <input type="date" id="search_check_out" class="form-control"
-                                style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
-                                required>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <label
-                                style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">🛏️
-                                Room Type</label>
-                            <select id="search_category" class="form-control"
-                                style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;">
-                                <option value="all">Rooms (All Categories)</option>
-                                <optgroup label="❄️ AC Rooms">
-                                    <option value="single_ac">Single Bedroom AC</option>
-                                    <option value="queen_ac">Queen Size AC</option>
-                                    <option value="king_ac">King Size AC</option> -->
+                        style="background: #ffffff; border-radius: 14px; padding: 25px 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 1.5px solid #e2e8f0;">
+                        <h5
+                            style="color: #074121; font-weight: 900; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 18px;">
+                            🔍 Check Room Availability &amp; Reserve Stays
+                        </h5>
+                        <form id="hotelSearchForm" class="row g-3 align-items-end">
+                            <div class="col-md-3 col-sm-6">
+                                <label
+                                    style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
+                                    Check-In Date</label>
+                                <input type="date" id="search_check_in" class="form-control"
+                                    style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
+                                    required>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <label
+                                    style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
+                                    Check-Out Date</label>
+                                <input type="date" id="search_check_out" class="form-control"
+                                    style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
+                                    required>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <label
+                                    style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">🛏️
+                                    Room Type</label>
+                                <select id="search_category" class="form-control"
+                                    style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;">
+                                    <option value="all">Rooms (All Categories)</option>
+                                    <optgroup label="❄️ AC Rooms">
+                                        <option value="single_ac">Single Bedroom AC</option>
+                                        <option value="queen_ac">Queen Size AC</option>
+                                        <option value="king_ac">King Size AC</option> -->
             <!-- <option value="hall_ac">AC Hall (5+ Persons)</option> -->
             <!-- </optgroup>
-                                <optgroup label="🌿 Non-AC Rooms">
-                                    <option value="single_non_ac">Single Non-AC</option>
-                                    <option value="queen_non_ac">Queen Size Non-AC</option>
-                                    <option value="king_non_ac">King Size Non-AC</option> -->
+                                    <optgroup label="🌿 Non-AC Rooms">
+                                        <option value="single_non_ac">Single Non-AC</option>
+                                        <option value="queen_non_ac">Queen Size Non-AC</option>
+                                        <option value="king_non_ac">King Size Non-AC</option> -->
             <!-- <option value="hall_non_ac">Non-AC Hall (5+ Persons)</option> -->
             <!-- </optgroup>
-                            </select>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <label
-                                style="font-size: 13px; font-weight: 700; color: transparent; margin-bottom: 6px; display: block; height: 20px; line-height: 20px; user-select: none;">&nbsp;</label>
-                            <button type="button" onclick="filterHotels()" class="btn w-100"
-                                style="background: #074121; color: #ffffff; font-weight: 800; height: 46px; border-radius: 8px; font-size: 15px; border: none; box-shadow: 0 4px 12px rgba(7, 65, 33, 0.35); display: flex; align-items: center; justify-content: center; margin: 0;">
-                                Search Available Rooms
-                            </button>
-                        </div>
-                    </form>
-                </div> -->
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <label
+                                    style="font-size: 13px; font-weight: 700; color: transparent; margin-bottom: 6px; display: block; height: 20px; line-height: 20px; user-select: none;">&nbsp;</label>
+                                <button type="button" onclick="filterHotels()" class="btn w-100"
+                                    style="background: #074121; color: #ffffff; font-weight: 800; height: 46px; border-radius: 8px; font-size: 15px; border: none; box-shadow: 0 4px 12px rgba(7, 65, 33, 0.35); display: flex; align-items: center; justify-content: center; margin: 0;">
+                                    Search Available Rooms
+                                </button>
+                            </div>
+                        </form>
+                    </div> -->
 
             <!-- SEPARATE CUSTOM GROUP & FAMILY HALL STAY BOX -->
             <div class="hotel-custom-box">
@@ -246,29 +269,45 @@
                         <p class="hotel-mela-subtitle">
                             Package available 3 Days, 4 Days, 5 Days, 10 Days or More — Prebooking Start Now
                         </p>
-                        </div>
+                    </div>
 
-<div style="margin-top: 30px; padding: 22px 25px; background: linear-gradient(135deg, #fff9db 0%, #fff3cd 100%); border-radius: 12px; border: 2px solid #ffc107; box-shadow: 0 0 25px rgba(255, 193, 7, 0.8); animation: pulseGlow 2s infinite alternate;">
-    <p style="font-size: 16px; color: #533f00; line-height: 1.6; font-weight: 900; margin: 0; text-align: center;">
-        ✨ Hum aise rooms bhi provide karte hain jinki Roof se Dargah aur Dargah ka Ground aur dargah poori dikhayi deti hai and just attached rooms bhi available hain sirf 10-20 kadam ki distance par. CONTACT NOW 
-    </p>
-</div>
+                    <div
+                        style="margin-top: 30px; padding: 22px 25px; background: linear-gradient(135deg, #fff9db 0%, #fff3cd 100%); border-radius: 12px; border: 2px solid #ffc107; box-shadow: 0 0 25px rgba(255, 193, 7, 0.8); animation: pulseGlow 2s infinite alternate;">
+                        <p
+                            style="font-size: 16px; color: #533f00; line-height: 1.6; font-weight: 900; margin: 0; text-align: center;">
+                            ✨ Hum aise rooms bhi provide karte hain jinki Roof se Dargah aur Dargah ka Ground aur dargah
+                            poori dikhayi deti hai and just attached rooms bhi available hain sirf 10-20-50 kadam ki distance aur 50/100/202/300/400 meter distance par bhi 
+                            par.
+                            <center style="margin: 20px 0;">
+                                <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20room%20booking%20ki%20jaankari%20chahiye"
+                                    target="_blank"
+                                    style="background-color: #25d366; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); font-size: 16px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                        fill="currentColor" viewBox="0 0 16 16">
+                                        <path
+                                            d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.558 6.558 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.012-.304.088-.403.087-.088.197-.232.296-.348.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34l-.38-.008c-.133 0-.348.048-.53.247-.182.198-.694.678-.694 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.078.38-.057 1.17-.478 1.338-.94.17-.46.17-.855.119-.94-.05-.085-.183-.138-.38-.235z" />
+                                    </svg>
+                                    CONTACT NOW
+                                </a>
+                            </center>
+                        </p>
 
-<style>
-@keyframes pulseGlow {
-    0% {
-        box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
-        border-color: #ffc107;
-    }
-    100% {
-        box-shadow: 0 0 30px rgba(255, 152, 0, 0.9), inset 0 0 10px rgba(255, 193, 7, 0.5);
-        border-color: #ff9800;
-    }
-}
-</style>
+                    <style>
+                        @keyframes pulseGlow {
+                            0% {
+                                box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+                                border-color: #ffc107;
+                            }
 
-                       
-                    
+                            100% {
+                                box-shadow: 0 0 30px rgba(255, 152, 0, 0.9), inset 0 0 10px rgba(255, 193, 7, 0.5);
+                                border-color: #ff9800;
+                            }
+                        }
+                    </style>
+
+
+
 
 
                     <h5 style="color: #0f172a; font-weight: 900; margin: 0; font-size: 17.5px;">
@@ -380,6 +419,7 @@
                     padding-left: 10px !important;
                     padding-right: 10px !important;
                 }
+
                 @media (max-width: 768px) {
                     .hotel-card-item {
                         padding-left: 6px !important;
@@ -387,6 +427,7 @@
                         margin-bottom: 20px !important;
                     }
                 }
+
                 @media (max-width: 360px) {
                     .hotel-card-item {
                         padding-left: 4px !important;
@@ -534,99 +575,99 @@
             'home/images/dewasharif/dewapage/hero_hotel_bg.jpg',
         );
     @endphp
-                        <div class="col-md-4 col-sm-6 col-xs-12 hotel-card-item mb-4"
-                            data-category="{{ $dataCategoryStr }} near_dargah family mela">
-                            <div class="hotel-card-box">
-                                <div>
-                                    <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
-                                        style="display: block; position: relative; height: 210px; overflow: hidden; background: #e2e8f0;">
-                                        <img src="{{ $hCardImg }}"
-                                            onerror="this.onerror=null; this.src='{{ asset('home/images/dewasharif/dewapage/hero_hotel_bg.jpg') }}'"
-                                            alt="{{ $hotel['name'] }}"
-                                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                        <span
-                                            style="position: absolute; top: 12px; left: 12px; background: #16a34a; color: #fff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 20px; text-transform: uppercase; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                                            ✔ Verified Stay
-                                        </span>
-                                        <span
-                                            style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.85); color: #fff; font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 6px; backdrop-filter: blur(4px); max-width: 85%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                            📍 {{ $hotel['location'] ?? ($hotel['distance'] ?? 'Near Dewa Sharif Dargah') }}
-                                        </span>
-                                    </a>
+                            <div class="col-md-4 col-sm-6 col-xs-12 hotel-card-item mb-4"
+                                data-category="{{ $dataCategoryStr }} near_dargah family mela">
+                                <div class="hotel-card-box">
+                                    <div>
+                                        <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
+                                            style="display: block; position: relative; height: 210px; overflow: hidden; background: #e2e8f0;">
+                                            <img src="{{ $hCardImg }}"
+                                                onerror="this.onerror=null; this.src='{{ asset('home/images/dewasharif/dewapage/hero_hotel_bg.jpg') }}'"
+                                                alt="{{ $hotel['name'] }}"
+                                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                                            <span
+                                                style="position: absolute; top: 12px; left: 12px; background: #16a34a; color: #fff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 20px; text-transform: uppercase; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                                                ✔ Verified Stay
+                                            </span>
+                                            <span
+                                                style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.85); color: #fff; font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 6px; backdrop-filter: blur(4px); max-width: 85%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                📍 {{ $hotel['location'] ?? ($hotel['distance'] ?? 'Near Dewa Sharif Dargah') }}
+                                            </span>
+                                        </a>
 
-                                    <div style="padding: 20px 20px 10px 20px;">
-                                        <h4 class="hotel-card-title">
-                                            <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
-                                                style="color: #0f172a; text-decoration: none;">
-                                                {{ $hotel['name'] }} ↗
-                                            </a>
-                                        </h4>
-                                        <p class="hotel-card-desc">
-                                            {{ $hotel['room_type'] ?? 'Deluxe Room' }} — {{ $hBed }} with {{ $hBath }}.
-                                        </p>
+                                        <div style="padding: 20px 20px 10px 20px;">
+                                            <h4 class="hotel-card-title">
+                                                <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
+                                                    style="color: #0f172a; text-decoration: none;">
+                                                    {{ $hotel['name'] }} ↗
+                                                </a>
+                                            </h4>
+                                            <p class="hotel-card-desc">
+                                                {{ $hotel['room_type'] ?? 'Deluxe Room' }} — {{ $hBed }} with {{ $hBath }}.
+                                            </p>
 
-                                        <div class="hotel-card-badges">
-                                            <span
-                                                style="font-size: 11px; background: {{ strtolower($hAc) == 'ac' ? '#e0f2fe' : '#fef3c7' }}; color: {{ strtolower($hAc) == 'ac' ? '#0369a1' : '#b45309' }}; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
-                                                {{ strtolower($hAc) == 'ac' ? '❄️ AC Room' : '🌿 Non-AC Room' }}
-                                            </span>
-                                            <span
-                                                style="font-size: 11px; background: #f0fdf4; color: #15803d; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
-                                                🛏️ {{ $hBed }}
-                                            </span>
-                                            <span
-                                                style="font-size: 11px; background: #f1f5f9; color: #334155; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
-                                                👥 Max {{ $hAdults }} Persons
-                                            </span>
+                                            <div class="hotel-card-badges">
+                                                <span
+                                                    style="font-size: 11px; background: {{ strtolower($hAc) == 'ac' ? '#e0f2fe' : '#fef3c7' }}; color: {{ strtolower($hAc) == 'ac' ? '#0369a1' : '#b45309' }}; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
+                                                    {{ strtolower($hAc) == 'ac' ? '❄️ AC Room' : '🌿 Non-AC Room' }}
+                                                </span>
+                                                <span
+                                                    style="font-size: 11px; background: #f0fdf4; color: #15803d; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
+                                                    🛏️ {{ $hBed }}
+                                                </span>
+                                                <span
+                                                    style="font-size: 11px; background: #f1f5f9; color: #334155; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
+                                                    👥 Max {{ $hAdults }} Persons
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div style="padding: 0 20px 20px 20px;">
-                                    <div
-                                        style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; border-top: 1px solid #f1f5f9; padding-top: 12px;">
-                                        <div>
-                                            <span
-                                                style="font-size: 24px; font-weight: 900; color: #074121;">₹{{ number_format($rawHPrice) }}</span>
-                                            <span style="font-size: 12.5px; color: #64748b; font-weight: 600;"> / night</span>
-                                        </div>
-                                        @if ($hAvail > 0)
+                                    <div style="padding: 0 20px 20px 20px;">
+                                        <div
+                                            style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; border-top: 1px solid #f1f5f9; padding-top: 12px;">
+                                            <div>
+                                                <span
+                                                    style="font-size: 24px; font-weight: 900; color: #074121;">₹{{ number_format($rawHPrice) }}</span>
+                                                <span style="font-size: 12.5px; color: #64748b; font-weight: 600;"> / night</span>
+                                            </div>
+                                            @if ($hAvail > 0)
     <span
-                                                style="font-size: 11px; color: #16a34a; font-weight: 800; background: #dcfce7; padding: 3px 8px; border-radius: 6px;">{{ $hAvail }}
-                                                Rooms Left</span>
+                                                    style="font-size: 11px; color: #16a34a; font-weight: 800; background: #dcfce7; padding: 3px 8px; border-radius: 6px;">{{ $hAvail }}
+                                                    Rooms Left</span>
 @else
     <span
-                                                style="font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 3px 8px; border-radius: 6px;">🚨
-                                                HOUSEFULL</span>
+                                                    style="font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 3px 8px; border-radius: 6px;">🚨
+                                                    HOUSEFULL</span>
     @endif
-                                    </div>
+                                        </div>
 
-                                    <div style="display: flex; gap: 8px;">
-                                        <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
-                                            class="btn w-100 font-extrabold"
-                                            style="background: {{ $hAvail > 0 ? '#074121' : '#475569' }}; color: #ffffff; font-weight: 900; font-size: 14.5px; height: 46px; border-radius: 8px; padding: 0 20px; border: none; box-shadow: 0 3px 10px rgba(7,65,33,0.3); display: flex; align-items: center; justify-content: center; text-decoration: none;">
-                                            {{ $hAvail > 0 ? 'View Rooms & Reserve Stay' : 'View Hotel Details & Availability' }}
-                                        </a>
+                                        <div style="display: flex; gap: 8px;">
+                                            <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
+                                                class="btn w-100 font-extrabold"
+                                                style="background: {{ $hAvail > 0 ? '#074121' : '#475569' }}; color: #ffffff; font-weight: 900; font-size: 14.5px; height: 46px; border-radius: 8px; padding: 0 20px; border: none; box-shadow: 0 3px 10px rgba(7,65,33,0.3); display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                                                {{ $hAvail > 0 ? 'View Rooms & Reserve Stay' : 'View Hotel Details & Availability' }}
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
     @endforeach -->
 
                 <!-- EMPTY STATE IF NO HOTELS MATCH FILTER -->
                 <!-- <div id="noHotelsNotice" class="col-12 py-5 text-center" style="display: none;">
-                        <div
-                            style="background: #ffffff; border-radius: 16px; padding: 40px 20px; border: 2px dashed #cbd5e1; max-width: 500px; margin: 0 auto;">
-                            <div style="font-size: 48px; margin-bottom: 12px;">🏨</div>
-                            <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">No Hotels Found</h4>
-                            <p style="color: #64748b; font-size: 14px; margin-bottom: 20px;">Is category me abhi koi hotel
-                                listed nahi hai ya sabhi book hain.</p>
-                            <button onclick="filterCategory('all', $('.filter-btn').first()[0])" class="btn font-extrabold"
-                                style="background: #074121; color: #fff; border-radius: 8px; padding: 10px 24px;">
-                                🔄 View All Hotels & Guest Houses
-                            </button>
-                        </div>
-                    </div> -->
+                            <div
+                                style="background: #ffffff; border-radius: 16px; padding: 40px 20px; border: 2px dashed #cbd5e1; max-width: 500px; margin: 0 auto;">
+                                <div style="font-size: 48px; margin-bottom: 12px;">🏨</div>
+                                <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">No Hotels Found</h4>
+                                <p style="color: #64748b; font-size: 14px; margin-bottom: 20px;">Is category me abhi koi hotel
+                                    listed nahi hai ya sabhi book hain.</p>
+                                <button onclick="filterCategory('all', $('.filter-btn').first()[0])" class="btn font-extrabold"
+                                    style="background: #074121; color: #fff; border-radius: 8px; padding: 10px 24px;">
+                                    🔄 View All Hotels & Guest Houses
+                                </button>
+                            </div>
+                        </div> -->
 
             </div>
 
@@ -640,6 +681,7 @@
                     padding-right: 10px;
                     box-sizing: border-box;
                 }
+
                 .hotel-reviews-header-box {
                     display: flex;
                     justify-content: space-between;
@@ -650,9 +692,11 @@
                     width: 100%;
                     box-sizing: border-box;
                 }
+
                 .hotel-reviews-title-box {
                     flex: 1 1 auto;
                 }
+
                 .hotel-reviews-title {
                     font-weight: 900;
                     color: #074121;
@@ -660,6 +704,7 @@
                     font-size: 22px;
                     word-break: break-word;
                 }
+
                 .hotel-reviews-desc {
                     margin: 4px 0 0 0;
                     color: #64748b;
@@ -667,6 +712,7 @@
                     font-weight: 600;
                     word-break: break-word;
                 }
+
                 .hotel-reviews-actions {
                     display: flex;
                     gap: 10px;
@@ -674,6 +720,7 @@
                     align-items: center;
                     flex-shrink: 0;
                 }
+
                 .hotel-reviews-btn {
                     font-weight: 800;
                     font-size: 13px;
@@ -686,6 +733,7 @@
                     align-items: center;
                     justify-content: center;
                 }
+
                 @media (max-width: 768px) {
                     .hotel-reviews-container {
                         padding-left: 4px;
@@ -693,28 +741,34 @@
                         margin-top: 35px;
                         padding-top: 20px;
                     }
+
                     .hotel-reviews-header-box {
                         flex-direction: column !important;
                         align-items: flex-start !important;
                         gap: 12px !important;
                         margin-bottom: 18px !important;
                     }
+
                     .hotel-reviews-title-box {
                         width: 100% !important;
                     }
+
                     .hotel-reviews-title {
                         font-size: 18px !important;
                         line-height: 1.3 !important;
                     }
+
                     .hotel-reviews-desc {
                         font-size: 12.5px !important;
                         line-height: 1.4 !important;
                     }
+
                     .hotel-reviews-actions {
                         width: 100% !important;
                         display: flex !important;
                         gap: 8px !important;
                     }
+
                     .hotel-reviews-btn {
                         flex: 1 1 0% !important;
                         width: 48% !important;
@@ -723,10 +777,12 @@
                         box-sizing: border-box !important;
                     }
                 }
+
                 @media (max-width: 340px) {
                     .hotel-reviews-actions {
                         flex-direction: column !important;
                     }
+
                     .hotel-reviews-btn {
                         width: 100% !important;
                     }
@@ -744,18 +800,18 @@
                         </p>
                     </div>
                     <div class="hotel-reviews-actions">
-                        <button type="button"
-                            class="btn btn-success hotel-reviews-btn"
+                        <button type="button" class="btn btn-success hotel-reviews-btn"
                             onclick="$('#writeHotelReviewModal').modal('show')" data-toggle="modal"
                             data-target="#writeHotelReviewModal" data-bs-toggle="modal"
-                            data-bs-target="#writeHotelReviewModal" style="background: #16a34a; border: none; color: #ffffff;">
+                            data-bs-target="#writeHotelReviewModal"
+                            style="background: #16a34a; border: none; color: #ffffff;">
                             ✍️ Write Hotel Review
                         </button>
-                        <button type="button"
-                            class="btn btn-outline-success hotel-reviews-btn"
+                        <button type="button" class="btn btn-outline-success hotel-reviews-btn"
                             onclick="$('#sendHotelFeedbackModal').modal('show')" data-toggle="modal"
                             data-target="#sendHotelFeedbackModal" data-bs-toggle="modal"
-                            data-bs-target="#sendHotelFeedbackModal" style="border: 1.5px solid #16a34a; color: #16a34a; background: #ffffff;">
+                            data-bs-target="#sendHotelFeedbackModal"
+                            style="border: 1.5px solid #16a34a; color: #16a34a; background: #ffffff;">
                             💬 Send Feedback
                         </button>
                     </div>

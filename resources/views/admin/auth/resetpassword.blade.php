@@ -144,60 +144,36 @@
 
                     {{-- New Password --}}
                     <div class="input-group mb-3">
-
-
                         <div class="form-floating">
-
                             <input type="password" name="password" id="password" class="form-control" placeholder=""
                                 required>
-
-
                             <label for="password">
                                 New Password
                             </label>
-
                         </div>
-
-
+                        <button class="btn btn-outline-secondary toggle-password-btn" type="button" data-target="password" title="Show / Hide Password" aria-label="Toggle password visibility">
+                            <i class="bi bi-eye"></i>
+                        </button>
                         <div class="input-group-text">
-
                             <i class="bi bi-lock-fill"></i>
-
                         </div>
-
-
                     </div>
-
-
-
-
 
                     {{-- Confirm Password --}}
                     <div class="input-group mb-3">
-
-
                         <div class="form-floating">
-
-
                             <input type="password" name="password_confirmation" id="password_confirmation"
                                 class="form-control" placeholder="" required>
-
-
                             <label for="password_confirmation">
                                 Confirm Password
                             </label>
-
-
                         </div>
-
-
+                        <button class="btn btn-outline-secondary toggle-password-btn" type="button" data-target="password_confirmation" title="Show / Hide Password" aria-label="Toggle password visibility">
+                            <i class="bi bi-eye"></i>
+                        </button>
                         <div class="input-group-text">
-
                             <i class="bi bi-shield-lock"></i>
-
                         </div>
-
-
                     </div>
 
 

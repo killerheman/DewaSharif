@@ -54,15 +54,17 @@
 
             <!-- 6-digit OTP -->
             <div class="input-field">
-                <input type="text" name="email_otp" id="email_otp"
-                    placeholder=" " maxlength="6" required autocomplete="off" style="letter-spacing: 4px; font-size: 18px; font-weight: 700;">
                 <label for="email_otp">
                     <svg width="18" height="18" viewBox="0 0 24 24" style="margin-right: 4px; vertical-align: text-bottom;"><path fill="#34A853" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
                     Enter 6-Digit OTP Code
                 </label>
+                <div class="input-box-inner">
+                    <input type="text" name="email_otp" id="email_otp"
+                        placeholder="Enter 6-digit OTP" maxlength="6" required autocomplete="off" style="letter-spacing: 4px; font-size: 18px; font-weight: 700; text-align: center;">
+                </div>
             </div>
 
-            <div style="margin-top: 24px;">
+            <div style="margin-top: 16px;">
                 <!-- Verify Button -->
                 <button type="submit" class="btn-glass-primary">
                     <i class="bi bi-shield-check me-1"></i> Verify Code
@@ -71,7 +73,7 @@
         </form>
 
         <!-- Resend Link -->
-        <div class="register-footer" style="margin-top: 24px;">
+        <div class="register-footer" style="margin-top: 16px;">
             Didn't receive the code? <a href="{{ route('forgot.password') }}">Resend OTP</a>
         </div>
 

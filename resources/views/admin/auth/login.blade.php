@@ -28,28 +28,6 @@
                 <p class="dewa-subtitle">Login to your DewaSharif Account</p>
             </div>
 
-            <!-- Welcome Guidance & Security Badge -->
-            <div class="auth-info-card">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #00e676; background: rgba(0, 230, 118, 0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <defs>
-                                <linearGradient id="shieldGradLogin" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#00e676"/>
-                                    <stop offset="100%" stop-color="#00b0ff"/>
-                                </linearGradient>
-                            </defs>
-                            <path d="M12 2L4 5V11C4 16.55 7.4 21.74 12 23C16.6 21.74 20 16.55 20 11V5L12 2Z" fill="url(#shieldGradLogin)" fill-opacity="0.3" stroke="url(#shieldGradLogin)" stroke-width="2"/>
-                            <path d="M9 12L11 14L15 10" stroke="#00e676" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <div style="font-size: 14.5px; color: rgba(255, 255, 255, 0.95); line-height: 1.4;">
-                        <strong style="font-size: 16.5px; letter-spacing: 0.5px;">Explore Dewa Sharif</strong><br>
-                        <span style="color: rgba(255, 255, 255, 0.85);">Find Hotels, Cabs, Shoppings &amp; Information Services.</span>
-                    </div>
-                </div>
-            </div>
-
             @if (session('success'))
                 <div class="alert-glass-success">
                     <i class="bi bi-check-circle-fill me-1"></i> {{ session('success') }}
@@ -77,8 +55,6 @@
 
                 <!-- Email or Phone -->
                 <div class="input-field">
-                    <input type="text" name="email_or_phone" id="email_or_phone" placeholder=" "
-                        value="{{ old('email_or_phone') }}" required autocomplete="off">
                     <label for="email_or_phone">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                             <defs>
@@ -97,11 +73,14 @@
                         </svg>
                         Email Address / Phone Number
                     </label>
+                    <div class="input-box-inner">
+                        <input type="text" name="email_or_phone" id="email_or_phone" placeholder="Enter email or phone number"
+                            value="{{ old('email_or_phone') }}" required autocomplete="off">
+                    </div>
                 </div>
 
                 <!-- Password -->
                 <div class="input-field">
-                    <input type="password" name="password" id="password" placeholder=" " required>
                     <label for="password">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                             <defs>
@@ -120,6 +99,12 @@
                         </svg>
                         Password
                     </label>
+                    <div class="input-box-inner">
+                        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                        <button type="button" class="toggle-password-btn" data-target="password" title="Show / Hide Password" aria-label="Toggle password visibility">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Remember & Forgot -->
@@ -134,9 +119,9 @@
                 <!-- Submit Button -->
                 <button type="submit" class="btn-glass-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right: 6px; vertical-align: middle;">
-                        <path d="M11 16L15 12L11 8" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M15 12H3" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
-                        <path d="M14 4H18C19.1 4 20 4.9 20 6V18C20 19.1 19.1 20 18 20H14" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M11 16L15 12L11 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15 12H3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M14 4H18C19.1 4 20 4.9 20 6V18C20 19.1 19.1 20 18 20H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg> Log In
                 </button>
             </form>

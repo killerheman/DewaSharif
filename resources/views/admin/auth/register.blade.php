@@ -30,13 +30,6 @@
                     </p>
                 </div>
 
-                <div class="dewa-notice">
-                    By creating an account, you agree to <a href="{{ url('/terms-of-use') }}"
-                        target="_blank">www.dewasharif.com</a> Universal <a href="{{ url('/terms-of-use') }}"
-                        target="_blank">Terms of Service</a> and <a href="{{ url('/privacy-policy') }}"
-                        target="_blank">Privacy Policy</a>.
-                </div>
-
                 @if (session('success'))
                     <div class="alert-glass-success">
                         <i class="bi bi-check-circle-fill me-1"></i> {{ session('success') }}
@@ -56,11 +49,9 @@
                 <form action="{{ route('admin.register.store') }}" method="POST">
                     @csrf
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px;">
                         <!-- First Name -->
                         <div class="input-field">
-                            <input type="text" name="first_name" id="first_name" placeholder=" "
-                                value="{{ old('first_name') }}" required autocomplete="off">
                             <label for="first_name">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                                     <defs>
@@ -78,12 +69,14 @@
                                 </svg>
                                 First Name*
                             </label>
+                            <div class="input-box-inner">
+                                <input type="text" name="first_name" id="first_name" placeholder="First Name"
+                                    value="{{ old('first_name') }}" required autocomplete="off">
+                            </div>
                         </div>
 
                         <!-- Last Name -->
                         <div class="input-field">
-                            <input type="text" name="last_name" id="last_name" placeholder=" "
-                                value="{{ old('last_name') }}" autocomplete="off">
                             <label for="last_name">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                                     <defs>
@@ -101,14 +94,16 @@
                                 </svg>
                                 Last Name
                             </label>
+                            <div class="input-box-inner">
+                                <input type="text" name="last_name" id="last_name" placeholder="Last Name"
+                                    value="{{ old('last_name') }}" autocomplete="off">
+                            </div>
                         </div>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px;">
                         <!-- Email Address -->
                         <div class="input-field">
-                            <input type="email" name="email" id="email" placeholder=" " value="{{ old('email') }}" required
-                                autocomplete="off">
                             <label for="email">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                                     <defs>
@@ -127,12 +122,14 @@
                                 </svg>
                                 Email Address*
                             </label>
+                            <div class="input-box-inner">
+                                <input type="email" name="email" id="email" placeholder="Email Address" value="{{ old('email') }}" required
+                                    autocomplete="off">
+                            </div>
                         </div>
 
                         <!-- Phone Number -->
                         <div class="input-field">
-                            <input type="text" name="phone" id="phone" placeholder=" " value="{{ old('phone') }}" required
-                                autocomplete="off">
                             <label for="phone">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                                     <defs>
@@ -148,13 +145,15 @@
                                 </svg>
                                 Phone Number*
                             </label>
+                            <div class="input-box-inner">
+                                <input type="text" name="phone" id="phone" placeholder="Phone Number" value="{{ old('phone') }}" required
+                                    autocomplete="off">
+                            </div>
                         </div>
                     </div>
 
                     <!-- Address -->
                     <div class="input-field">
-                        <input type="text" name="address" id="address" placeholder=" " value="{{ old('address') }}"
-                            autocomplete="off">
                         <label for="address">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                                 <defs>
@@ -172,12 +171,15 @@
                             </svg>
                             Address
                         </label>
+                        <div class="input-box-inner">
+                            <input type="text" name="address" id="address" placeholder="Address" value="{{ old('address') }}"
+                                autocomplete="off">
+                        </div>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px;">
                         <!-- Password -->
                         <div class="input-field">
-                            <input type="password" name="password" id="password" placeholder=" " required>
                             <label for="password">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                                     <defs>
@@ -196,12 +198,16 @@
                                 </svg>
                                 Password*
                             </label>
+                            <div class="input-box-inner">
+                                <input type="password" name="password" id="password" placeholder="Create Password" required>
+                                <button type="button" class="toggle-password-btn" data-target="password" title="Show / Hide Password" aria-label="Toggle password visibility">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                         </div>
 
                         <!-- Confirm Password -->
                         <div class="input-field">
-                            <input type="password" name="password_confirmation" id="password_confirmation" placeholder=" "
-                                required>
                             <label for="password_confirmation">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: sub; margin-right: 4px;">
                                     <defs>
@@ -220,11 +226,17 @@
                                 </svg>
                                 Confirm Password*
                             </label>
+                            <div class="input-box-inner">
+                                <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required>
+                                <button type="button" class="toggle-password-btn" data-target="password_confirmation" title="Show / Hide Password" aria-label="Toggle password visibility">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Terms & Conditions Checkbox -->
-                    <div class="forget-row" style="margin: 12px 0 14px 0;">
+                    <div class="forget-row" style="margin: 6px 0 8px 0;">
                         <label for="terms">
                             <input type="checkbox" name="terms" id="terms" required>
                             <p>I agree to the <a href="{{ url('/terms-of-use') }}" target="_blank">Terms and Conditions</a>
@@ -235,8 +247,8 @@
                     <!-- Create Account Button -->
                     <button type="submit" class="btn-glass-primary">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right: 6px; vertical-align: middle;">
-                            <circle cx="10" cy="8" r="4" fill="#ffffff" fill-opacity="0.9"/>
-                            <path d="M3 19C3 15.7 6.1 13 10 13C11.5 13 12.9 13.4 14 14.1" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="10" cy="8" r="4" fill="currentColor" fill-opacity="0.9"/>
+                            <path d="M3 19C3 15.7 6.1 13 10 13C11.5 13 12.9 13.4 14 14.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                             <path d="M18 11V17M15 14H21" stroke="#ffeb3b" stroke-width="2.5" stroke-linecap="round"/>
                         </svg> Create Account
                     </button>

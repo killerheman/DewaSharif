@@ -92,17 +92,27 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Password @if (!isset($user))
+                        <label class="form-label" for="user_admin_password">Password @if (!isset($user))
                                 <span class="text-danger">*</span>
                             @endif
                         </label>
-                        <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                        <div class="input-group">
+                            <input type="password" name="password" id="user_admin_password" class="form-control" placeholder="Enter Password">
+                            <button class="btn btn-outline-secondary toggle-password-btn" type="button" data-target="user_admin_password" title="Show / Hide Password" aria-label="Toggle password visibility">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label class="form-label">Confirm Password</label>
-                        <input type="password" name="password_confirmation" class="form-control"
-                            placeholder="Confirm Password">
+                        <label class="form-label" for="user_admin_password_confirmation">Confirm Password</label>
+                        <div class="input-group">
+                            <input type="password" name="password_confirmation" id="user_admin_password_confirmation" class="form-control"
+                                placeholder="Confirm Password">
+                            <button class="btn btn-outline-secondary toggle-password-btn" type="button" data-target="user_admin_password_confirmation" title="Show / Hide Password" aria-label="Toggle password visibility">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                        </div>
                     </div>
 
                     <div class="col-md-6 mb-3">

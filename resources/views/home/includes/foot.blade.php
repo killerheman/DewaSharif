@@ -202,3 +202,29 @@
 <noscript class="displaynoscript">This page uses Javascript. Your browser either doesn't support Javascript or
     you have it turned off. To see this page as it is meant to appear please use a Javascript enabled
     browser.</noscript>
+
+<!-- Universal Password Visibility Toggle Script -->
+<script>
+    $(document).on('click', '.toggle-password-btn', function (e) {
+        e.preventDefault();
+        var targetId = $(this).attr('data-target');
+        var $input = targetId ? $('#' + targetId) : $(this).closest('.input-group, .input-box-inner, .form-group, .input-field').find('input[type="password"], input[type="text"]');
+        if ($input.length) {
+            var isPass = $input.attr('type') === 'password';
+            $input.attr('type', isPass ? 'text' : 'password');
+
+            var $icon = $(this).find('i');
+            if ($icon.length) {
+                if ($icon.hasClass('bi-eye')) {
+                    $icon.removeClass('bi-eye').addClass('bi-eye-slash');
+                } else if ($icon.hasClass('bi-eye-slash')) {
+                    $icon.removeClass('bi-eye-slash').addClass('bi-eye');
+                } else if ($icon.hasClass('fa-eye')) {
+                    $icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else if ($icon.hasClass('fa-eye-slash')) {
+                    $icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            }
+        }
+    });
+</script>

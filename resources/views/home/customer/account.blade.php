@@ -292,12 +292,22 @@
                     @csrf
                     <input type="hidden" name="reset_type" value="password_change">
                     <div class="form-group mb-3">
-                        <label style="font-weight: 700; color: #334155; font-size: 13px;">New Password *</label>
-                        <input type="password" name="new_password" required minlength="6" class="form-control" placeholder="Enter new password" style="border-radius: 8px; height: 44px; border: 1.5px solid #cbd5e1;">
+                        <label style="font-weight: 700; color: #334155; font-size: 13px;" for="cust_acc_new_password">New Password *</label>
+                        <div style="position: relative;">
+                            <input type="password" name="new_password" id="cust_acc_new_password" required minlength="6" class="form-control" placeholder="Enter new password" style="border-radius: 8px; height: 44px; border: 1.5px solid #cbd5e1; padding-right: 44px;">
+                            <button type="button" class="toggle-password-btn" data-target="cust_acc_new_password" title="Show / Hide Password" aria-label="Toggle password visibility" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #64748b; font-size: 16px; cursor: pointer; padding: 4px; z-index: 5;">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="form-group mb-4">
-                        <label style="font-weight: 700; color: #334155; font-size: 13px;">Confirm New Password *</label>
-                        <input type="password" name="confirm_password" required minlength="6" class="form-control" placeholder="Re-enter new password" style="border-radius: 8px; height: 44px; border: 1.5px solid #cbd5e1;">
+                        <label style="font-weight: 700; color: #334155; font-size: 13px;" for="cust_acc_confirm_password">Confirm New Password *</label>
+                        <div style="position: relative;">
+                            <input type="password" name="confirm_password" id="cust_acc_confirm_password" required minlength="6" class="form-control" placeholder="Re-enter new password" style="border-radius: 8px; height: 44px; border: 1.5px solid #cbd5e1; padding-right: 44px;">
+                            <button type="button" class="toggle-password-btn" data-target="cust_acc_confirm_password" title="Show / Hide Password" aria-label="Toggle password visibility" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #64748b; font-size: 16px; cursor: pointer; padding: 4px; z-index: 5;">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
                     </div>
 
                     <button type="submit" class="btn text-white font-weight-bold w-100" style="background: #052c16; border: none; border-radius: 8px; height: 44px; font-size: 14px;">

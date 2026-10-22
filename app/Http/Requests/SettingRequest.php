@@ -102,6 +102,22 @@ class SettingRequest extends FormRequest
             'hosting_api_key' => 'nullable|string|max:255',
             'whois_api_key' => 'nullable|string|max:255',
 
+            // SMTP / Mail Settings
+            'mail_mailer' => 'nullable|string|max:50',
+            'mail_host' => 'nullable|string|max:255',
+            'mail_port' => 'nullable|numeric',
+            'mail_username' => 'nullable|string|max:255',
+            'mail_password' => 'nullable|string|max:255',
+            'mail_encryption' => 'nullable|string|max:20',
+            'mail_from_address' => 'nullable|string|max:255',
+            'mail_from_name' => 'nullable|string|max:255',
+
+            // WhatsApp Cloud API Settings
+            'whatsapp_token' => 'nullable|string',
+            'whatsapp_phone_number_id' => 'nullable|string|max:100',
+            'whatsapp_business_account_id' => 'nullable|string|max:100',
+            'whatsapp_number' => 'nullable|string|max:30',
+
             'is_active' => 'nullable|boolean',
 
         ];

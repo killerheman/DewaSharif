@@ -151,7 +151,7 @@
                                         </td>
                                         <td>
                                             <strong class="d-block text-dark"><i class="bi bi-geo-alt-fill text-danger me-1"></i>{{ $bRoute }}</strong>
-                                            <span class="badge bg-dark mt-1"><i class="bi bi-car-front-fill me-1"></i>{{ $bVehicle }}</span>
+                                            <span class="badge bg-dark mt-1 text-wrap text-start" style="white-space: normal; max-width: 260px; line-height: 1.3;"><i class="bi bi-car-front-fill me-1 text-warning"></i>{{ $bVehicle }}</span>
                                         </td>
                                         <td>
                                             <strong class="d-block text-success"><i class="bi bi-calendar-event me-1"></i>{{ $bTime }}</strong>
@@ -313,24 +313,28 @@
                                                                 <small class="text-muted d-block">Trip Route</small>
                                                                 <strong class="text-danger"><i class="bi bi-geo-alt-fill me-1"></i>{{ $bRoute }}</strong>
                                                             </div>
-                                                            <div class="col-6">
+                                                            <div class="col-12">
                                                                 <small class="text-muted d-block">Vehicle Model</small>
-                                                                <span class="badge bg-dark">{{ $bVehicle }}</span>
+                                                                <span class="badge bg-dark text-wrap text-start" style="white-space: normal; line-height: 1.4; display: inline-block; max-width: 100%; font-size: 12px; padding: 6px 10px;">
+                                                                    <i class="bi bi-car-front-fill me-1 text-warning"></i>{{ $bVehicle }}
+                                                                </span>
                                                             </div>
                                                             <div class="col-6">
                                                                 <small class="text-muted d-block">Pickup Schedule</small>
-                                                                <strong class="text-dark">{{ $bTime }}</strong>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <small class="text-muted d-block">Total Fare Paid</small>
-                                                                <strong class="text-success fs-5">₹{{ number_format((float)$bFare, 2) }}</strong>
-                                                                @if($bNight)
-                                                                    <small class="badge badge-gradient-dark border border-primary px-2 py-0.5 mt-1 d-inline-block" style="font-size: 11px;"><i class="bi bi-moon-stars-fill text-warning me-1"></i> ₹100 Night Surcharge</small>
-                                                                @endif
+                                                                <strong class="text-dark" style="font-size: 13px;"><i class="bi bi-clock-history me-1 text-primary"></i>{{ $bTime }}</strong>
                                                             </div>
                                                             <div class="col-6">
                                                                 <small class="text-muted d-block">Current Status</small>
-                                                                <span class="badge {{ $isConfirmed ? 'bg-success' : 'bg-warning text-dark' }}">{{ $bStatus }}</span>
+                                                                <span class="badge {{ $isConfirmed ? 'bg-success' : 'bg-warning text-dark' }} text-wrap text-start" style="white-space: normal; line-height: 1.3;">{{ $bStatus }}</span>
+                                                            </div>
+                                                            <div class="col-12 mt-1">
+                                                                <small class="text-muted d-block">Total Fare Paid</small>
+                                                                <div class="d-flex align-items-center gap-2 flex-wrap">
+                                                                    <strong class="text-success fs-5">₹{{ number_format((float)$bFare, 2) }}</strong>
+                                                                    @if($bNight)
+                                                                        <small class="badge badge-gradient-dark border border-primary px-2 py-1" style="font-size: 11px;"><i class="bi bi-moon-stars-fill text-warning me-1"></i> ₹100 Night Surcharge</small>
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

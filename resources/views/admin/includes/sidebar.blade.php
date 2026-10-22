@@ -302,6 +302,18 @@
                                 <p>Contact Settings</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.settings.smtp') }}" class="nav-link {{ Route::is('admin.settings.smtp*') ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-envelope-at-fill"></i>
+                                <p>SMTP Mail Settings</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.settings.whatsapp') }}" class="nav-link {{ Route::is('admin.settings.whatsapp*') ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-whatsapp text-success"></i>
+                                <p>WhatsApp API Settings</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

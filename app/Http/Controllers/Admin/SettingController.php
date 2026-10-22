@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SettingRequest;
 use App\Models\Setting;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
@@ -209,5 +211,178 @@ class SettingController extends Controller
         $setting->update($data);
 
         return back()->with('success', 'API settings updated successfully.');
+    }
+
+    /* ===========================
+       SMTP / Mail Settings
+    =========================== */
+
+    public function smtp()
+    {
+        $setting = $this->setting();
+        return view('admin.settings.smtp', compact('setting'));
+    }
+
+    public function updateSmtp(SettingRequest $request)
+    {
+        $setting = $this->setting();
+        $data = $request->only([
+            'mail_mailer',
+            'mail_host',
+            'mail_port',
+            'mail_username',
+            'mail_password',
+            'mail_encryption',
+            'mail_from_address',
+            'mail_from_name',
+        ]);
+
+        $data['mail_mailer'] = $data['mail_mailer'] ?: 'smtp';
+        $data['mail_host'] = $data['mail_host'] ?: 'smtp.gmail.com';
+        $data['mail_port'] = $data['mail_port'] ?: '587';
+        $data['mail_encryption'] = $data['mail_encryption'] ?: 'tls';
+        $data['mail_from_name'] = $data['mail_from_name'] ?: 'DEWASHARIF';
+        if (empty($data['mail_from_address']) && !empty($data['mail_username'])) {
+            $data['mail_from_address'] = $data['mail_username'];
+        }
+
+        // 1. Update Database / Settings Map
+        $setting->update($data);
+
+        // 2. Update .env File safely
+        $this->updateEnvFile([
+            'MAIL_MAILER' => $data['mail_mailer'],
+            'MAIL_HOST' => $data['mail_host'],
+            'MAIL_PORT' => $data['mail_port'],
+            'MAIL_USERNAME' => $data['mail_username'] ?? '',
+            'MAIL_PASSWORD' => $data['mail_password'] ?? '',
+            'MAIL_ENCRYPTION' => $data['mail_encryption'] === 'none' ? 'null' : $data['mail_encryption'],
+            'MAIL_FROM_ADDRESS' => $data['mail_from_address'] ?? '',
+            'MAIL_FROM_NAME' => '"' . trim($data['mail_from_name'], '"') . '"',
+        ]);
+
+        // 3. Clear configuration cache
+        try {
+            \Illuminate\Support\Facades\Artisan::call('config:clear');
+        } catch (\Throwable $e) {}
+
+        return back()->with('success', 'SMTP Mail settings updated and applied successfully.');
+    }
+
+    public function testSmtp(Request $request)
+    {
+        $request->validate([
+            'test_email' => 'required|email',
+        ]);
+
+        $setting = $this->setting();
+
+        try {
+            $encryption = $setting->mail_encryption === 'none' ? null : ($setting->mail_encryption ?: 'tls');
+
+            config([
+                'mail.default' => $setting->mail_mailer ?: 'smtp',
+                'mail.mailers.smtp.transport' => 'smtp',
+                'mail.mailers.smtp.host' => $setting->mail_host ?: 'smtp.gmail.com',
+                'mail.mailers.smtp.port' => (int) ($setting->mail_port ?: 587),
+                'mail.mailers.smtp.encryption' => $encryption,
+                'mail.mailers.smtp.username' => $setting->mail_username,
+                'mail.mailers.smtp.password' => $setting->mail_password,
+                'mail.from.address' => $setting->mail_from_address ?: ($setting->mail_username ?: 'info@dewasharif.com'),
+                'mail.from.name' => trim((string)($setting->mail_from_name ?: 'DEWASHARIF'), '"'),
+            ]);
+
+            $recipient = $request->test_email;
+            $siteName = trim((string)($setting->mail_from_name ?: 'DEWASHARIF'), '"');
+
+            Mail::raw(
+                "Hello,\n\nCongratulations! This test email confirms that your SMTP Mail settings are working 100% perfectly on {$siteName}.\n\nHost: {$setting->mail_host}\nPort: {$setting->mail_port}\nEncryption: {$setting->mail_encryption}\nUsername: {$setting->mail_username}\nTimestamp: " . now()->format('d M Y, h:i:s A') . "\n\nRegards,\n{$siteName} Technical Team",
+                function ($message) use ($recipient, $siteName) {
+                    $message->to($recipient)
+                            ->subject("✅ SMTP Live Test Successful - {$siteName}");
+                }
+            );
+
+            return back()->with('success', "Live test email sent successfully to {$recipient}! Please check your inbox or spam folder.");
+        } catch (\Throwable $e) {
+            return back()->with('error', "SMTP Connection Failed: " . $e->getMessage());
+        }
+    }
+
+    /* ===========================
+       WhatsApp Cloud API Settings
+    =========================== */
+
+    public function whatsapp()
+    {
+        $setting = $this->setting();
+        return view('admin.settings.whatsapp', compact('setting'));
+    }
+
+    public function updateWhatsapp(SettingRequest $request)
+    {
+        $setting = $this->setting();
+        $data = $request->only([
+            'whatsapp_token',
+            'whatsapp_phone_number_id',
+            'whatsapp_business_account_id',
+            'whatsapp_number',
+        ]);
+
+        // 1. Update Database / Settings Map
+        $setting->update($data);
+
+        // 2. Update .env File safely
+        $token = trim($data['whatsapp_token'] ?? '');
+        $phoneId = trim($data['whatsapp_phone_number_id'] ?? '');
+
+        $this->updateEnvFile([
+            'WHATSAPP_TOKEN' => '"' . trim($token, '"') . '"',
+            'WHATSAPP_PHONE_NUMBER_ID' => '"' . trim($phoneId, '"') . '"',
+        ]);
+
+        // 3. Clear configuration cache
+        try {
+            \Illuminate\Support\Facades\Artisan::call('config:clear');
+        } catch (\Throwable $e) {}
+
+        return back()->with('success', 'WhatsApp Cloud API settings updated and applied successfully.');
+    }
+
+    public function testWhatsapp(Request $request)
+    {
+        $request->validate([
+            'test_phone' => 'required|string|min:10',
+        ]);
+
+        $res = \App\Services\MetaWhatsAppService::sendTestMessage($request->test_phone);
+
+        if ($res['success']) {
+            return back()->with('success', $res['message']);
+        } else {
+            return back()->with('error', $res['message']);
+        }
+    }
+
+    private function updateEnvFile(array $values)
+    {
+        $envPath = base_path('.env');
+        if (!file_exists($envPath)) {
+            return;
+        }
+
+        $content = file_get_contents($envPath);
+
+        foreach ($values as $key => $value) {
+            $keyPattern = "/^{$key}=(.*)$/m";
+
+            if (preg_match($keyPattern, $content)) {
+                $content = preg_replace($keyPattern, "{$key}={$value}", $content);
+            } else {
+                $content .= PHP_EOL . "{$key}={$value}";
+            }
+        }
+
+        file_put_contents($envPath, $content);
     }
 }

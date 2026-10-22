@@ -34,6 +34,34 @@ class AppServiceProvider extends ServiceProvider
         }
         \Illuminate\Support\Facades\View::share('setting', $sharedSetting);
 
+        // Dynamic SMTP / Outgoing Mail Configuration
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('settings')) {
+                $mailMailer = \App\Models\Setting::getVal('mail_mailer', env('MAIL_MAILER', 'smtp'));
+                $mailHost = \App\Models\Setting::getVal('mail_host', env('MAIL_HOST', 'smtp.gmail.com'));
+                $mailPort = \App\Models\Setting::getVal('mail_port', env('MAIL_PORT', 587));
+                $mailUsername = \App\Models\Setting::getVal('mail_username', env('MAIL_USERNAME'));
+                $mailPassword = \App\Models\Setting::getVal('mail_password', env('MAIL_PASSWORD'));
+                $mailEncryption = \App\Models\Setting::getVal('mail_encryption', env('MAIL_ENCRYPTION', 'tls'));
+                $mailFromAddress = \App\Models\Setting::getVal('mail_from_address', env('MAIL_FROM_ADDRESS'));
+                $mailFromName = \App\Models\Setting::getVal('mail_from_name', env('MAIL_FROM_NAME', 'DEWASHARIF'));
+
+                if ($mailHost) {
+                    config([
+                        'mail.default' => $mailMailer ?: 'smtp',
+                        'mail.mailers.smtp.transport' => 'smtp',
+                        'mail.mailers.smtp.host' => $mailHost,
+                        'mail.mailers.smtp.port' => (int) ($mailPort ?: 587),
+                        'mail.mailers.smtp.encryption' => ($mailEncryption === 'none' || empty($mailEncryption)) ? null : $mailEncryption,
+                        'mail.mailers.smtp.username' => $mailUsername,
+                        'mail.mailers.smtp.password' => $mailPassword,
+                        'mail.from.address' => $mailFromAddress ?: ($mailUsername ?: 'info@dewasharif.com'),
+                        'mail.from.name' => trim((string)$mailFromName, '"'),
+                    ]);
+                }
+            }
+        } catch (\Throwable $e) {}
+
         // Auto-ensure User 4 (Imran Ahmed Peshimam) and his active cab booking exist in DB
         try {
             if (\Illuminate\Support\Facades\Schema::hasTable('users')) {

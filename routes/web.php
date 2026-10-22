@@ -402,6 +402,14 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
 
         Route::get('/contact', [SettingController::class, 'contact'])->name('contact');
         Route::match(['post', 'put'], '/contact/update', [SettingController::class, 'updateContact'])->name('contact.update');
+
+        Route::get('/smtp', [SettingController::class, 'smtp'])->name('smtp');
+        Route::match(['post', 'put'], '/smtp/update', [SettingController::class, 'updateSmtp'])->name('smtp.update');
+        Route::post('/smtp/test', [SettingController::class, 'testSmtp'])->name('smtp.test');
+
+        Route::get('/whatsapp', [SettingController::class, 'whatsapp'])->name('whatsapp');
+        Route::match(['post', 'put'], '/whatsapp/update', [SettingController::class, 'updateWhatsapp'])->name('whatsapp.update');
+        Route::post('/whatsapp/test', [SettingController::class, 'testWhatsapp'])->name('whatsapp.test');
     });
 });
 
