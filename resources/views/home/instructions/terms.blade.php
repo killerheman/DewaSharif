@@ -243,13 +243,24 @@
                     </div>
                     <div class="policy-section-content">
                         <p style="color: #4b5563; line-height: 1.7; margin-bottom: 10px;">
-                            All hotel and guest house stays booked via dewasharif.com are subject to strict adherence to property policies and local government directives:
+                            All hotel and guest house stays booked via dewasharif.com are subject to strict adherence to property policies, local administration guidelines, and Indian statutory laws:
                         </p>
                         <ul style="color: #4b5563; line-height: 1.7; margin: 0; padding-left: 20px;">
-                            <li><strong>Government Identity Proof:</strong> All adult guests must produce valid original Photo ID (Aadhaar Card, Passport, Driving License, or Voter ID) at the time of check-in. Local ID restrictions may apply as per individual hotel rules.</li>
-                            <li><strong>Standard Check-in / Check-out:</strong> Check-in and check-out timings are defined by each hotel. Early check-in or late checkout is subject to room availability and extra charges.</li>
-                            <li><strong>Spiritual Dignity:</strong> Consumption of alcohol, narcotics, non-vegetarian food (where prohibited), or unlawful activities within room premises is strictly illegal.</li>
+                            <li><strong>Mandatory Original Govt ID &amp; Police Verification:</strong> All adult guests must physically produce their original government-issued photo ID (Aadhaar Card, Passport, Driving License, or Voter ID) at hotel reception during check-in. Under the Sarai Act, 1867 and local police circulars, physical ID verification and maintaining the daily guest ledger is the <strong>exclusive statutory responsibility of the hotel management</strong>.</li>
+                            <li><strong>Standard Check-in / Check-out:</strong> Check-in and check-out timings are strictly defined by each respective hotel. Early check-in or late checkout is subject to room availability and additional hotel charges.</li>
+                            <li><strong>Prohibition of Unlawful Conduct:</strong> Consumption of alcohol, narcotics, gambling, weapons, unauthorized visitors, immoral trafficking, or any unlawful activity inside hotel premises is strictly prohibited by law.</li>
                         </ul>
+
+                        <!-- CRIME & ACCIDENT NON-LIABILITY SHIELD -->
+                        <div class="rule-box-danger" style="margin-top: 18px;">
+                            <h5 style="color: #991b1b; font-weight: 800; margin-bottom: 8px;">
+                                <i class="fa fa-shield me-1"></i> Absolute Platform Criminal &amp; Civil Non-Liability Notice
+                            </h5>
+                            <p style="color: #7f1d1d; margin: 0; font-size: 13.5px; line-height: 1.65;">
+                                <strong>dewasharif.com is purely a digital booking facilitator and exercises ZERO on-ground physical control over hotel premises, room locks, staff behavior, or private guest conduct.</strong>
+                                In the tragic or unforeseen event of any suicide, unnatural demise, homicide, murder, physical brawl, harassment, theft, medical emergency, or criminal offense within hotel rooms or premises, the guest(s) involved and the hotel administration shall be solely, directly, and exclusively answerable under the <strong>Bharatiya Nyaya Sanhita (BNS)</strong> and <strong>Bharatiya Nagarik Suraksha Sanhita (BNSS)</strong>. dewasharif.com, its founder, developers, and administrators bear <strong>ABSOLUTE ZERO civil, tortious, or criminal liability</strong> whatsoever. In any police or administrative inquiry, the platform's role is strictly limited to providing electronic booking verification records as an intermediary.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -284,19 +295,21 @@
                     <div class="d-flex align-items-center mb-3">
                         <span class="heading-icon-badge"><i class="fa fa-cab"></i></span>
                         <h3 class="gradient-heading m-0" style="font-size: 22px; font-weight: 700;" title="Hover/Tap to highlight">
-                            4. Cab &amp; Local Auto Transportation Terms
+                            4. Cab, Taxi &amp; Travel Regulations
                         </h3>
                     </div>
                     <div class="policy-section-content">
                         <p style="color: #4b5563; line-height: 1.7; margin-bottom: 10px;">
-                            Cab bookings, airport transfers, and local autos provided through the portal operate under the following conditions:
+                            Cab bookings, airport transfers, and local auto arrangements facilitated through the portal operate under independent third-party transport agreements:
                         </p>
                         <div class="rule-box-warning">
-                            <strong style="color: #f7de01ff;"><i class="fa fa-suitcase me-1"></i> Luggage &amp; Personal Belongings Safety:</strong> Passengers must thoroughly check all seating areas and trunk space for personal belongings before exiting the vehicle. Neither the cab driver nor dewasharif.com accepts responsibility for items left behind.
+                            <strong style="color: #92400e;"><i class="fa fa-car me-1"></i> Motor Vehicles Act &amp; Road Accident Immunity:</strong> 
+                            Cabs are owned and operated by independent commercial drivers holding valid commercial transport permits. In the event of any road accident, vehicular collision, rash or negligent driving, personal injury, mechanical breakdown, traffic fine, or transit delay, the <strong>sole legal, compensatory, and financial liability rests with the independent driver and the vehicle's commercial motor insurance policy under the Motor Vehicles Act, 1988</strong>. dewasharif.com acts purely as a technological communication conduit and assumes zero liability for transit mishaps or vehicular claims.
                         </div>
                         <ul style="color: #4b5563; line-height: 1.7; margin: 0; padding-left: 20px;">
-                            <li>Toll taxes, parking fees, and state entry permits (if applicable) are paid as specified during checkout or directly at tolls.</li>
-                            <li>Passengers must adhere to passenger capacity limits as per vehicle license registration.</li>
+                            <li><strong>Luggage Safety:</strong> Passengers must thoroughly check all seating areas and trunk space for personal belongings before exiting the vehicle. Neither the cab driver nor dewasharif.com accepts responsibility for items left behind.</li>
+                            <li><strong>Toll &amp; Parking Fees:</strong> Toll taxes, parking fees, and state entry permits (if applicable) are paid as specified during checkout or directly at tolls.</li>
+                            <li><strong>Capacity Limits:</strong> Passengers must strictly adhere to seating capacity limits as registered on the vehicle's commercial registration certificate.</li>
                         </ul>
                     </div>
                 </div>
@@ -338,21 +351,24 @@
                     </div>
                 </div>
 
-                <!-- Section 7: Platform Liability -->
+                <!-- Section 7: Platform Liability & Intermediary Safe Harbor -->
                 <div class="policy-card" id="disclaimer">
                     <div class="d-flex align-items-center mb-3">
                         <span class="heading-icon-badge"><i class="fa fa-gavel"></i></span>
                         <h3 class="gradient-heading m-0" style="font-size: 22px; font-weight: 700;" title="Hover/Tap to highlight">
-                            7. Limitation of Platform Liability &amp; Jurisdiction
+                            7. Intermediary Safe Harbor, Indemnification &amp; Jurisdiction
                         </h3>
                     </div>
                     <div class="policy-section-content">
-                        <p style="color: #4b5563; line-height: 1.7; margin-bottom: 10px;">
-                            dewasharif.com acts as a digital marketplace and technological facilitator connecting pilgrims with third-party hoteliers, cab service providers, and retail vendors.
+                        <p style="color: #4b5563; line-height: 1.7; margin-bottom: 12px;">
+                            <strong>dewasharif.com</strong> acts strictly as an electronic marketplace and technological facilitator connecting pilgrims with independent third-party hoteliers, cab service operators, and merchandise vendors.
                         </p>
+                        
                         <ul style="color: #4b5563; line-height: 1.7; margin: 0; padding-left: 20px;">
-                            <li>dewasharif.com holds <strong>zero financial or legal liability</strong> for disputes, damages, personal injuries, or thefts arising between service providers (hotels, cab operators) and guests/customers.</li>
-                            <li>All legal claims and judicial proceedings shall be subject to the exclusive jurisdiction of the Courts in <strong>District Barabanki, Uttar Pradesh, India</strong>.</li>
+                            <li><strong>Safe Harbor Protection under Section 79 of the IT Act, 2000:</strong> dewasharif.com is an "Intermediary" under Section 2(1)(w) of the Information Technology Act, 2000 and observes due diligence under the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021. As an intermediary, the platform does not initiate, curate, or physically execute third-party services and is immune from liability for third-party acts, defaults, or content.</li>
+                            <li><strong>Customer Identity Warranty:</strong> By entering guest or passenger details, the customer solemnly declares and warrants that all information, contact numbers, and Government ID proofs (Aadhaar, Voter ID, PAN, Driving License, Passport) submitted are genuine, valid, and belong to the bona fide traveler. Submitting forged or fraudulent identity documents constitutes a cognizable criminal offense punishable under cyber and penal laws.</li>
+                            <li><strong>Comprehensive Indemnification (Hold Harmless):</strong> Each customer, traveler, hotelier, vendor, and cab driver unconditionally covenants to defend, indemnify, and hold completely harmless dewasharif.com, its founder/operator (Shahzade Alam / Masharrat Warsi), administrators, agents, and software developers from and against any police inquiries, FIRs, court notices, civil claims, damages, liabilities, fines, penalties, or legal fees arising out of any guest misconduct, unnatural death, suicide, accident, property damage, or violation of local laws.</li>
+                            <li><strong>Exclusive Judicial Jurisdiction:</strong> All disputes, claims, and legal proceedings arising out of or related to this portal or services booked through it shall be subject to the exclusive jurisdiction of the competent Courts at <strong>District Barabanki, Uttar Pradesh, India</strong> only.</li>
                         </ul>
                     </div>
                 </div>

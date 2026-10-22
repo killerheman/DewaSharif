@@ -481,11 +481,13 @@
                     @if (($type ?? '') === 'cab')
                         <div style="font-size: 11.5px; color: #166534; margin-top: 2px; font-weight: 600;">⚠️
                             <strong>Boarding Rule:</strong> Passenger must present this original physical ID card to
-                            driver before boarding.</div>
+                            driver before boarding.
+                        </div>
                     @elseif(($type ?? '') === 'hotel')
                         <div style="font-size: 11.5px; color: #166534; margin-top: 2px; font-weight: 600;">⚠️
                             <strong>Check-in Rule:</strong> Guest must present this original physical ID card at
-                            reception desk during check-in.</div>
+                            reception desk during check-in.
+                        </div>
                     @endif
                 @endif
             </div>
@@ -711,7 +713,8 @@
                         <li
                             style="color: #b45309; font-size: 11px; list-style-type: none; margin-left: -18px; margin-top: 4px;">
                             <em>*Notice: Standard taxi fare covers transit &amp; toll. Any parking fee is non-inclusive
-                                in invoice total and must be settled directly against official parking slip.</em></li>
+                                in invoice total and must be settled directly against official parking slip.</em>
+                        </li>
                     </ul>
                 </div>
             @endif
@@ -720,12 +723,16 @@
         <!-- FOOTER / STAMP -->
         <div class="invoice-footer">
             <div class="footer-note">
-                • Computer generated official Booking Voucher & Receipt under DewaSharif.com Platform.
+                • Computer generated official Booking Voucher &amp; Receipt under DewaSharif.com Platform.<br>
+                • <strong>Statutory Safe Harbor Notice:</strong> DewaSharif.com is an independent technology booking
+                facilitator under Section 79 of the IT Act, 2000. Physical premises safety, guest ledger entry under
+                Sarai Act / police rules, and vehicular travel safety remain the exclusive statutory responsibility of
+                respective hotel operators and licensed cab drivers.
                 @if (($type ?? '') === 'cab')
                     <br>• <strong>Parking Policy:</strong> Airport 10 mins free entry. Extra airport or monument parking
                     payable directly by passenger on actual receipt.
                 @endif <br>
-                • Managed & Supervised by Shahzade Alam/Masharrat Warsi.
+                • Managed &amp; Supervised by Shahzade Alam / Masharrat Warsi.
             </div>
             <div class="stamp-box"
                 style="border-color: {{ $isPaid ? '#16a34a' : ($isFailed ? '#dc2626' : '#f59e0b') }}; background: {{ $isPaid ? '#f0fdf4' : ($isFailed ? '#fef2f2' : '#fffbeb') }};">

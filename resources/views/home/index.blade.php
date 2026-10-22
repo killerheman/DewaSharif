@@ -18,13 +18,13 @@
             27 October - 5 November
         </h1>
 
-        <span
+        {{-- <span
             style="background: #faf9f9ff; color: #111; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
             ⚠️ Website is Under Maintenance. Please do not make any bookings from (19/10/2026 - 11:30 PM).
             <br> For urgent
             inquiries, or Bookings
             please Contact via WhatsApp or Call.
-        </span>
+        </span> --}}
 
         <div style="margin-top: 30px; padding: 25px 30px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate;">
     
