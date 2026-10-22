@@ -206,7 +206,7 @@
                             If you have questions regarding data privacy or wish to request data modification/deletion, please contact our support team at:
                         </p>
                         <p style="color: #0b5e36; font-weight: 700; margin: 0;">
-                            <i class="fa fa-envelope me-2"></i> privacy@dewasharif.com | <i class="fa fa-phone me-2"></i> +91 94150 00000
+                            <i class="fa fa-envelope me-2"> </i>info@dewasharif.com | <i class="fa fa-phone me-2"></i> +91 9648777223
                         </p>
                     </div>
                 </div>
