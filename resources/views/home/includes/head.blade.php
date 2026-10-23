@@ -153,7 +153,7 @@
 <link href="{{ asset('home/css/animate.css') }}" rel="stylesheet" />
 <link href="{{ asset('home/en_Themes/style.css') }}" rel="stylesheet" id="theme" />
 <link rel="stylesheet" href="{{ asset('home/css/jquery.flipster.min.css') }}" />
-<link href="{{ asset('home/css/responsive.css') }}" rel="stylesheet" />
+<link href="{{ asset('home/css/responsive.css') }}?v={{ file_exists(public_path('home/css/responsive.css')) ? filemtime(public_path('home/css/responsive.css')) : time() }}" rel="stylesheet" />
 <!-- SWEETALERT2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 

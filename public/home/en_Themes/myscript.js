@@ -60,10 +60,6 @@ $(document).ready(function () {
         $(".nav-tabs li a").removeClass("active");
     });
 
-    $(".navbar-toggle").click(function () {
-        $(".navbar-collapse").toggleClass("show");
-    });
-
     $(".search .sopen").click(function () {
         $(".searchdiv").fadeToggle("slow");
     });

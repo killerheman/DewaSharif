@@ -370,7 +370,29 @@ p {
     background-color: transparent;
     border-radius: 0;
     padding: 0;
-    border: 0
+    border: 0;
+  }
+
+  .navbar-collapse.collapse.show,
+  .navbar-collapse.collapse.in {
+    display: block !important;
+    background-color: #074121 !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    padding: 10px 15px !important;
+    margin: 0 -15px !important;
+  }
+
+  .navbar-collapse.collapsing {
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: #074121 !important;
+    transition: height 0.35s ease !important;
+  }
+
+  .dropdown.show > .dropdown-menu,
+  .dropdown-menu.show {
+    display: block !important;
   }
 
   .explorebg,

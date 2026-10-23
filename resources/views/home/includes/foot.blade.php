@@ -198,7 +198,7 @@
 <noscript class="hidden">
     Javascipt has been disabled.
 </noscript>
-<script src="{{ asset('home/en_Themes/myscript.js') }}"></script>
+<script src="{{ asset('home/en_Themes/myscript.js') }}?v={{ file_exists(public_path('home/en_Themes/myscript.js')) ? filemtime(public_path('home/en_Themes/myscript.js')) : time() }}"></script>
 <noscript class="displaynoscript">This page uses Javascript. Your browser either doesn't support Javascript or
     you have it turned off. To see this page as it is meant to appear please use a Javascript enabled
     browser.</noscript>
