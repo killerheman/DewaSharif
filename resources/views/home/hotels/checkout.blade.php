@@ -179,22 +179,25 @@
 
                             <div style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
                                 <!-- BUTTON 1: RAZORPAY ONLINE PAYMENT (DISABLED - COMING SOON) -->
-                                <button type="button" id="btnHtlPay" disabled class="btn w-100" style="background: #f1f5f9; color: #64748b; font-weight: 700; border-radius: 8px; padding: 13px; font-size: 14px; border: 1.5px dashed #cbd5e1; cursor: not-allowed; display: flex; align-items: center; justify-content: center; gap: 8px; opacity: 0.9;" title="Online Gateway verification underway. Please use UPI QR.">
-                                    <i class="fa fa-credit-card" style="font-size: 16px; color: #94a3b8;"></i>
-                                    <span>Pay Online (Razorpay / Cards) — ₹<span id="btnPayOnlineText">{{ number_format($totalPrice ?? $price) }}</span></span>
-                                    <span class="badge" style="background: #f59e0b; color: #111; font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 10px; text-transform: uppercase;">Soon</span>
+                                <button type="button" id="btnHtlPay" disabled class="btn w-100" style="background: #f1f5f9; color: #64748b; font-weight: 700; border-radius: 8px; padding: 12px 14px; font-size: 13.5px; border: 1.5px dashed #cbd5e1; cursor: not-allowed; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; opacity: 0.95; white-space: normal !important; text-align: center; box-sizing: border-box;" title="Online Gateway verification underway. Please use UPI QR.">
+                                    <i class="fa fa-credit-card" style="font-size: 16px; color: #94a3b8; flex-shrink: 0;"></i>
+                                    <span>Pay Online (Cards / NetBanking) — <span id="btnPayOnlineText">₹{{ number_format($totalPrice ?? $price) }}</span></span>
+                                    <span class="badge" style="background: #f59e0b; color: #111; font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 10px; text-transform: uppercase; margin-left: 4px; flex-shrink: 0;">Soon</span>
                                 </button>
 
                                 <!-- BUTTON 2: PHONEPE / UPI QR CODE PAYMENT (DEFAULT & PRIMARY) -->
-                                <button type="button" id="btnHtlQr" onclick="openHotelQrModal()" class="btn w-100 font-extrabold" style="background: #074121; color: #ffffff; font-weight: 800; border-radius: 8px; padding: 14px; font-size: 15px; border: none; box-shadow: 0 4px 14px rgba(7, 65, 33, 0.35); display: flex; align-items: center; justify-content: center; gap: 8px;">
-                                    <i class="fa fa-qrcode" style="font-size: 20px; color: #4ade80;"></i>
-                                    <span id="btnPayQrText">Pay via UPI QR (PhonePe / GPay / Paytm) — ₹{{ number_format($totalPrice ?? $price) }}</span>
+                                <button type="button" id="btnHtlQr" onclick="openHotelQrModal()" class="btn w-100 font-extrabold" style="background: #074121; color: #ffffff; font-weight: 800; border-radius: 8px; padding: 12px 14px; font-size: 14px; border: none; box-shadow: 0 4px 14px rgba(7, 65, 33, 0.35); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; white-space: normal !important; text-align: center; box-sizing: border-box;">
+                                    <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                                        <i class="fa fa-qrcode" style="font-size: 18px; color: #4ade80;"></i>
+                                        <span style="font-size: 14.5px; font-weight: 900;">Pay via UPI QR — <span id="btnPayQrText">₹{{ number_format($totalPrice ?? $price) }}</span></span>
+                                    </div>
+                                    <small style="font-size: 11px; opacity: 0.9; font-weight: 600; color: #dcfce7;">PhonePe • Google Pay • Paytm • BHIM</small>
                                 </button>
 
                                 <!-- BUTTON 3: DIRECT COMPANY WHATSAPP CHAT -->
-                                <button type="button" onclick="processHotelCheckoutWhatsApp()" class="btn w-100 font-extrabold" style="background: #25D366; color: #ffffff; font-weight: 800; border-radius: 8px; padding: 14px; font-size: 14.5px; border: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px;">
-                                    <i class="fa fa-whatsapp" style="font-size: 20px;"></i>
-                                    Book Hotel via WhatsApp
+                                <button type="button" onclick="processHotelCheckoutWhatsApp()" class="btn w-100 font-extrabold" style="background: #25D366; color: #ffffff; font-weight: 800; border-radius: 8px; padding: 12px 14px; font-size: 14px; border: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px; white-space: normal !important; text-align: center; box-sizing: border-box;">
+                                    <i class="fa fa-whatsapp" style="font-size: 19px; flex-shrink: 0;"></i>
+                                    <span>Book Hotel via WhatsApp</span>
                                 </button>
                             </div>
                         </div>
@@ -1041,8 +1044,8 @@
                href="upi://pay?pa=9648777223@ybl&pn=SHAHZADE%20ALAM&am={{ number_format($price, 2, '.', '') }}&cu=INR&tn=Dewa%20Sharif%20Hotel%20Booking" 
                onclick="return handleUpiClick(event)"
                class="btn w-100 font-extrabold" 
-               style="background: linear-gradient(135deg, #5f259f 0%, #3f156d 100%); color: #ffffff; border-radius: 10px; padding: 12px 14px; font-size: 13.5px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(95, 37, 159, 0.35);">
-                <i class="fa fa-mobile" style="font-size: 22px;"></i>
+               style="background: linear-gradient(135deg, #5f259f 0%, #3f156d 100%); color: #ffffff; border-radius: 10px; padding: 12px 14px; font-size: 13.5px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(95, 37, 159, 0.35); white-space: normal !important; text-align: center; flex-wrap: wrap; line-height: 1.35; box-sizing: border-box;">
+                <i class="fa fa-mobile" style="font-size: 22px; flex-shrink: 0;"></i>
                 <span>Tap to Pay <strong id="htlDirectUpiAmount">₹{{ number_format($price) }}</strong> via PhonePe / GPay</span>
             </a>
             <small style="color: #64748b; font-size: 11px; display: block; margin-top: 4px;">(If on mobile, tap above to open UPI app directly without scanning)</small>
@@ -1063,16 +1066,16 @@
 
         <!-- PRIMARY ACTION: CONFIRM BOOKING & GENERATE INVOICE -->
         <div style="margin-bottom: 12px;">
-            <button type="button" id="btnConfirmHtlQrPayment" onclick="confirmHotelQrPayment()"  style="background: #074121; color: #ffffff; width: 100% !important; font-weight: 800; border-radius: 12px; height: 50px; padding: 0 16px; font-size: 14px; border: none; box-shadow: 0 4px 14px rgba(7, 65, 33, 0.35); display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; box-sizing: border-box;">
-                <i class="fa fa-check-circle" style="font-size: 18px; color: #4ade80;"></i>
+            <button type="button" id="btnConfirmHtlQrPayment" onclick="confirmHotelQrPayment()" style="background: #074121; color: #ffffff; width: 100% !important; font-weight: 800; border-radius: 12px; min-height: 48px; height: auto; padding: 12px 14px; font-size: 14px; border: none; box-shadow: 0 4px 14px rgba(7, 65, 33, 0.35); display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; box-sizing: border-box; white-space: normal !important; text-align: center; line-height: 1.35; flex-wrap: wrap;">
+                <i class="fa fa-check-circle" style="font-size: 18px; color: #4ade80; flex-shrink: 0;"></i>
                 <span>Maine Payment Kar Diya — Confirm Booking</span>
             </button>
         </div>
 
         <!-- SECONDARY ACTION: WHATSAPP SCREENSHOT DISPATCH -->
         <div>
-            <button type="button" onclick="sendHotelQrWhatsApp()"  style="background: #25D366; color: #ffffff; width: 100% !important; font-weight: 800; border-radius: 12px; height: 50px; padding: 0 16px; font-size: 14px; border: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; box-sizing: border-box;">
-                <i class="fa fa-whatsapp" style="font-size: 19px;"></i>
+            <button type="button" onclick="sendHotelQrWhatsApp()" style="background: #25D366; color: #ffffff; width: 100% !important; font-weight: 800; border-radius: 12px; min-height: 48px; height: auto; padding: 12px 14px; font-size: 14px; border: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px; transition: all 0.2s; box-sizing: border-box; white-space: normal !important; text-align: center; line-height: 1.35; flex-wrap: wrap;">
+                <i class="fa fa-whatsapp" style="font-size: 19px; flex-shrink: 0;"></i>
                 <span>Send Screenshot on WhatsApp (Optional)</span>
             </button>
         </div>

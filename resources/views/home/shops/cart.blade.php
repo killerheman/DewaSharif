@@ -77,18 +77,19 @@
 
                     <!-- ACTION BUTTONS -->
                     <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <a href="{{ route('shops.checkout') }}" class="btn w-100" style="background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%); color: #ffffff; font-weight: 900; border-radius: 10px; padding: 14px; font-size: 15.5px; border: none; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); text-align: center; text-decoration: none;">
-                            🚀 Proceed to Checkout (Pay Online)
+                        <a href="{{ route('shops.checkout') }}" class="btn w-100" style="background: linear-gradient(135deg, #059669 0%, #10b981 50%, #047857 100%); color: #ffffff; font-weight: 900; border-radius: 10px; min-height: 48px; height: auto; padding: 12px 14px; font-size: 15px; border: none; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); text-align: center; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; white-space: normal !important; line-height: 1.35; box-sizing: border-box; flex-wrap: wrap;">
+                            <span>🚀 Proceed to Checkout (Pay Online)</span>
                         </a>
 
                         <!-- BUTTON 2: PHONEPE / UPI QR CODE PAYMENT (YELLOW WITH WHITE TEXT) -->
-                        <button type="button" onclick="openCartQrModal()" class="btn w-100 font-extrabold" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #ffffff; font-weight: 900; border-radius: 10px; padding: 14px; font-size: 15px; border: none; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45); display: flex; align-items: center; justify-content: center; gap: 8px; text-shadow: 0 1px 2px rgba(0,0,0,0.25);">
-                            <i class="fa fa-qrcode" style="font-size: 20px;"></i>
-                            Pay via QR (PhonePe / GPay / Paytm)
+                        <button type="button" onclick="openCartQrModal()" class="btn w-100 font-extrabold" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #ffffff; font-weight: 900; border-radius: 10px; min-height: 48px; height: auto; padding: 12px 14px; font-size: 14.5px; border: none; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45); display: flex; align-items: center; justify-content: center; gap: 8px; text-shadow: 0 1px 2px rgba(0,0,0,0.25); white-space: normal !important; text-align: center; line-height: 1.35; box-sizing: border-box; flex-wrap: wrap;">
+                            <i class="fa fa-qrcode" style="font-size: 20px; flex-shrink: 0;"></i>
+                            <span>Pay via QR (PhonePe / GPay / Paytm)</span>
                         </button>
 
-                        <button type="button" onclick="checkoutWhatsAppOrder()" class="btn w-100" style="background: #25D366; color: #ffffff; font-weight: 900; border-radius: 10px; padding: 13px; font-size: 14.5px; border: none; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35); display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            <i class="fa fa-whatsapp" style="font-size: 19px;"></i> Order via WhatsApp Direct
+                        <button type="button" onclick="checkoutWhatsAppOrder()" class="btn w-100" style="background: #25D366; color: #ffffff; font-weight: 900; border-radius: 10px; min-height: 48px; height: auto; padding: 12px 14px; font-size: 14.5px; border: none; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35); display: flex; align-items: center; justify-content: center; gap: 8px; white-space: normal !important; text-align: center; line-height: 1.35; box-sizing: border-box; flex-wrap: wrap;">
+                            <i class="fa fa-whatsapp" style="font-size: 19px; flex-shrink: 0;"></i>
+                            <span>Order via WhatsApp Direct</span>
                         </button>
                     </div>
 
@@ -504,8 +505,8 @@
             <a id="cartDirectUpiBtn" 
                href="upi://pay?pa=9648777223@ybl&pn=SHAHZADE%20ALAM&cu=INR&tn=Dewa%20Sharif%20Store%20Cart" 
                class="btn w-100 font-extrabold" 
-               style="background: linear-gradient(135deg, #5f259f 0%, #3f156d 100%); color: #ffffff; border-radius: 10px; padding: 12px 14px; font-size: 13.5px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(95, 37, 159, 0.35);">
-                <i class="fa fa-mobile" style="font-size: 22px;"></i>
+               style="background: linear-gradient(135deg, #5f259f 0%, #3f156d 100%); color: #ffffff; border-radius: 10px; padding: 12px 14px; font-size: 13.5px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(95, 37, 159, 0.35); white-space: normal !important; text-align: center; flex-wrap: wrap; line-height: 1.35; box-sizing: border-box;">
+                <i class="fa fa-mobile" style="font-size: 22px; flex-shrink: 0;"></i>
                 <span>Tap to Pay <strong id="cartDirectUpiAmount">₹0</strong> via PhonePe / GPay</span>
             </a>
             <small style="color: #64748b; font-size: 11px; display: block; margin-top: 4px;">(If on mobile, tap above to open UPI app directly without scanning)</small>
@@ -543,9 +544,9 @@
 
         <!-- SINGLE ACTION BUTTON IN MODAL -->
         <div>
-            <button type="button" onclick="sendCartQrWhatsApp()" class="btn w-100 font-extrabold" style="background: #25D366; color: #ffffff; font-weight: 900; border-radius: 10px; padding: 15px; font-size: 15px; border: none; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <i class="fa fa-whatsapp" style="font-size: 22px;"></i>
-                Send Screenshot &amp; Confirm on WhatsApp
+            <button type="button" onclick="sendCartQrWhatsApp()" class="btn w-100 font-extrabold" style="background: #25D366; color: #ffffff; font-weight: 900; border-radius: 10px; min-height: 48px; height: auto; padding: 12px 14px; font-size: 14px; border: none; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); display: flex; align-items: center; justify-content: center; gap: 8px; white-space: normal !important; text-align: center; line-height: 1.35; flex-wrap: wrap; box-sizing: border-box;">
+                <i class="fa fa-whatsapp" style="font-size: 20px; flex-shrink: 0;"></i>
+                <span>Send Screenshot &amp; Confirm on WhatsApp</span>
             </button>
         </div>
 

@@ -668,19 +668,19 @@
                                 <div>
                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                         <div class="d-flex align-items-center gap-1">
-                                            <span style="color: #f59e0b; font-size: 15px;">
+                                            <span style="color: #f59e0b; font-size: 15px; white-space: nowrap !important; display: inline-flex; align-items: center; letter-spacing: 2px;">
                                                 @for($i = 1; $i <= 5; $i++)
                                                     {{ $i <= $rev->rating ? '★' : '☆' }}
                                                 @endfor
                                             </span>
-                                            <strong style="font-size: 13px; color: #0f172a; margin-left: 4px;">{{ $rev->rating }}.0</strong>
+                                            <strong style="font-size: 13px; color: #0f172a; margin-left: 4px; white-space: nowrap;">{{ $rev->rating }}.0</strong>
                                         </div>
                                         <small style="color: #94a3b8; font-size: 11.5px;">{{ date('d M Y', strtotime($rev->created_at ?? now())) }}</small>
                                     </div>
                                     @if(!empty($rev->title))
                                         <h6 style="font-weight: 800; color: #0f172a; margin-bottom: 6px; font-size: 14.5px;">{{ $rev->title }}</h6>
                                     @endif
-                                    <p style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 10px;">
+                                    <p style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 10px; text-align: left !important; word-break: break-word;">
                                         "{{ $rev->comment }}"
                                     </p>
                                 </div>

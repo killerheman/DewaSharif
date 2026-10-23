@@ -11,12 +11,12 @@
 
             <div class="col-lg-9 col-md-8">
                 <div style="background: #ffffff; border-radius: 16px; border: 1.5px solid #e2e8f0; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
-                    <div class="d-flex justify-content-between align-items-center mb-4 pb-2" style="border-bottom: 1px solid #f1f5f9;">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap mb-4 pb-2" style="border-bottom: 1px solid #f1f5f9; gap: 10px;">
                         <div>
                             <h4 style="font-weight: 900; color: #0f172a; margin: 0; font-size: 22px;">⭐ My Reviews &amp; Ratings</h4>
                             <small class="text-muted">Manage your personal feedback across Sacred Products, Hotels &amp; Cabs</small>
                         </div>
-                        <span class="badge bg-light text-dark border px-3 py-2 rounded-pill font-weight-bold">
+                        <span class="badge bg-light text-dark border px-3 py-2 rounded-pill font-weight-bold" style="white-space: nowrap; flex-shrink: 0; font-size: 13px;">
                             Total: {{ count($myReviews) }} Reviews
                         </span>
                     </div>
@@ -30,7 +30,7 @@
 
                     @forelse($myReviews as $rev)
                         <div style="background: #ffffff; border-radius: 14px; border: 1.5px solid #e2e8f0; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 16px;">
-                            <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                            <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2" style="gap: 8px;">
                                 <div>
                                     @if($rev->service_type === 'shop')
                                         <span style="font-size: 11px; font-weight: 800; color: #166534; background: #dcfce7; padding: 3px 10px; border-radius: 6px;">
@@ -50,15 +50,15 @@
                                         {{ $rev->item_name ?? 'Sacred Offering' }}
                                     </h5>
                                     
-                                    <div class="d-flex align-items-center gap-2 mb-2">
-                                        <span style="color: #f59e0b; font-size: 16px;">
+                                    <div class="d-flex align-items-center flex-wrap mb-2" style="gap: 8px;">
+                                        <span style="color: #f59e0b; font-size: 16px; white-space: nowrap !important; display: inline-flex; align-items: center; letter-spacing: 2px;">
                                             @for($i = 1; $i <= 5; $i++)
                                                 {{ $i <= $rev->rating ? '★' : '☆' }}
                                             @endfor
                                         </span>
-                                        <strong style="font-size: 13px; color: #334155;">{{ $rev->rating }}.0</strong>
+                                        <strong style="font-size: 13px; color: #334155; white-space: nowrap;">{{ $rev->rating }}.0</strong>
                                         @if(!empty($rev->title))
-                                            <span style="font-size: 13.5px; font-weight: 800; color: #0f172a; margin-left: 6px;">"{{ $rev->title }}"</span>
+                                            <span style="font-size: 13.5px; font-weight: 800; color: #0f172a; margin-left: 2px;">"{{ $rev->title }}"</span>
                                         @endif
                                     </div>
                                 </div>
@@ -73,21 +73,21 @@
                                 </div>
                             </div>
 
-                            <p style="font-size: 14px; color: #475569; line-height: 1.5; margin-bottom: 14px; background: #f8fafc; padding: 12px; border-radius: 8px;">
+                            <p style="font-size: 14px; color: #475569; line-height: 1.5; margin-bottom: 14px; background: #f8fafc; padding: 12px; border-radius: 8px; text-align: left !important; word-break: break-word;">
                                 "{{ $rev->comment }}"
                             </p>
 
-                            <div class="d-flex justify-content-end gap-2">
+                            <div class="d-flex justify-content-end align-items-center flex-wrap" style="gap: 8px;">
                                 <!-- Edit Button Trigger Modal -->
-                                <button type="button" class="btn btn-sm btn-outline-primary font-weight-bold px-3" data-toggle="modal" data-target="#editMyRev{{ $rev->id }}" style="border-radius: 6px;">
+                                <button type="button" class="btn btn-sm btn-outline-primary font-weight-bold px-3" data-toggle="modal" data-target="#editMyRev{{ $rev->id }}" style="border-radius: 6px; white-space: nowrap;">
                                     <i class="fa fa-pencil"></i> Edit Review
                                 </button>
 
                                 <!-- Delete Form -->
-                                <form action="{{ route('customer.reviews.destroy', $rev->id) }}" method="POST" onsubmit="return confirm('Do you really want to delete your review?');" class="d-inline">
+                                <form action="{{ route('customer.reviews.destroy', $rev->id) }}" method="POST" onsubmit="return confirm('Do you really want to delete your review?');" class="d-inline" style="margin: 0;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger font-weight-bold px-3" style="border-radius: 6px;">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger font-weight-bold px-3" style="border-radius: 6px; white-space: nowrap;">
                                         <i class="fa fa-trash"></i> Delete
                                     </button>
                                 </form>
