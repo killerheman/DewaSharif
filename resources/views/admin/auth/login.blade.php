@@ -10,8 +10,8 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Glassmorphism Auth CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/glass-auth.css') }}">
+    <!-- Glassmorphism Auth CSS (with auto-versioning for instant cache-busting) -->
+    <link rel="stylesheet" href="{{ asset('assets/css/glass-auth.css') }}?v={{ file_exists(public_path('assets/css/glass-auth.css')) ? filemtime(public_path('assets/css/glass-auth.css')) : time() }}">
 @endsection
 
 @section('content')
