@@ -85,18 +85,18 @@
 
                 <!-- 1. CAB BOOKING BUTTON -->
                 <a href="{{ route('cabs') }}"
-                    style="background: linear-gradient(135deg, #cab706ff 0%, #cab706ff 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    style="background: linear-gradient(135deg, #ffe01b 0%, #f59e0b 50%, #d97706 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.45); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
                     onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
                     <i class="fa fa-taxi" style="font-size: 20px; flex-shrink: 0;"></i>
                     <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
                         <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;">BOOK CABS</span>
-                        <span style="font-size: 11px; font-weight: 500; opacity: 0.95; letter-spacing: 0.3px; color: #ffffff;">24×7 Service</span>
+                        <span style="font-size: 11px; font-weight: 600; opacity: 0.98; letter-spacing: 0.3px; color: #ffffff;">24×7 Service</span>
                     </div>
                 </a>
 
-                <!-- 2. HOTEL BOOKING BUTTON -->
+                <!-- 2. HOTEL BOOKING BUTTON (NAVY GRADIENT) -->
                 <a href="{{ route('hotels') }}"
-                    style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(5, 150, 105, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    style="background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 50%, #0f172a 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
                     onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
                     <i class="fa fa-bed" style="font-size: 20px; flex-shrink: 0;"></i>
                     <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
@@ -107,12 +107,24 @@
 
                 <!-- 3. DEGH NIYAZ BOOKING BUTTON -->
                 <a href="{{ route('shops.category', 'degh') }}"
-                    style="background: linear-gradient(135deg, #cf3f06ff 0%, #c2410c 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    style="background: linear-gradient(135deg, #ea580c 0%, #c2410c 50%, #991b1b 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
                     onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
                     <i class="fa fa-cutlery" style="font-size: 19px; flex-shrink: 0;"></i>
                     <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
                         <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;">BOOK DEGH NIYAZ</span>
                         <span style="font-size: 11px; font-weight: 500; opacity: 0.95; letter-spacing: 0.3px; color: #ffffff;">Tabarruk</span>
+                    </div>
+                </a>
+
+                <!-- 4. WHATSAPP CHAT BUTTON -->
+                <a href="https://wa.me/919648777223?text={{ urlencode('Assalamu Alaikum! Mujhe Dewa Sharif Ziyarat, Hotels, Cabs aur Tabarruk ke baare me jaankari chahiye.') }}"
+                    target="_blank" rel="noopener"
+                    style="background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa fa-whatsapp" style="font-size: 21px; flex-shrink: 0;"></i>
+                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
+                        <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;"> WHATSAPP</span>
+                        <span style="font-size: 11px; font-weight: 500; opacity: 0.95; letter-spacing: 0.3px; color: #ffffff;">Support</span>
                     </div>
                 </a>
 
