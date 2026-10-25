@@ -47,7 +47,7 @@
             <div style="font-size: 15.5px; font-weight: 800; line-height: 1.6; color: #fde047; transition: color 0.3s ease; cursor: pointer; padding: 6px 4px 2px 4px; text-shadow: 0 1px 4px rgba(0,0,0,0.8); word-wrap: break-word;"
                 onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#fde047';"
                 ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#fde047';">
-                🌹 <strong>Hazrat Sayyad Haji Waris Ali Shah (r.a) KUL</strong> — <span style="color: #ffffff; font-weight: 900;">31 October 2026</span> <span style="color: #86efac; font-size: 13px; font-weight: 700;">(Subah 4:13 AM)</span>
+                ✨ <strong>Hazrat Sayyad Haji Waris Ali Shah (r.a) KUL</strong> — <span style="color: #ffffff; font-weight: 900;">31 October 2026</span> <span style="color: #86efac; font-size: 13px; font-weight: 700;">(Subah 4:13 AM)</span>
             </div>
 
         </div>
