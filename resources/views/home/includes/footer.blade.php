@@ -39,7 +39,7 @@
                             </li>
                             <li>
                                 <div class="icon"><img src="{{ asset('home/images/f_i_1.png') }}" alt="Phone" /></div>
-                                <div class="text"><a href="tel:{{ preg_replace('/[^\d+]/', '', $sitePhone) }}">{{ $sitePhone }}</a></div>
+                                <div class="text"><a href="tel:{{ preg_replace('/[^\d+]/', '', $sitePhone) }}">Call: {{ $sitePhone }}</a></div>
                             </li><br>
                             <li>
                                 <div class="icon"><img src="{{ asset('home/images/f_i_1.png') }}" alt="WhatsApp" /></div>
