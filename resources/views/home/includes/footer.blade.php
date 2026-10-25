@@ -1,9 +1,13 @@
 @php
     $curSetting = $setting ?? new \App\Models\Setting();
-    $sitePhone = ($curSetting->website_phone ?? null) ?: (($curSetting->phone ?? null) ?: (($curSetting->support_phone ?? null) ?: '+91 9648777223'));
-    $siteWhatsapp = ($curSetting->whatsapp ?? null) ?: $sitePhone;
-    $siteEmail = ($curSetting->website_email ?? null) ?: (($curSetting->company_email ?? null) ?: 'info@dewasharif.com');
-    $siteAddress = ($curSetting->address ?? null) ?: 'Town Dewa Sharif, Barabanki, Uttar Pradesh - 225301, India';
+    $sitePhone =
+        $curSetting->website_phone ?? null ?:
+        ($curSetting->phone ?? null ?:
+        ($curSetting->support_phone ?? null ?:
+        '+91 9648777223'));
+    $siteWhatsapp = $curSetting->whatsapp ?? null ?: $sitePhone;
+    $siteEmail = $curSetting->website_email ?? null ?: ($curSetting->company_email ?? null ?: 'info@dewasharif.com');
+    $siteAddress = $curSetting->address ?? null ?: 'Town Dewa Sharif, Barabanki, Uttar Pradesh - 225301, India';
     $siteWhatsappDigits = preg_replace('/\D+/', '', $siteWhatsapp);
     if (strlen($siteWhatsappDigits) === 10) {
         $cleanWaDigits = '91' . $siteWhatsappDigits;
@@ -31,22 +35,27 @@
                         <ul class="connect_new">
                             <li class="widget_contacts_address">
                                 <div class="icon"><img src="{{ asset('home/images/f_i_1.png') }}"
-                                        alt="Dewa Sharif Location" /></div>
+                                        alt="Dewa Sharif Location" style="width: 26px; height: auto;" /></div>
                                 <div class="text">
                                     <strong>Dargah Hazrat Waris Ali Shah</strong><br>
                                     {{ $siteAddress }}
                                 </div>
                             </li>
                             <li>
-                                <div class="icon"><img src="{{ asset('home/images/f_i_1.png') }}" alt="Phone" /></div>
-                                <div class="text"><a href="tel:{{ preg_replace('/[^\d+]/', '', $sitePhone) }}">Call: {{ $sitePhone }}</a></div>
-                            </li><br>
+                                <div class="icon"><img src="{{ asset('home/images/f_i_3.png') }}" alt="WhatsApp"
+                                        style="width: 26px; height: auto;" /></div>
+                                <div class="text"><a href="https://wa.me/{{ $cleanWaDigits }}" target="_blank"
+                                        rel="noopener">WhatsApp: {{ $siteWhatsapp }}</a></div>
+                            </li>
                             <li>
-                                <div class="icon"><img src="{{ asset('home/images/f_i_1.png') }}" alt="WhatsApp" /></div>
-                                <div class="text"><a href="https://wa.me/{{ $cleanWaDigits }}" target="_blank" rel="noopener">WhatsApp: {{ $siteWhatsapp }}</a></div>
-                            </li><br>
+                                <div class="icon"><img src="{{ asset('home/images/f_i_4.png') }}" alt="Phone"
+                                        style="width: 26px; height: auto;" /></div>
+                                <div class="text"><a href="tel:{{ preg_replace('/[^\d+]/', '', $sitePhone) }}">Call:
+                                        {{ $sitePhone }}</a></div>
+                            </li>
                             <li>
-                                <div class="icon"><img src="{{ asset('home/images/f_i_2.png') }}" alt="Email" /></div>
+                                <div class="icon"><img src="{{ asset('home/images/f_i_2.png') }}" alt="Email"
+                                        style="width: 26px; height: auto;" /></div>
                                 <div class="text">
                                     <a href="mailto:{{ $siteEmail }}" class="local">{{ $siteEmail }}</a>
                                 </div>
@@ -81,11 +90,11 @@
                                 <h3 class="footer-heading">Services &amp; Stay</h3>
                                 <ul class="f-link">
                                     <li><a href="{{ route('hotels') }}">Hotels &amp; Guest House</a></li>
-                                        <li><a href="https://wa.me/{{ $siteWhatsappDigits }}?text=Assalam%20Alaikum,%20Mujhe%20Dewa%20Sharif%20me%20Cab%20Taxi%20booking%20chahiye"
+                                    <li><a href="https://wa.me/{{ $siteWhatsappDigits }}?text=Assalam%20Alaikum,%20Mujhe%20Dewa%20Sharif%20me%20Cab%20Taxi%20booking%20chahiye"
                                             target="_blank" rel="noopener">Lucknow - Dewa Cab</a></li>
-                                        <li><a href="https://wa.me/{{ $siteWhatsappDigits }}?text=Assalam%20Alaikum,%20Mujhe%20Biryani%20Degh%20aur%20Chadar%20peshi%20karwani%20hai"
+                                    <li><a href="https://wa.me/{{ $siteWhatsappDigits }}?text=Assalam%20Alaikum,%20Mujhe%20Biryani%20Degh%20aur%20Chadar%20peshi%20karwani%20hai"
                                             target="_blank" rel="noopener">Degh Niyaz &amp; Chadar</a></li>
-                                        <li><a href="https://wa.me/{{ $siteWhatsappDigits }}?text=Assalam%20Alaikum,%20Mujhe%20Warsi%20Attar%20aur%20Tasbih%20chahiye"
+                                    <li><a href="https://wa.me/{{ $siteWhatsappDigits }}?text=Assalam%20Alaikum,%20Mujhe%20Warsi%20Attar%20aur%20Tasbih%20chahiye"
                                             target="_blank" rel="noopener">Warsi Attar &amp; Tasbih</a></li>
                                     <li><a href="{{ route('mela') }}">Dewa Mela 2026 Dates</a></li>
                                     <li><a href="{{ route('langarkhana') }}">Langarkhana &amp; Tabarruk</a></li>
@@ -142,19 +151,28 @@
                         <div
                             style="background: rgba(0, 0, 0, 0.45); border-left: 3px solid #ffeb3b; padding: 10px 14px; margin: 12px 0; border-radius: 4px;">
                             <p style="margin: 0; line-height: 1.6; font-size: 12px; color: #f0f0f0;">
-                                <strong style="color: #ffeb3b;">LEGAL NOTICE &amp; INTERMEDIARY DISCLAIMER:</strong> This is a
+                                <strong style="color: #ffeb3b;">LEGAL NOTICE &amp; INTERMEDIARY DISCLAIMER:</strong>
+                                This is a
                                 privately run, independent community facilitation portal. It is <strong>NOT</strong> an
                                 official portal of, nor run by, nor affiliated with the <strong>Official Dargah
                                     Committee, Trust, Waqf Board, or any Government Administration</strong>. We do not
                                 claim official authority nor collect any official religious donations on their behalf.
                             </p>
                             <p style="margin: 6px 0 0 0; line-height: 1.5; font-size: 11.5px; color: #fef08a;">
-                                <strong>Service Facilitation &amp; Statutory Immunity:</strong> DewaSharif.com operates as an electronic intermediary under Section 79 of the IT Act, 2000. Hotels and Cabs operate independently. Physical premises safety, guest ledger entry under Sarai Act / police rules, and vehicular transit safety are the sole responsibility of respective hotel owners and licensed cab drivers. DewaSharif.com bears zero civil or criminal liability for third-party conduct or mishaps.
+                                <strong>Service Facilitation &amp; Statutory Immunity:</strong> DewaSharif.com operates
+                                as an electronic intermediary under Section 79 of the IT Act, 2000. Hotels and Cabs
+                                operate independently. Physical premises safety, guest ledger entry under Sarai Act /
+                                police rules, and vehicular transit safety are the sole responsibility of respective
+                                hotel owners and licensed cab drivers. DewaSharif.com bears zero civil or criminal
+                                liability for third-party conduct or mishaps.
                             </p>
                             <p style="margin: 6px 0 0 0; line-height: 1.5; font-size: 11.5px; color: #00e676;">
-                                <strong>Grievance &amp; Law Enforcement Contact:</strong> All services are facilitated in
-                                good faith for visitor convenience. If any administrative authority, law enforcement agency, trust, or individual has any
-                                inquiry or concern, please write to us immediately at our direct email for prompt cooperation within 24 to 48 hours.
+                                <strong>Grievance &amp; Law Enforcement Contact:</strong> All services are facilitated
+                                in
+                                good faith for visitor convenience. If any administrative authority, law enforcement
+                                agency, trust, or individual has any
+                                inquiry or concern, please write to us immediately at our direct email for prompt
+                                cooperation within 24 to 48 hours.
                             </p>
                         </div>
 
@@ -163,39 +181,44 @@
                             <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener"
                                 title="Follow on Instagram"
                                 style="display:inline-block; transition: transform 0.2s ease, filter 0.2s ease;"
-                                onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
-                                    alt="Instagram" style="width:36px; height:36px; border-radius: 9px; vertical-align: middle;">
+                                    alt="Instagram"
+                                    style="width:36px; height:36px; border-radius: 9px; vertical-align: middle;">
                             </a>
 
                             <a href="https://wa.me/{{ $cleanWaDigits }}" target="_blank" rel="noopener"
                                 title="Chat on WhatsApp ({{ $siteWhatsapp }})"
                                 style="display:inline-block; transition: transform 0.2s ease, filter 0.2s ease;"
-                                onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-                                <img src="{{ asset('home/images/whatsapp.svg') }}" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'"
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'">
+                                <img src="{{ asset('home/images/whatsapp.svg') }}"
+                                    onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'"
                                     alt="WhatsApp" style="width:36px; height:36px; vertical-align: middle;">
                             </a>
 
-                            <a href="mailto:{{ $siteEmail }}"
-                                title="Send Email ({{ $siteEmail }})"
+                            <a href="mailto:{{ $siteEmail }}" title="Send Email ({{ $siteEmail }})"
                                 target="_blank" rel="noopener"
                                 style="display:inline-block; transition: transform 0.2s ease, filter 0.2s ease;"
-                                onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                onmouseover="this.style.transform='scale(1.1)'"
+                                onmouseout="this.style.transform='scale(1)'">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
                                     alt="Email" style="width:36px; height:36px; vertical-align: middle;">
                             </a>
                         </div>
 
                         <strong style="color: #ffffff;">Direct Email for Inquiries &amp; Grievances:</strong>
-                        <a href="mailto:{{ $siteEmail }}" target="_blank"
-                            rel="noopener" class="color-toggle-yellow footer-link">
+                        <a href="mailto:{{ $siteEmail }}" target="_blank" rel="noopener"
+                            class="color-toggle-yellow footer-link">
                             {{ $siteEmail }}
                         </a>
 
                         <!-- High Visibility Update Line -->
                         <p class="mt-2 color-toggle-green"
                             style="font-size: 14px; font-weight: 700; letter-spacing: 0.4px; margin-top: 10px; cursor: pointer;">
-                            Last Updated On: 19 October 2026 7:07 PM <br> Portal Focus: Dewa Sharif Visitor Guidance &amp;
+                            Last Updated On: 26 October 2026 1:44 AM <br> Portal Focus: Dewa Sharif Visitor Guidance
+                            &amp;
                             Universal Peace
                         </p>
                     </div>
@@ -229,7 +252,7 @@
                             &copy; 2026
                             <strong>
                                 <a href="https://dewasharif.com/" class="color-toggle-yellow footer-link">
-                                   www.dewasharif.com
+                                    www.dewasharif.com
                                 </a>
                             </strong>.
                             (Independent Private Portal). All Rights Reserved.
@@ -240,8 +263,8 @@
                         <span>
                             Designed &amp; Managed by
                             <strong>
-                                <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener"
-                                    class="color-toggle-green footer-link">
+                                <a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank"
+                                    rel="noopener" class="color-toggle-green footer-link">
                                     Shahzade Alam/Masharrat Warsi
                                 </a>
                             </strong>
@@ -444,11 +467,11 @@
         cursor: pointer !important;
         width: 100% !important;
         min-width: 170px !important;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.15) !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
     }
 
     #google_translate_element .goog-te-gadget {
-        color: rgba(255,255,255,0.7) !important;
+        color: rgba(255, 255, 255, 0.7) !important;
         font-size: 11px !important;
         line-height: 1.4 !important;
     }
@@ -463,6 +486,7 @@
             padding-right: 15px !important;
             box-sizing: border-box !important;
         }
+
         .footer-column {
             padding: 20px 10px !important;
         }
