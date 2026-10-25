@@ -85,26 +85,35 @@
 
                 <!-- 1. CAB BOOKING BUTTON -->
                 <a href="{{ route('cabs') }}"
-                    style="background: linear-gradient(135deg, #cab706ff 0%, #cab706ff 100%); color: #ffffff; min-width: 210px; height: 48px; border-radius: 10px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.45); font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    style="background: linear-gradient(135deg, #cab706ff 0%, #cab706ff 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
                     onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa fa-taxi" style="font-size: 19px;"></i>
-                    <span>BOOK CABS</span>
+                    <i class="fa fa-taxi" style="font-size: 20px; flex-shrink: 0;"></i>
+                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
+                        <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;">BOOK CABS</span>
+                        <span style="font-size: 11px; font-weight: 500; opacity: 0.95; letter-spacing: 0.3px; color: #ffffff;">24×7 Service</span>
+                    </div>
                 </a>
 
                 <!-- 2. HOTEL BOOKING BUTTON -->
                 <a href="{{ route('hotels') }}"
-                    style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: #ffffff; min-width: 210px; height: 48px; border-radius: 10px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(5, 150, 105, 0.45); font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(5, 150, 105, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
                     onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa fa-bed" style="font-size: 19px;"></i>
-                    <span>BOOK HOTELS</span>
+                    <i class="fa fa-bed" style="font-size: 20px; flex-shrink: 0;"></i>
+                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
+                        <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;">BOOK HOTELS</span>
+                        <span style="font-size: 11px; font-weight: 500; opacity: 0.95; letter-spacing: 0.3px; color: #ffffff;">24×7 Service</span>
+                    </div>
                 </a>
 
                 <!-- 3. DEGH NIYAZ BOOKING BUTTON -->
                 <a href="{{ route('shops.category', 'degh') }}"
-                    style="background: linear-gradient(135deg, #cf3f06ff 0%, #c2410c 100%); color: #ffffff; min-width: 210px; height: 48px; border-radius: 10px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.45); font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    style="background: linear-gradient(135deg, #cf3f06ff 0%, #c2410c 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
                     onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa fa-cutlery" style="font-size: 18px;"></i>
-                    <span>BOOK DEGH NIYAZ</span>
+                    <i class="fa fa-cutlery" style="font-size: 19px; flex-shrink: 0;"></i>
+                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
+                        <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;">BOOK DEGH NIYAZ</span>
+                        <span style="font-size: 11px; font-weight: 500; opacity: 0.95; letter-spacing: 0.3px; color: #ffffff;">Tabarruk</span>
+                    </div>
                 </a>
 
             </div>
