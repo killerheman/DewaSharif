@@ -538,6 +538,179 @@
                 @endforelse
             </div>
 
+            <!-- DEWA SHARIF CABS & TAXI SERVICE — SEO EDITORIAL & PILGRIM TRAVEL GUIDE -->
+            <div class="cab-guide-card" style="background: #ffffff; border-radius: 16px; padding: 34px 28px; margin-top: 45px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1.5px solid #e2e8f0; box-sizing: border-box;">
+
+                <!-- Section Header -->
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+                    <span style="background: #dcfce7; color: #166534; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                        🚕 Pilgrim Travel Guide &amp; Transport Overview
+                    </span>
+                    <span style="background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px;">
+                        ⭐ 24×7 Dedicated Fleet
+                    </span>
+                </div>
+
+                <h2 style="font-size: 25px; font-weight: 900; color: #074121; margin: 0 0 14px 0; line-height: 1.35; letter-spacing: -0.3px;">
+                    Welcome to Dewa Sharif Cab &amp; Taxi Services — Safe &amp; Reliable Pilgrim Transit
+                </h2>
+
+                <p style="font-size: 14.5px; color: #334155; line-height: 1.8; margin-bottom: 24px;">
+                    Looking for a reliable, safe, and comfortable ride in and around <strong>Dewa Sharif, Barabanki</strong>? You have arrived at the right portal! Whether you are undertaking a sacred pilgrimage to the world-renowned shrine of <strong>Dargah Hazrat Waris Ali Shah (R.A.)</strong>, arriving via <strong>Lucknow Chaudhary Charan Singh International Airport (LKO)</strong> or <strong>Charbagh Railway Station</strong>, or planning an outstation journey across Uttar Pradesh, our dedicated taxi facilitation service ensures a seamless, hassle-free travel experience. With transparent fixed fares, real-time fare calculators, zero surge pricing during peak religious days, and 24/7 coordinator assistance, your journey remains smooth, dignified, and peaceful.
+                </p>
+
+                <!-- Key Features Grid -->
+                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
+                    <span>✨</span> Key Features of Our Cab &amp; Transport Services
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 28px;">
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #16a34a; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #166534; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>✔</span> Instant Fixed Fare Calculation
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Easily calculate transparent estimated fares for popular routes like Dewa Sharif to Lucknow Airport, Charbagh Station, or local shrine sightseeing. No hidden toll shocks, driver extortion, or surge multipliers.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #92400e; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>✔</span> Custom Outstation &amp; Local Routes
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Need a personalized trip? Simply input your custom pickup landmark (guest house, hotel, residence) and destination to connect instantly with our coordination desk via WhatsApp for verified drivers and custom quotes.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #2563eb; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #1e40af; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>✔</span> Goods &amp; Luggage Transport (Dala)
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Along with passenger cabs, we also facilitate specialized commercial vehicles (such as Pickup-Dala, mini vans, and carriers) for safe transit of large luggage, Langar provisions, and sacred Degh supplies.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #dc2626; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #991b1b; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>✔</span> Well-Maintained &amp; Sanitized Fleet
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Choose from a wide variety of comfortable vehicles including Maruti Swift Dzire (Sedan), 7-seater Maruti Ertiga (MPV), spacious SUVs (Innova / Scorpio), and local E-Rickshaws tailored for shrine visitor ease.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Popular Route Distance & Travel Matrix -->
+                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 14px 0; display: flex; align-items: center; gap: 8px;">
+                    <span>📍</span> Popular Route Distances &amp; Estimated Travel Times
+                </h3>
+
+                <div style="overflow-x: auto; margin-bottom: 28px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; min-width: 580px;">
+                        <thead>
+                            <tr style="background: #074121; color: #ffffff;">
+                                <th style="padding: 12px 16px; font-weight: 800;">Route Overview</th>
+                                <th style="padding: 12px 16px; font-weight: 800;">Distance (approx)</th>
+                                <th style="padding: 12px 16px; font-weight: 800;">Est. Transit Time</th>
+                                <th style="padding: 12px 16px; font-weight: 800;">Suggested Vehicle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Lucknow Airport (CCS - LKO) ➔ Dewa Sharif</td>
+                                <td style="padding: 12px 16px; color: #475569;">~45 km via Shaheed Path &amp; Mati Rd</td>
+                                <td style="padding: 12px 16px; color: #475569;">1 hr 15 mins</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">AC Sedan (Dzire) / MPV (Ertiga)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Lucknow Charbagh Railway Station ➔ Dewa Sharif</td>
+                                <td style="padding: 12px 16px; color: #475569;">~38 km via Chinhat - Dewa Rd</td>
+                                <td style="padding: 12px 16px; color: #475569;">1 hr 00 mins</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">AC Sedan / Ertiga / Auto</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Barabanki Junction ➔ Dewa Sharif Dargah</td>
+                                <td style="padding: 12px 16px; color: #475569;">~14 km direct highway route</td>
+                                <td style="padding: 12px 16px; color: #475569;">25 mins</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Local Taxi / Auto / E-Rickshaw</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Dewa Sharif ➔ Ayodhya Dham (Ram Mandir / Hanumangarhi)</td>
+                                <td style="padding: 12px 16px; color: #475569;">~135 km via NH 27</td>
+                                <td style="padding: 12px 16px; color: #475569;">2 hrs 45 mins</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Spacious Ertiga / Innova SUV</td>
+                            </tr>
+                            <tr style="background: #ffffff;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Dewa Sharif ➔ Kichhouchha Sharif Dargah</td>
+                                <td style="padding: 12px 16px; color: #475569;">~210 km via Purvanchal Exp / NH 27</td>
+                                <td style="padding: 12px 16px; color: #475569;">4 hrs 15 mins</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Family MPV (Ertiga / Innova)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Urs & Dewa Mela Travel Advisory -->
+                <div style="background: #fefce8; border: 1.5px solid #fef08a; border-radius: 12px; padding: 20px 22px; margin-bottom: 28px;">
+                    <h3 style="font-size: 17.5px; font-weight: 900; color: #854d0e; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
+                        <span>🏮</span> Dewa Mela &amp; Urs Sharif Travel Advisory (Tips for Devotees)
+                    </h3>
+                    <p style="font-size: 13.5px; color: #713f12; line-height: 1.7; margin: 0;">
+                        During the annual 10-day <strong>Dewa Mela &amp; Urs celebrations</strong> (Kartik Purnima period and Safar Urs), police traffic diversions are active around Barabanki and Dewa town perimeter. Private passenger vehicles and auto-rickshaws have designated parking grounds near the outer bypass. We strongly recommend pre-booking your round-trip cab service at least 24 hours in advance to secure priority pickup points and avoid last-minute festival congestion.
+                    </p>
+                </div>
+
+                <!-- Frequently Asked Questions (SEO / AdSense Q&A Schema Friendly) -->
+                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
+                    <span>❓</span> Frequently Asked Questions (Cab Booking FAQs)
+                </h3>
+
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q1: Can I book a cab from Lucknow Airport to Dewa Sharif late at night?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Yes, our coordination team operates 24×7. Even if your flight arrives past midnight at Chaudhary Charan Singh International Airport (Terminal 1, 2, or 3), our verified cab driver will be arranged with live flight status tracking for a hassle-free, secure pickup.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q2: Are driver night charges or highway toll taxes included in the fare?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Our automated fare calculator and WhatsApp confirmations clearly state all trip parameters. Fixed route bookings provide clear transparency on toll, state taxes, and parking so you never face hidden surprises or extortion during transit.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q3: How do I book a specialized commercial vehicle (Pickup-Dala) for Langar or Degh provisions?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            If you are carrying large quantities of grain, food provisions, or big metallic cooking pots (Degh) for charity distribution at the shrine, simply reach out to our WhatsApp coordination desk. We arrange dedicated open/closed body Pickup carriers with loading assistance.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q4: Can we book multi-day round trips covering Dewa Sharif, Lucknow sightseeing &amp; Ayodhya?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Absolutely! We facilitate tailored multi-day pilgrim circuits covering Dewa Sharif, Hazrat Qurban Ali Shah (R.A.) shrine, Lucknow historical landmarks (Bara Imambara, Rumi Darwaza), and onward journey to Ayodhya or Kichhouchha Sharif with dedicated vehicle and driver retention.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
             <!-- CAB REVIEWS & PASSENGER EXPERIENCES SECTION -->
             <style>
                 .cab-reviews-container {

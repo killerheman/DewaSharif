@@ -671,6 +671,176 @@
 
             </div>
 
+            <!-- DEWA SHARIF HOTELS & GUEST HOUSES — SEO EDITORIAL & ACCOMMODATION GUIDE -->
+            <div class="hotel-guide-card" style="background: #ffffff; border-radius: 16px; padding: 34px 28px; margin-top: 45px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1.5px solid #e2e8f0; box-sizing: border-box;">
+
+                <!-- Section Badges Header -->
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+                    <span style="background: #eff6ff; color: #1e40af; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                        🏨 Pilgrim Accommodation Guide &amp; Stay Overview
+                    </span>
+                    <span style="background: #dcfce7; color: #166534; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px;">
+                        ⭐ 10 to 400m from Dargah Gate
+                    </span>
+                    <span style="background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px;">
+                        ✔ Sarai Act Compliant
+                    </span>
+                </div>
+
+                <h2 style="font-size: 25px; font-weight: 900; color: #074121; margin: 0 0 14px 0; line-height: 1.35; letter-spacing: -0.3px;">
+                    Dewa Sharif Hotels &amp; Guest Houses — Overview &amp; Accommodation Guide Near Dargah
+                </h2>
+
+                <p style="font-size: 14.5px; color: #334155; line-height: 1.8; margin-bottom: 24px;">
+                    Planning your sacred journey to Dewa Sharif for pilgrimage, spiritual renewal, family visits, or the annual <strong>Urs Mubarak and Dewa Mela</strong> celebrations? We provide a comprehensive selection of verified, hygienic, and family-safe accommodations including <strong>Deluxe AC Rooms, Budget Non-AC Rooms, Independent Guest Houses, Family Halls, and Community Dormitories</strong> situated at prime walking distances around <strong>Dargah Hazrat Waris Ali Shah (R.A.)</strong>. Whether you require premium rooms right opposite the main shrine gates with direct rooftop views of the holy dome or peaceful budget stays with vehicle parking, our portal assists you in reserving comfortable, dignified stays without middleman commission or surge pricing shocks.
+                </p>
+
+                <!-- Key Highlights & Room Types Grid -->
+                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
+                    <span>✨</span> Special Highlights &amp; Accommodation Options
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 28px;">
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #16a34a; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #166534; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>📍</span> Prime Location &amp; Proximity
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Choose from guest houses and lodges located just 10 to 50 steps away, or within a comfortable 50 to 400 meters walking perimeter from the Dargah premises, Chashma-e-Hayat, and festive grounds. Ideal for elderly pilgrims and families.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #92400e; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>🕌</span> Dargah View Rooms &amp; Rooftops
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Enjoy specially curated rooms and open rooftop terraces that offer an unobstructed, scenic panoramic view of the holy Dargah minarets, golden dome, and evening festive illumination.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #2563eb; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #1e40af; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>🛏️</span> Complete Range of Room Categories
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Fully equipped with Single AC, Queen Size AC, King Size Master AC, large AC Halls (for groups of 5 to 15+), Single Non-AC, Queen Non-AC, and budget-friendly community halls with clean attached washrooms.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #dc2626; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #991b1b; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>🏮</span> Urs &amp; Dewa Mela 2026 Packages
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Exclusive multi-day booking packages (3, 5, or 10 days) tailored for the grand Urs festival. Pre-booking ensures guaranteed room availability and transparent tariffs without peak-festival price inflations.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Walking Proximity Table -->
+                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 14px 0; display: flex; align-items: center; gap: 8px;">
+                    <span>🚶</span> Proximity &amp; Walking Distance Guide to Shrine Landmarks
+                </h3>
+
+                <div style="overflow-x: auto; margin-bottom: 28px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; min-width: 580px;">
+                        <thead>
+                            <tr style="background: #074121; color: #ffffff;">
+                                <th style="padding: 12px 16px; font-weight: 800;">Location / Landmark</th>
+                                <th style="padding: 12px 16px; font-weight: 800;">Distance from Hotels</th>
+                                <th style="padding: 12px 16px; font-weight: 800;">Walking Time</th>
+                                <th style="padding: 12px 16px; font-weight: 800;">Best Suited For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Main Dargah Gate 1 &amp; Chashma-e-Hayat</td>
+                                <td style="padding: 12px 16px; color: #475569;">10 to 50 Steps</td>
+                                <td style="padding: 12px 16px; color: #475569;">&lt; 1 Minute</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Elderly pilgrims, ladies, and families</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Dewa Mela Grounds &amp; Exhibition Arena</td>
+                                <td style="padding: 12px 16px; color: #475569;">150 to 250 Meters</td>
+                                <td style="padding: 12px 16px; color: #475569;">3 to 4 Minutes</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Festival attendees &amp; cultural visitors</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Karbala Road &amp; Outer Garden Lodges</td>
+                                <td style="padding: 12px 16px; color: #475569;">250 to 400 Meters</td>
+                                <td style="padding: 12px 16px; color: #475569;">5 Minutes</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Guests with private cars requiring parking</td>
+                            </tr>
+                            <tr style="background: #f8fafc;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Town Bus Stand &amp; Shared Taxi Stand</td>
+                                <td style="padding: 12px 16px; color: #475569;">300 to 500 Meters</td>
+                                <td style="padding: 12px 16px; color: #475569;">6 Minutes</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Direct highway &amp; Lucknow bus commuters</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Guest Verification & Sarai Act Compliance Note -->
+                <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 12px; padding: 20px 22px; margin-bottom: 28px;">
+                    <h3 style="font-size: 17.5px; font-weight: 900; color: #166534; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
+                        <span>📋</span> Statutory Guest Check-in Guidelines (Sarai Act 1867 Compliance)
+                    </h3>
+                    <p style="font-size: 13.5px; color: #14532d; line-height: 1.7; margin: 0;">
+                        As per standard administrative and police regulations under the Sarai Act, all guests (Indian and foreign nationals) must present an original, valid government-issued photo identity proof (Aadhaar Card, Voter ID, Passport, or Driving License) upon physical arrival at the reception. Standard check-in is typically from 11:00 AM and check-out is 12:00 Noon. Late night check-ins are readily accommodated if informed in advance.
+                    </p>
+                </div>
+
+                <!-- Frequently Asked Questions (Hotel FAQs) -->
+                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
+                    <span>❓</span> Frequently Asked Questions (Hotel &amp; Stay FAQs)
+                </h3>
+
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q1: Can I get an attached western toilet and 24-hour hot water in the rooms?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Yes. Most Deluxe AC and Queen/King rooms listed on our portal feature clean attached washrooms with western commodes, geysers for hot running water, and power backup for ceiling fans and lights during power outages.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q2: Are rooms safe and suitable for solo women and family groups?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Dewa Sharif is a historically hospitable, spiritual pilgrim town. All partner guest houses maintain strict family-friendly environments, registered guest registers, night caretakers, and CCTV monitoring in common entry hallways for complete safety.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q3: What are the group stay facilities for Urs delegations (Zayreen Jatha)?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            We provide large air-conditioned and non-AC halls capable of accommodating 10 to 30+ pilgrims together with multiple bedding arrangements, separate washroom access, and economical per-head group pricing for delegations attending annual Urs dates.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q4: Can we book marriage lawns or private party halls in Dewa Sharif?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Yes! For family weddings, Nikah ceremonies, spiritual Milad gatherings, or collective langar feasts, we facilitate spacious marriage lawns and event halls with catering setups and dedicated guest room blocks. Contact our desk on WhatsApp for custom event quotes.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
             <!-- HOTEL REVIEWS & GUEST EXPERIENCES SECTION -->
             <style>
                 .hotel-reviews-container {

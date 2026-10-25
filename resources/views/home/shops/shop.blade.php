@@ -475,6 +475,176 @@
                 @endforeach
             </div>
 
+            <!-- DEWA SHARIF DEGH NIYAZ & SACRED SHOP — SEO EDITORIAL & TABARRUK GUIDE -->
+            <div class="shop-guide-card" style="background: #ffffff; border-radius: 16px; padding: 34px 28px; margin-top: 45px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1.5px solid #e2e8f0; box-sizing: border-box;">
+
+                <!-- Section Badges Header -->
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+                    <span style="background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                        🍲 Sacred Degh Niyaz &amp; Tabarruk Guide
+                    </span>
+                    <span style="background: #dcfce7; color: #166534; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px;">
+                        ⭐ 100% Shuddh &amp; Halal Ingredients
+                    </span>
+                    <span style="background: #eff6ff; color: #1e40af; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px;">
+                        ✔ Sealed Food-Grade Distribution
+                    </span>
+                </div>
+
+                <h2 style="font-size: 25px; font-weight: 900; color: #074121; margin: 0 0 14px 0; line-height: 1.35; letter-spacing: -0.3px;">
+                    Dewa Sharif Degh Niyaz Booking, Tabarruk Taqseem &amp; Sacred Spiritual Souvenirs
+                </h2>
+
+                <p style="font-size: 14.5px; color: #334155; line-height: 1.8; margin-bottom: 24px;">
+                    At the sacred threshold of <strong>Dargah Hazrat Waris Ali Shah (R.A.)</strong> in Dewa Sharif, feeding devotees, the impoverished, and visitors (Langar &amp; Niyaz) carries profound spiritual blessing. Whether fulfilling a sacred vow (Mannat), offering thanksgiving (Shukrana), sponsoring annual <strong>Urs (Mela) Niyaz</strong>, or solemnizing Isal-e-Sawab for loved ones, our portal facilitates genuine Warsi recipes prepared with pure desi ingredients, aged Basmati rice, and strict Halal standards. Even if you are residing anywhere in India or abroad and cannot attend in person, our coordination desk conducts the solemn Fateha in your family's name and oversees dignified distribution among visiting zaireen and the underprivileged.
+                </p>
+
+                <!-- Key Features Grid -->
+                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
+                    <span>✨</span> Key Features of Our Degh Niyaz &amp; Tabarruk Services
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 28px;">
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #16a34a; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #166534; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>🤲</span> Niyaz Ba-Naam Fateha
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Every Degh booking is solemnized with personalized Fateha reciting the names of your family members or departed souls with traditional spiritual respect and due religious decorum.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #92400e; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>📦</span> Sealed Food-Grade Parcel Packets
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            For organized and dignified distribution, Tabarruk is packed into hygienic, leak-proof food containers ensuring safe, contamination-free distribution among zaireen and miskeenon.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #2563eb; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #1e40af; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>📅</span> Flexible Date Scheduling
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Choose your preferred date in advance—whether on auspicious Nauchandi Jumerat (first Thursday of the lunar month), Safar Urs, Kartik Dewa Mela, or family birth and remembrance anniversaries.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #dc2626; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                        <h4 style="font-size: 15.5px; font-weight: 800; color: #991b1b; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                            <span>📲</span> Digital Photo &amp; Video Proof
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                            Upon confirmation, you receive an instant digital invoice. For outstation devotees, live photo and video updates of your Degh preparation, Fateha recitation, and distribution are shared directly on WhatsApp.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Available Degh Menu & Portion Guide Table -->
+                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 14px 0; display: flex; align-items: center; gap: 8px;">
+                    <span>🍲</span> Available Degh Niyaz Menu, Ingredients &amp; Portion Capacity
+                </h3>
+
+                <div style="overflow-x: auto; margin-bottom: 28px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; min-width: 600px;">
+                        <thead>
+                            <tr style="background: #074121; color: #ffffff;">
+                                <th style="padding: 12px 16px; font-weight: 800;">Degh Variety</th>
+                                <th style="padding: 12px 16px; font-weight: 800;">Key Ingredients &amp; Quality</th>
+                                <th style="padding: 12px 16px; font-weight: 800;">Available Sizes</th>
+                                <th style="padding: 12px 16px; font-weight: 800;">Approx. Persons Served</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Warsi Mutton Biryani (Ultra &amp; Premium)</td>
+                                <td style="padding: 12px 16px; color: #475569;">Fresh tender mutton, long-grain aged Basmati rice, shuddh khade masale, desi ghee aroma</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Chhoti Degh &amp; Badi Degh</td>
+                                <td style="padding: 12px 16px; color: #475569;">35–45 (Chhoti) | 85–110 (Badi)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Warsi Chicken Biryani (Ultra, Prem &amp; Light)</td>
+                                <td style="padding: 12px 16px; color: #475569;">Fresh Halal chicken, premium Basmati, authentic saffron &amp; kewra essence, slow dum cooked</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Chhoti Degh &amp; Badi Degh</td>
+                                <td style="padding: 12px 16px; color: #475569;">35–45 (Chhoti) | 85–110 (Badi)</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Warsi Shahi Zarda (Kesari &amp; Yellow)</td>
+                                <td style="padding: 12px 16px; color: #475569;">Golden Sella rice, pure mawa/khoya, rich cashews, almonds, raisins, silver leaf (chandi warq)</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Standard &amp; Large Cauldrons</td>
+                                <td style="padding: 12px 16px; color: #475569;">40–50 Persons per batch</td>
+                            </tr>
+                            <tr style="background: #f8fafc;">
+                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Warsi Zafrani Kheer</td>
+                                <td style="padding: 12px 16px; color: #475569;">Pure buffalo milk, condensed khoya, crushed dry fruits, aromatic cardamom, and Kashmiri zafran</td>
+                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">6 Litre &amp; 10 Litre Batches</td>
+                                <td style="padding: 12px 16px; color: #475569;">30 to 60 Bowls</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Spiritual Souvenirs & Sacred Tabarrukat Highlight -->
+                <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 12px; padding: 20px 22px; margin-bottom: 28px;">
+                    <h3 style="font-size: 17.5px; font-weight: 900; color: #166534; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
+                        <span>🌙</span> Sacred Tabarrukat &amp; Spiritual Souvenirs from Dewa Sharif
+                    </h3>
+                    <p style="font-size: 13.5px; color: #14532d; line-height: 1.7; margin: 0;">
+                        In addition to Degh Niyaz, our sacred shop delivers genuine Dewa Sharif tabarrukat across India. Browse our catalog for <strong>100% Non-Alcoholic Warsi Attar</strong>, royal velvet <strong>Chadar Peshi</strong> with custom golden thread embroidery, sacred mitti (Khak-e-Pak), crystal tasbeeh, Ja-namaz, Loban, and shrine literature. All items are securely packaged with transit-safe sealing to preserve spiritual sanctity during delivery.
+                    </p>
+                </div>
+
+                <!-- Frequently Asked Questions (Degh & Shop FAQs) -->
+                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
+                    <span>❓</span> Frequently Asked Questions (Degh Niyaz &amp; Shop FAQs)
+                </h3>
+
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q1: Can I sponsor Degh Niyaz online if I live in another city or abroad?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Yes. Thousands of devotees across India, the Gulf, and abroad book their Degh Niyaz online through our platform. Our local coordinators supervise the preparation, recite your family's Fateha, and send live video proofs on WhatsApp before distributing the food to miskeenon.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q2: How is the hygiene and quality of mutton and chicken maintained?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Only fresh, 100% certified Halal mutton and poultry are procured on the morning of cooking. Traditional seasoned Bawarchis (chefs) prepare the meals in clean copper cauldrons with pure mustard oil / desi ghee and genuine whole spices under continuous supervision.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q3: Can I get my family or organization name embroidered on a Chadar Sharif?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Yes. We provide bespoke golden Zari embroidery service on heavy velvet Chadars. You can specify the devotee's name, city, or date, and our artisans will craft it with utmost care prior to Chadar Peshi at the holy shrine.
+                        </p>
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                            Q4: What is the delivery timeframe for sacred shop items shipped across India?
+                        </h4>
+                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                            Orders for Warsi Attar, holy souvenirs, and literature are processed within 24 hours and shipped via express courier. Delivery typically takes 2 to 4 working days in North India and 4 to 6 working days across other regions with real-time tracking numbers provided.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
             <!-- REVIEWS & RATINGS SECTION -->
             <style>
                 .shop-reviews-wrap {
