@@ -14,9 +14,43 @@
         <h1 id="mela-title" onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#ffeb3b';"
             ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#ffeb3b';"
             style="color: #ffeb3b; font-size: 36px; font-weight: 800; margin: 0 0 16px 0; line-height: 1.35; text-align: center; width: 100%; max-width: 800px; cursor: pointer; transition: color 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.7);">
-            Dewa Sharif Mela 2026<br>
+            Dewa Sharif Urs(Mela) 2026<br>
             27 October - 5 November
         </h1>
+
+        <!-- MUQADDAS KUL SHARIF DATES (FULLY RESPONSIVE) -->
+        <div id="mela-kul-dates"
+            style="width: 100%; max-width: 780px; margin: 0 auto 20px auto; background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 14px; padding: 14px 18px; box-shadow: 0 6px 20px rgba(0,0,0,0.6); box-sizing: border-box; backdrop-filter: blur(6px); text-align: center;">
+
+            <!-- Header Badge -->
+            <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(212, 175, 55, 0.18); border: 1px solid rgba(212, 175, 55, 0.4); padding: 3px 14px; border-radius: 20px; margin-bottom: 10px;">
+                <span style="color: #ffd700; font-size: 12px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;">
+                    🌙 Muqaddas Kul Sharif Dates (Urs 2026) 🌙
+                </span>
+            </div>
+
+            <!-- Pehli Line -->
+            <div style="font-size: 15px; font-weight: 700; line-height: 1.6; color: #fde047; transition: color 0.3s ease; cursor: pointer; padding: 6px 4px; border-bottom: 1px dashed rgba(255, 255, 255, 0.12); text-shadow: 0 1px 4px rgba(0,0,0,0.8); word-wrap: break-word;"
+                onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#fde047';"
+                ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#fde047';">
+                ✨ <strong>Hazrat Sayyad Qurban Ali Shah (r.a) KUL</strong> — <span style="color: #ffffff; font-weight: 800;">29 October 2026</span> <span style="color: #86efac; font-size: 13px; font-weight: 600;">(Baad Namaz Isha)</span>
+            </div>
+
+            <!-- Dusri Line -->
+            <div style="font-size: 15px; font-weight: 700; line-height: 1.6; color: #fde047; transition: color 0.3s ease; cursor: pointer; padding: 6px 4px; border-bottom: 1px dashed rgba(255, 255, 255, 0.12); text-shadow: 0 1px 4px rgba(0,0,0,0.8); word-wrap: break-word;"
+                onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#fde047';"
+                ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#fde047';">
+                ✨ <strong>Hazrat Sayyad Khadim Ali Shah (r.a) KUL</strong> — <span style="color: #ffffff; font-weight: 800;">30 October 2026</span>
+            </div>
+
+            <!-- Teesri Line (Main Waris Pak Kul) -->
+            <div style="font-size: 15.5px; font-weight: 800; line-height: 1.6; color: #fde047; transition: color 0.3s ease; cursor: pointer; padding: 6px 4px 2px 4px; text-shadow: 0 1px 4px rgba(0,0,0,0.8); word-wrap: break-word;"
+                onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#fde047';"
+                ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#fde047';">
+                🌹 <strong>Hazrat Sayyad Haji Waris Ali Shah (r.a) KUL</strong> — <span style="color: #ffffff; font-weight: 900;">31 October 2026</span> <span style="color: #86efac; font-size: 13px; font-weight: 700;">(Subah 4:13 AM)</span>
+            </div>
+
+        </div>
 
         {{-- <span
             style="background: #faf9f9ff; color: #111; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
@@ -26,79 +60,102 @@
             please Contact via WhatsApp or Call.
         </span> --}}
 
-        <div style="margin-top: 30px; padding: 25px 30px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate;">
-    
-    <!-- Heading -->
-    <h3 style="color: #ffd700; font-size: 20px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
-        ✨ Complete Dewa Sharif Ziyarat & Travel Services ✨
-    </h3>
+        <div
+            style="margin-top: 30px; padding: 25px 30px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate;">
 
-    <!-- Description -->
-    <p style="font-size: 15px; color: #fdf6e2; line-height: 1.7; font-weight: 500; margin: 0 0 20px 0; text-align: center;">
-        Hum provide karte hain **Lucknow Airport & Railway Station or Custom Pickup & Drop**, 
-        <span style="color: #ffd700; font-weight: 700;">AC / Non-AC (Standard, Deluxe, Premium & Luxury Rooms)</span>, 
-        <br>sath hi complete **Guidance, Degh & Niyaz** ki poori facility Dewa Sharif mein. 
-        Book karein apna **Full Ziyarat Service Package** pickup-drop ke sath!
-    </p>
+            <!-- Heading -->
+            <h3
+                style="color: #ffd700; font-size: 20px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+                ✨ Complete Dewa Sharif Ziyarat & Travel Services ✨
+            </h3>
 
-    <!-- WhatsApp Button -->
-    <center style="margin: 0;">
-        <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20Dewa%20Sharif%20Ziyarat%20aur%20Room%20Booking%20package%20ki%20jaankari%20chahiye"
-            target="_blank"
-            style="background: linear-gradient(135deg, #25d366 0%, #1ebe57 100%); color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5); font-size: 16px; transition: transform 0.2s;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.558 6.558 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.012-.304.088-.403.087-.088.197-.232.296-.348.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34l-.38-.008c-.133 0-.348.048-.53.247-.182.198-.694.678-.694 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.078.38-.057 1.17-.478 1.338-.94.17-.46.17-.855.119-.94-.05-.085-.183-.138-.38-.235z"/>
-            </svg>
-            BOOK PACKAGE ON WHATSAPP
-        </a>
-    </center>
-</div>
+            <!-- Description -->
+            <p
+                style="font-size: 15px; color: #fdf6e2; line-height: 1.7; font-weight: 500; margin: 0 0 20px 0; text-align: center;">
+                Hum provide karte hain **Lucknow Airport & Railway Station or Custom Pickup & Drop**,
+                <span style="color: #ffd700; font-weight: 700;">AC / Non-AC (Standard, Deluxe, Premium & Luxury
+                    Rooms)</span>,
+                <br>sath hi complete **Guidance, Degh & Niyaz** ki poori facility Dewa Sharif mein.
+                Book karein apna **Full Ziyarat Service Package** pickup-drop ke sath!
+            </p>
 
-<style>
-@keyframes royalGlow {
-    0% {
-        box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-        border-color: #d4af37;
-    }
-    100% {
-        box-shadow: 0 0 35px rgba(255, 215, 0, 0.7), inset 0 0 15px rgba(212, 175, 55, 0.2);
-        border-color: #ffd700;
-    }
-}
-</style>
+            <!-- ACTION BOOKING BUTTONS (SAME SIZE & RESPONSIVE) -->
+            <div
+                style="display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 22px;">
+
+                <!-- 1. CAB BOOKING BUTTON -->
+                <a href="{{ route('cabs') }}"
+                    style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #ffffff; min-width: 210px; height: 48px; border-radius: 10px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.45); font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa fa-taxi" style="font-size: 19px;"></i>
+                    <span>BOOK Cabs</span>
+                </a>
+
+                <!-- 2. HOTEL BOOKING BUTTON -->
+                <a href="{{ route('hotels') }}"
+                    style="background: linear-gradient(135deg, #059669 0%, #047857 100%); color: #ffffff; min-width: 210px; height: 48px; border-radius: 10px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(5, 150, 105, 0.45); font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa fa-bed" style="font-size: 19px;"></i>
+                    <span>BOOK Hotels</span>
+                </a>
+
+                <!-- 3. DEGH NIYAZ BOOKING BUTTON -->
+                <a href="{{ route('shops.category', 'degh') }}"
+                    style="background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%); color: #ffffff; min-width: 210px; height: 48px; border-radius: 10px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.45); font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa fa-cutlery" style="font-size: 18px;"></i>
+                    <span>BOOK Degh Niyaz</span>
+                </a>
+
+            </div>
+        </div>
+
+        <style>
+            @keyframes royalGlow {
+                0% {
+                    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+                    border-color: #d4af37;
+                }
+
+                100% {
+                    box-shadow: 0 0 35px rgba(255, 215, 0, 0.7), inset 0 0 15px rgba(212, 175, 55, 0.2);
+                    border-color: #ffd700;
+                }
+            }
+        </style>
 
         <!-- Subtitle -->
         <!-- <p id="mela-sub" onmouseover="this.style.color='#ffeb3b';" onmouseout="this.style.color='#00e676';"
-                        ontouchstart="this.style.color='#ffeb3b';" ontouchend="this.style.color='#00e676';"
-                        style="color: #00e676; font-size: 17px; max-width: 680px; margin: 0 auto 28px auto; font-weight: 600; line-height: 1.6; text-align: center; cursor: pointer; transition: color 0.3s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.6);">
-                        Nearby Hotels &amp; Cabs Bookings, Airport & Railway Station Lucknow & Custom Places , Degh Niyaz
-                    </p> -->
+                                ontouchstart="this.style.color='#ffeb3b';" ontouchend="this.style.color='#00e676';"
+                                style="color: #00e676; font-size: 17px; max-width: 680px; margin: 0 auto 28px auto; font-weight: 600; line-height: 1.6; text-align: center; cursor: pointer; transition: color 0.3s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.6);">
+                                Nearby Hotels &amp; Cabs Bookings, Airport & Railway Station Lucknow & Custom Places , Degh Niyaz
+                            </p> -->
 
         <!-- Big Bold Coming Soon Box -->
         <!-- <div style="margin-bottom: 20px; text-align: center; width: 100%;">
-                        <div
-                            style="display: inline-block; background: rgba(0, 15, 8, 0.92); border: 2.5px dashed #ffeb3b; padding: 18px 45px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.7);">
-                            <h2
-                                style="font-size: 36px; font-weight: 900; color: #ffeb3b; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 16px rgba(255, 235, 59, 0.7); display: flex; align-items: center; justify-content: center; gap: 10px;">
-                                <span>🌹</span><span>COMING SOON</span> <span>🌹</span>
-                            </h2>
-                            <p style="color: #00e676; font-size: 16px; margin: 10px 0 0 0; font-weight: 700;">
-                                Online Prebooking &amp; travel assistance jald hi shuru hogi! InshaAllah
-                            </p>
-                        </div>-
-                    </div> -->
+                                <div
+                                    style="display: inline-block; background: rgba(0, 15, 8, 0.92); border: 2.5px dashed #ffeb3b; padding: 18px 45px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.7);">
+                                    <h2
+                                        style="font-size: 36px; font-weight: 900; color: #ffeb3b; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 16px rgba(255, 235, 59, 0.7); display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                        <span>🌹</span><span>COMING SOON</span> <span>🌹</span>
+                                    </h2>
+                                    <p style="color: #00e676; font-size: 16px; margin: 10px 0 0 0; font-weight: 700;">
+                                        Online Prebooking &amp; travel assistance jald hi shuru hogi! InshaAllah
+                                    </p>
+                                </div>-
+                            </div> -->
 
         <!-- Buttons Row -->
         <!-- <div style="display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap;">
-                        <a href="javascript:void(0)"
-                            style="background: #25D366; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); display: inline-flex; align-items: center; cursor: default; border: 2px solid transparent;">
-                            🏨 Book Hotels / Stay
-                        </a>
-                        <a href="javascript:void(0)"
-                            style="background: transparent; color: #ffeb3b; border: 2px solid #ffeb3b; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; cursor: default; box-shadow: 0 4px 14px rgba(0,0,0,0.2);">
-                            🚗 Cab &amp; Travel Help
-                        </a>
-                    </div> -->
+                                <a href="javascript:void(0)"
+                                    style="background: #25D366; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); display: inline-flex; align-items: center; cursor: default; border: 2px solid transparent;">
+                                    🏨 Book Hotels / Stay
+                                </a>
+                                <a href="javascript:void(0)"
+                                    style="background: transparent; color: #ffeb3b; border: 2px solid #ffeb3b; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; cursor: default; box-shadow: 0 4px 14px rgba(0,0,0,0.2);">
+                                    🚗 Cab &amp; Travel Help
+                                </a>
+                            </div> -->
     </div>
 
     <!-- ================= 3 FEATURED SERVICE CARDS (Green + Black + Bright Pure Yellow) ================= -->
@@ -263,8 +320,8 @@
 
                         <!-- Card Top Image Banner -->
                         <div style="position: relative; height: 180px; overflow: hidden; background: #ffeb3b;">
-                            <img src="{{ asset('home/images/dewasharif/dewapage/online_shop_mix.jpg') }}" alt="Online Shop"
-                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <img src="{{ asset('home/images/dewasharif/dewapage/online_shop_mix.jpg') }}"
+                                alt="Online Shop" style="width: 100%; height: 100%; object-fit: cover; display: block;">
                             <span
                                 style="position: absolute; top: 12px; left: 12px; background: #ffeb3b; color: #1b5e20; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid #ffeb3b; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
                                 🛍️ AUTHENTIC STORE
@@ -304,7 +361,8 @@
                                         <a href="https://wa.me/919648777223?text={{ urlencode('Assalamu Alaikum! Main Dewa Sharif Portal se Sacred Shop items ke baare me poochhna aur order karna chahta hoon.') }}"
                                             target="_blank"
                                             style="display: block; width: 100%; text-align: center; background: #25D366; color: #ffffff; text-decoration: none; padding: 10px 0; font-weight: 800; font-size: 14px; border-radius: 8px; box-shadow: 0 3px 10px rgba(37, 211, 102, 0.35); border: 1.5px solid #1ebe5d;">
-                                            <i class="fa fa-whatsapp" style="font-size: 16px; margin-right: 4px;"></i> Order
+                                            <i class="fa fa-whatsapp" style="font-size: 16px; margin-right: 4px;"></i>
+                                            Order
                                             via WhatsApp 💬
                                         </a>
                                         <a href="{{ route('shops') }}"
@@ -799,7 +857,8 @@
                                     style="font-size: 18px; text-align: center; font-weight: 800; margin-top: 10px; color: #14412a;">
                                     Shahzade Alam <br><span style="font-size: 14px;">[مشرت وارثی]</span></h4>
                                 <p style="margin: 0; text-align: center; font-size: 14px;"><b><i>Software Engineer</i></b>
-                                    <br /> <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b></p>
+                                    <br /> <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b>
+                                </p>
                             </div>
                         </div>
                     </div>
