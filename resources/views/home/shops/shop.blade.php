@@ -257,12 +257,21 @@
             <!-- SECTION TITLE BEFORE CARDS -->
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0;">
                 <div>
-                    <h3 style="font-size: 20px; font-weight: 800; color: #074121; margin: 0; display: flex; align-items: center; gap: 8px;">
-                        <span>🍲</span> Available Degh Niyaz Packages
-                    </h3>
-                    <p style="margin: 3px 0 0 0; color: #64748b; font-size: 13px; font-weight: 600;">
-                        Showing {{ count($products) }} verified sacred degh offerings direct from Dewa Sharif
-                    </p>
+                    @if(($selectedCategory ?? '') === 'degh' || count($categories ?? []) <= 1)
+                        <h3 style="font-size: 20px; font-weight: 800; color: #074121; margin: 0; display: flex; align-items: center; gap: 8px;">
+                            <span>🍲</span> Available Degh Niyaz Packages
+                        </h3>
+                        <p style="margin: 3px 0 0 0; color: #64748b; font-size: 13px; font-weight: 600;">
+                            Showing {{ count($products) }} verified sacred degh offerings direct from Dewa Sharif
+                        </p>
+                    @else
+                        <h3 style="font-size: 20px; font-weight: 800; color: #074121; margin: 0; display: flex; align-items: center; gap: 8px;">
+                            <span>🛍️</span> {{ !empty($selectedCategory) && $selectedCategory !== 'all' ? (collect($categories ?? [])->firstWhere('slug', $selectedCategory)->name ?? 'Products') : 'Live Sacred Store Products' }}
+                        </h3>
+                        <p style="margin: 3px 0 0 0; color: #64748b; font-size: 13px; font-weight: 600;">
+                            Showing {{ count($products) }} verified offerings direct from Dewa Sharif
+                        </p>
+                    @endif
                 </div>
             </div>
 
@@ -270,8 +279,9 @@
                 @foreach($products as $prod)
                     @if(strtolower($prod['status'] ?? 'active') === 'active')
                         @php
-                            $cat = $prod['category'] ?? 'attar';
+                            $cat = strtolower($prod['category'] ?? 'attar');
                             $isDegh = $cat === 'degh';
+                            $isCatActive = in_array($cat, $activeSlugs ?? ['degh']);
                             
                             $imgSrc = $prod['image'] ?? '';
                             $imgSrc = preg_replace('#^https?://[^/]+#', '', $imgSrc);
@@ -358,12 +368,21 @@
                                 onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='{{ $cardShadow }}';">
                                 <div>
                                     <div style="position: relative; height: 205px; overflow: hidden; background: {{ $imgBackdrop }};">
-                                        <a href="{{ route('shops.product', $prod['slug'] ?? ($prod['id'] ?? 1)) }}" style="display: block; width: 100%; height: 100%;">
-                                            <img src="{{ $imgSrc }}" alt="{{ $prod['name'] }}"
-                                                onerror="this.onerror=null; this.src='/home/images/dewasharif/dewapage/{{ $isDegh ? 'degh_niyaz.jpg' : 'attar_bottle.jpg' }}';"
-                                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
-                                                onmouseenter="this.style.transform='scale(1.06)'" onmouseleave="this.style.transform='scale(1)'">
-                                        </a>
+                                        @if($isCatActive)
+                                            <a href="{{ route('shops.product', $prod['slug'] ?? ($prod['id'] ?? 1)) }}" style="display: block; width: 100%; height: 100%;">
+                                                <img src="{{ $imgSrc }}" alt="{{ $prod['name'] }}"
+                                                    onerror="this.onerror=null; this.src='/home/images/dewasharif/dewapage/{{ $isDegh ? 'degh_niyaz.jpg' : 'attar_bottle.jpg' }}';"
+                                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+                                                    onmouseenter="this.style.transform='scale(1.06)'" onmouseleave="this.style.transform='scale(1)'">
+                                            </a>
+                                        @else
+                                            <a href="javascript:void(0)" onclick="showComingSoonModal('{{ addslashes($prod['name']) }}')" style="display: block; width: 100%; height: 100%;">
+                                                <img src="{{ $imgSrc }}" alt="{{ $prod['name'] }}"
+                                                    onerror="this.onerror=null; this.src='/home/images/dewasharif/dewapage/{{ $isDegh ? 'degh_niyaz.jpg' : 'attar_bottle.jpg' }}';"
+                                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;"
+                                                    onmouseenter="this.style.transform='scale(1.06)'" onmouseleave="this.style.transform='scale(1)'">
+                                            </a>
+                                        @endif
                                         <span class="badge {{ $badgeClass }}"
                                             style="position: absolute; top: 10px; left: 10px; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.3px; box-shadow: 0 2px 6px rgba(0,0,0,0.25);">
                                             {{ $badgeText }}
@@ -374,17 +393,30 @@
                                             $cardPOff = ($cardPMrp > $cardPPrice) ? round((($cardPMrp - $cardPPrice) / $cardPMrp) * 100) : 0;
                                             $cardPPolicy = $prod['return_policy'] ?? 'non_returnable';
                                         @endphp
-                                        <span
-                                            style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991b1b 100%); color: #fff; font-size: 11px; font-weight: 900; padding: 4px 9px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.25);">
-                                            {{ $isDegh ? 'PARCEL READY' : ($cardPOff > 0 ? ($cardPOff . '% OFF') : 'OFFER') }}
-                                        </span>
+                                        @if(!$isCatActive)
+                                            <span
+                                                style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: #fff; font-size: 11px; font-weight: 900; padding: 4px 9px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.25);">
+                                                ⏳ LAUNCHING SOON
+                                            </span>
+                                        @else
+                                            <span
+                                                style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991b1b 100%); color: #fff; font-size: 11px; font-weight: 900; padding: 4px 9px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.25);">
+                                                {{ $isDegh ? 'PARCEL READY' : ($cardPOff > 0 ? ($cardPOff . '% OFF') : 'OFFER') }}
+                                            </span>
+                                        @endif
                                     </div>
                                     <div style="padding: 18px 18px 10px 18px;">
                                         <h5
                                             style="font-size: 15px; font-weight: 900; color: #0f172a; margin-bottom: 6px; line-height: 1.35; height: 42px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" title="{{ $prod['name'] }}">
-                                            <a href="{{ route('shops.product', $prod['slug'] ?? ($prod['id'] ?? 1)) }}" style="color: inherit; text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#03a64a';" onmouseleave="this.style.color='#0f172a';">
-                                                {{ $prod['name'] }}
-                                            </a>
+                                            @if($isCatActive)
+                                                <a href="{{ route('shops.product', $prod['slug'] ?? ($prod['id'] ?? 1)) }}" style="color: inherit; text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#03a64a';" onmouseleave="this.style.color='#0f172a';">
+                                                    {{ $prod['name'] }}
+                                                </a>
+                                            @else
+                                                <a href="javascript:void(0)" onclick="showComingSoonModal('{{ addslashes($prod['name']) }}')" style="color: inherit; text-decoration: none; transition: color 0.2s;" onmouseenter="this.style.color='#f59e0b';" onmouseleave="this.style.color='#0f172a';">
+                                                    {{ $prod['name'] }}
+                                                </a>
+                                            @endif
                                         </h5>
                                         <p
                                             style="font-size: 12.5px; color: #475569; margin-bottom: 10px; line-height: 1.4; height: 38px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" title="{{ $prod['description'] ?? '' }}">
@@ -439,7 +471,9 @@
                                         <div>
                                             <span
                                                 style="font-size: 20px; font-weight: 900; color: {{ $priceColor }};">₹{{ number_format($prod['price']) }}</span>
-                                            @if($cardPMrp > $cardPPrice)
+                                            @if(!$isCatActive)
+                                                <span style="font-size: 11px; font-weight: 700; color: #b45309; background: #fef3c7; border: 1px solid #fde68a; padding: 2px 7px; border-radius: 5px; margin-left: 6px;">Preview Only</span>
+                                            @elseif($cardPMrp > $cardPPrice)
                                                 <span
                                                     style="font-size: 13px; color: #94a3b8; text-decoration: line-through; margin-left: 6px;">₹{{ number_format($cardPMrp) }}</span>
                                                 <span style="background: #fee2e2; color: #dc2626; font-size: 10.5px; font-weight: 800; padding: 2px 6px; border-radius: 4px; border: 1px solid #fca5a5; margin-left: 6px;">
@@ -447,11 +481,20 @@
                                                 </span>
                                             @endif
                                         </div>
-                                        @if($isOutOfStock)
+                                        @if($isCatActive && $isOutOfStock)
                                             <span style="font-size: 11.5px; color: #dc2626; font-weight: 900; background: #fee2e2; padding: 3px 8px; border-radius: 6px; border: 1px solid #fca5a5;">✕ Out of Stock</span>
                                         @endif
                                     </div>
-                                    @if($isOutOfStock)
+                                    @if(!$isCatActive)
+                                        <button type="button"
+                                            onclick="showComingSoonModal('{{ addslashes($prod['name']) }}')"
+                                            class="btn w-100"
+                                            style="font-weight: 800; font-size: 13.5px; border-radius: 8px; padding: 11px 16px; border: 1.5px dashed #f59e0b; background: #fffbeb; color: #b45309; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.2s;"
+                                            onmouseenter="this.style.background='#fef3c7';"
+                                            onmouseleave="this.style.background='#fffbeb';">
+                                            <i class="bi bi-clock-history"></i> Launching Soon
+                                        </button>
+                                    @elseif($isOutOfStock)
                                         <button type="button" disabled
                                             class="btn w-100"
                                             style="font-weight: 800; font-size: 14px; border-radius: 8px; padding: 11px 20px; border: 1.5px solid #cbd5e1; background: #f1f5f9; color: #94a3b8; cursor: not-allowed; display: flex; align-items: center; justify-content: center; gap: 6px;">

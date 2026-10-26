@@ -410,15 +410,19 @@
 
                 <!-- ================= DYNAMIC SACRED STORE & SHOPPING CATEGORY CARDS (Unified in Same Row & Container) ================= -->
                 @php
-                    $activeCategories =
-                        $shopCategories ??
-                        \Illuminate\Support\Facades\DB::table('shop_categories')
-                            ->where('status', 'active')
-                            ->orderBy('order_num', 'asc')
-                            ->get();
+                    $landingCategories =
+                        (!empty($shopCategories) && count($shopCategories) > 0)
+                            ? $shopCategories
+                            : \Illuminate\Support\Facades\DB::table('shop_categories')
+                                ->orderBy('order_num', 'asc')
+                                ->orderBy('id', 'asc')
+                                ->get();
                 @endphp
 
-                @foreach ($activeCategories as $sc)
+                @foreach ($landingCategories as $sc)
+                    @php
+                        $isCatActive = strtolower($sc->status ?? 'active') === 'active';
+                    @endphp
                     <div class="col-md-4 col-sm-6 col-xs-12" style="display: flex; margin-bottom: 25px;">
                         <div style="background: #ffffff; border: 2px solid {{ $sc->theme_color ?? '#10b981' }}; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px {{ $sc->theme_color ?? '#10b981' }}22; display: flex; flex-direction: column; width: 100%; transition: transform 0.25s ease, box-shadow 0.25s ease;"
                             onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px {{ $sc->theme_color ?? '#10b981' }}35';"
@@ -432,12 +436,12 @@
                                     style="width: 100%; height: 100%; object-fit: cover; display: block;"
                                     onerror="this.onerror=null; this.src='/home/images/dewasharif/dewapage/attar_bottle.jpg';">
                                 <span
-                                    style="position: absolute; top: 12px; left: 12px; background: {{ $sc->theme_color ?? '#10b981' }}; color: #ffffff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                                    {{ $sc->badge_text ?? strtoupper($sc->name) }}
+                                    style="position: absolute; top: 12px; left: 12px; background: {{ $isCatActive ? ($sc->theme_color ?? '#10b981') : '#d97706' }}; color: #ffffff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                                    {{ $isCatActive ? ($sc->badge_text ?? strtoupper($sc->name)) : '⏳ LAUNCHING SOON' }}
                                 </span>
                                 @if (!empty($sc->tag_text))
                                     <span
-                                        style="position: absolute; bottom: 10px; right: 12px; background: #ffffff; color: {{ $sc->theme_color ?? '#10b981' }}; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                                        style="position: absolute; bottom: 10px; right: 12px; background: #ffffff; color: {{ $isCatActive ? ($sc->theme_color ?? '#10b981') : '#d97706' }}; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
                                         {{ $sc->tag_text }}
                                     </span>
                                 @endif

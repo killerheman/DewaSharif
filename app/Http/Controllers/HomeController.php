@@ -12,7 +12,6 @@ class HomeController extends Controller
         try {
             if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
                 $shopCategories = \Illuminate\Support\Facades\DB::table('shop_categories')
-                    ->where('status', 'active')
                     ->orderBy('order_num', 'asc')
                     ->orderBy('id', 'asc')
                     ->get();
@@ -360,7 +359,27 @@ class HomeController extends Controller
     public function shops($category = null)
     {
         $allProducts = \App\Helpers\DataStore::getCollection('products');
-        $selectedCategory = $category ? strtolower(trim($category)) : 'all';
+        $allCategories = collect();
+        $categories = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
+                $allCategories = \Illuminate\Support\Facades\DB::table('shop_categories')
+                    ->orderBy('order_num', 'asc')
+                    ->orderBy('id', 'asc')
+                    ->get();
+                $categories = $allCategories->where('status', 'active');
+            }
+        } catch (\Throwable $e) {
+            $categories = collect();
+            $allCategories = collect();
+        }
+
+        $activeSlugs = $categories->pluck('slug')->map(function($s) { return strtolower(trim($s)); })->toArray();
+        if (empty($activeSlugs)) {
+            $activeSlugs = ['degh'];
+        }
+
+        $selectedCategory = $category ? strtolower(trim($category)) : null;
 
         // Normalize aliases
         if (in_array($selectedCategory, ['mitti', 'bartan', 'clay-pots'])) $selectedCategory = 'clay';
@@ -376,17 +395,16 @@ class HomeController extends Controller
         if (in_array($selectedCategory, ['appliances', 'home'])) $selectedCategory = 'home-appliances';
         if (in_array($selectedCategory, ['pet', 'pet-food', 'animals'])) $selectedCategory = 'pets';
 
-        // Dynamic Category Status Validation from MySQL shop_categories table
+        // Dynamic Category Status Validation: If requested category is NOT active, redirect to degh
         if ($selectedCategory && $selectedCategory !== 'all') {
-            try {
-                if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
-                    $catRecord = \Illuminate\Support\Facades\DB::table('shop_categories')->where('slug', $selectedCategory)->first();
-                    // If category exists and is NOT active, redirect to degh
-                    if ($catRecord && strtolower($catRecord->status) !== 'active') {
-                        return redirect()->route('shops.category', 'degh');
-                    }
-                }
-            } catch (\Throwable $e) {}
+            if (!in_array($selectedCategory, $activeSlugs)) {
+                return redirect()->route('shops.category', 'degh');
+            }
+        }
+
+        // When visiting /shops without category, keep selectedCategory = 'all' so all showcase cards appear
+        if (empty($selectedCategory)) {
+            $selectedCategory = 'all';
         }
 
         $dbProducts = collect();
@@ -463,22 +481,8 @@ class HomeController extends Controller
                 return isset($item['category']) && strtolower($item['category']) === $selectedCategory;
             }));
         } else {
+            // Show all showcase products on landing page! (Degh active, others shown as Launching Soon)
             $products = $allProducts;
-        }
-
-        $categories = collect();
-        $allCategories = collect();
-        try {
-            if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
-                $allCategories = \Illuminate\Support\Facades\DB::table('shop_categories')
-                    ->orderBy('order_num', 'asc')
-                    ->orderBy('id', 'asc')
-                    ->get();
-                $categories = $allCategories->where('status', 'active');
-            }
-        } catch (\Throwable $e) {
-            $categories = collect();
-            $allCategories = collect();
         }
 
         $shopReviews = collect();
@@ -495,7 +499,7 @@ class HomeController extends Controller
             $shopReviews = collect();
         }
 
-        return view('home.shops.shop', compact('products', 'selectedCategory', 'allProducts', 'categories', 'allCategories', 'shopReviews'));
+        return view('home.shops.shop', compact('products', 'selectedCategory', 'allProducts', 'categories', 'allCategories', 'shopReviews', 'activeSlugs'));
     }
 
     // Single Product Detail Page (Flipkart / Amazon Style)
@@ -1715,6 +1719,24 @@ public function faqs()
                 $pName = $item['name'] ?? 'Product';
 
                 if ($pId) {
+                    $itemCategory = null;
+                    if (isset($dbProducts[$pId])) {
+                        $itemCategory = $dbProducts[$pId]->category_slug ?? null;
+                    } elseif (isset($dataStoreProducts[$pId])) {
+                        $itemCategory = $dataStoreProducts[$pId]['category'] ?? null;
+                    }
+                    if ($itemCategory) {
+                        try {
+                            $catRec = \Illuminate\Support\Facades\DB::table('shop_categories')->where('slug', $itemCategory)->first();
+                            if ($catRec && strtolower($catRec->status) !== 'active') {
+                                return response()->json([
+                                    'success' => false,
+                                    'message' => "Sorry, '{$pName}' belongs to a category that is currently Coming Soon. Please remove it from your cart to proceed."
+                                ], 422);
+                            }
+                        } catch (\Throwable $e) {}
+                    }
+
                     $available = null;
                     if (isset($dbProducts[$pId])) {
                         $available = (int)$dbProducts[$pId]->stock_quantity;
