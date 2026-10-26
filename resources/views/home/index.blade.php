@@ -191,7 +191,7 @@
                 </span>
                 <h2 style="color: #1b5e20; font-size: 16px; font-weight: 800; margin-top: 12px; margin-bottom: 8px;">
                     Hotels &amp; Cabs Booking | Sacred Store • Warsi Attar • Degh Niyaz • Mitti Bartan • Sufi Attire •
-                    Calligraphy &amp; Art • Toys • Jewellery • Beauty • Food &amp; Health • Electronics • Home Appliances •
+                    Calligraphy &amp; Art • Jewellery • Beauty • Food &amp; Health • Electronics • Home Appliances •
                     Pets Care
                 </h2>
 
