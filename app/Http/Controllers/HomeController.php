@@ -402,8 +402,11 @@ class HomeController extends Controller
             }
         }
 
-        // When visiting /shops without category, keep selectedCategory = 'all' so all showcase cards appear
-        if (empty($selectedCategory)) {
+        // When only degh is active, clicking shop should directly show degh niyaz
+        if (empty($selectedCategory) || $selectedCategory === 'all') {
+            if (count($activeSlugs) <= 1 && in_array('degh', $activeSlugs)) {
+                return redirect()->route('shops.category', 'degh');
+            }
             $selectedCategory = 'all';
         }
 
@@ -481,8 +484,10 @@ class HomeController extends Controller
                 return isset($item['category']) && strtolower($item['category']) === $selectedCategory;
             }));
         } else {
-            // Show all showcase products on landing page! (Degh active, others shown as Launching Soon)
-            $products = $allProducts;
+            // Only active category products appear in shop catalog
+            $products = array_values(array_filter($allProducts, function ($item) use ($activeSlugs) {
+                return in_array(strtolower($item['category'] ?? ''), $activeSlugs);
+            }));
         }
 
         $shopReviews = collect();
