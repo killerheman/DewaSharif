@@ -278,8 +278,8 @@
                                                     </div>
                                                     <div class="modal-body row g-3 text-start">
                                                         <div class="col-12">
-                                                            <label class="form-label font-bold">Item / Service</label>
-                                                            <input type="text" class="form-control bg-light" value="{{ $r->item_name }}" readonly>
+                                                            <label class="form-label font-bold">Item / Service*</label>
+                                                            <input type="text" name="item_name" class="form-control" value="{{ $r->item_name }}" required>
                                                         </div>
                                                         <div class="col-12">
                                                             <label class="form-label font-bold">Star Rating (1 to 5)*</label>

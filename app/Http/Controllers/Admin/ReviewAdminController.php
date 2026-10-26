@@ -82,13 +82,19 @@ class ReviewAdminController extends Controller
         $title = trim($request->input('title'));
         $status = $request->input('status', 'approved');
 
-        DB::table('reviews')->where('id', $id)->update([
+        $updateData = [
             'rating' => $rating,
             'title' => $title,
             'comment' => $comment,
             'status' => $status,
             'updated_at' => now()
-        ]);
+        ];
+
+        if ($request->filled('item_name')) {
+            $updateData['item_name'] = trim($request->input('item_name'));
+        }
+
+        DB::table('reviews')->where('id', $id)->update($updateData);
 
         return back()->with('success', "Review #{$id} updated successfully!");
     }
