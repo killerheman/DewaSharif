@@ -184,10 +184,10 @@
                                             @php
                                                 $cleanWaPhone = preg_replace('/[^0-9]/', '', $custPhone);
                                                 if(strlen($cleanWaPhone) === 10) $cleanWaPhone = '91' . $cleanWaPhone;
-                                                $waOrderText = urlencode("Assalamu Alaikum {$custName}! Dewa Sharif Sacred Store se aapke Order " . ($isDegh ? '#DGH-' : '#ORD-') . "{$oId} ke confirmation ke silsile me baat karni hai.");
+                                                $waOrderText = urlencode("Assalamu Alaikum {$custName}! Dewa Sharif Sacred Store se aapke Order " . ($isDegh ? '#DGH-' : '#ORD-') . "{$oId} ke baare me.");
                                             @endphp
                                             <br><a href="https://wa.me/{{ $cleanWaPhone }}?text={{ $waOrderText }}" target="_blank" class="badge bg-success text-white text-decoration-none mt-1 shadow-xs d-inline-flex align-items-center" style="font-size: 10.5px; font-weight: 700; padding: 3px 8px;">
-                                                <i class="bi bi-whatsapp me-1"></i>WhatsApp Confirm
+                                                <i class="bi bi-whatsapp me-1"></i>Chat on WhatsApp
                                             </a>
                                             @if(!empty($custAltPhone))
                                                 <br><small class="text-secondary font-mono" style="font-size: 0.74rem;"><i class="bi bi-telephone-plus me-1 text-primary"></i>Alt: {{ $custAltPhone }}</small>

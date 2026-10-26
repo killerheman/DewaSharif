@@ -25,6 +25,14 @@ class ShopAdminController extends Controller
                     $p['return_policy'] = $dbItem->return_policy ?? ($p['return_policy'] ?? 'non_returnable');
                     $p['is_featured'] = (int)($dbItem->is_featured ?? ($p['is_featured'] ?? 0));
                     $p['status'] = $dbItem->status ?? ($p['status'] ?? 'active');
+                    if (isset($dbItem->price) && (float)$dbItem->price > 0) $p['price'] = (float)$dbItem->price;
+                    if (isset($dbItem->mrp) && (float)$dbItem->mrp > 0) $p['mrp'] = (float)$dbItem->mrp;
+                    if (!empty($dbItem->name)) $p['name'] = $dbItem->name;
+                    if (!empty($dbItem->thumbnail)) $p['image'] = $dbItem->thumbnail;
+                    if (!empty($dbItem->description)) $p['description'] = $dbItem->description;
+                    if (!empty($dbItem->volume_ml)) $p['volume_ml'] = $dbItem->volume_ml;
+                    if (!empty($dbItem->fabric_material)) $p['fabric_material'] = $dbItem->fabric_material;
+                    if (!empty($dbItem->size_options)) $p['size_options'] = $dbItem->size_options;
                 } else {
                     $p->stock_quantity = (int)$dbItem->stock_quantity;
                     $p->stock = (int)$dbItem->stock_quantity;
@@ -32,6 +40,14 @@ class ShopAdminController extends Controller
                     $p->return_policy = $dbItem->return_policy ?? ($p->return_policy ?? 'non_returnable');
                     $p->is_featured = (int)($dbItem->is_featured ?? ($p->is_featured ?? 0));
                     $p->status = $dbItem->status ?? ($p->status ?? 'active');
+                    if (isset($dbItem->price) && (float)$dbItem->price > 0) $p->price = (float)$dbItem->price;
+                    if (isset($dbItem->mrp) && (float)$dbItem->mrp > 0) $p->mrp = (float)$dbItem->mrp;
+                    if (!empty($dbItem->name)) $p->name = $dbItem->name;
+                    if (!empty($dbItem->thumbnail)) $p->image = $dbItem->thumbnail;
+                    if (!empty($dbItem->description)) $p->description = $dbItem->description;
+                    if (!empty($dbItem->volume_ml)) $p->volume_ml = $dbItem->volume_ml;
+                    if (!empty($dbItem->fabric_material)) $p->fabric_material = $dbItem->fabric_material;
+                    if (!empty($dbItem->size_options)) $p->size_options = $dbItem->size_options;
                 }
             } else {
                 $s = (int)(is_array($p) ? ($p['stock_quantity'] ?? ($p['stock'] ?? 50)) : ($p->stock_quantity ?? ($p->stock ?? 50)));

@@ -422,6 +422,30 @@ class HomeController extends Controller
                 if (!empty($dbItem->reviews_count)) {
                     $p['reviews_count'] = $dbItem->reviews_count;
                 }
+                if (isset($dbItem->price) && (float)$dbItem->price > 0) {
+                    $p['price'] = (float)$dbItem->price;
+                }
+                if (isset($dbItem->mrp) && (float)$dbItem->mrp > 0) {
+                    $p['mrp'] = (float)$dbItem->mrp;
+                }
+                if (!empty($dbItem->name)) {
+                    $p['name'] = $dbItem->name;
+                }
+                if (!empty($dbItem->thumbnail)) {
+                    $p['image'] = $dbItem->thumbnail;
+                }
+                if (!empty($dbItem->description)) {
+                    $p['description'] = $dbItem->description;
+                }
+                if (!empty($dbItem->volume_ml)) {
+                    $p['volume_ml'] = $dbItem->volume_ml;
+                }
+                if (!empty($dbItem->fabric_material)) {
+                    $p['fabric_material'] = $dbItem->fabric_material;
+                }
+                if (!empty($dbItem->size_options)) {
+                    $p['size_options'] = $dbItem->size_options;
+                }
             } else {
                 $s = (int)($p['stock_quantity'] ?? ($p['stock'] ?? 50));
                 $p['stock'] = $s;
@@ -503,6 +527,11 @@ class HomeController extends Controller
                 if (!empty($dbItem->volume_ml)) $p['volume_ml'] = $dbItem->volume_ml;
                 if (!empty($dbItem->rating)) $p['rating'] = (float)$dbItem->rating;
                 if (!empty($dbItem->reviews_count)) $p['reviews_count'] = $dbItem->reviews_count;
+                if (isset($dbItem->price) && (float)$dbItem->price > 0) $p['price'] = (float)$dbItem->price;
+                if (isset($dbItem->mrp) && (float)$dbItem->mrp > 0) $p['mrp'] = (float)$dbItem->mrp;
+                if (!empty($dbItem->name)) $p['name'] = $dbItem->name;
+                if (!empty($dbItem->thumbnail)) $p['image'] = $dbItem->thumbnail;
+                if (!empty($dbItem->size_options)) $p['size_options'] = $dbItem->size_options;
             }
             $p['rating'] = (float)($p['rating'] ?? 5.0);
             $p['return_policy'] = $p['return_policy'] ?? 'non_returnable';
