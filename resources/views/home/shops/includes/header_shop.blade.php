@@ -132,8 +132,12 @@
             <ul class="shop-nav-list"
                 style="list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; align-items: center; font-weight: 750; font-size: 12px; white-space: nowrap; flex-wrap: nowrap;">
 
-                @if(!empty($shopDeghOnlyMode))
-                    <!-- Degh-Only Mode: Clean, Spacious & Focused Header -->
+                @php
+                    $dbActiveCategories = \Illuminate\Support\Facades\DB::table('shop_categories')->where('status', 'active')->orderBy('order_num', 'asc')->get();
+                @endphp
+
+                @if($dbActiveCategories->count() <= 1)
+                    <!-- Single Category Live Mode: Focused Header -->
                     <li style="white-space: nowrap;">
                         <a href="{{ route('shops.category', 'degh') }}"
                             style="color: #074121; background: #dcfce7; font-weight: 800; text-decoration: none; padding: 7px 14px; border-radius: 8px; white-space: nowrap; border: 1.5px solid #16a34a; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 6px rgba(22,163,74,0.15); transition: all 0.2s;"
@@ -156,69 +160,21 @@
                         </a>
                     </li>
                 @else
-                    <!-- Full Shop Mode: All Categories (Active when Shop is Fully Launched) -->
+                    <!-- Multi-Category Live Mode: Dynamically Shows Active Categories -->
                     <li style="white-space: nowrap;">
                         <a href="{{ route('shops') }}"
-                            style="{{ empty($selectedCategory) || $selectedCategory == 'all' ? 'color: #074121; background: rgba(7,65,33,0.1);' : 'color: #333333; background: transparent;' }} text-decoration: none; padding: 5px 8px; border-radius: 5px; white-space: nowrap; font-weight: 800; transition: all 0.2s;"
-                            onmouseenter="this.style.color='#074121'; this.style.background='rgba(7,65,33,0.06)'"
-                            onmouseleave="if('{{ $selectedCategory ?? '' }}' !== '' && '{{ $selectedCategory ?? '' }}' !== 'all'){ this.style.color='#333333'; this.style.background='transparent'; }">
+                            style="{{ empty($selectedCategory) || $selectedCategory == 'all' ? 'color: #074121; background: rgba(7,65,33,0.1);' : 'color: #333333; background: transparent;' }} text-decoration: none; padding: 5px 8px; border-radius: 5px; white-space: nowrap; font-weight: 800; transition: all 0.2s;">
                             ✨ All Products
                         </a>
                     </li>
-
-                    <li style="white-space: nowrap;">
-                        <a href="{{ route('shops.category', 'islamic') }}"
-                            style="{{ ($selectedCategory ?? '') == 'islamic' ? 'color: #074121; background: rgba(7,65,33,0.1); font-weight: 800;' : 'color: #333333; background: transparent;' }} text-decoration: none; padding: 5px 6px; border-radius: 5px; white-space: nowrap; transition: all 0.2s;"
-                            onmouseenter="this.style.color='#074121'; this.style.background='rgba(7,65,33,0.06)'"
-                            onmouseleave="if('{{ $selectedCategory ?? '' }}' !== 'islamic'){ this.style.color='#333333'; this.style.background='transparent'; }">
-                            🌙 Islamic Products
-                        </a>
-                    </li>
-
-                    <li style="white-space: nowrap;">
-                        <a href="{{ route('shops.category', 'attar') }}"
-                            style="{{ ($selectedCategory ?? '') == 'attar' ? 'color: #074121; background: rgba(7,65,33,0.1); font-weight: 800;' : 'color: #333333; background: transparent;' }} text-decoration: none; padding: 5px 6px; border-radius: 5px; white-space: nowrap; transition: all 0.2s;"
-                            onmouseenter="this.style.color='#074121'; this.style.background='rgba(7,65,33,0.06)'"
-                            onmouseleave="if('{{ $selectedCategory ?? '' }}' !== 'attar'){ this.style.color='#333333'; this.style.background='transparent'; }">
-                            🌸 Warsi Attar
-                        </a>
-                    </li>
-
-                    <li style="white-space: nowrap;">
-                        <a href="{{ route('shops.category', 'degh') }}"
-                            style="color: #074121; background: rgba(7,65,33,0.15); font-weight: 850; text-decoration: none; padding: 5px 8px; border-radius: 5px; white-space: nowrap; border: 1px solid rgba(7,65,33,0.25); transition: all 0.2s;"
-                            onmouseenter="this.style.background='rgba(7,65,33,0.22)'"
-                            onmouseleave="this.style.background='rgba(7,65,33,0.15)'">
-                            🍲 Degh Niyaz
-                        </a>
-                    </li>
-
-                    <li style="white-space: nowrap;">
-                        <a href="{{ route('shops.category', 'clay') }}"
-                            style="{{ ($selectedCategory ?? '') == 'clay' ? 'color: #074121; background: rgba(7,65,33,0.1); font-weight: 800;' : 'color: #333333; background: transparent;' }} text-decoration: none; padding: 5px 6px; border-radius: 5px; white-space: nowrap; transition: all 0.2s;"
-                            onmouseenter="this.style.color='#074121'; this.style.background='rgba(7,65,33,0.06)'"
-                            onmouseleave="if('{{ $selectedCategory ?? '' }}' !== 'clay'){ this.style.color='#333333'; this.style.background='transparent'; }">
-                            🏺 Mitti Bartan
-                        </a>
-                    </li>
-
-                    <li style="white-space: nowrap;">
-                        <a href="{{ route('shops.category', 'clothing') }}"
-                            style="{{ ($selectedCategory ?? '') == 'clothing' ? 'color: #074121; background: rgba(7,65,33,0.1); font-weight: 800;' : 'color: #333333; background: transparent;' }} text-decoration: none; padding: 5px 6px; border-radius: 5px; white-space: nowrap; transition: all 0.2s;"
-                            onmouseenter="this.style.color='#074121'; this.style.background='rgba(7,65,33,0.06)'"
-                            onmouseleave="if('{{ $selectedCategory ?? '' }}' !== 'clothing'){ this.style.color='#333333'; this.style.background='transparent'; }">
-                            👕 Clothing
-                        </a>
-                    </li>
-
-                    <li style="white-space: nowrap;">
-                        <a href="{{ route('shops.category', 'toys') }}"
-                            style="{{ ($selectedCategory ?? '') == 'toys' ? 'color: #074121; background: rgba(7,65,33,0.1); font-weight: 800;' : 'color: #333333; background: transparent;' }} text-decoration: none; padding: 5px 6px; border-radius: 5px; white-space: nowrap; transition: all 0.2s;"
-                            onmouseenter="this.style.color='#074121'; this.style.background='rgba(7,65,33,0.06)'"
-                            onmouseleave="if('{{ $selectedCategory ?? '' }}' !== 'toys'){ this.style.color='#333333'; this.style.background='transparent'; }">
-                            🧸 Toys
-                        </a>
-                    </li>
+                    @foreach($dbActiveCategories as $activeCat)
+                        <li style="white-space: nowrap;">
+                            <a href="{{ route('shops.category', $activeCat->slug) }}"
+                                style="{{ ($selectedCategory ?? '') == $activeCat->slug ? 'color: #074121; background: rgba(7,65,33,0.1); font-weight: 800;' : 'color: #333333; background: transparent;' }} text-decoration: none; padding: 5px 8px; border-radius: 5px; white-space: nowrap; transition: all 0.2s;">
+                                {{ $activeCat->name }}
+                            </a>
+                        </li>
+                    @endforeach
                 @endif
 
                 <!-- 8. My Account -->

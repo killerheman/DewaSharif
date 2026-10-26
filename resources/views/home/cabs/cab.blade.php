@@ -220,8 +220,8 @@
                         🔍 Calculate Fixed Fare &amp; Book Cabs
                     </h5>
                     <span id="liveFareBadge"
-                        style="font-size: 14px; background: {{ $initFare > 0 ? '#ecfdf5' : '#fef3c7' }}; color: {{ $initFare > 0 ? '#047857' : '#b45309' }}; padding: 5px 14px; border-radius: 6px; font-weight: 800; border: 1px solid {{ $initFare > 0 ? '#a7f3d0' : '#fde68a' }};">
-                        {{ $initFare > 0 ? 'Estimated Fare: ₹' . number_format($initFare) : 'Custom Quote on WhatsApp' }}
+                        style="font-size: 14px; background: #f8fafc; color: #475569; padding: 5px 14px; border-radius: 6px; font-weight: 800; border: 1.5px solid #cbd5e1;">
+                        🚕 Select Vehicle to Check Fare
                     </span>
                 </div>
 
@@ -263,6 +263,7 @@
                             Vehicle Choice</label>
                         <select id="vehicle_type_select" autocomplete="off" onchange="updateLiveFare('vehicle')" class="form-control"
                             style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600; font-size: 13.5px; background: #ffffff !important; background-image: none !important;">
+                            <option value="" selected>-- Choose Vehicle Type --</option>
                             @php
                                 $availableVehicles = $vehicles;
                                 if (empty($availableVehicles) || count($availableVehicles) === 0) {
@@ -278,19 +279,32 @@
                                 }
                                 if (empty($availableVehicles)) {
                                     $availableVehicles = [
-                                        ['name' => 'Ertiga etc which is available (SUV)', 'price' => 2600],
-                                        ['name' => 'Dzire etc which is available (Semi Deluxe - Sedan)', 'price' => 2200],
-                                        ['name' => 'Verna etc which is available (Deluxe - Sedan)', 'price' => 2300]
+                                        ['name' => 'Omni Van (Standard)', 'price' => 1900],
+                                        ['name' => 'Dzire etc which is available (Semi Deluxe - Sedan)', 'price' => 2100],
+                                        ['name' => 'Ertiga etc which is available (SUV)', 'price' => 2300]
                                     ];
                                 }
+                                // Sort nicely: Omni -> Dzire -> Ertiga
+                                usort($availableVehicles, function($a, $b) {
+                                    $order = ['omni' => 1, 'dzire' => 2, 'sedan' => 2, 'ertiga' => 3, 'suv' => 3];
+                                    $nameA = strtolower(is_array($a) ? ($a['name'] ?? '') : ($a->name ?? ''));
+                                    $nameB = strtolower(is_array($b) ? ($b['name'] ?? '') : ($b->name ?? ''));
+                                    $rankA = 99; $rankB = 99;
+                                    foreach ($order as $k => $rk) {
+                                        if (str_contains($nameA, $k)) { $rankA = $rk; break; }
+                                    }
+                                    foreach ($order as $k => $rk) {
+                                        if (str_contains($nameB, $k)) { $rankB = $rk; break; }
+                                    }
+                                    return $rankA <=> $rankB;
+                                });
                             @endphp
                             @foreach($availableVehicles as $v)
                                 @php
                                     $vName = is_array($v) ? ($v['name'] ?? 'Car') : ($v->name ?? 'Car');
                                     $vPrice = (float)(is_array($v) ? ($v['price'] ?? ($v['fare'] ?? 0)) : ($v->price ?? 0));
-                                    $isSel = (stripos($vName, 'ertiga') !== false);
                                 @endphp
-                                <option value="{{ $vName }}" data-price="{{ $vPrice }}" {{ $isSel ? 'selected' : '' }}>{{ $vName }}</option>
+                                <option value="{{ $vName }}" data-price="{{ $vPrice }}">{{ $vName }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -1069,13 +1083,14 @@
 
         function calculateCabFare(pickup, drop, vehicleName) {
             if (!pickup || !drop) return 0;
+            if (!vehicleName || !vehicleName.trim()) return 0;
             var pLow = normalizeLoc(pickup);
             var dLow = normalizeLoc(drop);
 
             if (pLow === dLow) return 0;
             if (pLow !== 'dewa sharif' && dLow !== 'dewa sharif') return 0;
 
-            var vLow = vehicleName ? vehicleName.trim().toLowerCase() : '';
+            var vLow = vehicleName.trim().toLowerCase();
 
             // 1. Match route with pickup, drop and vehicle type (both forward & reverse)
             var matched = activeCabRoutes.find(function(r) {
@@ -1228,6 +1243,13 @@
             var drop = $('#drop_select').val();
             var vehicle = $('#vehicle_type_select').val();
 
+            if (!vehicle) {
+                $('#liveFareBadge').html('🚕 Select Vehicle to Check Fare');
+                $('#liveFareBadge').css({ 'background': '#f8fafc', 'color': '#475569', 'border-color': '#cbd5e1' });
+                $('#btnGetFareBook').html('Get Fare &amp; Book Cabs').prop('disabled', false).css('background', '#074121');
+                return;
+            }
+
             var fare = calculateCabFare(pickup, drop, vehicle);
 
             if (fare > 0) {
@@ -1252,6 +1274,21 @@
                 } else {
                     alert('Kripya Pickup aur Drop location select karein!');
                 }
+                return;
+            }
+
+            if (!vehicle) {
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Select Vehicle',
+                        text: 'Kripya sabse pehle apni pasand ki gaadi (Omni, Dzire ya Ertiga) chunein!',
+                        confirmButtonColor: '#074121'
+                    });
+                } else {
+                    alert('Kripya sabse pehle apni pasand ki gaadi (Omni, Dzire ya Ertiga) chunein!');
+                }
+                $('#vehicle_type_select').focus();
                 return;
             }
 
@@ -1462,15 +1499,6 @@
         }
 
         $(document).ready(function () {
-            var selectedVeh = $('#vehicle_type_select').val();
-            if (!selectedVeh || selectedVeh.toLowerCase().indexOf('ertiga') === -1) {
-                $('#vehicle_type_select option').each(function() {
-                    if ($(this).val().toLowerCase().indexOf('ertiga') !== -1) {
-                        $('#vehicle_type_select').val($(this).val());
-                        return false;
-                    }
-                });
-            }
             updateLiveFare();
         });
         window.addEventListener('load', function() { updateLiveFare(); });

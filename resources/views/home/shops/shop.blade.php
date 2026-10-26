@@ -150,11 +150,14 @@
 
                 <!-- COLORFUL CATEGORY IMAGE SHOWCASE ROW (100% Dynamic from Database) -->
                 <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 30px; max-width: 1100px; margin-left: auto; margin-right: auto;">
-                    @foreach(($categories ?? \Illuminate\Support\Facades\DB::table('shop_categories')->where('status', 'active')->orderBy('order_num', 'asc')->get()) as $catCircle)
+                    @php
+                        $dbCategoryCircles = \Illuminate\Support\Facades\DB::table('shop_categories')->orderBy('order_num', 'asc')->orderBy('id', 'asc')->get();
+                    @endphp
+                    @foreach($dbCategoryCircles as $catCircle)
                         @php
-                            $isDeghCircle = in_array(strtolower($catCircle->slug ?? ''), ['degh', 'degh-niyaz']);
+                            $isCatLive = strtolower($catCircle->status ?? 'inactive') === 'active';
                         @endphp
-                        @if(!empty($shopDeghOnlyMode) && !$isDeghCircle)
+                        @if(!$isCatLive)
                             <a href="javascript:void(0)" onclick="showComingSoonModal('{{ addslashes($catCircle->name) }}')"
                                 style="text-decoration: none; color: #ffffff; text-align: center; transition: transform 0.25s ease;"
                                 onmouseenter="this.style.transform='scale(1.09)'" onmouseleave="this.style.transform='scale(1)'">
@@ -163,7 +166,7 @@
                                     <img src="{{ asset($catCircle->image ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg') }}"
                                         onerror="this.onerror=null; this.src='/home/images/dewasharif/dewapage/attar_bottle.jpg';"
                                         alt="{{ $catCircle->name }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;">
-                                    <span style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.75); color: #f59e0b; font-size: 8.5px; font-weight: 800; text-transform: uppercase;">Soon</span>
+                                    <span style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.85); color: #f59e0b; font-size: 8.5px; font-weight: 800; text-transform: uppercase;">Soon</span>
                                 </div>
                                 <span style="font-size: 11.5px; font-weight: 800; display: block; text-shadow: 0 2px 4px rgba(0,0,0,0.85); max-width: 78px; margin: 0 auto; line-height: 1.15;">
                                     {{ $catCircle->name }}
@@ -365,9 +368,15 @@
                                             style="position: absolute; top: 10px; left: 10px; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.3px; box-shadow: 0 2px 6px rgba(0,0,0,0.25);">
                                             {{ $badgeText }}
                                         </span>
+                                        @php
+                                            $cardPPrice = (float)($prod['price'] ?? 299);
+                                            $cardPMrp = (float)($prod['mrp'] ?? ($cardPPrice * 1.25));
+                                            $cardPOff = ($cardPMrp > $cardPPrice) ? round((($cardPMrp - $cardPPrice) / $cardPMrp) * 100) : 0;
+                                            $cardPPolicy = $prod['return_policy'] ?? 'non_returnable';
+                                        @endphp
                                         <span
                                             style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991b1b 100%); color: #fff; font-size: 11px; font-weight: 900; padding: 4px 9px; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.25);">
-                                            {{ $isDegh ? 'PARCEL READY' : 'OFFER' }}
+                                            {{ $isDegh ? 'PARCEL READY' : ($cardPOff > 0 ? ($cardPOff . '% OFF') : 'OFFER') }}
                                         </span>
                                     </div>
                                     <div style="padding: 18px 18px 10px 18px;">
@@ -390,6 +399,19 @@
                                                 <span style="background: #f8fafc; color: #64748b; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; border: 1px solid #f1f5f9;">
                                                     ✨ 100% Sacred Quality
                                                 </span>
+                                            @endif
+                                        </div>
+                                        <div style="font-size: 11.5px; font-weight: 700; margin-bottom: 8px;">
+                                            @if($cardPPolicy === 'non_returnable')
+                                                <span style="color: #dc2626;"><i class="bi bi-shield-x"></i> Non-Returnable Sacred Item</span>
+                                            @elseif($cardPPolicy === 'replacement_48h')
+                                                <span style="color: #d97706;"><i class="bi bi-arrow-repeat"></i> 48h Transit Damage Replacement</span>
+                                            @elseif($cardPPolicy === 'exchange_7d')
+                                                <span style="color: #0284c7;"><i class="bi bi-arrow-left-right"></i> 7 Days Size Exchange Available</span>
+                                            @elseif($cardPPolicy === 'return_7d')
+                                                <span style="color: #16a34a;"><i class="bi bi-arrow-counterclockwise"></i> 7 Days Easy Return &amp; Refund</span>
+                                            @else
+                                                <span style="color: #64748b;"><i class="bi bi-shield-check"></i> Final Sale - Authentic Item</span>
                                             @endif
                                         </div>
                                         @php
@@ -417,8 +439,13 @@
                                         <div>
                                             <span
                                                 style="font-size: 20px; font-weight: 900; color: {{ $priceColor }};">₹{{ number_format($prod['price']) }}</span>
-                                            <span
-                                                style="font-size: 13px; color: #94a3b8; text-decoration: line-through; margin-left: 6px;">₹{{ number_format($prod['mrp'] ?? ($prod['price'] * 1.2)) }}</span>
+                                            @if($cardPMrp > $cardPPrice)
+                                                <span
+                                                    style="font-size: 13px; color: #94a3b8; text-decoration: line-through; margin-left: 6px;">₹{{ number_format($cardPMrp) }}</span>
+                                                <span style="background: #fee2e2; color: #dc2626; font-size: 10.5px; font-weight: 800; padding: 2px 6px; border-radius: 4px; border: 1px solid #fca5a5; margin-left: 6px;">
+                                                    {{ $cardPOff }}% OFF
+                                                </span>
+                                            @endif
                                         </div>
                                         @if($isOutOfStock)
                                             <span style="font-size: 11.5px; color: #dc2626; font-weight: 900; background: #fee2e2; padding: 3px 8px; border-radius: 6px; border: 1px solid #fca5a5;">✕ Out of Stock</span>

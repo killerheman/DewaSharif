@@ -176,11 +176,11 @@
                                                                         data-ac="both"
                                                                         data-capacity="4 Passengers + 1 Driver (Total 5)" {{ (str_contains($cType, 'Dzire') || str_contains($cType, 'Semi Deluxe')) ? 'selected' : '' }}>Dzire etc which is
                                                                         available (Semi Deluxe - Sedan)</option>
-                                                                    <option
+                                                                    {{-- <option
                                                                         value="Verna etc which is available (Deluxe - Sedan)"
                                                                         data-ac="both"
                                                                         data-capacity="4 Passengers + 1 Driver (Total 5)" {{ (str_contains($cType, 'Verna') || str_contains($cType, 'Deluxe')) ? 'selected' : '' }}>Verna etc which is
-                                                                        available (Deluxe - Sedan)</option>
+                                                                        available (Deluxe - Sedan)</option> --}}
                                                                     <option value="Ertiga etc which is available (SUV)"
                                                                         data-ac="both"
                                                                         data-capacity="7 Passengers + 1 Driver (Total 8)" {{ (str_contains($cType, 'Ertiga') || str_contains($cType, 'SUV')) ? 'selected' : '' }}>Ertiga etc which is
@@ -841,9 +841,9 @@
                                 <option value="Dzire etc which is available (Semi Deluxe - Sedan)" data-ac="both"
                                     data-capacity="4 Passengers + 1 Driver (Total 5)" selected>Dzire etc which is available
                                     (Semi Deluxe - Sedan)</option>
-                                <option value="Verna etc which is available (Deluxe - Sedan)" data-ac="both"
+                                {{-- <option value="Verna etc which is available (Deluxe - Sedan)" data-ac="both"
                                     data-capacity="4 Passengers + 1 Driver (Total 5)">Verna etc which is available (Deluxe -
-                                    Sedan)</option>
+                                    Sedan)</option> --}}
                                 <option value="Ertiga etc which is available (SUV)" data-ac="both"
                                     data-capacity="7 Passengers + 1 Driver (Total 8)">Ertiga etc which is available (SUV)
                                 </option>

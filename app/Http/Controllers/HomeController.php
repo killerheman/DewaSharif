@@ -376,10 +376,17 @@ class HomeController extends Controller
         if (in_array($selectedCategory, ['appliances', 'home'])) $selectedCategory = 'home-appliances';
         if (in_array($selectedCategory, ['pet', 'pet-food', 'animals'])) $selectedCategory = 'pets';
 
-        // When Degh-Only Mode is active, restrict other categories and redirect to degh
-        $isDeghOnly = filter_var(env('SHOP_DEGH_ONLY_MODE', true), FILTER_VALIDATE_BOOLEAN);
-        if ($isDeghOnly && $selectedCategory !== 'degh') {
-            return redirect()->route('shops.category', 'degh');
+        // Dynamic Category Status Validation from MySQL shop_categories table
+        if ($selectedCategory && $selectedCategory !== 'all') {
+            try {
+                if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
+                    $catRecord = \Illuminate\Support\Facades\DB::table('shop_categories')->where('slug', $selectedCategory)->first();
+                    // If category exists and is NOT active, redirect to degh
+                    if ($catRecord && strtolower($catRecord->status) !== 'active') {
+                        return redirect()->route('shops.category', 'degh');
+                    }
+                }
+            } catch (\Throwable $e) {}
         }
 
         $dbProducts = collect();
@@ -400,6 +407,15 @@ class HomeController extends Controller
                 if (!empty($dbItem->status)) {
                     $p['status'] = $dbItem->status;
                 }
+                if (!empty($dbItem->sku)) {
+                    $p['sku'] = $dbItem->sku;
+                }
+                if (!empty($dbItem->return_policy)) {
+                    $p['return_policy'] = $dbItem->return_policy;
+                }
+                if (isset($dbItem->is_featured)) {
+                    $p['is_featured'] = (int)$dbItem->is_featured;
+                }
                 if (!empty($dbItem->rating)) {
                     $p['rating'] = (float)$dbItem->rating;
                 }
@@ -410,8 +426,10 @@ class HomeController extends Controller
                 $s = (int)($p['stock_quantity'] ?? ($p['stock'] ?? 50));
                 $p['stock'] = $s;
                 $p['stock_quantity'] = $s;
+                $p['return_policy'] = $p['return_policy'] ?? 'non_returnable';
             }
             $p['rating'] = (float)($p['rating'] ?? 5.0);
+            $p['return_policy'] = $p['return_policy'] ?? 'non_returnable';
             $p['reviews_count'] = $p['reviews_count'] ?? ((($p['category'] ?? '') === 'degh') ? '240+ Niyaz Bookings' : '150+ Devotee Reviews');
         }
         unset($p);
@@ -425,16 +443,18 @@ class HomeController extends Controller
         }
 
         $categories = collect();
+        $allCategories = collect();
         try {
             if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
-                $categories = \Illuminate\Support\Facades\DB::table('shop_categories')
-                    ->where('status', 'active')
+                $allCategories = \Illuminate\Support\Facades\DB::table('shop_categories')
                     ->orderBy('order_num', 'asc')
                     ->orderBy('id', 'asc')
                     ->get();
+                $categories = $allCategories->where('status', 'active');
             }
         } catch (\Throwable $e) {
             $categories = collect();
+            $allCategories = collect();
         }
 
         $shopReviews = collect();
@@ -451,7 +471,7 @@ class HomeController extends Controller
             $shopReviews = collect();
         }
 
-        return view('home.shops.shop', compact('products', 'selectedCategory', 'allProducts', 'categories', 'shopReviews'));
+        return view('home.shops.shop', compact('products', 'selectedCategory', 'allProducts', 'categories', 'allCategories', 'shopReviews'));
     }
 
     // Single Product Detail Page (Flipkart / Amazon Style)
@@ -475,6 +495,9 @@ class HomeController extends Controller
                 $p['stock_quantity'] = (int)$dbItem->stock_quantity;
                 $p['stock'] = (int)$dbItem->stock_quantity;
                 if (!empty($dbItem->status)) $p['status'] = $dbItem->status;
+                if (!empty($dbItem->sku)) $p['sku'] = $dbItem->sku;
+                if (!empty($dbItem->return_policy)) $p['return_policy'] = $dbItem->return_policy;
+                if (isset($dbItem->is_featured)) $p['is_featured'] = (int)$dbItem->is_featured;
                 if (!empty($dbItem->description)) $p['description'] = $dbItem->description;
                 if (!empty($dbItem->fabric_material)) $p['fabric_material'] = $dbItem->fabric_material;
                 if (!empty($dbItem->volume_ml)) $p['volume_ml'] = $dbItem->volume_ml;
@@ -482,6 +505,7 @@ class HomeController extends Controller
                 if (!empty($dbItem->reviews_count)) $p['reviews_count'] = $dbItem->reviews_count;
             }
             $p['rating'] = (float)($p['rating'] ?? 5.0);
+            $p['return_policy'] = $p['return_policy'] ?? 'non_returnable';
             $p['reviews_count'] = $p['reviews_count'] ?? ((($p['category'] ?? '') === 'degh') ? '240+ Niyaz Bookings' : '150+ Devotee Reviews');
         }
         unset($p);
@@ -518,10 +542,16 @@ class HomeController extends Controller
         $product = $matched;
         $categorySlug = $product['category'] ?? ($product['category_slug'] ?? 'attar');
 
-        $isDeghOnly = filter_var(env('SHOP_DEGH_ONLY_MODE', true), FILTER_VALIDATE_BOOLEAN);
-        if ($isDeghOnly && strtolower($categorySlug) !== 'degh') {
-            return redirect()->route('shops.category', 'degh');
-        }
+        // Dynamic Category Status Validation from MySQL shop_categories table
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_categories')) {
+                $catRecord = \Illuminate\Support\Facades\DB::table('shop_categories')->where('slug', $categorySlug)->first();
+                // If category exists and is NOT active, redirect to degh
+                if ($catRecord && strtolower($catRecord->status) !== 'active') {
+                    return redirect()->route('shops.category', 'degh');
+                }
+            }
+        } catch (\Throwable $e) {}
 
         $category = null;
         try {

@@ -21,24 +21,36 @@ class ShopAdminController extends Controller
                 if (is_array($p)) {
                     $p['stock_quantity'] = (int)$dbItem->stock_quantity;
                     $p['stock'] = (int)$dbItem->stock_quantity;
+                    $p['sku'] = $dbItem->sku ?? ($p['sku'] ?? null);
+                    $p['return_policy'] = $dbItem->return_policy ?? ($p['return_policy'] ?? 'non_returnable');
+                    $p['is_featured'] = (int)($dbItem->is_featured ?? ($p['is_featured'] ?? 0));
+                    $p['status'] = $dbItem->status ?? ($p['status'] ?? 'active');
                 } else {
                     $p->stock_quantity = (int)$dbItem->stock_quantity;
                     $p->stock = (int)$dbItem->stock_quantity;
+                    $p->sku = $dbItem->sku ?? ($p->sku ?? null);
+                    $p->return_policy = $dbItem->return_policy ?? ($p->return_policy ?? 'non_returnable');
+                    $p->is_featured = (int)($dbItem->is_featured ?? ($p->is_featured ?? 0));
+                    $p->status = $dbItem->status ?? ($p->status ?? 'active');
                 }
             } else {
                 $s = (int)(is_array($p) ? ($p['stock_quantity'] ?? ($p['stock'] ?? 50)) : ($p->stock_quantity ?? ($p->stock ?? 50)));
                 if (is_array($p)) {
                     $p['stock_quantity'] = $s;
                     $p['stock'] = $s;
+                    $p['return_policy'] = $p['return_policy'] ?? 'non_returnable';
+                    $p['is_featured'] = (int)($p['is_featured'] ?? 0);
                 } else {
                     $p->stock_quantity = $s;
                     $p->stock = $s;
+                    $p->return_policy = $p->return_policy ?? 'non_returnable';
+                    $p->is_featured = (int)($p->is_featured ?? 0);
                 }
             }
         }
         unset($p);
 
-        $categories = DB::table('shop_categories')->orderBy('name', 'asc')->get();
+        $categories = DB::table('shop_categories')->orderBy('order_num', 'asc')->orderBy('name', 'asc')->get();
         if ($categories->isEmpty()) {
             $categories = collect([
                 (object)['id' => 1, 'name' => 'Warsi Attar', 'slug' => 'attar'],
@@ -104,12 +116,18 @@ class ShopAdminController extends Controller
 
         $rating = $request->filled('rating') ? (float)$request->input('rating') : 5.0;
         $reviews_count = trim($request->input('reviews_count', ($cat === 'degh' ? '240+ Niyaz Bookings' : '150+ Devotee Reviews')));
+        $sku = trim($request->input('sku', '')) ?: ('#PRD-' . strtoupper(substr(md5(time() . rand(10, 99)), 0, 6)));
+        $returnPolicy = $request->input('return_policy', 'non_returnable');
+        $isFeatured = $request->boolean('is_featured') ? 1 : 0;
 
         $savedItem = DataStore::addItem('products', [
             'name' => $name,
             'category' => $cat,
             'price' => $price,
             'mrp' => $mrp,
+            'sku' => $sku,
+            'return_policy' => $returnPolicy,
+            'is_featured' => $isFeatured,
             'stock' => $stock,
             'stock_quantity' => $stock,
             'volume_ml' => $volume_ml,
@@ -131,6 +149,9 @@ class ShopAdminController extends Controller
                 'category_slug' => $cat,
                 'name' => $name,
                 'slug' => Str::slug($name) . '-' . ($savedItem['id'] ?? time()),
+                'sku' => $sku,
+                'return_policy' => $returnPolicy,
+                'is_featured' => $isFeatured,
                 'price' => $price,
                 'mrp' => $mrp,
                 'sale_price' => $price,
@@ -166,6 +187,9 @@ class ShopAdminController extends Controller
         $data = [
             'name' => trim($request->input('name')),
             'category' => $request->input('category'),
+            'sku' => trim($request->input('sku', '')),
+            'return_policy' => $request->input('return_policy', 'non_returnable'),
+            'is_featured' => $request->boolean('is_featured') ? 1 : 0,
             'price' => (float)$request->input('price'),
             'mrp' => (float)$request->input('mrp'),
             'stock' => $stock,
@@ -205,6 +229,9 @@ class ShopAdminController extends Controller
                 'name' => $data['name'],
                 'category_id' => $catId,
                 'category_slug' => $data['category'],
+                'sku' => $data['sku'],
+                'return_policy' => $data['return_policy'],
+                'is_featured' => $data['is_featured'],
                 'price' => $data['price'],
                 'mrp' => $data['mrp'],
                 'sale_price' => $data['price'],

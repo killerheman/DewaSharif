@@ -474,17 +474,12 @@
 
                                 <!-- Action Button -->
                                 <div>
-                                    @php
-                                        $isDeghCategory =
-                                            in_array(strtolower($sc->slug ?? ''), ['degh', 'degh-niyaz']) ||
-                                            str_contains(strtolower($sc->name ?? ''), 'degh');
-                                    @endphp
-                                    @if ($isDeghCategory)
+                                    @if (strtolower($sc->status ?? 'active') === 'active')
                                         <a href="{{ route('shops.category', $sc->slug) }}"
-                                            style="display: block; width: 100%; text-align: center; background: {{ $sc->theme_color ?? '#b45309' }}; color: #ffffff; text-decoration: none; padding: 11px 0; font-weight: 700; font-size: 14px; border-radius: 8px; box-shadow: 0 3px 8px {{ $sc->theme_color ?? '#b45309' }}55; transition: opacity 0.2s;"
+                                            style="display: block; width: 100%; text-align: center; background: {{ $sc->theme_color ?? '#10b981' }}; color: #ffffff; text-decoration: none; padding: 11px 0; font-weight: 700; font-size: 14px; border-radius: 8px; box-shadow: 0 3px 8px {{ $sc->theme_color ?? '#10b981' }}55; transition: opacity 0.2s;"
                                             onmouseenter="this.style.opacity='0.92';"
                                             onmouseleave="this.style.opacity='1';">
-                                            {{ $sc->button_text ?? 'Book Degh Niyaz →' }}
+                                            {{ $sc->button_text ?? ('Explore ' . $sc->name . ' →') }}
                                         </a>
                                     @else
                                         <button type="button"

@@ -9,8 +9,8 @@
 @section('head-area')
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org/",
-  "@type": "Product",
+  "@@context": "https://schema.org/",
+  "@@type": "Product",
   "name": "{{ $product['name'] ?? 'Sacred Item' }}",
   "description": "{{ $product['short_description'] ?? ($product['description'] ?? 'Sacred product from Dewa Sharif.') }}",
   "offers": {
@@ -237,7 +237,7 @@
 
             <!-- Subtitle / Meta Info (Centered) -->
             <div style="text-align: center; font-size: 14px; color: #64748b; line-height: 1.6;">
-                <span style="display: inline-block; margin: 0 8px;">Item Code: <strong style="color: #0f172a; font-family: monospace;">#PRD-{{ $product['id'] }}</strong></span>
+                <span style="display: inline-block; margin: 0 8px;">Item Code: <strong style="color: #0f172a; font-family: monospace;">{{ !empty($product['sku']) ? $product['sku'] : ('#PRD-' . $product['id']) }}</strong></span>
                 <span style="display: inline-block; color: #cbd5e1;">•</span>
                 <span style="display: inline-block; margin: 0 8px;">Category: <strong style="color: #047857;">{{ $category->name ?? ucfirst($catSlug) }}</strong></span>
                 <span style="display: inline-block; color: #cbd5e1;">•</span>
@@ -483,6 +483,44 @@
                                     </div>
                                 </div>
                             </div>
+                            @php
+                                $detailPolicy = $product['return_policy'] ?? 'non_returnable';
+                            @endphp
+                            <div class="col-12 mt-2">
+                                <div class="highlight-card" style="border-left: 4px solid {{ $detailPolicy === 'non_returnable' ? '#ef4444' : ($detailPolicy === 'replacement_48h' ? '#f59e0b' : '#10b981') }}; background: {{ $detailPolicy === 'non_returnable' ? '#fef2f2' : ($detailPolicy === 'replacement_48h' ? '#fffbeb' : '#f0fdf4') }};">
+                                    @if($detailPolicy === 'non_returnable')
+                                        <i class="fa fa-ban text-danger fs-3"></i>
+                                        <div>
+                                            <strong class="d-block text-danger small">Non-Returnable (Sacred Tabarruk / Food)</strong>
+                                            <small class="text-muted">Due to religious sanctity and food hygiene, this sacred offering cannot be returned once delivered.</small>
+                                        </div>
+                                    @elseif($detailPolicy === 'replacement_48h')
+                                        <i class="fa fa-refresh text-warning fs-3"></i>
+                                        <div>
+                                            <strong class="d-block text-warning small">48 Hours Transit Damage Replacement</strong>
+                                            <small class="text-muted">In case of breakage during courier transport, free replacement provided within 48 hours.</small>
+                                        </div>
+                                    @elseif($detailPolicy === 'exchange_7d')
+                                        <i class="fa fa-exchange text-info fs-3"></i>
+                                        <div>
+                                            <strong class="d-block text-info small">7 Days Size Exchange Available</strong>
+                                            <small class="text-muted">Exchange for different size supported within 7 days of delivery.</small>
+                                        </div>
+                                    @elseif($detailPolicy === 'return_7d')
+                                        <i class="fa fa-undo text-success fs-3"></i>
+                                        <div>
+                                            <strong class="d-block text-success small">7 Days Easy Return &amp; 100% Refund</strong>
+                                            <small class="text-muted">Return product within 7 days in original condition for a complete refund.</small>
+                                        </div>
+                                    @else
+                                        <i class="fa fa-shield text-secondary fs-3"></i>
+                                        <div>
+                                            <strong class="d-block text-secondary small">Final Sale - Authentic Item</strong>
+                                            <small class="text-muted">Authentic Dewa Sharif item sold as final sale.</small>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
 
                         <!-- TABBED SPECIFICATIONS & DESCRIPTIONS (AMAZON / FLIPKART STYLE) -->
@@ -528,8 +566,28 @@
                                                     <td>{{ $product['name'] }}</td>
                                                 </tr>
                                                 <tr>
+                                                    <th>Item Code / SKU</th>
+                                                    <td><code class="fw-bold text-primary" style="font-size: 13.5px;">{{ $product['sku'] ?? ('#PRD-' . $product['id']) }}</code></td>
+                                                </tr>
+                                                <tr>
                                                     <th>Category</th>
                                                     <td>{{ $category->name ?? ucfirst($catSlug) }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Return &amp; Replacement</th>
+                                                    <td>
+                                                        @if($detailPolicy === 'non_returnable')
+                                                            <span class="text-danger fw-bold"><i class="fa fa-shield"></i> Non-Returnable (Sacred Tabarruk / Offering)</span>
+                                                        @elseif($detailPolicy === 'replacement_48h')
+                                                            <span class="text-warning fw-bold"><i class="fa fa-refresh"></i> 48h Transit Damage Replacement Only</span>
+                                                        @elseif($detailPolicy === 'exchange_7d')
+                                                            <span class="text-primary fw-bold"><i class="fa fa-exchange"></i> 7 Days Size Exchange Available</span>
+                                                        @elseif($detailPolicy === 'return_7d')
+                                                            <span class="text-success fw-bold"><i class="fa fa-undo"></i> 7 Days Return &amp; Refund Available</span>
+                                                        @else
+                                                            <span class="text-secondary fw-bold">Final Sale - Authentic Item</span>
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <th>Origin / Source</th>

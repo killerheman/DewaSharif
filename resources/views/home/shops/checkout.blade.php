@@ -100,11 +100,11 @@
                         <div class="row g-3">
                             <div class="col-md-6 col-12">
                                 <label style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">👤 Customer Full Name</label>
-                                <input type="text" id="chk_name" class="form-control" placeholder="Aapka Poora Naam" required style="border-radius: 8px; height: 46px; border: 1.5px solid #cbd5e1; font-weight: 600; font-size: 14px;">
+                                <input type="text" id="chk_name" class="form-control" value="{{ auth()->user()->name ?? '' }}" placeholder="Aapka Poora Naam" required style="border-radius: 8px; height: 46px; border: 1.5px solid #cbd5e1; font-weight: 600; font-size: 14px;">
                             </div>
                             <div class="col-md-6 col-12">
                                 <label style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">📱 Mobile</label>
-                                <input type="tel" id="chk_phone" class="form-control" placeholder="10 digit mobile number" required style="border-radius: 8px; height: 46px; border: 1.5px solid #cbd5e1; font-weight: 600; font-size: 14px;">
+                                <input type="tel" id="chk_phone" class="form-control" value="{{ auth()->user()->phone ?? '' }}" placeholder="10 digit mobile number" required style="border-radius: 8px; height: 46px; border: 1.5px solid #cbd5e1; font-weight: 600; font-size: 14px;">
                             </div>
                             <div class="col-md-6 col-12">
                                 <label style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">✉️ Email Address (Optional)</label>
@@ -390,6 +390,28 @@
                                     <option value="Hotel">Hotel / Guest House</option>
                                 </select>
                             </div>
+
+                            <!-- Deliver to someone else / Gift Tabarruk Option -->
+                            <div class="col-12 mt-2">
+                                <div class="p-3 rounded-3 border" style="background: #f8fafc; border: 1.5px solid #cbd5e1 !important;">
+                                    <label style="display: flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 750; color: #0f172a; cursor: pointer; margin-bottom: 0;">
+                                        <input type="checkbox" id="chk_different_receiver" onchange="toggleReceiverSection()" style="width: 18px; height: 18px; accent-color: #059669; cursor: pointer;">
+                                        <span>🎁 Send as Gift / Tabarruk to Someone Else (Different Receiver Name &amp; Phone)</span>
+                                    </label>
+                                    <div id="receiverSection" style="display: none; margin-top: 14px; padding-top: 14px; border-top: 1.5px dashed #cbd5e1;">
+                                        <div class="row g-3">
+                                            <div class="col-md-6 col-12">
+                                                <label style="font-size: 12.5px; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Recipient Full Name (Parcel Lene Wale Ka Naam)*</label>
+                                                <input type="text" id="chk_receiver_name" class="form-control" placeholder="e.g. Haji Mohammad Iqbal / Family" style="border-radius: 8px; height: 44px; border: 1.5px solid #94a3b8; font-weight: 600; font-size: 13.5px; background: #ffffff;">
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <label style="font-size: 12.5px; font-weight: 700; color: #334155; margin-bottom: 4px; display: block;">Recipient Contact Mobile (Courier Delivery Call)*</label>
+                                                <input type="tel" id="chk_receiver_phone" class="form-control" placeholder="10 digit mobile number" style="border-radius: 8px; height: 44px; border: 1.5px solid #94a3b8; font-weight: 600; font-size: 13.5px; background: #ffffff;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -502,6 +524,36 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
+    function toggleReceiverSection() {
+        var isChecked = document.getElementById('chk_different_receiver') && document.getElementById('chk_different_receiver').checked;
+        if (isChecked) {
+            $('#receiverSection').slideDown(200);
+        } else {
+            $('#receiverSection').slideUp(200);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            var nameEl = document.getElementById('chk_name');
+            var phoneEl = document.getElementById('chk_phone');
+            var streetEl = document.getElementById('chk_street');
+            var pinEl = document.getElementById('chk_pincode');
+            if (nameEl && !nameEl.value && localStorage.getItem('dewa_chk_name')) {
+                nameEl.value = localStorage.getItem('dewa_chk_name');
+            }
+            if (phoneEl && !phoneEl.value && localStorage.getItem('dewa_chk_phone')) {
+                phoneEl.value = localStorage.getItem('dewa_chk_phone');
+            }
+            if (streetEl && !streetEl.value && localStorage.getItem('dewa_chk_street')) {
+                streetEl.value = localStorage.getItem('dewa_chk_street');
+            }
+            if (pinEl && !pinEl.value && localStorage.getItem('dewa_chk_pincode')) {
+                pinEl.value = localStorage.getItem('dewa_chk_pincode');
+            }
+        } catch(e) {}
+    });
+
     function getCartData() {
         var raw = localStorage.getItem('dewa_cart');
         var data = [];
@@ -761,6 +813,20 @@
         var fatehaName = $('#chk_fateha_name').val() ? $('#chk_fateha_name').val().trim() : '';
         var niyazDate = $('#chk_niyaz_date').val() || '';
         var distributionType = $('input[name="distribution_type"]:checked').val() || 'Dargah Sharif Me Langar Taqseem (Distribute to Zaireen)';
+
+        var isDiff = $('#chk_different_receiver').is(':checked');
+        var receiverName = isDiff && $('#chk_receiver_name').val() ? $('#chk_receiver_name').val().trim() : '';
+        var receiverPhone = isDiff && $('#chk_receiver_phone').val() ? $('#chk_receiver_phone').val().trim() : '';
+        if (isDiff && receiverName) {
+            street = '🎁 RECIPIENT: ' + receiverName + (receiverPhone ? ' (Mob: ' + receiverPhone + ')' : '') + ' | ' + street;
+        }
+
+        try {
+            localStorage.setItem('dewa_chk_name', name);
+            localStorage.setItem('dewa_chk_phone', phone);
+            localStorage.setItem('dewa_chk_street', $('#chk_street').val() || '');
+            localStorage.setItem('dewa_chk_pincode', pincode);
+        } catch(e) {}
 
         var cart = getCartData();
         var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.qty); }, 0) || 1497;
