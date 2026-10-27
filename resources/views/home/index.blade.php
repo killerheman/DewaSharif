@@ -190,7 +190,7 @@
                     Dewa Sharif Booking, Shopping &amp; Services Portal
                 </span>
                 <h2 style="color: #1b5e20; font-size: 16px; font-weight: 800; margin-top: 12px; margin-bottom: 8px;">
-                    Hotels &amp; Cabs Booking | Sacred Store • Warsi Attar • Degh Niyaz • Mitti Bartan • Sufi Attire •
+                    Hotels &amp; Cabs Booking | Sacred Store • Warsi Attar &amp; Perfumes • Degh Niyaz • Mitti Bartan • Sufi Attire •
                     Calligraphy &amp; Art • Jewellery • Beauty • Food &amp; Health • Electronics • Home Appliances •
                     Pets Care
                 </h2>
@@ -362,14 +362,14 @@
                                 </h3>
                                 <p
                                     style="font-size: 14px; color: #555; line-height: 1.55; margin-bottom: 15px; min-height: 44px;">
-                                    Dewa sharif ke tabarrukat, khushbu-e-attar, chaadar with good fragrance aur mitti
+                                    Dewa sharif ke tabarrukat, Warsi attar &amp; perfumes, chaadar with good fragrance aur mitti
                                     bartan etc order karein.
                                 </p>
 
                                 <!-- Feature List -->
                                 <ul
                                     style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: #333; line-height: 1.8; min-height: 72px;">
-                                    <li>✔ Pure Non-Alcoholic Fragrances &amp; Attar</li>
+                                    <li>✔ Pure Non-Alcoholic Fragrances, Warsi Attar &amp; Perfumes</li>
                                     <li>✔ Islamic Products, Clay Pots, Scenery, Jewellery, Food</li>
                                     <li>✔ Safe all-India shipping &amp; delivery</li>
                                 </ul>

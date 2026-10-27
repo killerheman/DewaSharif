@@ -125,11 +125,59 @@
                     margin-bottom: 16px !important;
                 }
             }
+            .shop-hero-category-row {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px 10px;
+                margin-top: 26px;
+                max-width: 1300px;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 4px 6px 12px 6px;
+                flex-wrap: nowrap !important;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+            }
+            @media (min-width: 1050px) {
+                .shop-hero-category-row {
+                    justify-content: center !important;
+                }
+            }
+            .shop-cat-circle-item {
+                flex: 0 0 74px;
+                width: 74px;
+                text-decoration: none;
+                color: #ffffff;
+                text-align: center;
+                transition: transform 0.25s ease;
+                display: inline-block;
+            }
+            .shop-cat-circle-box {
+                width: 62px;
+                height: 62px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin: 0 auto 5px auto;
+                background: #ffffff;
+                position: relative;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            }
+            .shop-cat-circle-text {
+                font-size: 10.5px;
+                font-weight: 800;
+                display: block;
+                text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+                max-width: 74px;
+                margin: 0 auto;
+                line-height: 1.15;
+            }
         </style>
 
         <!-- HERO BANNER WITH REAL ORIENTAL SACRED BAZAAR IMAGE BACKGROUND -->
         <div class="shop-hero-section">
-            <div class="container">
+            <div class="container-fluid" style="max-width: 1320px; padding: 0 10px;">
                 <span
                     style="background: #f59e0b; color: #ffffffff; padding: 6px 18px; border-radius: 20px; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; display: inline-block; box-shadow: 0 2px 8px rgba(245,158,11,0.4);">
                     ⭐ Hazrat Waris-e-Pak - Sacred Bazaar
@@ -138,18 +186,18 @@
                     Dewa Sharif Online E-Commerce Store
                 </h1>
                 <p class="shop-hero-desc">
-                    Sarkar Waris-e-Pak ke tabarrukat, khushbu-e-attar, chaadar with good fragrance aur mitti ke bartan etc sidhe order karein.
+                    Sarkar Waris-e-Pak ke tabarrukat, Warsi attar &amp; perfumes, chaadar with good fragrance aur mitti ke bartan etc sidhe order karein.
                 </p>
 
                 <!-- SEARCH BAR IN HERO -->
                 <div style="max-width: 580px; margin: 0 auto; position: relative;">
                     <input type="text" id="shopSearchInput" onkeyup="filterShopProducts()"
-                        placeholder="🔍 Search Attar, Clay Pots, Toys, Sufi Kurta, Tasbeeh..."
+                        placeholder="🔍 Search Warsi Attar &amp; Perfumes, Clay Pots, Sufi Kurta, Tasbeeh..."
                         style="width: 100%; height: 50px; border-radius: 30px; border: 2px solid #f59e0b; padding: 0 25px; font-size: 15px; font-weight: 600; outline: none; box-shadow: 0 6px 20px rgba(0,0,0,0.25); color: #0f172a;">
                 </div>
 
-                <!-- COLORFUL CATEGORY IMAGE SHOWCASE ROW (100% Dynamic from Database) -->
-                <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 30px; max-width: 1100px; margin-left: auto; margin-right: auto;">
+                <!-- COLORFUL CATEGORY IMAGE SHOWCASE ROW (100% Dynamic from Database, Strict 1 Line) -->
+                <div class="shop-hero-category-row">
                     @php
                         $dbCategoryCircles = \Illuminate\Support\Facades\DB::table('shop_categories')->orderBy('order_num', 'asc')->orderBy('id', 'asc')->get();
                     @endphp
@@ -159,30 +207,30 @@
                         @endphp
                         @if(!$isCatLive)
                             <a href="javascript:void(0)" onclick="showComingSoonModal('{{ addslashes($catCircle->name) }}')"
-                                style="text-decoration: none; color: #ffffff; text-align: center; transition: transform 0.25s ease;"
+                                class="shop-cat-circle-item"
                                 onmouseenter="this.style.transform='scale(1.09)'" onmouseleave="this.style.transform='scale(1)'">
-                                <div
-                                    style="width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 3px solid {{ $catCircle->theme_color ?? '#f59e0b' }}; box-shadow: 0 4px 15px {{ $catCircle->theme_color ?? '#f59e0b' }}77; margin: 0 auto 6px auto; background: #ffffff; position: relative;">
+                                <div class="shop-cat-circle-box"
+                                    style="border: 3px solid {{ $catCircle->theme_color ?? '#f59e0b' }}; box-shadow: 0 4px 15px {{ $catCircle->theme_color ?? '#f59e0b' }}77;">
                                     <img src="{{ asset($catCircle->image ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg') }}"
                                         onerror="this.onerror=null; this.src='/home/images/dewasharif/dewapage/attar_bottle.jpg';"
                                         alt="{{ $catCircle->name }}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.85;">
                                     <span style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.85); color: #f59e0b; font-size: 8.5px; font-weight: 800; text-transform: uppercase;">Soon</span>
                                 </div>
-                                <span style="font-size: 11.5px; font-weight: 800; display: block; text-shadow: 0 2px 4px rgba(0,0,0,0.85); max-width: 78px; margin: 0 auto; line-height: 1.15;">
+                                <span class="shop-cat-circle-text">
                                     {{ $catCircle->name }}
                                 </span>
                             </a>
                         @else
                             <a href="{{ route('shops.category', $catCircle->slug) }}"
-                                style="text-decoration: none; color: #ffffff; text-align: center; transition: transform 0.25s ease;"
+                                class="shop-cat-circle-item"
                                 onmouseenter="this.style.transform='scale(1.09)'" onmouseleave="this.style.transform='scale(1)'">
-                                <div
-                                    style="width: 72px; height: 72px; border-radius: 50%; overflow: hidden; border: 3px solid {{ $catCircle->theme_color ?? '#f59e0b' }}; box-shadow: 0 4px 15px {{ $catCircle->theme_color ?? '#f59e0b' }}77; margin: 0 auto 6px auto; background: #ffffff;">
+                                <div class="shop-cat-circle-box"
+                                    style="border: 3px solid {{ $catCircle->theme_color ?? '#f59e0b' }}; box-shadow: 0 4px 15px {{ $catCircle->theme_color ?? '#f59e0b' }}77;">
                                     <img src="{{ asset($catCircle->image ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg') }}"
                                         onerror="this.onerror=null; this.src='/home/images/dewasharif/dewapage/attar_bottle.jpg';"
                                         alt="{{ $catCircle->name }}" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
-                                <span style="font-size: 11.5px; font-weight: 800; display: block; text-shadow: 0 2px 4px rgba(0,0,0,0.85); max-width: 78px; margin: 0 auto; line-height: 1.15;">
+                                <span class="shop-cat-circle-text">
                                     {{ $catCircle->name }}
                                 </span>
                             </a>
@@ -303,7 +351,7 @@
                                 $cardShadow = '0 8px 22px rgba(2, 132, 199, 0.15)';
                                 $hoverShadow = '0 12px 28px rgba(2, 132, 199, 0.25)';
                                 $badgeClass = 'btn-gradient-navy text-white';
-                                $badgeText = '🌸 WARSI ATTAR';
+                                $badgeText = '🌸 WARSI ATTAR & PERFUMES';
                                 $subColor = '#0284c7';
                                 $priceColor = '#0369a1';
                                 $btnText = '🛒 Add to Cart';
