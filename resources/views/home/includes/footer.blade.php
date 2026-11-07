@@ -217,7 +217,7 @@
                         <!-- High Visibility Update Line -->
                         <p class="mt-2 color-toggle-green"
                             style="font-size: 14px; font-weight: 700; letter-spacing: 0.4px; margin-top: 10px; cursor: pointer;">
-                            Last Updated On: 26 October 2026 1:44 AM <br> Portal Focus: Dewa Sharif Visitor Guidance
+                            Last Updated On: 07 November 2026 7:55 PM <br> Portal Focus: Dewa Sharif Visitor Guidance
                             &amp;
                             Universal Peace
                         </p>
