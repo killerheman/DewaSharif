@@ -186,13 +186,13 @@
                     Dewa Sharif Online E-Commerce Store
                 </h1>
                 <p class="shop-hero-desc">
-                    Sarkar Waris-e-Pak ke tabarrukat, Warsi attar &amp; perfumes, chaadar with good fragrance aur mitti ke bartan etc sidhe order karein.
+                    Sarkar Waris-e-Pak ke tabarrukat, khushbu-e-attar, chaadar with good fragrance aur mitti ke bartan etc sidhe order karein.
                 </p>
 
                 <!-- SEARCH BAR IN HERO -->
                 <div style="max-width: 580px; margin: 0 auto; position: relative;">
                     <input type="text" id="shopSearchInput" onkeyup="filterShopProducts()"
-                        placeholder="🔍 Search Warsi Attar &amp; Perfumes, Clay Pots, Sufi Kurta, Tasbeeh..."
+                        placeholder="🔍 Search Attar, Clay Pots, Toys, Sufi Kurta, Tasbeeh..."
                         style="width: 100%; height: 50px; border-radius: 30px; border: 2px solid #f59e0b; padding: 0 25px; font-size: 15px; font-weight: 600; outline: none; box-shadow: 0 6px 20px rgba(0,0,0,0.25); color: #0f172a;">
                 </div>
 
@@ -302,24 +302,38 @@
                 </div>
             </div>
 
-            <!-- SECTION TITLE BEFORE CARDS -->
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0;">
+            <!-- SECTION TITLE BEFORE CARDS WITH DYNAMIC SORTING -->
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid #e2e8f0;">
                 <div>
                     @if(($selectedCategory ?? '') === 'degh' || count($categories ?? []) <= 1)
                         <h3 style="font-size: 20px; font-weight: 800; color: #074121; margin: 0; display: flex; align-items: center; gap: 8px;">
                             <span>🍲</span> Available Degh Niyaz Packages
                         </h3>
                         <p style="margin: 3px 0 0 0; color: #64748b; font-size: 13px; font-weight: 600;">
-                            Showing {{ count($products) }} verified sacred degh offerings direct from Dewa Sharif
+                            Showing {{ count($products ?? $allProducts ?? []) }} verified sacred degh offerings direct from Dewa Sharif
                         </p>
                     @else
                         <h3 style="font-size: 20px; font-weight: 800; color: #074121; margin: 0; display: flex; align-items: center; gap: 8px;">
                             <span>🛍️</span> {{ !empty($selectedCategory) && $selectedCategory !== 'all' ? (collect($categories ?? [])->firstWhere('slug', $selectedCategory)->name ?? 'Products') : 'Live Sacred Store Products' }}
                         </h3>
                         <p style="margin: 3px 0 0 0; color: #64748b; font-size: 13px; font-weight: 600;">
-                            Showing {{ count($products) }} verified offerings direct from Dewa Sharif
+                            Showing {{ count($products ?? $allProducts ?? []) }} verified offerings direct from Dewa Sharif
                         </p>
                     @endif
+                </div>
+
+                <!-- DYNAMIC SORTING DROPDOWN -->
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 13px; font-weight: 800; color: #475569; white-space: nowrap;">
+                        ⇅ Sort By:
+                    </span>
+                    <select id="shopSortSelect" onchange="applyShopSorting(this.value)" style="border-radius: 8px; border: 1.5px solid #10b981; padding: 7px 12px; font-size: 13px; font-weight: 750; color: #0f172a; background: #ffffff; cursor: pointer; outline: none; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+                        <option value="newest" {{ ($sortBy ?? 'newest') === 'newest' ? 'selected' : '' }}>⭐ Newest First / Relevance</option>
+                        <option value="price_low" {{ ($sortBy ?? '') === 'price_low' ? 'selected' : '' }}>💰 Price: Low to High</option>
+                        <option value="price_high" {{ ($sortBy ?? '') === 'price_high' ? 'selected' : '' }}>💎 Price: High to Low</option>
+                        <option value="discount" {{ ($sortBy ?? '') === 'discount' ? 'selected' : '' }}>🔥 Biggest Discount (% OFF)</option>
+                        <option value="rating" {{ ($sortBy ?? '') === 'rating' ? 'selected' : '' }}>🌟 Highest Rated (5.0★)</option>
+                    </select>
                 </div>
             </div>
 
@@ -351,7 +365,7 @@
                                 $cardShadow = '0 8px 22px rgba(2, 132, 199, 0.15)';
                                 $hoverShadow = '0 12px 28px rgba(2, 132, 199, 0.25)';
                                 $badgeClass = 'btn-gradient-navy text-white';
-                                $badgeText = '🌸 WARSI ATTAR & PERFUMES';
+                                $badgeText = '🌸 WARSI ATTAR';
                                 $subColor = '#0284c7';
                                 $priceColor = '#0369a1';
                                 $btnText = '🛒 Add to Cart';
@@ -438,7 +452,9 @@
                                         @php
                                             $cardPPrice = (float)($prod['price'] ?? 299);
                                             $cardPMrp = (float)($prod['mrp'] ?? ($cardPPrice * 1.25));
-                                            $cardPOff = ($cardPMrp > $cardPPrice) ? round((($cardPMrp - $cardPPrice) / $cardPMrp) * 100) : 0;
+                                            $cardPOff = (!empty($prod['discount_percent']) && (int)$prod['discount_percent'] > 0)
+                                                ? (int)$prod['discount_percent']
+                                                : (($cardPMrp > $cardPPrice) ? round((($cardPMrp - $cardPPrice) / $cardPMrp) * 100) : 0);
                                             $cardPPolicy = $prod['return_policy'] ?? 'non_returnable';
                                         @endphp
                                         @if(!$isCatActive)
@@ -1387,5 +1403,11 @@
                 }
             }
         });
+
+        function applyShopSorting(val) {
+            var url = new URL(window.location.href);
+            url.searchParams.set('sort', val);
+            window.location.href = url.toString();
+        }
     </script>
 @endsection

@@ -1,202 +1,180 @@
 @extends('home.includes.master')
 @section('content')
     <!-- Dewa Mela Hero Section -->
-    <div
-        style="background: linear-gradient(135deg, rgba(3, 37, 20, 0.92), rgba(4, 22, 12, 0.96)), url('{{ asset('home/images/dewa-bg.jpg') }}') center/cover no-repeat; color: #fff; padding: 75px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: inset 0 0 100px rgba(0,0,0,0.6);">
+  <div
+    style="background: linear-gradient(135deg, rgba(3, 37, 20, 0.92), rgba(4, 22, 12, 0.96)), url('{{ asset('home/images/dewa-bg.jpg') }}') center/cover no-repeat; color: #fff; padding: 75px 15px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: inset 0 0 100px rgba(0,0,0,0.6); box-sizing: border-box; width: 100%;">
 
-        <!-- Badge -->
-        <span
-            style="background: #e8a824; color: #111; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-            🎉 Official Dewa Sharif Urs(Mela) Dates Announced 🎉
+    <!-- 1. THANK YOU / BOOKING STATS CARD (100% WIDE RESPONSIVE) -->
+    <div style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; box-sizing: border-box; text-align: center;">
+        
+        <!-- Header Badge -->
+        <span style="background: #e8a824; color: #111; font-weight: 800; font-size: 12px; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+            🙏 Heartfelt Gratitude 🙏
         </span>
 
-        <!-- Heading -->
-        <h1 id="mela-title" onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#ffeb3b';"
-            ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#ffeb3b';"
-            style="color: #ffeb3b; font-size: 36px; font-weight: 800; margin: 0 0 16px 0; line-height: 1.35; text-align: center; width: 100%; max-width: 800px; cursor: pointer; transition: color 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.7);">
-            Dewa Sharif Urs(Mela) 2026<br>
-            27 October - 5 November
-        </h1>
+        <h3 style="color: #ffd700; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+            ✨ Thank You So Much for Trusting Us in Dewa Mela 2026! ✨
+        </h3>
+        
+        <p style="font-size: 15.5px; color: #fdf6e2; line-height: 1.7; font-weight: 500; margin: 0 auto 22px auto; max-width: 950px; text-align: center;">
+         Aap sabhi zayreen aur guests ka dil se shukriya! Aapne humari services par bharosa kiya aur Dewa Sharif Urs ko safal banaya. Aapke is bharose ke liye tahe-dil se shukriya—hum hamesha aage bhi aapki seva aur khidmat mein aise hi hazir rahenge aur aapke kaam aate rahenge.
+        </p>
 
-        <!-- MUQADDAS KUL SHARIF DATES (FULLY RESPONSIVE) -->
-        <div id="mela-kul-dates"
-            style="width: 100%; max-width: 780px; margin: 0 auto 20px auto; background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 14px; padding: 14px 18px; box-shadow: 0 6px 20px rgba(0,0,0,0.6); box-sizing: border-box; backdrop-filter: blur(6px); text-align: center;">
-
-            <!-- Header Badge -->
-            <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(212, 175, 55, 0.18); border: 1px solid rgba(212, 175, 55, 0.4); padding: 3px 14px; border-radius: 20px; margin-bottom: 10px;">
-                <span style="color: #ffd700; font-size: 12px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;">
-                    🌙 Muqaddas Kul Sharif Dates (Urs 2026) 🌙
-                </span>
+        <!-- Stats Horizontal Layout -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; width: 100%;">
+            
+            <!-- Stat 1: Rooms -->
+            <div style="background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 14px 18px; text-align: center; flex: 1; min-width: 250px; box-sizing: border-box;">
+                <div style="color: #ffd700; font-size: 22px; font-weight: 900; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">80+ Bookings</div>
+                <div style="color: #ffffff; font-size: 13px; font-weight: 700; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px;">🛏️ Rooms & Guest House</div>
             </div>
 
-            <!-- Pehli Line -->
-            <div style="font-size: 15px; font-weight: 700; line-height: 1.6; color: #fde047; transition: color 0.3s ease; cursor: pointer; padding: 6px 4px; border-bottom: 1px dashed rgba(255, 255, 255, 0.12); text-shadow: 0 1px 4px rgba(0,0,0,0.8); word-wrap: break-word;"
-                onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#fde047';"
-                ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#fde047';">
-                ✨ <strong>Hazrat Sayyad Qurban Ali Shah (r.a) KUL</strong> — <span style="color: #ffffff; font-weight: 800;">29 October 2026</span> <span style="color: #86efac; font-size: 13px; font-weight: 600;">(Baad Namaz Isha)</span>
+            <!-- Stat 2: Cabs -->
+            <div style="background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 14px 18px; text-align: center; flex: 1; min-width: 250px; box-sizing: border-box;">
+                <div style="color: #ffd700; font-size: 22px; font-weight: 900; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">150+ Bookings</div>
+                <div style="color: #ffffff; font-size: 13px; font-weight: 700; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px;">🚗 Cab & Travel Services</div>
             </div>
 
-            <!-- Dusri Line -->
-            <div style="font-size: 15px; font-weight: 700; line-height: 1.6; color: #fde047; transition: color 0.3s ease; cursor: pointer; padding: 6px 4px; border-bottom: 1px dashed rgba(255, 255, 255, 0.12); text-shadow: 0 1px 4px rgba(0,0,0,0.8); word-wrap: break-word;"
-                onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#fde047';"
-                ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#fde047';">
-                ✨ <strong>Hazrat Sayyad Khadim Ali Shah (r.a) KUL</strong> — <span style="color: #ffffff; font-weight: 800;">30 October 2026</span>
-            </div>
-
-            <!-- Teesri Line (Main Waris Pak Kul) -->
-            <div style="font-size: 15.5px; font-weight: 800; line-height: 1.6; color: #fde047; transition: color 0.3s ease; cursor: pointer; padding: 6px 4px 2px 4px; text-shadow: 0 1px 4px rgba(0,0,0,0.8); word-wrap: break-word;"
-                onmouseover="this.style.color='#00e676';" onmouseout="this.style.color='#fde047';"
-                ontouchstart="this.style.color='#00e676';" ontouchend="this.style.color='#fde047';">
-                ✨ <strong>Hazrat Sayyad Haji Waris Ali Shah (r.a) KUL</strong> — <span style="color: #ffffff; font-weight: 900;">31 October 2026</span> <span style="color: #86efac; font-size: 13px; font-weight: 700;">(Subah 4:13 AM)</span>
+            <!-- Stat 3: Degh & Langar -->
+            <div style="background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 14px 18px; text-align: center; flex: 1; min-width: 250px; box-sizing: border-box;">
+                <div style="color: #ffd700; font-size: 22px; font-weight: 900; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">190+ Bookings</div>
+                <div style="color: #ffffff; font-size: 13px; font-weight: 700; margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px;">🍲 Degh, Niyaz & Langar</div>
             </div>
 
         </div>
-
-        {{-- <span
-            style="background: #faf9f9ff; color: #111; font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 8px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 0.8px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-            ⚠️ Website is Under Maintenance. Please do not make any bookings from (19/10/2026 - 11:30 PM).
-            <br> For urgent
-            inquiries, or Bookings
-            please Contact via WhatsApp or Call.
-        </span> --}}
-
-        <div
-            style="margin-top: 30px; padding: 25px 30px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate;">
-
-            <!-- Heading -->
-            <h3
-                style="color: #ffd700; font-size: 20px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
-                ✨ Complete Dewa Sharif Ziyarat & Travel Services ✨
-            </h3>
-
-            <!-- Description -->
-            <p
-                style="font-size: 15px; color: #fdf6e2; line-height: 1.7; font-weight: 500; margin: 0 0 20px 0; text-align: center;">
-                Hum provide karte hain **Lucknow Airport & Railway Station or Custom Pickup & Drop**,
-                <span style="color: #ffd700; font-weight: 700;">AC / Non-AC (Standard, Deluxe, Premium & Luxury
-                    Rooms)</span>,
-                <br>sath hi complete **Guidance, Degh & Niyaz** ki poori facility Dewa Sharif mein.
-                Book karein apna **Full Ziyarat Service Package** pickup-drop ke sath!
-            </p>
-
-            <!-- ACTION BOOKING BUTTONS (SAME SIZE & RESPONSIVE) -->
-            <div
-                style="display: flex; justify-content: center; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 22px;">
-
-                <!-- 1. CAB BOOKING BUTTON -->
-                <a href="{{ route('cabs') }}"
-                    style="background: linear-gradient(135deg, #ffe01b 0%, #f59e0b 50%, #d97706 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.45); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
-                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa fa-taxi" style="font-size: 20px; flex-shrink: 0;"></i>
-                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
-                        <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;">BOOK CABS</span>
-                        <span style="font-size: 11px; font-weight: 600; opacity: 0.98; letter-spacing: 0.3px; color: #ffffff;">24×7 Service</span>
-                    </div>
-                </a>
-
-                <!-- 2. HOTEL BOOKING BUTTON (NAVY GRADIENT) -->
-                <a href="{{ route('hotels') }}"
-                    style="background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 50%, #0f172a 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
-                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa fa-bed" style="font-size: 20px; flex-shrink: 0;"></i>
-                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
-                        <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;">BOOK HOTELS</span>
-                        <span style="font-size: 11px; font-weight: 500; opacity: 0.95; letter-spacing: 0.3px; color: #ffffff;">24×7 Service</span>
-                    </div>
-                </a>
-
-                <!-- 3. DEGH NIYAZ BOOKING BUTTON -->
-                <a href="{{ route('shops.category', 'degh') }}"
-                    style="background: linear-gradient(135deg, #ea580c 0%, #c2410c 50%, #991b1b 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
-                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa fa-cutlery" style="font-size: 19px; flex-shrink: 0;"></i>
-                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
-                        <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;">BOOK DEGH NIYAZ</span>
-                        <span style="font-size: 11px; font-weight: 500; opacity: 0.95; letter-spacing: 0.3px; color: #ffffff;">Tabarruk</span>
-                    </div>
-                </a>
-
-                <!-- 4. WHATSAPP CHAT BUTTON -->
-                <a href="https://wa.me/919648777223?text={{ urlencode('Assalamu Alaikum! Mujhe Dewa Sharif Ziyarat, Hotels, Cabs aur Tabarruk ke baare me jaankari chahiye.') }}"
-                    target="_blank" rel="noopener"
-                    style="background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); color: #ffffff; min-width: 215px; min-height: 52px; height: auto; padding: 7px 18px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
-                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                    <i class="fa fa-whatsapp" style="font-size: 21px; flex-shrink: 0;"></i>
-                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
-                        <span style="font-weight: 800; font-size: 14px; letter-spacing: 0.3px;"> WHATSAPP</span>
-                        <span style="font-size: 11px; font-weight: 500; opacity: 0.95; letter-spacing: 0.3px; color: #ffffff;">Support</span>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-
-        <style>
-            @keyframes royalGlow {
-                0% {
-                    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-                    border-color: #d4af37;
-                }
-
-                100% {
-                    box-shadow: 0 0 35px rgba(255, 215, 0, 0.7), inset 0 0 15px rgba(212, 175, 55, 0.2);
-                    border-color: #ffd700;
-                }
-            }
-        </style>
-
-        <!-- Subtitle -->
-        <!-- <p id="mela-sub" onmouseover="this.style.color='#ffeb3b';" onmouseout="this.style.color='#00e676';"
-                                ontouchstart="this.style.color='#ffeb3b';" ontouchend="this.style.color='#00e676';"
-                                style="color: #00e676; font-size: 17px; max-width: 680px; margin: 0 auto 28px auto; font-weight: 600; line-height: 1.6; text-align: center; cursor: pointer; transition: color 0.3s ease; text-shadow: 0 1px 6px rgba(0,0,0,0.6);">
-                                Nearby Hotels &amp; Cabs Bookings, Airport & Railway Station Lucknow & Custom Places , Degh Niyaz
-                            </p> -->
-
-        <!-- Big Bold Coming Soon Box -->
-        <!-- <div style="margin-bottom: 20px; text-align: center; width: 100%;">
-                                <div
-                                    style="display: inline-block; background: rgba(0, 15, 8, 0.92); border: 2.5px dashed #ffeb3b; padding: 18px 45px; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.7);">
-                                    <h2
-                                        style="font-size: 36px; font-weight: 900; color: #ffeb3b; margin: 0; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 16px rgba(255, 235, 59, 0.7); display: flex; align-items: center; justify-content: center; gap: 10px;">
-                                        <span>🌹</span><span>COMING SOON</span> <span>🌹</span>
-                                    </h2>
-                                    <p style="color: #00e676; font-size: 16px; margin: 10px 0 0 0; font-weight: 700;">
-                                        Online Prebooking &amp; travel assistance jald hi shuru hogi! InshaAllah
-                                    </p>
-                                </div>-
-                            </div> -->
-
-        <!-- Buttons Row -->
-        <!-- <div style="display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap;">
-                                <a href="javascript:void(0)"
-                                    style="background: #25D366; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); display: inline-flex; align-items: center; cursor: default; border: 2px solid transparent;">
-                                    🏨 Book Hotels / Stay
-                                </a>
-                                <a href="javascript:void(0)"
-                                    style="background: transparent; color: #ffeb3b; border: 2px solid #ffeb3b; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; cursor: default; box-shadow: 0 4px 14px rgba(0,0,0,0.2);">
-                                    🚗 Cab &amp; Travel Help
-                                </a>
-                            </div> -->
     </div>
 
-    <!-- ================= 3 FEATURED SERVICE CARDS (Green + Black + Bright Pure Yellow) ================= -->
+    <!-- 2. TRAVEL & SERVICES BOX (100% WIDE RESPONSIVE) -->
+    <div
+        style="margin-top: 10px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; width: 100%; max-width: 1140px; box-sizing: border-box;">
+
+        <!-- Heading -->
+        <h3
+            style="color: #ffd700; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+            ✨ Complete Dewa Sharif Ziyarat & Travel Services ✨
+        </h3>
+
+        <!-- Description -->
+       <p style="font-size: 15.5px; color: #fdf6e2; line-height: 1.7; font-weight: 500; margin: 0 auto 20px auto; max-width: 950px; text-align: center;">
+    Hum provide karte hain **Lucknow Airport & Railway Station or Custom Pickup & Drop**
+    <span style="color: #ffd700; font-weight: 700;"><br> AC / Non-AC (Standard, Deluxe, Premium & Luxury Rooms)</span>, 
+    <br>sath hi complete **Guidance, Degh & Niyaz** ki poori facility Dewa Sharif mein. 
+    Book karein apna **Full Ziyarat Service Package (ONLINE / OFFLINE)** — aapki maujudgi mein ya aapki gair-maujudgi mein **WhatsApp video & photos** ke sath poori tasalli (proof) ke sath!
+</p>
+
+        <!-- ACTION BOOKING BUTTONS -->
+        <div
+            style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 22px; width: 100%;">
+
+            <!-- 1. CAB BOOKING BUTTON -->
+            <a href="{{ route('cabs') }}"
+                style="background: linear-gradient(135deg, #ffe01b 0%, #f59e0b 50%, #d97706 100%); color: #ffffff; flex: 1; min-width: 220px; min-height: 52px; padding: 7px 14px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.45); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                <i class="fa fa-taxi" style="font-size: 19px; flex-shrink: 0;"></i>
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
+                    <span style="font-weight: 800; font-size: 13.5px; letter-spacing: 0.3px;">BOOK CABS</span>
+                    <span style="font-size: 11px; font-weight: 600; opacity: 0.98; color: #ffffff;">24×7 Service</span>
+                </div>
+            </a>
+
+            <!-- 2. HOTEL BOOKING BUTTON -->
+            <a href="{{ route('hotels') }}"
+                style="background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 50%, #0f172a 100%); color: #ffffff; flex: 1; min-width: 220px; min-height: 52px; padding: 7px 14px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                <i class="fa fa-bed" style="font-size: 19px; flex-shrink: 0;"></i>
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
+                    <span style="font-weight: 800; font-size: 13.5px; letter-spacing: 0.3px;">BOOK HOTELS</span>
+                    <span style="font-size: 11px; font-weight: 500; opacity: 0.95; color: #ffffff;">24×7 Service</span>
+                </div>
+            </a>
+
+            <!-- 3. DEGH NIYAZ BOOKING BUTTON -->
+            <a href="{{ route('shops.category', 'degh') }}"
+                style="background: linear-gradient(135deg, #ea580c 0%, #c2410c 50%, #991b1b 100%); color: #ffffff; flex: 1; min-width: 220px; min-height: 52px; padding: 7px 14px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(234, 88, 12, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                <i class="fa fa-cutlery" style="font-size: 18px; flex-shrink: 0;"></i>
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
+                    <span style="font-weight: 800; font-size: 13.5px; letter-spacing: 0.3px;">BOOK DEGH</span>
+                    <span style="font-size: 11px; font-weight: 500; opacity: 0.95; color: #ffffff;">Tabarruk</span>
+                </div>
+            </a>
+
+            <!-- 4. WHATSAPP CHAT BUTTON -->
+            <a href="https://wa.me/919648777223?text={{ urlencode('Assalamu Alaikum! Mujhe Dewa Sharif Ziyarat, Hotels, Cabs aur Tabarruk ke baare me jaankari chahiye.') }}"
+                target="_blank" rel="noopener"
+                style="background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); color: #ffffff; flex: 1; min-width: 220px; min-height: 52px; padding: 7px 14px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
+                onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                <i class="fa fa-whatsapp" style="font-size: 20px; flex-shrink: 0;"></i>
+                <div style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
+                    <span style="font-weight: 800; font-size: 13.5px; letter-spacing: 0.3px;">WHATSAPP</span>
+                    <span style="font-size: 11px; font-weight: 500; opacity: 0.95; color: #ffffff;">Support</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- 3. DARGAH SHARIF ZIYARAT TIMINGS (100% WIDE RESPONSIVE) -->
+    <div style="width: 100%; max-width: 1140px; margin-top: 30px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; box-sizing: border-box;">
+        
+        <h3 style="color: #ffd700; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
+            ✨ Dargah Sharif Ziyarat Open / Close Timings ✨
+        </h3>
+        <p style="font-size: 15px; color: #fdf6e2; text-align: center; margin-bottom: 22px;">
+    Zayreen (Visitors) ke liye Mazar-e-Mubarak ke khulne (open) aur band (close) hone ka tay shuda waqt (time):
+</p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; width: 100%;">
+            
+            <!-- Winter Timing -->
+            <div style="flex: 1; min-width: 420px; background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 18px 22px; text-align: left; box-sizing: border-box;">
+                <div style="color: #ffd700; font-weight: 800; font-size: 17px; margin-bottom: 6px;">❄️ Winter (Sardi ke Din)</div>
+                <div style="color: #ffffff; font-size: 15px; margin-bottom: 5px;"><strong>Morning (Subah):</strong> 5:00 AM to 12:00 PM</div>
+                <div style="color: #ffffff; font-size: 15px;"><strong>After-Noon (Dopahar):</strong> 2:00 PM to 9:00 PM</div>
+            </div>
+
+            <!-- Summer Timing -->
+            <div style="flex: 1; min-width: 420px; background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 18px 22px; text-align: left; box-sizing: border-box;">
+                <div style="color: #ffd700; font-weight: 800; font-size: 17px; margin-bottom: 6px;">☀️ Summer (Garmi ke Din)</div>
+                <div style="color: #ffffff; font-size: 15px; margin-bottom: 5px;"><strong>Morning (Subah):</strong> 4:00 AM to 12:00 PM</div>
+                <div style="color: #ffffff; font-size: 15px;"><strong>After-Noon (Dopahar):</strong> 2:00 PM to 10:00 PM</div>
+            </div>
+
+        </div>
+    </div>
+
+    <style>
+        @keyframes royalGlow {
+            0% {
+                box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+                border-color: #d4af37;
+            }
+
+            100% {
+                box-shadow: 0 0 35px rgba(255, 215, 0, 0.7), inset 0 0 15px rgba(212, 175, 55, 0.2);
+                border-color: #ffd700;
+            }
+        }
+    </style>
+</div>
+
+    <!-- ================= 3 FEATURED SERVICE CARDS ================= -->
     <section style="padding: 50px 0 25px 0; background: #fdfbf7; border-bottom: 2px solid #e2d7c5;">
         <div class="container">
 
-            <!-- Section Title Header -->
             <div style="text-align: center; margin-bottom: 30px;">
                 <span
                     style="display: inline-block; color: #ffffffff; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; background: #105a35ff; padding: 6px 18px; border-radius: 20px; border: 1.5px solid #fbc02d;">
                     Dewa Sharif Booking, Shopping &amp; Services Portal
                 </span>
                 <h2 style="color: #1b5e20; font-size: 16px; font-weight: 800; margin-top: 12px; margin-bottom: 8px;">
-                    Hotels &amp; Cabs Booking | Sacred Store • Warsi Attar &amp; Perfumes • Degh Niyaz • Mitti Bartan • Sufi Attire •
-                    Calligraphy &amp; Art • Jewellery • Beauty • Food &amp; Health • Electronics • Home Appliances •
+                    Hotels &amp; Cabs Booking | Sacred Store • Warsi Attar • Degh Niyaz • Mitti Bartan • Sufi Attire •
+                    Calligraphy &amp; Art • Toys • Jewellery • Beauty • Food &amp; Health • Electronics • Home Appliances •
                     Pets Care
                 </h2>
 
                 <span
-                    style="display: inline-block; color: #ffffffff; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; background: #105a35ff; padding: 6px 18px; border-radius: 20px; border: 1.5px solid #fbc02d;">
+                    style="display: inline-block; color: #ffffffff; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; background: #105a35ff; padding: 6px 18px; border-radius: 20px; border: 1.5px solid #fbc02d; margin-top: 10px;">
                     Warsi Technology & Services
                 </span>
                 <h2 style="color: #1b5e20; font-size: 16px; font-weight: 800; margin-top: 12px; margin-bottom: 8px;">
@@ -208,207 +186,80 @@
 
             <div class="row" style="margin-bottom: 28px; display: flex; flex-wrap: wrap; justify-content: center;">
 
-                <!-- Card 1: Hotel & Guest House (Theme: Forest Green) -->
+                <!-- Card 1: Hotel & Guest House -->
                 <div class="col-md-4 col-sm-6 col-xs-12" style="display: flex; margin-bottom: 25px;">
-                    <div style="background: #ffffff; border: 2px solid #1b5e20; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px rgba(27, 94, 32, 0.12); display: flex; flex-direction: column; width: 100%; transition: transform 0.25s ease, box-shadow 0.25s ease;"
-                        onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px rgba(27, 94, 32, 0.25)';"
-                        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 18px rgba(27, 94, 32, 0.12)';">
-
-                        <!-- Card Top Image Banner -->
+                    <div style="background: #ffffff; border: 2px solid #1b5e20; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px rgba(27, 94, 32, 0.12); display: flex; flex-direction: column; width: 100%;">
                         <div style="position: relative; height: 180px; overflow: hidden; background: #1b5e20;">
-                            <img src="{{ asset('home/images/dewasharif/dewapage/deluxe_room.jpg') }}"
-                                alt="Hotels & Guest House"
-                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <span
-                                style="position: absolute; top: 12px; left: 12px; background: #1b5e20; color: #ffff00; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid #ffff00; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                                🏨 VERIFIED STAYS
-                            </span>
-                            <span
-                                style="position: absolute; bottom: 10px; right: 12px; background: #ffffff; color: #1b5e20; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                                Special "URS" Package Available
-                            </span>
+                            <img src="{{ asset('home/images/dewasharif/dewapage/deluxe_room.jpg') }}" alt="Hotels & Guest House" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span style="position: absolute; top: 12px; left: 12px; background: #1b5e20; color: #ffff00; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; text-transform: uppercase;">🏨 VERIFIED STAYS</span>
                         </div>
-
-                        <!-- Card Body -->
-                        <div
-                            style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
-                                <h3 style="font-size: 20px; font-weight: 800; color: #1b5e20; margin-bottom: 8px;">
-                                    Hotels &amp; Guest Houses
-                                </h3>
-                                <p
-                                    style="font-size: 14px; color: #555; line-height: 1.55; margin-bottom: 15px; min-height: 44px;">
-                                    Dargah ke nazdeek AC/NON AC Rooms, Party-Halls, Guest House, Marriage Hall ki direct
-                                    live
-                                    booking.
-                                </p>
-
-                                <!-- Feature List -->
-                                <ul
-                                    style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: #333; line-height: 1.8; min-height: 72px;">
+                                <h3 style="font-size: 20px; font-weight: 800; color: #1b5e20; margin-bottom: 8px;">Hotels &amp; Guest Houses</h3>
+                                <p style="font-size: 14px; color: #555; line-height: 1.55; margin-bottom: 15px;">Dargah ke nazdeek AC/NON AC Rooms, Party-Halls, Guest House, Marriage Hall ki direct live booking.</p>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: #333; line-height: 1.8;">
                                     <li>✔ Walking distance from Mazar Gate</li>
                                     <li>✔ Neat -Clean &amp; Water Supply</li>
                                     <li>✔ Read Carefully Terms & Conditions</li>
                                 </ul>
                             </div>
-
-                            <!-- Action Button -->
                             <div>
-                                @if (($serviceHotelsStatus ?? 'active') === 'active')
-                                    <a href="{{ route('hotels') }}"
-                                        style="display: block; width: 100%; text-align: center; background: #1b5e20; color: #ffffff; text-decoration: none; padding: 11px 0; font-weight: 700; font-size: 14px; border-radius: 8px; box-shadow: 0 3px 8px rgba(27, 94, 32, 0.3);">
-                                        Open Hotel Portal →
-                                    </a>
-                                @else
-                                    <button type="button" onclick="showComingSoonModal('Hotels & Guest Houses Portal')"
-                                        style="display: block; width: 100%; text-align: center; background: #64748b; color: #ffffff; border: none; padding: 11px 0; font-weight: 700; font-size: 14px; border-radius: 8px; cursor: pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.15);">
-                                        ⏳ Coming Soon (Under Maintenance)
-                                    </button>
-                                @endif
+                                <a href="{{ route('hotels') }}" style="display: block; width: 100%; text-align: center; background: #1b5e20; color: #ffffff; text-decoration: none; padding: 11px 0; font-weight: 700; font-size: 14px; border-radius: 8px;">Open Hotel Portal →</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- Card 2: Auto & Cab Booking (Theme: Pure Black / Charcoal) -->
+                <!-- Card 2: Auto & Cab Booking -->
                 <div class="col-md-4 col-sm-6 col-xs-12" style="display: flex; margin-bottom: 25px;">
-                    <div style="background: #ffffff; border: 2px solid #b71c1c; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; width: 100%; transition: transform 0.25s ease, box-shadow 0.25s ease;"
-                        onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px rgba(183, 28, 28, 0.25)';"
-                        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 18px rgba(0, 0, 0, 0.15)';">
-
-                        <!-- Card Top Image Banner -->
+                    <div style="background: #ffffff; border: 2px solid #b71c1c; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); display: flex; flex-direction: column; width: 100%;">
                         <div style="position: relative; height: 180px; overflow: hidden; background: #b71c1c;">
-                            <img src="{{ asset('home/images/dewasharif/dewapage/sedan_dzire.jpg') }}"
-                                alt="Auto & Cab Service"
-                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <span
-                                style="position: absolute; top: 12px; left: 12px; background: #b71c1c; color: #ffffff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
-                                🚕 24/7 TRANSPORT
-                            </span>
-                            <span
-                                style="position: absolute; bottom: 10px; right: 12px; background: #ffffff; color: #b71c1c; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                                Zero Surge Pricing
-                            </span>
+                            <img src="{{ asset('home/images/dewasharif/dewapage/sedan_dzire.jpg') }}" alt="Auto & Cab Service" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span style="position: absolute; top: 12px; left: 12px; background: #b71c1c; color: #ffffff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; text-transform: uppercase;">🚕 24/7 TRANSPORT</span>
                         </div>
-
-                        <!-- Card Body -->
-                        <div
-                            style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
-                                <h3 style="font-size: 20px; font-weight: 800; color: #b71c1c; margin-bottom: 8px;">
-                                    Auto &amp; Cab Booking
-                                </h3>
-                                <p
-                                    style="font-size: 14px; color: #555; line-height: 1.55; margin-bottom: 15px; min-height: 44px;">
-                                    Barabanki Junction, Lucknow Charbagh aur Airport se direct Dewa Sharif ke liye verified
-                                    cabs aur autos.
-                                </p>
-
-                                <!-- Feature List -->
-                                <ul
-                                    style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: #333; line-height: 1.8; min-height: 72px;">
+                                <h3 style="font-size: 20px; font-weight: 800; color: #b71c1c; margin-bottom: 8px;">Auto &amp; Cab Booking</h3>
+                                <p style="font-size: 14px; color: #555; line-height: 1.55; margin-bottom: 15px;">Barabanki Junction, Lucknow Charbagh aur Airport se direct Dewa Sharif ke liye verified cabs aur autos.</p>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: #333; line-height: 1.8;">
                                     <li>✔ Local Auto, E-Rickshaw, Sedan &amp; SUV</li>
-                                    <li>✔ Fixed transparent rates </li>
+                                    <li>✔ Fixed transparent rates</li>
                                     <li>✔ Station, Airport or Any Location direct pickup</li>
                                 </ul>
                             </div>
-
-                            <!-- Action Button -->
                             <div>
-                                @if (($serviceCabsStatus ?? 'active') === 'active')
-                                    <a href="{{ route('cabs') }}"
-                                        style="display: block; width: 100%; text-align: center; background: #b71c1c; color: #ffffff; text-decoration: none; padding: 11px 0; font-weight: 700; font-size: 14px; border-radius: 8px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);">
-                                        Open Cab Portal →
-                                    </a>
-                                @else
-                                    <button type="button" onclick="showComingSoonModal('Auto & Cab Booking Portal')"
-                                        style="display: block; width: 100%; text-align: center; background: #64748b; color: #ffffff; border: none; padding: 11px 0; font-weight: 700; font-size: 14px; border-radius: 8px; cursor: pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.15);">
-                                        ⏳ Coming Soon (Under Maintenance)
-                                    </button>
-                                @endif
+                                <a href="{{ route('cabs') }}" style="display: block; width: 100%; text-align: center; background: #b71c1c; color: #ffffff; text-decoration: none; padding: 11px 0; font-weight: 700; font-size: 14px; border-radius: 8px;">Open Cab Portal →</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- Card 3: Online Shop (Theme: Bright Pure Lemon Yellow) -->
+                <!-- Card 3: Online Shop -->
                 <div class="col-md-4 col-sm-6 col-xs-12" style="display: flex; margin-bottom: 25px;">
-                    <div style="background: #ffffff; border: 2.5px solid #ffeb3b; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px rgba(255, 235, 59, 0.35); display: flex; flex-direction: column; width: 100%; transition: transform 0.25s ease, box-shadow 0.25s ease;"
-                        onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px rgba(255, 235, 59, 0.45)';"
-                        onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 18px rgba(255, 235, 59, 0.35)';">
-
-                        <!-- Card Top Image Banner -->
+                    <div style="background: #ffffff; border: 2.5px solid #ffeb3b; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 18px rgba(255, 235, 59, 0.35); display: flex; flex-direction: column; width: 100%;">
                         <div style="position: relative; height: 180px; overflow: hidden; background: #ffeb3b;">
-                            <img src="{{ asset('home/images/dewasharif/dewapage/online_shop_mix.jpg') }}"
-                                alt="Online Shop" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                            <span
-                                style="position: absolute; top: 12px; left: 12px; background: #ffeb3b; color: #1b5e20; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid #ffeb3b; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
-                                🛍️ AUTHENTIC STORE
-                            </span>
-                            <span
-                                style="position: absolute; bottom: 10px; right: 12px; background: #ffffff; color: #e6cf03ff; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
-                                Doorstep Delivery
-                            </span>
+                            <img src="{{ asset('home/images/dewasharif/dewapage/online_shop_mix.jpg') }}" alt="Online Shop" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span style="position: absolute; top: 12px; left: 12px; background: #ffeb3b; color: #1b5e20; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; text-transform: uppercase;">🛍️ AUTHENTIC STORE</span>
                         </div>
-
-                        <!-- Card Body -->
-                        <div
-                            style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                             <div>
-                                <h3 style="font-size: 20px; font-weight: 800; color: #a17800; margin-bottom: 8px;">
-                                    Online Shop
-                                </h3>
-                                <p
-                                    style="font-size: 14px; color: #555; line-height: 1.55; margin-bottom: 15px; min-height: 44px;">
-                                    Dewa sharif ke tabarrukat, Warsi attar &amp; perfumes, chaadar with good fragrance aur mitti
-                                    bartan etc order karein.
-                                </p>
-
-                                <!-- Feature List -->
-                                <ul
-                                    style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: #333; line-height: 1.8; min-height: 72px;">
-                                    <li>✔ Pure Non-Alcoholic Fragrances, Warsi Attar &amp; Perfumes</li>
-                                    <li>✔ Islamic Products, Clay Pots, Scenery, Jewellery, Food</li>
+                                <h3 style="font-size: 20px; font-weight: 800; color: #a17800; margin-bottom: 8px;">Online Shop</h3>
+                                <p style="font-size: 14px; color: #555; line-height: 1.55; margin-bottom: 15px;">Dewa sharif ke tabarrukat, khushbu-e-attar, chaadar with good fragrance aur mitti bartan etc order karein.</p>
+                                <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: #333; line-height: 1.8;">
+                                    <li>✔ Pure Non-Alcoholic Fragrances &amp; Attar</li>
+                                    <li>✔ Islamic Products, Clay Pots, Scenery, Jewellery</li>
                                     <li>✔ Safe all-India shipping &amp; delivery</li>
                                 </ul>
                             </div>
-
-                            <!-- Action Button: Dynamic based on serviceShopStatus -->
                             <div>
-                                @if (($serviceShopStatus ?? 'whatsapp_only') === 'whatsapp_only')
-                                    <div style="display: flex; flex-direction: column; gap: 8px;">
-                                        <a href="https://wa.me/919648777223?text={{ urlencode('Assalamu Alaikum! Main Dewa Sharif Portal se Sacred Shop items ke baare me poochhna aur order karna chahta hoon.') }}"
-                                            target="_blank"
-                                            style="display: block; width: 100%; text-align: center; background: #25D366; color: #ffffff; text-decoration: none; padding: 10px 0; font-weight: 800; font-size: 14px; border-radius: 8px; box-shadow: 0 3px 10px rgba(37, 211, 102, 0.35); border: 1.5px solid #1ebe5d;">
-                                            <i class="fa fa-whatsapp" style="font-size: 16px; margin-right: 4px;"></i>
-                                            Order
-                                            via WhatsApp 💬
-                                        </a>
-                                        <a href="{{ route('shops') }}"
-                                            style="display: block; width: 100%; text-align: center; background: #ffeb3b; color: #111111; text-decoration: none; padding: 8px 0; font-weight: 800; font-size: 13px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border: 1.5px solid #fdd835;">
-                                            🛍️ Browse 31 Shop Items →
-                                        </a>
-                                    </div>
-                                @elseif(($serviceShopStatus ?? 'whatsapp_only') === 'active')
-                                    <a href="{{ route('shops') }}"
-                                        style="display: block; width: 100%; text-align: center; background: #ffeb3b; color: #111111; text-decoration: none; padding: 11px 0; font-weight: 800; font-size: 14px; border-radius: 8px; box-shadow: 0 3px 10px rgba(255, 235, 59, 0.5); border: 1.5px solid #fdd835;">
-                                        Open Online Shop →
-                                    </a>
-                                @else
-                                    <button type="button" onclick="showComingSoonModal('Dewa Sacred Online Shop')"
-                                        style="display: block; width: 100%; text-align: center; background: #64748b; color: #ffffff; border: none; padding: 11px 0; font-weight: 700; font-size: 14px; border-radius: 8px; cursor: pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.15);">
-                                        ⏳ Coming Soon (Launching Shortly)
-                                    </button>
-                                @endif
+                                <a href="https://wa.me/919648777223?text={{ urlencode('Assalamu Alaikum! Main Dewa Sharif Portal se Sacred Shop items ke baare me poochhna aur order karna chahta hoon.') }}" target="_blank" style="display: block; width: 100%; text-align: center; background: #25D366; color: #ffffff; text-decoration: none; padding: 10px 0; font-weight: 800; font-size: 14px; border-radius: 8px; margin-bottom: 6px;">Order via WhatsApp 💬</a>
+                                <a href="{{ route('shops') }}" style="display: block; width: 100%; text-align: center; background: #ffeb3b; color: #111111; text-decoration: none; padding: 8px 0; font-weight: 800; font-size: 13px; border-radius: 8px;">🛍️ Browse Shop Items →</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- ================= DYNAMIC SACRED STORE & SHOPPING CATEGORY CARDS (Unified in Same Row & Container) ================= -->
+                <!-- DYNAMIC SACRED STORE & SHOPPING CATEGORY CARDS -->
                 @php
                     $landingCategories =
                         (!empty($shopCategories) && count($shopCategories) > 0)
@@ -428,7 +279,6 @@
                             onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 25px {{ $sc->theme_color ?? '#10b981' }}35';"
                             onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 18px {{ $sc->theme_color ?? '#10b981' }}22';">
 
-                            <!-- Card Top Image Banner -->
                             <div
                                 style="position: relative; height: 180px; overflow: hidden; background: {{ $sc->theme_color ?? '#10b981' }};">
                                 <img src="{{ asset($sc->image ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg') }}"
@@ -447,7 +297,6 @@
                                 @endif
                             </div>
 
-                            <!-- Card Body -->
                             <div
                                 style="padding: 22px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                                 <div>
@@ -460,7 +309,6 @@
                                         {{ $sc->description ?? 'Authentic sacred offerings direct from Dewa Sharif.' }}
                                     </p>
 
-                                    <!-- Feature List -->
                                     <ul
                                         style="list-style: none; padding: 0; margin: 0 0 20px 0; font-size: 13px; color: #333; line-height: 1.8; min-height: 72px;">
                                         @php
@@ -476,7 +324,6 @@
                                     </ul>
                                 </div>
 
-                                <!-- Action Button -->
                                 <div>
                                     @if (strtolower($sc->status ?? 'active') === 'active')
                                         <a href="{{ route('shops.category', $sc->slug) }}"
@@ -501,9 +348,8 @@
                     </div>
                 @endforeach
 
-            </div> <!-- Closes .row -->
-
-        </div> <!-- Closes .container -->
+            </div>
+        </div>
     </section>
     <!-- ================= END FEATURED SERVICE CARDS ================= -->
 
@@ -801,7 +647,7 @@
                     </style>
 
                     <div class="letters-wrap-box">
-                        <!-- LINE 1: DEWA (Centered directly over H-A-R-I) -->
+                        <!-- LINE 1: DEWA -->
                         <ul class="letters-row">
                             <li><a href="#"><img src="{{ asset('home/images/dewasharif/1.png') }}" alt="DEVOTION"
                                         title="DEVOTION" /></a>
@@ -821,7 +667,7 @@
                             </li>
                         </ul>
 
-                        <!-- LINE 2: SHARIF (Centered, 6 letters) -->
+                        <!-- LINE 2: SHARIF -->
                         <ul class="letters-row">
                             <li><a href="#"><img src="{{ asset('home/images/dewasharif/5.png') }}"
                                         alt="SPRITUALITY" title="SPRITUALITY" /></a>
@@ -908,7 +754,7 @@
     <section id="festive">
         <div class="container">
             <div class="title">
-                <p style="color: #0a5c36">Checkout <i>Festivals </i> &amp; <i>Events </i> of <b><i>Islam </i></b> &
+                <p style="color: #0a5c36">Checkout <i>Festivals </i> &amp; <i>Events </i> of <b><i>Islam </i></b> &amp;
                     <b><i>Dewa Sharif</i></b>
                 </p>
                 <h1 style="color: #03be64"> <b>Islamic Festive Seasons</b></h1>
@@ -928,110 +774,62 @@
                     <div class="tab-content festivetab">
                         <div class="tab-pane" id="January">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="February">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="March">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="April">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="May">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="June">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="July">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="August">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane active" id="September">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="October">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="November">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                         <div class="tab-pane" id="December">
                             <ul class="festivals owl-carousel">
-                                <li>
-                                    <img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}"
-                                        alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" />
-                                    <ul class="description"></ul>
-                                </li>
+                                <li><img src="{{ asset('home/images/dewasharif/dewamelaevent1.jpg') }}" alt="Dewa Sharif Mazar Sharif" title="Dewa Sharif Mazar Sharif" /><ul class="description"></ul></li>
                             </ul>
                         </div>
                     </div>
@@ -1059,14 +857,9 @@
                 <div class="col-md-6 trip-plan">
                     <h2>Plan Your Trip</h2>
                     <ul>
-                        <li><a href="{{ route('hotels') }}"><img src="{{ asset('home/images/icons/hotel.png') }}"
-                                    alt="Hotel" title="Image of Hotel" /> Hotel Accommodation</a></li>
-                        <li><a href="{{ route('cabs') }}"><img src="{{ asset('home/images/icons/bus.png') }}"
-                                    alt="Taxi/Bus" title="Image of Taxi/Bus" /> Taxi / Bus</a></li>
-                        <li><a href="#" target="_blank" rel="noopener"><img
-                                    src="{{ asset('home/images/icons/guide.png') }}" alt="Authorised Travel Guides"
-                                    title="Image of Authorised Travel Guides" /> Authorised
-                                Travel Guides</a></li>
+                        <li><a href="{{ route('hotels') }}"><img src="{{ asset('home/images/icons/hotel.png') }}" alt="Hotel" title="Image of Hotel" /> Hotel Accommodation</a></li>
+                        <li><a href="{{ route('cabs') }}"><img src="{{ asset('home/images/icons/bus.png') }}" alt="Taxi/Bus" title="Image of Taxi/Bus" /> Taxi / Bus</a></li>
+                        <li><a href="#" target="_blank" rel="noopener"><img src="{{ asset('home/images/icons/guide.png') }}" alt="Authorised Travel Guides" title="Image of Authorised Travel Guides" /> Authorised Travel Guides</a></li>
                     </ul>
                 </div>
             </div>
@@ -1080,57 +873,41 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 trip-plan">
-                    <ul
-                        style="display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; margin-top: 20px; justify-content: center; align-items: center;">
+                    <ul style="display: flex; flex-wrap: wrap; gap: 20px; list-style: none; padding: 0; margin-top: 20px; justify-content: center; align-items: center;">
                         <li style="text-align: center;">
                             <a href="{{ route('allah') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/allah.jpg') }}" alt="Allah S.W.T"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Allah
-                                    (S.W.T)</span>
+                                <img src="{{ asset('home/images/icons/allah.jpg') }}" alt="Allah S.W.T" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Allah (S.W.T)</span>
                             </a>
                         </li>
                         <li style="text-align: center;">
                             <a href="{{ route('hazratmuhammad') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/muhammad.jpg') }}" alt="Hz. Muhammad"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Hz. Muhammad
-                                    (S.A.W)</span>
+                                <img src="{{ asset('home/images/icons/muhammad.jpg') }}" alt="Hz. Muhammad" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Hz. Muhammad (S.A.W)</span>
                             </a>
                         </li>
                         <li style="text-align: center;">
                             <a href="{{ route('khanaekaaba') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/kaba2.jpg') }}" alt="Khana-e-Kaaba"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span
-                                    style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Khana-e-Ka'aba</span>
+                                <img src="{{ asset('home/images/icons/kaba2.jpg') }}" alt="Khana-e-Kaaba" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Khana-e-Ka'aba</span>
                             </a>
                         </li>
                         <li style="text-align: center;">
                             <a href="{{ route('muhammad') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/jumapic.jpg') }}" alt="Raoza-E-Rasool"
-                                    title="Raoza-E-Rasool"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span
-                                    style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Raoza-E-Rasool
-                                    (S.A.W)</span>
+                                <img src="{{ asset('home/images/icons/jumapic.jpg') }}" alt="Raoza-E-Rasool" title="Raoza-E-Rasool" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Raoza-E-Rasool (S.A.W)</span>
                             </a>
                         </li>
                         <li style="text-align: center;">
                             <a href="{{ route('hajiwarisalishah') }}" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/melalogo.jpg') }}" alt="Haji Waris Ali Shah R.A."
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Haji Waris
-                                    Ali
-                                    Shah R.A.</span>
+                                <img src="{{ asset('home/images/icons/melalogo.jpg') }}" alt="Haji Waris Ali Shah R.A." style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Haji Waris Ali Shah R.A.</span>
                             </a>
                         </li>
                         <li style="text-align: center;">
                             <a href="https://dewasharif.com" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/icons/panjatanpaak.jpg') }}" alt="Panjatan Pak"
-                                    style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
-                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Panjatan
-                                    Pak</span>
+                                <img src="{{ asset('home/images/icons/panjatanpaak.jpg') }}" alt="Panjatan Pak" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" />
+                                <span style="display: block; margin-top: 8px; font-weight: 500; color: #333;">Panjatan Pak</span>
                             </a>
                         </li>
                     </ul>
@@ -1148,50 +925,36 @@
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="pcard">
-                        <a href="#" target="_blank" rel="noopener">
-                            <img src="{{ asset('home/images/1.jpg') }}" alt="Blog" class="img-fluid" />
-                        </a>
+                        <a href="#" target="_blank" rel="noopener"><img src="{{ asset('home/images/1.jpg') }}" alt="Blog" class="img-fluid" /></a>
                         <div class="box text-center">
-                            <a href="#" target="_blank" rel="noopener">
-                                <img src="{{ asset('home/images/blog.png') }}" alt="Blog" class="img-fluid" />
-                            </a>
+                            <a href="#" target="_blank" rel="noopener"><img src="{{ asset('home/images/blog.png') }}" alt="Blog" class="img-fluid" /></a>
                             <h4><a href="#">Blog</a></h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="pcard">
-                        <a href="#" rel="noopener">
-                            <img src="{{ asset('home/images/2.jpg') }}" alt="Photo Gallery" class="img-fluid" />
-                        </a>
+                        <a href="#" rel="noopener"><img src="{{ asset('home/images/2.jpg') }}" alt="Photo Gallery" class="img-fluid" /></a>
                         <div class="box text-center">
-                            <a href="#"><img src="{{ asset('home/images/Visual_Library1.png') }}"
-                                    alt="Photo Gallery" class="img-fluid" /></a>
+                            <a href="#"><img src="{{ asset('home/images/Visual_Library1.png') }}" alt="Photo Gallery" class="img-fluid" /></a>
                             <h4><a href="#">Photo Gallery</a></h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="pcard">
-                        <a href="#" rel="noopener">
-                            <img src="{{ asset('home/images/3.jpg') }}" alt="Video Gallery" class="img-fluid" />
-                        </a>
+                        <a href="#" rel="noopener"><img src="{{ asset('home/images/3.jpg') }}" alt="Video Gallery" class="img-fluid" /></a>
                         <div class="box text-center">
-                            <a href="#"><img src="{{ asset('home/images/Visual_Library2.png') }}"
-                                    alt="Video Gallery" class="img-fluid" /></a>
+                            <a href="#"><img src="{{ asset('home/images/Visual_Library2.png') }}" alt="Video Gallery" class="img-fluid" /></a>
                             <h4><a href="#">Video Gallery</a></h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
                     <div class="pcard">
-                        <a href="#" rel="noopener">
-                            <img src="{{ asset('home/images/dewasharif/india.jpg') }}" alt="India"
-                                class="img-fluid" />
-                        </a>
+                        <a href="#" rel="noopener"><img src="{{ asset('home/images/dewasharif/india.jpg') }}" alt="India" class="img-fluid" /></a>
                         <div class="box text-center">
-                            <a href="#"><img src="{{ asset('home/images/icons/oneday.png') }}" alt="India"
-                                    class="img-fluid" /></a>
+                            <a href="#"><img src="{{ asset('home/images/icons/oneday.png') }}" alt="India" class="img-fluid" /></a>
                             <h4><a href="#">India</a></h4>
                         </div>
                     </div>
@@ -1202,6 +965,50 @@
             <img src="{{ asset('home/images/unfoldbg.png') }}" alt="Image of Background" />
         </div>
     </section>
+
+    <!-- =================================================================== -->
+    <!-- 🚀 GOOGLE ADSENSE & E-E-A-T OPTIMIZED CONTENT SECTION (ADDED) -->
+    <!-- =================================================================== -->
+    <section style="padding: 50px 20px; background: #ffffff; border-top: 3px solid #03be64; border-bottom: 3px solid #03be64; margin: 40px 0;">
+        <div class="container" style="max-width: 1000px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 35px;">
+                <span style="background: #e8a824; color: #111; font-weight: 800; font-size: 12px; text-transform: uppercase; padding: 5px 15px; border-radius: 20px; letter-spacing: 1px;">
+                    Official Information Portal
+                </span>
+                <h2 style="color: #0b4625; font-size: 28px; font-weight: 900; margin-top: 15px; line-height: 1.4;">
+                    Welcome to Dewa Sharif — Spiritual Heritage, Ziyarat & Travel Hub
+                </h2>
+                <hr style="width: 80px; height: 3px; background: #03be64; border: none; margin: 15px auto;">
+            </div>
+
+            <div style="font-size: 16px; color: #333333; line-height: 1.8; font-weight: 400; text-align: justify;">
+                <p style="margin-bottom: 20px;">
+                    <strong>Dewa Sharif</strong> (देवा शरीफ) is one of the most revered spiritual destinations in India, located in the Barabanki district of Uttar Pradesh. Millions of devotees and pilgrims (Zaireen) visit the sacred shrine of <strong>Hazrat Sayyad Haji Waris Ali Shah (r.a.)</strong> every year to seek spiritual solace, peace, and blessings. Known universally as a symbol of unconditional love, communal harmony, and divine devotion, Dewa Sharif attracts people across all faiths and regions.
+                </p>
+
+                <h3 style="color: #0b4625; font-size: 20px; font-weight: 800; margin-top: 25px; margin-bottom: 12px;">
+                    Key Services & Facilities Offered on dewasharif.com
+                </h3>
+                <p style="margin-bottom: 15px;">
+                    Our platform is meticulously designed to serve pilgrims visiting Barabanki and Lucknow with seamless online digital services:
+                </p>
+                <ul style="list-style-type: disc; padding-left: 25px; margin-bottom: 20px; color: #444;">
+                    <li style="margin-bottom: 8px;"><strong>Hotel & Guest House Bookings:</strong> Secure verified AC and Non-AC accommodations, guest houses, and stay packages within walking distance from the Mazar gate.</li>
+                    <li style="margin-bottom: 8px;"><strong>Cab & Taxi Services:</strong> 24/7 reliable pickup and drop facilities from Lucknow Chaudhary Charan Singh International Airport, Lucknow Charbagh Railway Station, and Barabanki Junction straight to Dewa Sharif.</li>
+                    <li style="margin-bottom: 8px;"><strong>Degh Niyaz & Sacred Store:</strong> Direct digital booking for Degh, authentic non-alcoholic Warsi attars, traditional tabarrukat, and home delivery support.</li>
+                    <li style="margin-bottom: 8px;"><strong>Urs Mela Updates:</strong> Accurate schedules, historical insights, route guidance, and safety advisories for the grand annual Dewa Sharif Urs and Exhibition.</li>
+                </ul>
+
+                <h3 style="color: #0b4625; font-size: 20px; font-weight: 800; margin-top: 25px; margin-bottom: 12px;">
+                    Plan Your Visit to Barabanki & Lucknow Region
+                </h3>
+                <p style="margin-bottom: 20px;">
+                    Whether you are planning a one-day spiritual journey (Ziyarat) or attending the world-famous annual Dewa Mela, our portal provides trusted assistance, transparent pricing, and direct communication lines via WhatsApp and customer support. Experience a hassle-free pilgrimage with authentic local guidance and digital convenience.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- =================================================================== -->
 
     <!-- CONNECT SECTION -->
     <section id="connect">
@@ -1226,7 +1033,6 @@
                             max-width: 780px;
                             box-sizing: border-box;
                         }
-
                         #connect .sm-icon li {
                             display: flex !important;
                             justify-content: center !important;
@@ -1236,7 +1042,6 @@
                             padding: 0 !important;
                             margin: 0 !important;
                         }
-
                         #connect .sm-icon li a {
                             display: flex !important;
                             align-items: center !important;
@@ -1251,83 +1056,32 @@
                             transition: transform 0.25s ease, box-shadow 0.25s ease;
                             margin: 0 !important;
                         }
-
                         #connect .sm-icon li a:hover {
                             transform: translateY(-5px);
                             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
                         }
-
                         @media (max-width: 768px) {
                             #connect .sm-icon {
                                 gap: 14px 12px !important;
                                 padding: 0 10px !important;
                             }
-
                             #connect .sm-icon li a {
                                 width: 72px !important;
                                 height: 72px !important;
                                 font-size: 34px !important;
                             }
-
-                            #connect .sm-icon li a img {
-                                width: 38px !important;
-                            }
-
-                            #connect .sm-icon li a span {
-                                font-size: 8px !important;
-                                bottom: -20px !important;
-                            }
-                        }
-
-                        @media (max-width: 360px) {
-                            #connect .sm-icon {
-                                gap: 12px 10px !important;
-                                padding: 0 6px !important;
-                            }
-
-                            #connect .sm-icon li a {
-                                width: 64px !important;
-                                height: 64px !important;
-                                font-size: 28px !important;
-                            }
-
-                            #connect .sm-icon li a img {
-                                width: 32px !important;
-                            }
-                        }
-
-                        @media (max-width: 300px) {
-                            #connect .sm-icon {
-                                gap: 10px 8px !important;
-                            }
-
-                            #connect .sm-icon li a {
-                                width: 56px !important;
-                                height: 56px !important;
-                                font-size: 24px !important;
-                            }
                         }
                     </style>
 
                     <ul class="sm-icon">
-                        <li><a href="https://www.facebook.com/dewasharif707?mibextid=ZbWKwL" target="_blank"
-                                rel="noopener" class="external none" title="Facebook"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="https://x.com/dewasharif707?t=V7INlftOKGRvkXpyxt8hcg&s=09" target="_blank"
-                                rel="noopener" class="external none" title="Twitter"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener"
-                                class="external none" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="https://wa.me/919648777223" target="_blank" rel="noopener" class="external none"
-                                title="WhatsApp"><i class="fa fa-whatsapp"></i></a></li>
-                        <li><a href="https://www.youtube.com/@DewaSharif707" target="_blank" rel="noopener"
-                                class="external none" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a href="https://www.facebook.com/dewasharif707?mibextid=ZbWKwL" target="_blank" rel="noopener" class="external none" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://x.com/dewasharif707?t=V7INlftOKGRvkXpyxt8hcg&s=09" target="_blank" rel="noopener" class="external none" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com/masharrat_bin_barkat/" target="_blank" rel="noopener" class="external none" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://wa.me/919648777223" target="_blank" rel="noopener" class="external none" title="WhatsApp"><i class="fa fa-whatsapp"></i></a></li>
+                        <li><a href="https://www.youtube.com/@DewaSharif707" target="_blank" rel="noopener" class="external none" title="YouTube"><i class="fa fa-youtube-play"></i></a></li>
                         <li>
-                            <a href="#" target="_blank" rel="noopener" class="external none"
-                                title="UP Touris m Blog" style="position: relative;">
-                                <img src="{{ asset('home/images/blog.png') }}"
-                                    style="filter: contrast(0%) brightness(20%); width: 74px;" />
-
+                            <a href="#" target="_blank" rel="noopener" class="external none" title="UP Tourism Blog" style="position: relative;">
+                                <img src="{{ asset('home/images/blog.png') }}" style="filter: contrast(0%) brightness(20%); width: 74px;" />
                             </a>
                         </li>
                     </ul>
@@ -1342,8 +1096,7 @@
     <section id="branding">
         <div class="container">
             <div class="title">
-                <h1 style="color: #074121"><b>Mother's Love</b> is the <b>Fragrance</b> of <b>Jannat</b> <i><b>- MASHARRAT
-                            WARSI</b></i></h1>
+                <h1 style="color: #074121"><b>Mother's Love</b> is the <b>Fragrance</b> of <b>Jannat</b> <i><b>- MASHARRAT WARSI</b></i></h1>
             </div>
         </div>
     </section>

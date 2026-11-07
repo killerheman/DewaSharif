@@ -3,25 +3,30 @@
 @section('title', 'Hotel Bookings | DewaSharif Admin')
 
 @section('content')
-<main class="app-main">
-    <div class="app-content-header">
-        <div class="container-fluid">
-            <div class="row align-items-center">
-                <div class="col-sm-6">
-                    <h3 class="mb-0"><i class="bi bi-calendar-check text-warning me-2"></i>Hotel Customer Reservations</h3>
-                    <small class="text-muted">Manage guest house stays, bookings, verification &amp; check-in status</small>
-                </div>
-                <div class="col-sm-6 text-end">
-                    <a href="{{ route('admin.hotels.index') }}" class="btn btn-outline-dark fw-bold">
-                        <i class="bi bi-building me-1"></i> Manage Hotel Rooms
-                    </a>
-                </div>
+<div class="pt-2 pb-4">
+    <!-- PAGE HEADER -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 pb-3 border-bottom">
+        <div class="d-flex align-items-center">
+            <div class="p-3 rounded-3 bg-warning bg-opacity-10 text-warning-emphasis me-3 shadow-xs">
+                <i class="bi bi-calendar-check fs-2"></i>
+            </div>
+            <div>
+                <h3 class="mb-1 fw-bold text-dark">Hotel Customer Reservations</h3>
+                <p class="text-muted mb-0" style="font-size: 13.5px;">Manage guest house stays, bookings, verification &amp; check-in status</p>
             </div>
         </div>
+        <div class="mt-3 mt-md-0 d-flex gap-2">
+            <a href="{{ route('admin.hotels.partners') }}" class="btn btn-outline-success fw-bold px-3 shadow-xs">
+                <i class="bi bi-bank2 me-1"></i> Partners &amp; Settlements
+            </a>
+            <a href="{{ route('admin.hotels.refunds') }}" class="btn btn-outline-danger fw-bold px-3 shadow-xs">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Refund Queue
+            </a>
+            <a href="{{ route('admin.hotels.index') }}" class="btn btn-outline-dark fw-bold px-3 shadow-xs">
+                <i class="bi bi-building me-1"></i> Manage Rooms
+            </a>
+        </div>
     </div>
-
-    <div class="app-content">
-        <div class="container-fluid">
             @if(session('success'))
                 <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
                     <i class="bi bi-check-circle-fill me-2"></i>{{ session('success') }}
@@ -561,5 +566,5 @@
             </div>
         </div>
     </div>
-</main>
+</div>
 @endsection

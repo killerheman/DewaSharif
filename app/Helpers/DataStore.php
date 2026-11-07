@@ -85,6 +85,9 @@ class DataStore
                         $arr['total_fare'] = $arr['total_fare'] ?? ($arr['total_amount'] ?? 0);
                         $arr['vehicle_type'] = $arr['vehicle_type'] ?? ($arr['vehicle_name'] ?? 'Swift Dzire (AC)');
                         $arr['vehicle_name'] = $arr['vehicle_name'] ?? $arr['vehicle_type'];
+                        $arr['vehicle_count'] = (int)($arr['vehicle_count'] ?? 1);
+                        if ($arr['vehicle_count'] < 1) { $arr['vehicle_count'] = 1; }
+                        $arr['driver_aadhaar'] = $arr['driver_aadhaar'] ?? null;
                         $arr['status'] = $arr['status'] ?? ($arr['booking_status'] ?? 'Confirmed & Paid');
                         return $arr;
                     })->all();
@@ -424,7 +427,12 @@ class DataStore
                     elseif (str_contains($oStatus, 'cancel')) $mappedStatus = 'cancelled';
                     else $mappedStatus = 'processing';
 
-                    $payStatus = (str_contains(strtolower($item['payment_status'] ?? ''), 'paid') || str_contains($oStatus, 'paid')) ? 'paid' : 'pending';
+                    $rawPs = strtolower($item['payment_status'] ?? '');
+                    if ($rawPs === 'partial' || $rawPs === 'paid' || $rawPs === 'failed') {
+                        $payStatus = $rawPs;
+                    } else {
+                        $payStatus = (str_contains($rawPs, 'paid') || str_contains($oStatus, 'paid')) ? 'paid' : 'pending';
+                    }
 
                     // Check if user_id exists in users table
                     $userId = $item['user_id'] ?? (auth()->id() ?? null);
@@ -443,14 +451,18 @@ class DataStore
                         'alternate_phone' => $item['alternate_phone'] ?? null,
                         'shipping_address' => $item['address'] ?? ($item['shipping_address'] ?? 'Dewa Sharif'),
                         'items_summary' => $item['items_summary'] ?? 'Sacred Items',
+                        'cart_items_json' => !empty($item['cart_items_json']) ? (is_array($item['cart_items_json']) ? json_encode($item['cart_items_json']) : $item['cart_items_json']) : null,
+                        'packaging_type' => $item['packaging_type'] ?? 'none',
+                        'packaging_fee' => (float)($item['packaging_fee'] ?? 0),
+                        'distribution_fee' => (float)($item['distribution_fee'] ?? 0),
                         'total_amount' => (float)($item['total_amount'] ?? ($item['amount'] ?? 1497)),
-                        'paid_amount' => ($payStatus === 'paid') ? (float)($item['total_amount'] ?? ($item['amount'] ?? 1497)) : 0,
+                        'paid_amount' => isset($item['paid_amount']) ? (float)$item['paid_amount'] : (($payStatus === 'paid') ? (float)($item['total_amount'] ?? ($item['amount'] ?? 1497)) : 0),
                         'payment_id' => $item['payment_id'] ?? 'RZP_SHP',
                         'payment_mode' => $item['payment_mode'] ?? (($payStatus === 'paid') ? 'full' : 'whatsapp'),
                         'payment_status' => $payStatus,
-                        'order_status' => $mappedStatus,
-                        'courier_name' => $item['courier'] ?? 'DTDC Express',
-                        'tracking_number' => $item['tracking'] ?? 'DT12345678IN',
+                        'order_status' => $item['order_status'] ?? $mappedStatus,
+                        'courier_name' => $item['courier_name'] ?? ($item['courier'] ?? 'DTDC Express'),
+                        'tracking_number' => $item['tracking_number'] ?? ($item['tracking'] ?? 'DT12345678IN'),
                         'fateha_name' => $item['fateha_name'] ?? null,
                         'niyaz_date' => $item['niyaz_date'] ?? null,
                         'distribution_type' => $item['distribution_type'] ?? null,
@@ -539,21 +551,27 @@ class DataStore
                 \Illuminate\Support\Facades\DB::table('shop_products')->where('id', $id)->update($dbUp);
             } elseif ($key === 'shop_orders') {
                 $dbUp = [];
-                if (isset($updatedData['status'])) {
-                    $st = strtolower($updatedData['status']);
-                    if (str_contains($st, 'dispatch')) $dbUp['order_status'] = 'shipped';
-                    elseif (str_contains($st, 'deliver')) $dbUp['order_status'] = 'delivered';
-                    elseif (str_contains($st, 'cancel') || str_contains($st, 'fail')) $dbUp['order_status'] = 'cancelled';
-                    else $dbUp['order_status'] = 'processing';
+                $existingShopCols = \Illuminate\Support\Facades\Schema::getColumnListing('shop_orders');
+                foreach ($updatedData as $f => $val) {
+                    if (in_array($f, $existingShopCols)) {
+                        $dbUp[$f] = $val;
+                    }
                 }
-                if (isset($updatedData['payment_status'])) {
-                    $ps = strtolower($updatedData['payment_status']);
-                    $dbUp['payment_status'] = ($ps === 'paid' || $ps === 'failed') ? $ps : 'pending';
+                if (isset($updatedData['status']) && !isset($dbUp['order_status'])) {
+                    $dbUp['order_status'] = $updatedData['status'];
                 }
-                if (isset($updatedData['courier'])) $dbUp['courier_name'] = $updatedData['courier'];
-                if (isset($updatedData['tracking'])) $dbUp['tracking_number'] = $updatedData['tracking'];
+                if (isset($updatedData['courier']) && !isset($dbUp['courier_name'])) {
+                    $dbUp['courier_name'] = $updatedData['courier'];
+                }
+                if (isset($updatedData['tracking']) && !isset($dbUp['tracking_number'])) {
+                    $dbUp['tracking_number'] = $updatedData['tracking'];
+                }
                 $dbUp['updated_at'] = date('Y-m-d H:i:s');
-                \Illuminate\Support\Facades\DB::table('shop_orders')->where('id', $id)->orWhere('order_id', $id)->update($dbUp);
+                if (is_numeric($id)) {
+                    \Illuminate\Support\Facades\DB::table('shop_orders')->where('id', (int)$id)->update($dbUp);
+                } else {
+                    \Illuminate\Support\Facades\DB::table('shop_orders')->where('order_id', (string)$id)->update($dbUp);
+                }
             } elseif ($key === 'hotels') {
                 $dbUp = [];
                 foreach ($updatedData as $k => $v) {

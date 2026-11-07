@@ -95,33 +95,39 @@
                                         $bFare = is_array($booking) ? ($booking['fare'] ?? ($booking['total_fare'] ?? 1499)) : ($booking->fare ?? 1499);
                                         $bNight = !empty(is_array($booking) ? ($booking['night_surcharge'] ?? 0) : ($booking->night_surcharge ?? 0));
 
+                                        $bVehicleCount = (int)(is_array($booking) ? ($booking['vehicle_count'] ?? 1) : ($booking->vehicle_count ?? 1));
+                                        if ($bVehicleCount < 1) { $bVehicleCount = 1; }
+
                                         $bDriver = is_array($booking) ? ($booking['driver'] ?? '') : ($booking->driver ?? '');
                                         $rawDriverName = is_array($booking) ? ($booking['driver_name'] ?? '') : ($booking->driver_name ?? '');
                                         $bDriverName = ($rawDriverName && $rawDriverName !== 'Ramesh Kumar') ? $rawDriverName : '';
                                         $rawDriverPhone = is_array($booking) ? ($booking['driver_phone'] ?? '') : ($booking->driver_phone ?? '');
                                         $bDriverPhone = ($rawDriverPhone && $rawDriverPhone !== '9876543210') ? $rawDriverPhone : '';
+                                        $rawDriverAadhaar = is_array($booking) ? ($booking['driver_aadhaar'] ?? '') : ($booking->driver_aadhaar ?? '');
+                                        $bDriverAadhaar = ($rawDriverAadhaar && $rawDriverAadhaar !== '1234 5678 9012' && $rawDriverAadhaar !== 'Verified') ? $rawDriverAadhaar : '';
                                         $rawVehicleNo = is_array($booking) ? ($booking['driver_vehicle_number'] ?? '') : ($booking->driver_vehicle_number ?? '');
                                         $bVehicleNo = ($rawVehicleNo && !str_contains($rawVehicleNo, 'UP 32 AB 1234') && !str_contains($rawVehicleNo, 'UP32 AB 1234')) ? $rawVehicleNo : '';
                                         $bStatus = is_array($booking) ? ($booking['status'] ?? 'Confirmed & Paid') : ($booking->status ?? 'Confirmed & Paid');
                                         $bRawStatus = strtolower($bStatus);
                                         $isConfirmed = str_contains($bRawStatus, 'confirm') || str_contains($bRawStatus, 'paid') || str_contains($bRawStatus, 'dispatched');
 
-                                        // Prepare full WhatsApp Duty Slip Text for Direct Button
+                                        // Prepare full WhatsApp Duty Slip Text for Direct Button (FARE REMOVED AS REQUESTED)
                                         $waPassengerContact = $bPhone . (!empty($bAltPhone) ? " (Alt: {$bAltPhone})" : "");
                                         $waMsgText = "🚨 *DEWA SHARIF CAB DUTY SLIP - DRIVER ASSIGNED*\n\n" .
                                                      "🎫 *Booking ID:* {$bCode}\n" .
                                                      "👤 *Passenger Name:* {$bName}\n" .
                                                      "📞 *Passenger Phone:* {$waPassengerContact}\n" .
-                                                     "🪪 *ID Verification:* {$bIdType} ({$bIdNo})\n" .
+                                                     "🪪 *Passenger ID Verification:* {$bIdType} ({$bIdNo})\n" .
                                                      "📍 *Route:* {$bRoute}\n" .
                                                      "🚕 *Vehicle Category:* {$bVehicle}\n" .
-                                                     "📅 *Pickup Date & Time:* {$bTime}\n" .
-                                                     "💰 *Total Fare Paid:* ₹" . number_format((float)$bFare, 2) . ($bNight ? " (Includes ₹100 Night Charge 10 PM-5 AM)" : "") . "\n\n" .
+                                                     ($bVehicleCount > 1 ? "🚗 *Total Cabs Booked:* {$bVehicleCount} Vehicles\n" : "") .
+                                                     "📅 *Pickup Date & Time:* {$bTime}\n\n" .
                                                      "🚖 *Assigned Driver:* {$bDriverName}\n" .
                                                      "📱 *Driver Contact:* {$bDriverPhone}\n" .
-                                                     "🔢 *Vehicle No Plate:* {$bVehicleNo}\n\n" .
-                                                     "⚠️ *Driver Instruction:* Gaadi me baithne se pehle passenger ki original physical ID check karein.\n" .
-                                                     "Please reach pickup point 15 mins prior to time. Wish you a safe trip!";
+                                                     (!empty($bDriverAadhaar) ? "🪪 *Driver Aadhaar:* {$bDriverAadhaar}\n" : "") .
+                                                     "🔢 *Vehicle No Plate(s):* {$bVehicleNo}\n\n" .
+                                                     "⚠️ *Driver Instruction:* Gaadi me baithne se pehle passenger ki original physical ID verify karein. Collect toll/parking only as per actual physical slip.\n" .
+                                                     "Wish you a safe & comfortable journey!";
 
                                         $cleanDriverNo = preg_replace('/[^0-9]/', '', $bDriverPhone);
                                         if (strlen($cleanDriverNo) === 10) {
@@ -152,6 +158,9 @@
                                         <td>
                                             <strong class="d-block text-dark"><i class="bi bi-geo-alt-fill text-danger me-1"></i>{{ $bRoute }}</strong>
                                             <span class="badge bg-dark mt-1 text-wrap text-start" style="white-space: normal; max-width: 260px; line-height: 1.3;"><i class="bi bi-car-front-fill me-1 text-warning"></i>{{ $bVehicle }}</span>
+                                            @if($bVehicleCount > 1)
+                                                <span class="badge bg-primary text-white mt-1 d-inline-block shadow-sm" style="font-size: 11px;"><i class="bi bi-truck me-1"></i>{{ $bVehicleCount }} Cabs</span>
+                                            @endif
                                         </td>
                                         <td>
                                             <strong class="d-block text-success"><i class="bi bi-calendar-event me-1"></i>{{ $bTime }}</strong>
@@ -201,6 +210,9 @@
                                                 <span class="badge bg-success mb-1"><i class="bi bi-check2-circle me-1"></i>Dispatched</span>
                                                 <small class="d-block text-dark"><strong>Driver:</strong> {{ $bDriverName }}</small>
                                                 <small class="d-block text-muted"><strong>Phone:</strong> {{ $bDriverPhone }}</small>
+                                                @if(!empty($bDriverAadhaar))
+                                                    <small class="d-block text-secondary"><strong>Aadhaar:</strong> {{ $bDriverAadhaar }}</small>
+                                                @endif
                                                 <small class="d-block text-primary"><strong>Vehicle:</strong> {{ $bVehicleNo }}</small>
                                             @else
                                                 <span class="badge bg-warning text-dark text-center d-inline-block py-1 px-2 lh-sm shadow-sm" style="font-size: 11px;">
@@ -314,10 +326,17 @@
                                                                 <strong class="text-danger"><i class="bi bi-geo-alt-fill me-1"></i>{{ $bRoute }}</strong>
                                                             </div>
                                                             <div class="col-12">
-                                                                <small class="text-muted d-block">Vehicle Model</small>
-                                                                <span class="badge bg-dark text-wrap text-start" style="white-space: normal; line-height: 1.4; display: inline-block; max-width: 100%; font-size: 12px; padding: 6px 10px;">
-                                                                    <i class="bi bi-car-front-fill me-1 text-warning"></i>{{ $bVehicle }}
-                                                                </span>
+                                                                <small class="text-muted d-block">Vehicle Model &amp; Quantity</small>
+                                                                <div class="d-flex align-items-center gap-2 flex-wrap">
+                                                                    <span class="badge bg-dark text-wrap text-start" style="white-space: normal; line-height: 1.4; display: inline-block; font-size: 12px; padding: 6px 10px;">
+                                                                        <i class="bi bi-car-front-fill me-1 text-warning"></i>{{ $bVehicle }}
+                                                                    </span>
+                                                                    @if($bVehicleCount > 1)
+                                                                        <span class="badge bg-primary text-white" style="font-size: 12px; padding: 6px 10px;">
+                                                                            <i class="bi bi-truck me-1"></i>{{ $bVehicleCount }} Cabs Booked
+                                                                        </span>
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                             <div class="col-6">
                                                                 <small class="text-muted d-block">Pickup Schedule</small>
@@ -331,6 +350,11 @@
                                                                 <small class="text-muted d-block">Total Fare Paid</small>
                                                                 <div class="d-flex align-items-center gap-2 flex-wrap">
                                                                     <strong class="text-success fs-5">₹{{ number_format((float)$bFare, 2) }}</strong>
+                                                                    @if($bVehicleCount > 1)
+                                                                        <small class="badge bg-light text-primary border fw-bold px-2 py-1" style="font-size: 11px;">
+                                                                            (₹{{ number_format((float)$bFare / $bVehicleCount, 2) }} &times; {{ $bVehicleCount }} Cabs)
+                                                                        </small>
+                                                                    @endif
                                                                     @if($bNight)
                                                                         <small class="badge badge-gradient-dark border border-primary px-2 py-1" style="font-size: 11px;"><i class="bi bi-moon-stars-fill text-warning me-1"></i> ₹100 Night Surcharge</small>
                                                                     @endif
@@ -387,11 +411,15 @@
                                                             </div>
                                                             <div class="col-6">
                                                                 <small class="text-muted d-block">Driver Mobile</small>
-                                                                <strong>{{ $bDriverPhone ?: 'Pending' }}</strong>
+                                                                <strong>{{ $bDriverPhone ?: 'Pending Allocation' }}</strong>
                                                             </div>
-                                                            <div class="col-12">
-                                                                <small class="text-muted d-block">Car Number Plate</small>
-                                                                <strong class="text-primary">{{ $bVehicleNo ?: 'Pending' }}</strong>
+                                                            <div class="col-6">
+                                                                <small class="text-muted d-block">Driver Aadhaar Number</small>
+                                                                <strong class="text-primary">{{ $bDriverAadhaar ?: 'Not Entered' }}</strong>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <small class="text-muted d-block">Car Number Plate(s)</small>
+                                                                <strong class="text-primary">{{ $bVehicleNo ?: 'Pending Allocation' }}</strong>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -425,21 +453,34 @@
                                                             <small class="text-muted d-block">Govt ID: <strong>{{ $bIdType }} ({{ $bIdNo }})</strong></small>
                                                             <small class="text-muted d-block">Route: <strong>{{ $bRoute }}</strong></small>
                                                         </div>
-                                                        <div class="col-12">
+                                                        <div class="col-md-6">
                                                             <label class="form-label fw-bold">Driver Full Name*</label>
                                                             <input type="text" name="driver_name" class="form-control" value="{{ $bDriverName }}" placeholder="e.g., Ramesh Kumar" required>
                                                         </div>
-                                                        <div class="col-12">
-                                                            <label class="form-label fw-bold">Driver Mobile / WhatsApp Number*</label>
+                                                        <div class="col-md-6">
+                                                            <label class="form-label fw-bold">Driver Mobile / WhatsApp*</label>
                                                             <input type="text" name="driver_phone" class="form-control" value="{{ $bDriverPhone }}" placeholder="e.g., 9876543210" required>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label class="form-label fw-bold">Vehicle Model / Car Name*</label>
-                                                            <input type="text" name="vehicle_name" class="form-control" value="{{ is_array($booking) ? ($booking['vehicle_name'] ?? $bVehicle) : ($booking->vehicle_name ?? $bVehicle) }}" placeholder="e.g., Maruti Suzuki Omni (Omni Van)" required>
+                                                            <label class="form-label fw-bold">Driver Aadhaar Number</label>
+                                                            <input type="text" name="driver_aadhaar" class="form-control" value="{{ $bDriverAadhaar }}" placeholder="e.g. 5482 9102 3841">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label class="form-label fw-bold">Vehicle Number Plate*</label>
+                                                            <label class="form-label fw-bold">Total Cabs Booked*</label>
+                                                            <input type="number" min="1" name="vehicle_count" class="form-control fw-bold" value="{{ $bVehicleCount }}" required>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="form-label fw-bold">Vehicle Model / Car Name*</label>
+                                                            <input type="text" name="vehicle_name" class="form-control" value="{{ is_array($booking) ? ($booking['vehicle_name'] ?? $bVehicle) : ($booking->vehicle_name ?? $bVehicle) }}" placeholder="e.g., Maruti Suzuki Dzire" required>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="form-label fw-bold">Vehicle Plate Number(s)*</label>
                                                             <input type="text" name="vehicle_number" class="form-control" value="{{ $bVehicleNo }}" placeholder="e.g., UP 32 AB 1234" required>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <small class="text-muted d-block" style="font-size: 11px;">
+                                                                💡 <strong>Multiple Cabs:</strong> Agar 1 se zyada gaadi book hai (jaise 2, 4 ya 6), to total count dalein aur sabhi gaadi ke number comma laga kar likhein (jaise: <code>UP 32 AB 1234, UP 32 CD 5678</code>).
+                                                            </small>
                                                         </div>
                                                         @if($numFare <= 0)
                                                         <div class="col-12 bg-light p-2 rounded border border-success">
@@ -531,16 +572,54 @@
                                                                 <input type="text" name="route" class="form-control" value="{{ $bRoute }}" required>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label class="form-label fw-bold small text-muted">Vehicle Model / Category</label>
-                                                                <input type="text" name="vehicle_type" class="form-control" value="{{ $bVehicle }}" required>
-                                                            </div>
-                                                            <div class="col-md-6">
                                                                 <label class="form-label fw-bold small text-muted">Pickup Schedule (Date &amp; Time)</label>
                                                                 <input type="text" name="pickup_time" class="form-control" value="{{ $bTime }}" required>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            @php
+                                                                $singleCabRate = ($bVehicleCount > 0) ? round((float)$bFare / $bVehicleCount, 2) : (float)$bFare;
+                                                                $cleanVehicleDisplay = trim(preg_replace('/\s*[\(\[]×\s*\d+\s*cabs?[\)\]]/i', '', $bVehicle));
+                                                            @endphp
+                                                            <div class="col-md-4">
+                                                                <label class="form-label fw-bold small text-muted">Vehicle Model / Category</label>
+                                                                <input type="text" name="vehicle_type" class="form-control" value="{{ $cleanVehicleDisplay }}" required>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label class="form-label fw-bold small text-muted">Total Cabs *</label>
+                                                                <input type="number" min="1" name="vehicle_count" id="edit_cab_qty_{{ $bId }}" class="form-control fw-bold" value="{{ $bVehicleCount }}" oninput="syncCabModalFare('{{ $bId }}', 'qty')" required>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label class="form-label fw-bold small text-muted">Rate Per Cab (₹)</label>
+                                                                <input type="number" step="0.01" min="0" id="edit_cab_rate_{{ $bId }}" class="form-control fw-bold text-primary" value="{{ number_format($singleCabRate, 2, '.', '') }}" oninput="syncCabModalFare('{{ $bId }}', 'rate')" placeholder="e.g. 2400.00">
+                                                                <small class="text-muted d-block" style="font-size: 10.5px;">1 gaadi ka kiraya</small>
+                                                            </div>
+                                                            <div class="col-md-3">
                                                                 <label class="form-label fw-bold small text-muted">Total Fare (₹) *</label>
-                                                                <input type="number" step="0.01" min="0" name="fare" class="form-control fw-bold text-success fs-6" value="{{ $bFare }}" required>
+                                                                <input type="number" step="0.01" min="0" name="fare" id="edit_cab_total_{{ $bId }}" class="form-control fw-bold text-success fs-6" value="{{ $bFare }}" oninput="syncCabModalFare('{{ $bId }}', 'total')" required>
+                                                                <small class="text-muted d-block" style="font-size: 10.5px;"><span id="calc_hint_{{ $bId }}">₹{{ number_format($singleCabRate, 2) }} &times; {{ $bVehicleCount }} Cab{{ $bVehicleCount > 1 ? 's' : '' }}</span></small>
+                                                            </div>
+
+                                                            <!-- Driver & Vehicle Duty Details -->
+                                                            <div class="col-12 mt-3">
+                                                                <h6 class="fw-bold text-dark mb-2 border-bottom pb-1">
+                                                                    <i class="bi bi-person-badge-fill me-1 text-primary"></i> Assigned Driver &amp; Vehicle Duty
+                                                                </h6>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label fw-bold small text-muted">Driver Full Name</label>
+                                                                <input type="text" name="driver_name" class="form-control" value="{{ $bDriverName }}" placeholder="e.g. Ramesh Kumar">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label fw-bold small text-muted">Driver Mobile Number</label>
+                                                                <input type="text" name="driver_phone" class="form-control" value="{{ $bDriverPhone }}" placeholder="e.g. 9876543210">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label fw-bold small text-muted">Driver Aadhaar Number</label>
+                                                                <input type="text" name="driver_aadhaar" class="form-control" value="{{ $bDriverAadhaar }}" placeholder="e.g. 5482 9102 3841">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label fw-bold small text-muted">Vehicle Plate Number(s)</label>
+                                                                <input type="text" name="driver_vehicle_number" class="form-control" value="{{ $bVehicleNo }}" placeholder="e.g. UP 32 AB 1234, UP 32 CD 5678">
+                                                                <small class="text-muted d-block" style="font-size: 11px;">Multiple gaadiyon ke plate numbers comma lagakar likhein.</small>
                                                             </div>
 
                                                             <!-- Payment & Booking Status (Key Request) -->
@@ -608,4 +687,31 @@
         </div>
     </div>
 </main>
+<script>
+function syncCabModalFare(bId, changedField) {
+    var qtyEl = document.getElementById('edit_cab_qty_' + bId);
+    var rateEl = document.getElementById('edit_cab_rate_' + bId);
+    var totalEl = document.getElementById('edit_cab_total_' + bId);
+    var hintEl = document.getElementById('calc_hint_' + bId);
+    if (!qtyEl || !rateEl || !totalEl) return;
+
+    var qty = parseInt(qtyEl.value) || 1;
+    if (qty < 1) { qty = 1; qtyEl.value = 1; }
+
+    if (changedField === 'total') {
+        var total = parseFloat(totalEl.value) || 0;
+        var calculatedRate = (qty > 0) ? (total / qty) : total;
+        rateEl.value = calculatedRate.toFixed(2);
+    } else {
+        var rate = parseFloat(rateEl.value) || 0;
+        var calculatedTotal = rate * qty;
+        totalEl.value = calculatedTotal.toFixed(2);
+    }
+
+    if (hintEl) {
+        var curRate = parseFloat(rateEl.value) || 0;
+        hintEl.innerHTML = '₹' + curRate.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' &times; ' + qty + ' Cab' + (qty > 1 ? 's' : '');
+    }
+}
+</script>
 @endsection

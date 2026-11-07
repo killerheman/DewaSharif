@@ -46,6 +46,18 @@
                                 <p>Room Reservations</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.hotels.partners') }}" class="nav-link {{ Route::is('admin.hotels.partners*') ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-bank2"></i>
+                                <p>Partners &amp; Settlements</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.hotels.refunds') }}" class="nav-link {{ Route::is('admin.hotels.refunds*') ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-arrow-counterclockwise"></i>
+                                <p>Customer Refund Queue</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

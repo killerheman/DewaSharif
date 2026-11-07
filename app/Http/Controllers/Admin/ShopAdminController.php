@@ -8,76 +8,77 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+use App\Helpers\ShopSetting;
+
 class ShopAdminController extends Controller
 {
     public function index()
     {
-        $products = DataStore::getCollection('products');
-        $dbProducts = DB::table('shop_products')->get()->keyBy('id');
-        foreach ($products as &$p) {
-            $pId = is_array($p) ? ($p['id'] ?? null) : $p->id;
-            if ($pId && isset($dbProducts[$pId])) {
-                $dbItem = $dbProducts[$pId];
-                if (is_array($p)) {
-                    $p['stock_quantity'] = (int)$dbItem->stock_quantity;
-                    $p['stock'] = (int)$dbItem->stock_quantity;
-                    $p['sku'] = $dbItem->sku ?? ($p['sku'] ?? null);
-                    $p['return_policy'] = $dbItem->return_policy ?? ($p['return_policy'] ?? 'non_returnable');
-                    $p['is_featured'] = (int)($dbItem->is_featured ?? ($p['is_featured'] ?? 0));
-                    $p['status'] = $dbItem->status ?? ($p['status'] ?? 'active');
-                    if (isset($dbItem->price) && (float)$dbItem->price > 0) $p['price'] = (float)$dbItem->price;
-                    if (isset($dbItem->mrp) && (float)$dbItem->mrp > 0) $p['mrp'] = (float)$dbItem->mrp;
-                    if (!empty($dbItem->name)) $p['name'] = $dbItem->name;
-                    if (!empty($dbItem->thumbnail)) $p['image'] = $dbItem->thumbnail;
-                    if (!empty($dbItem->description)) $p['description'] = $dbItem->description;
-                    if (!empty($dbItem->volume_ml)) $p['volume_ml'] = $dbItem->volume_ml;
-                    if (!empty($dbItem->fabric_material)) $p['fabric_material'] = $dbItem->fabric_material;
-                    if (!empty($dbItem->size_options)) $p['size_options'] = $dbItem->size_options;
-                } else {
-                    $p->stock_quantity = (int)$dbItem->stock_quantity;
-                    $p->stock = (int)$dbItem->stock_quantity;
-                    $p->sku = $dbItem->sku ?? ($p->sku ?? null);
-                    $p->return_policy = $dbItem->return_policy ?? ($p->return_policy ?? 'non_returnable');
-                    $p->is_featured = (int)($dbItem->is_featured ?? ($p->is_featured ?? 0));
-                    $p->status = $dbItem->status ?? ($p->status ?? 'active');
-                    if (isset($dbItem->price) && (float)$dbItem->price > 0) $p->price = (float)$dbItem->price;
-                    if (isset($dbItem->mrp) && (float)$dbItem->mrp > 0) $p->mrp = (float)$dbItem->mrp;
-                    if (!empty($dbItem->name)) $p->name = $dbItem->name;
-                    if (!empty($dbItem->thumbnail)) $p->image = $dbItem->thumbnail;
-                    if (!empty($dbItem->description)) $p->description = $dbItem->description;
-                    if (!empty($dbItem->volume_ml)) $p->volume_ml = $dbItem->volume_ml;
-                    if (!empty($dbItem->fabric_material)) $p->fabric_material = $dbItem->fabric_material;
-                    if (!empty($dbItem->size_options)) $p->size_options = $dbItem->size_options;
-                }
-            } else {
-                $s = (int)(is_array($p) ? ($p['stock_quantity'] ?? ($p['stock'] ?? 50)) : ($p->stock_quantity ?? ($p->stock ?? 50)));
-                if (is_array($p)) {
-                    $p['stock_quantity'] = $s;
-                    $p['stock'] = $s;
-                    $p['return_policy'] = $p['return_policy'] ?? 'non_returnable';
-                    $p['is_featured'] = (int)($p['is_featured'] ?? 0);
-                } else {
-                    $p->stock_quantity = $s;
-                    $p->stock = $s;
-                    $p->return_policy = $p->return_policy ?? 'non_returnable';
-                    $p->is_featured = (int)($p->is_featured ?? 0);
-                }
+        $shopSettings = ShopSetting::all();
+        $dbProducts = DB::table('shop_products')->orderBy('id', 'desc')->get();
+        
+        $products = [];
+        foreach ($dbProducts as $dp) {
+            $products[] = [
+                'id' => $dp->id,
+                'name' => $dp->name,
+                'slug' => $dp->slug,
+                'category' => $dp->category_slug,
+                'category_slug' => $dp->category_slug,
+                'price' => (float)$dp->price,
+                'mrp' => (float)($dp->mrp ?? ($dp->price * 1.3)),
+                'sku' => $dp->sku ?? ('#PRD-' . $dp->id),
+                'return_policy' => $dp->return_policy ?? 'non_returnable',
+                'is_featured' => (int)($dp->is_featured ?? 0),
+                'stock' => (int)$dp->stock_quantity,
+                'stock_quantity' => (int)$dp->stock_quantity,
+                'volume_ml' => $dp->volume_ml ?? '',
+                'size_options' => $dp->size_options ?? '',
+                'fabric_material' => $dp->fabric_material ?? '',
+                'image' => $dp->thumbnail ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg',
+                'thumbnail' => $dp->thumbnail ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg',
+                'description' => $dp->description ?? '',
+                'rating' => (float)($dp->rating ?? 5.0),
+                'reviews_count' => $dp->reviews_count ?? '240+ Niyaz Bookings',
+                'status' => $dp->status ?? 'active',
+                'handling_fee' => (float)($dp->handling_fee ?? ($shopSettings['default_handling_fee'] ?? 10)),
+                'packaging_fee' => (float)($dp->packaging_fee ?? ($shopSettings['default_packaging_fee'] ?? 20)),
+                'delivery_fee' => (float)($dp->delivery_fee ?? ($shopSettings['standard_courier_fee'] ?? 40)),
+                'same_day_fee_2_4h' => (float)($dp->same_day_fee_2_4h ?? ($shopSettings['express_2_4h_fee'] ?? 35)),
+                'local_fee_24h' => (float)($dp->local_fee_24h ?? ($shopSettings['local_24h_fee'] ?? 20)),
+                'cod_fee' => (float)($dp->cod_fee ?? ($shopSettings['cod_extra_fee'] ?? 30)),
+            ];
+        }
+
+        // If any legacy items in DataStore not in DB, append them
+        $dsProducts = DataStore::getCollection('products');
+        $existingIds = collect($products)->pluck('id')->toArray();
+        foreach ($dsProducts as $dsp) {
+            $dspId = is_array($dsp) ? ($dsp['id'] ?? null) : $dsp->id;
+            if ($dspId && !in_array($dspId, $existingIds)) {
+                $pArray = is_array($dsp) ? $dsp : (array)$dsp;
+                $pArray['handling_fee'] = (float)($pArray['handling_fee'] ?? ($shopSettings['default_handling_fee'] ?? 10));
+                $pArray['packaging_fee'] = (float)($pArray['packaging_fee'] ?? ($shopSettings['default_packaging_fee'] ?? 20));
+                $pArray['delivery_fee'] = (float)($pArray['delivery_fee'] ?? ($shopSettings['standard_courier_fee'] ?? 40));
+                $pArray['same_day_fee_2_4h'] = (float)($pArray['same_day_fee_2_4h'] ?? ($shopSettings['express_2_4h_fee'] ?? 35));
+                $pArray['local_fee_24h'] = (float)($pArray['local_fee_24h'] ?? ($shopSettings['local_24h_fee'] ?? 20));
+                $pArray['cod_fee'] = (float)($pArray['cod_fee'] ?? ($shopSettings['cod_extra_fee'] ?? 30));
+                $products[] = $pArray;
             }
         }
-        unset($p);
 
         $categories = DB::table('shop_categories')->orderBy('order_num', 'asc')->orderBy('name', 'asc')->get();
         if ($categories->isEmpty()) {
             $categories = collect([
-                (object)['id' => 1, 'name' => 'Warsi Attar', 'slug' => 'attar'],
-                (object)['id' => 2, 'name' => 'Degh Niyaz', 'slug' => 'degh'],
-                (object)['id' => 3, 'name' => 'Mitti Bartan', 'slug' => 'clay'],
-                (object)['id' => 4, 'name' => 'Sufi Clothing', 'slug' => 'clothing'],
-                (object)['id' => 5, 'name' => 'Mela Toys', 'slug' => 'toys'],
-                (object)['id' => 6, 'name' => 'Islamic Products', 'slug' => 'islamic'],
+                (object)['id' => 1, 'name' => 'Warsi Attar', 'slug' => 'attar', 'status' => 'active'],
+                (object)['id' => 2, 'name' => 'Degh Niyaz', 'slug' => 'degh', 'status' => 'active'],
+                (object)['id' => 3, 'name' => 'Mitti Bartan', 'slug' => 'clay', 'status' => 'inactive'],
+                (object)['id' => 4, 'name' => 'Sufi Clothing', 'slug' => 'clothing', 'status' => 'inactive'],
+                (object)['id' => 5, 'name' => 'Mela Toys', 'slug' => 'toys', 'status' => 'inactive'],
+                (object)['id' => 6, 'name' => 'Islamic Products', 'slug' => 'islamic', 'status' => 'inactive'],
             ]);
         }
-        return view('admin.shop.index', compact('products', 'categories'));
+        return view('admin.shop.index', compact('products', 'categories', 'shopSettings'));
     }
 
     public function storeProduct(Request $request)
@@ -92,6 +93,14 @@ class ShopAdminController extends Controller
         $fabric_material = trim($request->input('fabric_material', ''));
         $customImage = trim($request->input('image', ''));
         $desc = trim($request->input('description', 'Handcrafted sacred item with 100% genuine quality.'));
+
+        $shopSettings = ShopSetting::all();
+        $handling_fee = $request->filled('handling_fee') ? (float)$request->input('handling_fee') : (float)($shopSettings['default_handling_fee'] ?? 10);
+        $packaging_fee = $request->filled('packaging_fee') ? (float)$request->input('packaging_fee') : (float)($shopSettings['default_packaging_fee'] ?? 20);
+        $delivery_fee = $request->filled('delivery_fee') ? (float)$request->input('delivery_fee') : (float)($shopSettings['standard_courier_fee'] ?? 40);
+        $same_day_fee_2_4h = $request->filled('same_day_fee_2_4h') ? (float)$request->input('same_day_fee_2_4h') : (float)($shopSettings['express_2_4h_fee'] ?? 35);
+        $local_fee_24h = $request->filled('local_fee_24h') ? (float)$request->input('local_fee_24h') : (float)($shopSettings['local_24h_fee'] ?? 20);
+        $cod_fee = $request->filled('cod_fee') ? (float)$request->input('cod_fee') : (float)($shopSettings['cod_extra_fee'] ?? 30);
 
         $image = '/home/images/dewasharif/dewapage/attar_bottle.jpg';
 
@@ -130,17 +139,92 @@ class ShopAdminController extends Controller
             }
         }
 
+        // Handle discount % (Manual input or auto-calculated from MRP & Price)
+        $discount_percent = null;
+        if ($request->filled('discount_percent')) {
+            $discount_percent = max(0, min(99, (int)$request->input('discount_percent')));
+        } elseif ($mrp > $price && $mrp > 0) {
+            $discount_percent = (int)round((($mrp - $price) / $mrp) * 100);
+        }
+
+        // Process Additional Gallery Images (Up to 5 images total)
+        $gallery = [];
+        // 1. Multi-file upload batch
+        if ($request->hasFile('gallery_files')) {
+            foreach ($request->file('gallery_files') as $gFile) {
+                if ($gFile && $gFile->isValid()) {
+                    $gFileName = 'gallery_' . time() . '_' . rand(1000, 9999) . '.' . $gFile->getClientOriginalExtension();
+                    $destPath = public_path('uploads/shop');
+                    if (!file_exists($destPath)) mkdir($destPath, 0755, true);
+                    $gFile->move($destPath, $gFileName);
+                    $gallery[] = '/uploads/shop/' . $gFileName;
+                }
+            }
+        }
+        // 2. Individual slots 2 to 5
+        for ($i = 2; $i <= 5; $i++) {
+            if ($request->hasFile("gallery_file_{$i}") && $request->file("gallery_file_{$i}")->isValid()) {
+                $gFile = $request->file("gallery_file_{$i}");
+                $gFileName = 'gallery_' . time() . "_{$i}_" . rand(100, 999) . '.' . $gFile->getClientOriginalExtension();
+                $destPath = public_path('uploads/shop');
+                if (!file_exists($destPath)) mkdir($destPath, 0755, true);
+                $gFile->move($destPath, $gFileName);
+                $gallery[] = '/uploads/shop/' . $gFileName;
+            } elseif ($request->filled("gallery_url_{$i}")) {
+                $gallery[] = trim($request->input("gallery_url_{$i}"));
+            }
+        }
+        $gallery = array_values(array_unique(array_filter($gallery)));
+        $galleryJson = !empty($gallery) ? json_encode($gallery) : null;
+
         $rating = $request->filled('rating') ? (float)$request->input('rating') : 5.0;
         $reviews_count = trim($request->input('reviews_count', ($cat === 'degh' ? '240+ Niyaz Bookings' : '150+ Devotee Reviews')));
         $sku = trim($request->input('sku', '')) ?: ('#PRD-' . strtoupper(substr(md5(time() . rand(10, 99)), 0, 6)));
         $returnPolicy = $request->input('return_policy', 'non_returnable');
         $isFeatured = $request->boolean('is_featured') ? 1 : 0;
 
-        $savedItem = DataStore::addItem('products', [
+        $catObj = DB::table('shop_categories')->where('slug', $cat)->first();
+        $catId = $catObj ? $catObj->id : 1;
+
+        $newProdId = DB::table('shop_products')->insertGetId([
+            'category_id' => $catId,
+            'category_slug' => $cat,
+            'name' => $name,
+            'slug' => Str::slug($name) . '-' . time(),
+            'sku' => $sku,
+            'return_policy' => $returnPolicy,
+            'is_featured' => $isFeatured,
+            'price' => $price,
+            'mrp' => $mrp,
+            'discount_percent' => $discount_percent,
+            'sale_price' => $price,
+            'stock_quantity' => $stock,
+            'volume_ml' => $volume_ml,
+            'size_options' => $size_options,
+            'fabric_material' => $fabric_material,
+            'thumbnail' => $image,
+            'gallery_images' => $galleryJson,
+            'description' => $desc,
+            'rating' => $rating,
+            'reviews_count' => $reviews_count,
+            'handling_fee' => $handling_fee,
+            'packaging_fee' => $packaging_fee,
+            'delivery_fee' => $delivery_fee,
+            'same_day_fee_2_4h' => $same_day_fee_2_4h,
+            'local_fee_24h' => $local_fee_24h,
+            'cod_fee' => $cod_fee,
+            'status' => 'active',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DataStore::addItem('products', [
+            'id' => $newProdId,
             'name' => $name,
             'category' => $cat,
             'price' => $price,
             'mrp' => $mrp,
+            'discount_percent' => $discount_percent,
             'sku' => $sku,
             'return_policy' => $returnPolicy,
             'is_featured' => $isFeatured,
@@ -150,42 +234,20 @@ class ShopAdminController extends Controller
             'size_options' => $size_options,
             'fabric_material' => $fabric_material,
             'image' => $image,
+            'gallery_images' => $galleryJson,
             'description' => $desc,
             'rating' => $rating,
             'reviews_count' => $reviews_count,
+            'handling_fee' => $handling_fee,
+            'packaging_fee' => $packaging_fee,
+            'delivery_fee' => $delivery_fee,
+            'same_day_fee_2_4h' => $same_day_fee_2_4h,
+            'local_fee_24h' => $local_fee_24h,
+            'cod_fee' => $cod_fee,
             'status' => 'Active'
         ]);
 
-        try {
-            $catObj = DB::table('shop_categories')->where('slug', $cat)->first();
-            $catId = $catObj ? $catObj->id : 1;
-            DB::table('shop_products')->insert([
-                'id' => $savedItem['id'] ?? null,
-                'category_id' => $catId,
-                'category_slug' => $cat,
-                'name' => $name,
-                'slug' => Str::slug($name) . '-' . ($savedItem['id'] ?? time()),
-                'sku' => $sku,
-                'return_policy' => $returnPolicy,
-                'is_featured' => $isFeatured,
-                'price' => $price,
-                'mrp' => $mrp,
-                'sale_price' => $price,
-                'stock_quantity' => $stock,
-                'volume_ml' => $volume_ml,
-                'size_options' => $size_options,
-                'fabric_material' => $fabric_material,
-                'thumbnail' => $image,
-                'description' => $desc,
-                'rating' => $rating,
-                'reviews_count' => $reviews_count,
-                'status' => 'active',
-                'created_at' => now(),
-                'updated_at' => now()
-            ]);
-        } catch (\Throwable $e) {}
-
-        return back()->with('success', "Product '{$name}' published successfully to Sacred Store!");
+        return back()->with('success', "Product '{$name}' published successfully to Sacred Store (Active at Top)!");
     }
 
     public function destroy($id)
@@ -216,11 +278,36 @@ class ShopAdminController extends Controller
             'description' => trim($request->input('description', '')),
         ];
 
+        if ($request->filled('handling_fee')) {
+            $data['handling_fee'] = (float)$request->input('handling_fee');
+        }
+        if ($request->filled('packaging_fee')) {
+            $data['packaging_fee'] = (float)$request->input('packaging_fee');
+        }
+        if ($request->filled('delivery_fee')) {
+            $data['delivery_fee'] = (float)$request->input('delivery_fee');
+        }
+        if ($request->filled('same_day_fee_2_4h')) {
+            $data['same_day_fee_2_4h'] = (float)$request->input('same_day_fee_2_4h');
+        }
+        if ($request->filled('local_fee_24h')) {
+            $data['local_fee_24h'] = (float)$request->input('local_fee_24h');
+        }
+        if ($request->filled('cod_fee')) {
+            $data['cod_fee'] = (float)$request->input('cod_fee');
+        }
+
         if ($request->filled('rating')) {
             $data['rating'] = (float)$request->input('rating');
         }
         if ($request->filled('reviews_count')) {
             $data['reviews_count'] = trim($request->input('reviews_count'));
+        }
+
+        if ($request->filled('discount_percent')) {
+            $data['discount_percent'] = max(0, min(99, (int)$request->input('discount_percent')));
+        } elseif (isset($data['mrp']) && isset($data['price']) && $data['mrp'] > $data['price'] && $data['mrp'] > 0) {
+            $data['discount_percent'] = (int)round((($data['mrp'] - $data['price']) / $data['mrp']) * 100);
         }
 
         if ($request->hasFile('image_file') && $request->file('image_file')->isValid()) {
@@ -235,6 +322,44 @@ class ShopAdminController extends Controller
         } elseif ($request->filled('image')) {
             $data['image'] = trim($request->input('image'));
         }
+
+        // Process Additional Gallery Images (Up to 5 images total)
+        $existingProd = DB::table('shop_products')->where('id', $id)->first();
+        $existingGallery = [];
+        if ($existingProd && !empty($existingProd->gallery_images)) {
+            $existingGallery = is_array($existingProd->gallery_images) ? $existingProd->gallery_images : (json_decode($existingProd->gallery_images, true) ?: []);
+        }
+
+        $gallery = [];
+        // 1. Multi-file upload batch
+        if ($request->hasFile('gallery_files')) {
+            foreach ($request->file('gallery_files') as $gFile) {
+                if ($gFile && $gFile->isValid()) {
+                    $gFileName = 'gallery_' . time() . '_' . rand(1000, 9999) . '.' . $gFile->getClientOriginalExtension();
+                    $destPath = public_path('uploads/shop');
+                    if (!file_exists($destPath)) mkdir($destPath, 0755, true);
+                    $gFile->move($destPath, $gFileName);
+                    $gallery[] = '/uploads/shop/' . $gFileName;
+                }
+            }
+        }
+        // 2. Individual slots 2 to 5
+        for ($i = 2; $i <= 5; $i++) {
+            if ($request->hasFile("gallery_file_{$i}") && $request->file("gallery_file_{$i}")->isValid()) {
+                $gFile = $request->file("gallery_file_{$i}");
+                $gFileName = 'gallery_' . time() . "_{$i}_" . rand(100, 999) . '.' . $gFile->getClientOriginalExtension();
+                $destPath = public_path('uploads/shop');
+                if (!file_exists($destPath)) mkdir($destPath, 0755, true);
+                $gFile->move($destPath, $gFileName);
+                $gallery[] = '/uploads/shop/' . $gFileName;
+            } elseif ($request->filled("gallery_url_{$i}")) {
+                $gallery[] = trim($request->input("gallery_url_{$i}"));
+            } elseif (isset($existingGallery[$i - 2])) {
+                $gallery[] = $existingGallery[$i - 2];
+            }
+        }
+        $gallery = array_values(array_unique(array_filter($gallery)));
+        $data['gallery_images'] = !empty($gallery) ? json_encode($gallery) : null;
 
         DataStore::updateItem('products', $id, $data);
 
@@ -258,6 +383,15 @@ class ShopAdminController extends Controller
                 'description' => $data['description'],
                 'updated_at' => now()
             ];
+            if (isset($data['discount_percent'])) $dbData['discount_percent'] = $data['discount_percent'];
+            if (isset($data['gallery_images'])) $dbData['gallery_images'] = $data['gallery_images'];
+            if (isset($data['handling_fee'])) $dbData['handling_fee'] = $data['handling_fee'];
+            if (isset($data['packaging_fee'])) $dbData['packaging_fee'] = $data['packaging_fee'];
+            if (isset($data['delivery_fee'])) $dbData['delivery_fee'] = $data['delivery_fee'];
+            if (isset($data['same_day_fee_2_4h'])) $dbData['same_day_fee_2_4h'] = $data['same_day_fee_2_4h'];
+            if (isset($data['local_fee_24h'])) $dbData['local_fee_24h'] = $data['local_fee_24h'];
+            if (isset($data['cod_fee'])) $dbData['cod_fee'] = $data['cod_fee'];
+
             if (isset($data['rating'])) {
                 $dbData['rating'] = $data['rating'];
             }
@@ -271,6 +405,23 @@ class ShopAdminController extends Controller
         } catch (\Throwable $e) {}
 
         return back()->with('success', "Product updated successfully!");
+    }
+
+    public function updateSettings(Request $request)
+    {
+        $settings = [
+            'express_2_4h_fee' => (float)$request->input('express_2_4h_fee', 35),
+            'local_24h_fee' => (float)$request->input('local_24h_fee', 20),
+            'standard_courier_fee' => (float)$request->input('standard_courier_fee', 40),
+            'default_handling_fee' => (float)$request->input('default_handling_fee', 10),
+            'default_packaging_fee' => (float)$request->input('default_packaging_fee', 20),
+            'cod_extra_fee' => (float)$request->input('cod_extra_fee', 30),
+            'free_delivery_threshold' => (float)$request->input('free_delivery_threshold', 999),
+        ];
+
+        ShopSetting::updateMany($settings);
+
+        return back()->with('success', 'Global Shop Delivery & Fee Settings Updated Successfully!');
     }
 
     public function toggleStatus($id)
@@ -295,8 +446,210 @@ class ShopAdminController extends Controller
 
     public function orders()
     {
-        $orders = DataStore::getCollection('shop_orders');
-        return view('admin.shop.orders', compact('orders'));
+        $orders = DB::table('shop_orders')->orderBy('id', 'desc')->get();
+        if ($orders->isEmpty()) {
+            $orders = DataStore::getCollection('shop_orders');
+        }
+
+        $availableProducts = DB::table('shop_products')->where('status', 'active')->orderBy('id', 'desc')->get();
+        if ($availableProducts->isEmpty()) {
+            $rawP = DataStore::getCollection('products');
+            $availableProducts = collect($rawP);
+        }
+
+        return view('admin.shop.orders', compact('orders', 'availableProducts'));
+    }
+
+    public function storeCustomOrder(Request $request)
+    {
+        $custName = trim($request->input('customer_name', 'Devotee Customer'));
+        $custPhone = trim($request->input('customer_phone', '9648777223'));
+        $altPhone = trim($request->input('alternate_phone', ''));
+        $address = trim($request->input('shipping_address', 'Dewa Sharif, Barabanki, UP - 225301'));
+        $itemsSummary = trim($request->input('items_summary', 'Warsi Chicken Biryani (Light Premium)'));
+        $isDegh = $request->boolean('is_degh') ? 1 : (str_contains(strtolower($itemsSummary), 'degh') || str_contains(strtolower($itemsSummary), 'biryani') || str_contains(strtolower($itemsSummary), 'zarda') || str_contains(strtolower($itemsSummary), 'kheer') ? 1 : 0);
+        $fatehaName = trim($request->input('fateha_name', ''));
+        $rawNiyazDate = trim($request->input('niyaz_date', ''));
+        if (!empty($rawNiyazDate)) {
+            try {
+                $niyazDate = \Carbon\Carbon::parse($rawNiyazDate)->format('d M Y, h:i A');
+            } catch (\Throwable $e) {
+                $niyazDate = $rawNiyazDate;
+            }
+        } else {
+            $niyazDate = \Carbon\Carbon::now('Asia/Kolkata')->format('d M Y, h:i A');
+        }
+        $distributionType = trim($request->input('distribution_type', 'Direct Handover / Self Collection at Dewa Sharif'));
+        $distributionFee = (float)$request->input('distribution_fee', 0);
+
+        $totalAmount = (float)$request->input('total_amount', 0);
+        $paidAmount = (float)$request->input('paid_amount', 0);
+
+        // Respect admin's explicit choice (pending, partial, paid, failed)
+        $rawPayStatus = strtolower(trim($request->input('payment_status', 'pending')));
+        if (!in_array($rawPayStatus, ['pending', 'partial', 'paid', 'failed'])) {
+            $rawPayStatus = 'pending';
+        }
+        if ($rawPayStatus === 'paid' && $paidAmount <= 0 && $totalAmount > 0) {
+            $paidAmount = $totalAmount;
+        }
+
+        $paymentMode = trim($request->input('payment_mode', 'SBI UPI / PhonePe QR'));
+        $utrNumber = trim($request->input('utr_number', ''));
+        $paymentId = !empty($utrNumber) ? ('SBI_UPI_' . $utrNumber) : ($paymentMode . ' (' . ($rawPayStatus === 'partial' ? "₹{$paidAmount} Adv" : ($rawPayStatus === 'paid' ? 'Full Paid' : 'Verification Pending')) . ')');
+
+        $orderStatus = trim($request->input('order_status', 'processing'));
+        $courierName = trim($request->input('courier_name', $isDegh ? 'Dargah Langar Distribution / Special Delivery' : 'DTDC Express'));
+        $trackingNumber = trim($request->input('tracking_number', ($isDegh ? 'DGH-' : 'DT') . rand(10000000, 99999999) . 'IN'));
+
+        $randCode = ($isDegh ? 'DWS-DGH-' : 'DWS-SHP-') . date('Y') . '-' . rand(1000, 9999);
+        $packagingType = trim($request->input('packaging_type', 'none'));
+        $packagingFee = (float)$request->input('packaging_fee', 0);
+        if ($packagingType === 'complimentary' || $packagingType === 'none') {
+            $packagingFee = 0.00;
+        }
+
+        $orderData = [
+            'order_id' => $randCode,
+            'customer_name' => $custName,
+            'customer_phone' => $custPhone,
+            'customer_whatsapp' => $custPhone,
+            'alternate_phone' => $altPhone,
+            'shipping_address' => $address,
+            'items_summary' => $itemsSummary,
+            'cart_items_json' => json_encode([
+                [
+                    'name' => $itemsSummary,
+                    'price' => $totalAmount,
+                    'qty' => 1
+                ]
+            ]),
+            'subtotal' => $totalAmount,
+            'handling_fee' => 0.00,
+            'packaging_fee' => $packagingFee,
+            'packaging_type' => $packagingType,
+            'distribution_fee' => $distributionFee,
+            'delivery_fee' => 0.00,
+            'cod_fee' => 0.00,
+            'delivery_tier' => 'standard_courier',
+            'total_amount' => $totalAmount,
+            'paid_amount' => $paidAmount,
+            'payment_id' => $paymentId,
+            'payment_mode' => $paymentMode,
+            'payment_status' => $rawPayStatus,
+            'order_status' => $orderStatus,
+            'fateha_name' => $fatehaName,
+            'niyaz_date' => $niyazDate,
+            'distribution_type' => $distributionType,
+            'is_degh' => $isDegh,
+            'courier_name' => $courierName,
+            'tracking_number' => $trackingNumber,
+            'created_at' => now(),
+            'updated_at' => now()
+        ];
+
+        $newId = DB::table('shop_orders')->insertGetId($orderData);
+        $orderData['id'] = $newId;
+        DataStore::addItem('shop_orders', $orderData);
+
+        return back()->with('success', "Custom " . ($isDegh ? "Degh Niyaz" : "Store") . " Order #{$randCode} created successfully! You can now view and download the official invoice.");
+    }
+
+    public function updateOrder(Request $request, $id)
+    {
+        $custName = trim($request->input('customer_name', 'Customer'));
+        $custPhone = trim($request->input('customer_phone', ''));
+        $altPhone = trim($request->input('alternate_phone', ''));
+        $address = trim($request->input('shipping_address', ''));
+        $itemsSummary = trim($request->input('items_summary', 'Sacred Store Offering'));
+        $isDegh = $request->boolean('is_degh') ? 1 : 0;
+        $fatehaName = trim($request->input('fateha_name', ''));
+        $rawNiyazDate = trim($request->input('niyaz_date', ''));
+        if (!empty($rawNiyazDate)) {
+            try {
+                $niyazDate = \Carbon\Carbon::parse($rawNiyazDate)->format('d M Y, h:i A');
+            } catch (\Throwable $e) {
+                $niyazDate = $rawNiyazDate;
+            }
+        } else {
+            $niyazDate = \Carbon\Carbon::now('Asia/Kolkata')->format('d M Y, h:i A');
+        }
+        $distributionType = trim($request->input('distribution_type', ''));
+        $distributionFee = (float)$request->input('distribution_fee', 0);
+
+        $packagingType = trim($request->input('packaging_type', 'none'));
+        $packagingFee = (float)$request->input('packaging_fee', 0);
+        if ($packagingType === 'complimentary' || $packagingType === 'none') {
+            $packagingFee = 0.00;
+        }
+
+        $totalAmount = (float)$request->input('total_amount', 0);
+        $paidAmount = (float)$request->input('paid_amount', 0);
+
+        // Respect admin's explicit choice (pending, partial, paid, failed)
+        $rawPayStatus = strtolower(trim($request->input('payment_status', 'pending')));
+        if (!in_array($rawPayStatus, ['pending', 'partial', 'paid', 'failed'])) {
+            $rawPayStatus = 'pending';
+        }
+        if ($rawPayStatus === 'paid' && $paidAmount > 0 && $paidAmount < $totalAmount) {
+            $rawPayStatus = 'partial';
+        } elseif ($rawPayStatus === 'paid' && $paidAmount <= 0 && $totalAmount > 0) {
+            $paidAmount = $totalAmount;
+        } elseif ($rawPayStatus === 'partial' && $paidAmount >= $totalAmount && $totalAmount > 0) {
+            $rawPayStatus = 'paid';
+        }
+
+        $paymentMode = trim($request->input('payment_mode', 'SBI UPI / PhonePe QR'));
+        $utrNumber = trim($request->input('utr_number', ''));
+        $paymentId = !empty($utrNumber) ? ('SBI_UPI_' . $utrNumber) : ($paymentMode . ' (' . ($rawPayStatus === 'partial' ? "₹{$paidAmount} Adv" : ($rawPayStatus === 'paid' ? 'Full Paid' : 'Verification Pending')) . ')');
+
+        $orderStatus = trim($request->input('order_status', 'processing'));
+        $courierName = trim($request->input('courier_name', ''));
+        $trackingNumber = trim($request->input('tracking_number', ''));
+
+        $updateData = [
+            'customer_name' => $custName,
+            'customer_phone' => $custPhone,
+            'alternate_phone' => $altPhone,
+            'shipping_address' => $address,
+            'items_summary' => $itemsSummary,
+            'cart_items_json' => json_encode([
+                [
+                    'name' => $itemsSummary,
+                    'price' => $totalAmount,
+                    'qty' => 1
+                ]
+            ]),
+            'packaging_fee' => $packagingFee,
+            'packaging_type' => $packagingType,
+            'distribution_fee' => $distributionFee,
+            'total_amount' => $totalAmount,
+            'paid_amount' => $paidAmount,
+            'payment_id' => $paymentId,
+            'payment_mode' => $paymentMode,
+            'payment_status' => $rawPayStatus,
+            'order_status' => $orderStatus,
+            'fateha_name' => $fatehaName,
+            'niyaz_date' => $niyazDate,
+            'distribution_type' => $distributionType,
+            'is_degh' => $isDegh,
+            'updated_at' => now()
+        ];
+
+        if (!empty($courierName)) $updateData['courier_name'] = $courierName;
+        if (!empty($trackingNumber)) $updateData['tracking_number'] = $trackingNumber;
+
+        try {
+            if (is_numeric($id)) {
+                DB::table('shop_orders')->where('id', (int)$id)->update($updateData);
+            } else {
+                DB::table('shop_orders')->where('order_id', (string)$id)->update($updateData);
+            }
+        } catch (\Throwable $e) {}
+
+        DataStore::updateItem('shop_orders', $id, $updateData);
+
+        return back()->with('success', "Order #{$id} updated successfully! Official Invoice and WhatsApp links refreshed.");
     }
 
     public function dispatchOrder(Request $request, $id)
@@ -314,7 +667,13 @@ class ShopAdminController extends Controller
         ]);
 
         try {
-            DB::table('shop_orders')->where('id', $id)->orWhere('order_id', $id)->update([
+            $q = DB::table('shop_orders');
+            if (is_numeric($id)) {
+                $q->where('id', (int)$id);
+            } else {
+                $q->where('order_id', (string)$id);
+            }
+            $q->update([
                 'courier_name' => $courier,
                 'tracking_number' => $tracking,
                 'order_status' => strtolower($status) === 'dispatched' ? 'shipped' : strtolower($status),
@@ -333,7 +692,13 @@ class ShopAdminController extends Controller
         try {
             $dbStatus = strtolower($status);
             if ($dbStatus === 'dispatched') $dbStatus = 'shipped';
-            DB::table('shop_orders')->where('id', $id)->orWhere('order_id', $id)->update([
+            $q = DB::table('shop_orders');
+            if (is_numeric($id)) {
+                $q->where('id', (int)$id);
+            } else {
+                $q->where('order_id', (string)$id);
+            }
+            $q->update([
                 'order_status' => $dbStatus,
                 'updated_at' => now()
             ]);
@@ -356,7 +721,13 @@ class ShopAdminController extends Controller
         $newPayment = (strtolower($current) === 'paid') ? 'Pending (COD)' : 'Paid';
         DataStore::updateItem('shop_orders', $id, ['payment_status' => $newPayment]);
         try {
-            DB::table('shop_orders')->where('id', $id)->orWhere('order_id', $id)->update([
+            $q = DB::table('shop_orders');
+            if (is_numeric($id)) {
+                $q->where('id', (int)$id);
+            } else {
+                $q->where('order_id', (string)$id);
+            }
+            $q->update([
                 'payment_status' => strtolower($newPayment) === 'paid' ? 'paid' : 'pending',
                 'updated_at' => now()
             ]);
@@ -367,34 +738,62 @@ class ShopAdminController extends Controller
 
     public function approveOrder($id)
     {
-        $orders = DataStore::getCollection('shop_orders');
         $order = null;
-        foreach ($orders as $o) {
-            $oId = is_array($o) ? ($o['id'] ?? null) : ($o->id ?? null);
-            if ((string)$oId === (string)$id) {
-                $order = $o;
-                break;
+        try {
+            $q = DB::table('shop_orders');
+            if (is_numeric($id)) {
+                $dbO = $q->where('id', (int)$id)->first();
+            } else {
+                $dbO = $q->where('order_id', (string)$id)->first();
+            }
+            if ($dbO) $order = (array)$dbO;
+        } catch (\Throwable $e) {}
+
+        if (!$order) {
+            $orders = DataStore::getCollection('shop_orders');
+            foreach ($orders as $o) {
+                $oId = is_array($o) ? ($o['id'] ?? null) : ($o->id ?? null);
+                if ((string)$oId === (string)$id) {
+                    $order = $o;
+                    break;
+                }
             }
         }
 
-        $amount = (float)(is_array($order) ? ($order['total_amount'] ?? ($order['amount'] ?? 0)) : ($order->total_amount ?? ($order->amount ?? 0)));
+        $totalAmt = (float)(is_array($order) ? ($order['total_amount'] ?? ($order['amount'] ?? 0)) : ($order->total_amount ?? ($order->amount ?? 0)));
+        $currPaid = (float)(is_array($order) ? ($order['paid_amount'] ?? 0) : ($order->paid_amount ?? 0));
+
+        // If order already has partial advance (e.g. 3707 out of 4707), keep advance and mark partial verified!
+        $isPartial = ($currPaid > 0 && $currPaid < $totalAmt);
+        $newPayStatus = $isPartial ? 'partial' : 'paid';
+        $finalPaid = $isPartial ? $currPaid : ($totalAmt > 0 ? $totalAmt : $currPaid);
+        $statusMsg = $isPartial ? 'Advance Payment Verified & Confirmed' : 'Payment Verified & Confirmed';
 
         $updateData = [
-            'payment_status' => 'paid',
-            'paid_amount' => $amount,
-            'status' => 'Payment Verified & Confirmed',
+            'payment_status' => $newPayStatus,
+            'paid_amount' => $finalPaid,
+            'status' => $statusMsg,
+            'order_status' => 'processing',
         ];
 
         DataStore::updateItem('shop_orders', $id, $updateData);
         try {
-            DB::table('shop_orders')->where('id', $id)->orWhere('order_id', $id)->update([
-                'payment_status' => 'paid',
+            $q = DB::table('shop_orders');
+            if (is_numeric($id)) {
+                $q->where('id', (int)$id);
+            } else {
+                $q->where('order_id', (string)$id);
+            }
+            $q->update([
+                'payment_status' => $newPayStatus,
+                'paid_amount' => $finalPaid,
                 'order_status' => 'processing',
                 'updated_at' => now()
             ]);
         } catch (\Throwable $e) {}
 
-        return back()->with('success', "Sacred Store Order #{$id} payment has been APPROVED & Verified! Receipt updated to PAID.");
+        $advNotice = $isPartial ? " (Advance of ₹" . number_format($finalPaid, 2) . " verified, ₹" . number_format(max(0, $totalAmt - $finalPaid), 2) . " balance due)" : "";
+        return back()->with('success', "Sacred Store Order #{$id} payment has been APPROVED & Verified!{$advNotice} Receipt updated.");
     }
 
     public function rejectOrder($id)
@@ -407,8 +806,15 @@ class ShopAdminController extends Controller
 
         DataStore::updateItem('shop_orders', $id, $updateData);
         try {
-            DB::table('shop_orders')->where('id', $id)->orWhere('order_id', $id)->update([
+            $q = DB::table('shop_orders');
+            if (is_numeric($id)) {
+                $q->where('id', (int)$id);
+            } else {
+                $q->where('order_id', (string)$id);
+            }
+            $q->update([
                 'payment_status' => 'failed',
+                'paid_amount' => 0,
                 'order_status' => 'cancelled',
                 'updated_at' => now()
             ]);
@@ -421,7 +827,13 @@ class ShopAdminController extends Controller
     {
         DataStore::deleteItem('shop_orders', $id);
         try {
-            DB::table('shop_orders')->where('id', $id)->orWhere('order_id', $id)->delete();
+            $q = DB::table('shop_orders');
+            if (is_numeric($id)) {
+                $q->where('id', (int)$id);
+            } else {
+                $q->where('order_id', (string)$id);
+            }
+            $q->delete();
         } catch (\Throwable $e) {}
         return back()->with('success', "Order #{$id} deleted successfully!");
     }

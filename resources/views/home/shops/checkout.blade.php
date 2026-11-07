@@ -118,7 +118,7 @@
                     </div>
 
                     <!-- STEP: DEGH NIYAZ & FATEHA BOOKING DETAILS -->
-                    <!-- <div id="deghNiyazSection" style="background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%); border-radius: 14px; padding: 26px; border: 2px solid #10b981; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12); margin-bottom: 24px;">
+                    <div id="deghNiyazSection" style="display: none; background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%); border-radius: 14px; padding: 26px; border: 2px solid #10b981; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12); margin-bottom: 24px;">
                         <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #bbf7d0; padding-bottom: 12px; margin-bottom: 20px;">
                             <h5 style="font-weight: 900; color: #064e3b; margin: 0; display: flex; align-items: center; gap: 8px; font-size: 18px;">
                                 <span>🍲</span> Degh Niyaz &amp; Dua Offering Details
@@ -141,35 +141,54 @@
 
                             <div class="col-md-5 col-12">
                                 <label style="font-size: 13px; font-weight: 800; color: #064e3b; margin-bottom: 6px; display: block;">
-                                    📅 Scheduled Niyaz Date
+                                    📅 Scheduled Niyaz Date &amp; Time
                                 </label>
-                                <input type="date" id="chk_niyaz_date" class="form-control" value="{{ date('Y-m-d') }}" style="border-radius: 8px; height: 46px; border: 1.5px solid #86efac; font-weight: 600; font-size: 14px; background: #ffffff;">
+                                <input type="datetime-local" id="chk_niyaz_date" class="form-control" value="{{ \Carbon\Carbon::now('Asia/Kolkata')->format('Y-m-d\TH:i') }}" min="{{ \Carbon\Carbon::now('Asia/Kolkata')->format('Y-m-d\TH:i') }}" style="border-radius: 8px; height: 46px; border: 1.5px solid #86efac; font-weight: 600; font-size: 14px; background: #ffffff;">
+                                <small style="color: #047857; font-size: 11.5px; font-weight: 600; margin-top: 4px; display: block;">
+                                    * Calendar icon se Niyaz ki tarikh aur waqt chunein.
+                                </small>
                             </div>
 
                             <div class="col-12" style="margin-top: 15px;">
-                                <label style="font-size: 13px; font-weight: 800; color: #064e3b; margin-bottom: 8px; display: block;">
-                                    🕌 Tabarruk Taqseem / Distribution Preference
+                                <label style="font-size: 13.5px; font-weight: 800; color: #064e3b; margin-bottom: 8px; display: block;">
+                                    🕌 Tabarruk Taqseem / Distribution Preference *
                                 </label>
                                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
-                                    <label style="display: flex; align-items: flex-start; gap: 10px; background: #ffffff; border: 1.5px solid #10b981; padding: 14px 16px; border-radius: 10px; cursor: pointer;">
-                                        <input type="radio" name="distribution_type" value="Dargah Sharif Me Langar Taqseem (Distribute to Zaireen & Needy Devotees)" checked style="margin-top: 3px; accent-color: #15803d;">
+                                    <label id="distLabelDirect" style="display: flex; align-items: flex-start; gap: 10px; background: #f0fdf4; border: 2px solid #10b981; padding: 14px 16px; border-radius: 10px; cursor: pointer; transition: all 0.2s;">
+                                        <input type="radio" name="distribution_type" value="Direct Handover / Self Collection at Dewa Sharif" checked onchange="onDistributionTypeRadioChange()" style="margin-top: 3px; accent-color: #15803d;">
                                         <div>
-                                            <strong style="display: block; color: #0f172a; font-size: 13.5px;">🟢 Dargah Sharif Me Langar Taqseem</strong>
-                                            <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block;">Degh paka kar Dargah Sharif par zaireen aur miskeenon me tabarruk taqseem kiya jaye.</span>
+                                            <strong style="display: block; color: #065f46; font-size: 13.5px;">🟢 1. Direct Handover / Self Collection</strong>
+                                            <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block; margin-top: 2px;">Degh paka kar Astana / Degchi point par direct receive karein. Devotee khud collect karenge.</span>
+                                            <span style="display: inline-block; margin-top: 4px; background: #dcfce7; color: #166534; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">FREE (₹0 Extra)</span>
                                         </div>
                                     </label>
 
-                                    <label style="display: flex; align-items: flex-start; gap: 10px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 14px 16px; border-radius: 10px; cursor: pointer;">
-                                        <input type="radio" name="distribution_type" value="Dewa Sharif Guest House / Home Parcel Delivery (Ready Packed Parcels)" style="margin-top: 3px; accent-color: #15803d;">
+                                    <label id="distLabelTakeaway" style="display: flex; align-items: flex-start; gap: 10px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 14px 16px; border-radius: 10px; cursor: pointer; transition: all 0.2s;">
+                                        <input type="radio" name="distribution_type" value="Packed Takeaway Handover (Devotee Self-Distribution)" onchange="onDistributionTypeRadioChange()" style="margin-top: 3px; accent-color: #0284c7;">
                                         <div>
-                                            <strong style="display: block; color: #0f172a; font-size: 13.5px;">🔵 Dewa Sharif Parcel Handover</strong>
-                                            <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block;">Ready packed packets Dewa Sharif ke hotel, guest house ya diye gaye pate par deliver kiye jayein.</span>
+                                            <strong style="display: block; color: #0369a1; font-size: 13.5px;">📦 2. Packed Takeaway (Self-Distribution)</strong>
+                                            <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block; margin-top: 2px;">Ready portion pouches ya boxes me pack karke hotel ya room par handover. Taqseem aap khud karenge.</span>
+                                            <span style="display: inline-block; margin-top: 4px; background: #e0f2fe; color: #0369a1; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">Packaging Fee Only</span>
+                                        </div>
+                                    </label>
+
+                                    <label id="distLabelDargah" style="display: flex; align-items: flex-start; gap: 10px; background: #ffffff; border: 1.5px solid #cbd5e1; padding: 14px 16px; border-radius: 10px; cursor: pointer; transition: all 0.2s;">
+                                        <input type="radio" name="distribution_type" value="Dargah Sharif Me Langar Taqseem (Managed Distribution Service)" onchange="onDistributionTypeRadioChange()" style="margin-top: 3px; accent-color: #d97706;">
+                                        <div>
+                                            <strong style="display: block; color: #92400e; font-size: 13.5px;">🕌 3. Dargah Sharif Langar Taqseem (Managed)</strong>
+                                            <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block; margin-top: 2px;">Dewa Sharif Management ki taraf se Dargah Sharif par zaireen aur miskeenon me baqaida taqseem ki zimmedari.</span>
+                                            <span style="display: inline-block; margin-top: 4px; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">+₹500 / Degh + Packaging</span>
                                         </div>
                                     </label>
                                 </div>
                             </div>
+
+                            <!-- DYNAMIC PACKAGING & SERVING OPTIONS CONTAINER -->
+                            <div class="col-12" id="chk_packaging_options_container" style="margin-top: 15px;">
+                                <!-- Rendered dynamically by renderPackagingOptions() -->
+                            </div>
                         </div>
-                    </div> -->
+                    </div>
 
                     <!-- STEP 2: SHIPPING ADDRESS -->
                     <div style="background: #ffffff; border-radius: 14px; padding: 26px; border: 1.5px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.05); margin-bottom: 24px;">
@@ -415,52 +434,64 @@
                         </div>
                     </div>
 
-                    <!-- STEP 3: PAYMENT METHOD SELECTION -->
-                    <!-- <div style="background: #ffffff; border-radius: 14px; padding: 24px; border: 1.5px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
-                        <h5 style="font-weight: 900; color: #0f172a; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; font-size: 18px;">
-                            <span>3️⃣</span> Choose Payment Method
+                    <!-- STEP 3: DELIVERY SPEED & SHIPPING METHOD (REAL-TIME DB RATES) -->
+                    <div style="background: #ffffff; border-radius: 14px; padding: 26px; border: 1.5px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.05); margin-bottom: 24px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; margin-bottom: 20px; flex-wrap: wrap; gap: 8px;">
+                            <h5 style="font-weight: 900; color: #0f172a; margin: 0; display: flex; align-items: center; gap: 8px; font-size: 18px;">
+                                <span>3️⃣</span> Select Delivery Speed &amp; Courier Tier
+                            </h5>
+                            <span id="deliveryZoneBadge" style="background: #dcfce7; color: #166534; font-size: 11.5px; font-weight: 800; padding: 4px 12px; border-radius: 20px; border: 1px solid #86efac;">
+                                ⚡ Dewa Sharif Local Zone (225301)
+                            </span>
+                        </div>
+
+                        <div id="deliverySpeedOptionsWrapper" style="display: flex; flex-direction: column; gap: 12px;">
+                            <!-- Populated dynamically based on Pincode and City -->
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: PAYMENT METHOD SELECTION (REAL-TIME COD VS ONLINE) -->
+                    <div style="background: #ffffff; border-radius: 14px; padding: 26px; border: 1.5px solid #e2e8f0; box-shadow: 0 6px 20px rgba(0,0,0,0.05); margin-bottom: 24px;">
+                        <h5 style="font-weight: 900; color: #0f172a; margin-bottom: 18px; display: flex; align-items: center; gap: 8px; font-size: 18px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;">
+                            <span>4️⃣</span> Choose Payment Method
                         </h5>
 
                         <div style="display: flex; flex-direction: column; gap: 12px;">
-                            
-                           
-                            <label style="border: 2px solid #10b981; border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);">
+                            <label id="paymentMethodOnlineLabel" style="border: 2px solid #10b981; border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15); transition: all 0.2s;">
                                 <div style="display: flex; align-items: center; gap: 12px;">
-                                    <input type="radio" name="payment_method" value="razorpay" checked style="width: 20px; height: 20px; accent-color: #047857;">
+                                    <input type="radio" name="payment_method" value="online" checked onchange="onPaymentMethodRadioChange()" style="width: 20px; height: 20px; accent-color: #047857;">
                                     <div>
                                         <span style="font-size: 15px; font-weight: 900; color: #064e3b; display: block;">
-                                            💳 Pay Online (Razorpay / PhonePe / Google Pay / UPI)
+                                            💳 Pay Online (PhonePe / GPay / UPI / SBI Direct)
                                         </span>
                                         <span style="font-size: 12.5px; color: #047857; font-weight: 600;">
-                                            Instant Tax Invoice Voucher PDF generated &amp; Direct SBI Credit
+                                            Zero COD Fee • Instant PDF Tax Invoice &amp; Priority Dispatch
                                         </span>
                                     </div>
                                 </div>
                                 <span class="badge badge-gradient-green px-3 py-1.5 rounded-pill font-bold shadow-sm">
-                                    RECOMMENDED
+                                    SAVE ₹{{ number_format((float)($shopSettings['cod_extra_fee'] ?? 30)) }} (₹0 COD)
                                 </span>
                             </label>
 
-                            
-                            <label style="border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: #ffffff;">
+                            <label id="paymentMethodCodLabel" style="border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: #ffffff; transition: all 0.2s;">
                                 <div style="display: flex; align-items: center; gap: 12px;">
-                                    <input type="radio" name="payment_method" value="cod" style="width: 20px; height: 20px; accent-color: #0b132b;">
+                                    <input type="radio" name="payment_method" value="cod" onchange="onPaymentMethodRadioChange()" style="width: 20px; height: 20px; accent-color: #0b132b;">
                                     <div>
                                         <span style="font-size: 15px; font-weight: 900; color: #0f172a; display: block;">
-                                            💵 Cash / Pay on Delivery (COD)
+                                            💵 Cash on Delivery (COD)
                                         </span>
                                         <span style="font-size: 12.5px; color: #64748b; font-weight: 600;">
-                                            Pay cash to courier driver upon receiving parcel
+                                            Pay cash directly to delivery rider / courier driver at your door (+₹{{ number_format((float)($shopSettings['cod_extra_fee'] ?? 30)) }} handling fee)
                                         </span>
                                     </div>
                                 </div>
                                 <span class="badge badge-gradient-navy px-3 py-1.5 rounded-pill font-bold shadow-sm">
-                                    COD PARCEL
+                                    +₹{{ number_format((float)($shopSettings['cod_extra_fee'] ?? 30)) }} COD FEE
                                 </span>
                             </label>
-
                         </div>
-                    </div> -->
+                    </div>
 
                 </div>
 
@@ -476,17 +507,42 @@
         </div>
 
         <div style="border-top: 1.5px solid #e2e8f0; padding-top: 14px;">
-            <div style="display: flex; justify-content: space-between; font-size: 14px; color: #64748b; font-weight: 600; margin-bottom: 8px;">
-                <span>Subtotal Amount:</span>
+            <div style="display: flex; justify-content: space-between; font-size: 13.5px; color: #64748b; font-weight: 600; margin-bottom: 7px;">
+                <span>Item(s) Subtotal:</span>
                 <span style="font-weight: 800; color: #0f172a;" id="chkSubtotalVal">₹0</span>
             </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13.5px; color: #64748b; font-weight: 600; margin-bottom: 7px;">
+                <span>📦 Packaging Fee:</span>
+                <span style="font-weight: 800; color: #0f172a;" id="chkPackagingFeeVal">₹0</span>
+            </div>
+            <div id="chkDistFeeRow" style="display: flex; justify-content: space-between; font-size: 13.5px; color: #64748b; font-weight: 600; margin-bottom: 7px;">
+                <span>🕌 Dargah Taqseem Service:</span>
+                <span style="font-weight: 800; color: #0f172a;" id="chkDistFeeVal">FREE (₹0)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13.5px; color: #64748b; font-weight: 600; margin-bottom: 7px;">
+                <span>🛡️ Handling Fee:</span>
+                <span style="font-weight: 800; color: #0f172a;" id="chkHandlingFeeVal">₹0</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 13.5px; color: #64748b; font-weight: 600; margin-bottom: 7px;">
+                <span id="chkDeliveryTierLabel">🚚 Delivery Charges:</span>
+                <span style="font-weight: 800; color: #0f172a;" id="chkDeliveryFeeVal">₹0</span>
+            </div>
+            <div id="chkCodRow" style="display: none; justify-content: space-between; font-size: 13.5px; color: #b45309; font-weight: 700; margin-bottom: 7px;">
+                <span>💵 COD Extra Fee:</span>
+                <span style="font-weight: 800; color: #b45309;" id="chkCodFeeVal">+₹0</span>
+            </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; padding: 14px; border-radius: 10px; border: 1.5px solid #cbd5e1; margin-top: 14px; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; padding: 14px; border-radius: 10px; border: 1.5px solid #cbd5e1; margin-top: 12px; margin-bottom: 18px;">
                 <span style="font-size: 16px; font-weight: 900; color: #111827;">Grand Total:</span>
                 <span style="font-size: 26px; font-weight: 900; background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" id="chkGrandTotalVal">₹0</span>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+                <!-- BUTTON FOR COD (VISIBLE ONLY WHEN COD SELECTED) -->
+                <button type="submit" id="btnShopConfirmCod" class="btn w-100 font-extrabold" style="display: none; background: #0f172a; color: #ffffff; font-weight: 900; border-radius: 10px; padding: 14px; font-size: 15px; border: none; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.4); text-align: center;">
+                    <i class="fa fa-truck" style="margin-right: 6px;"></i> Confirm Cash on Delivery (COD) Order
+                </button>
+
                 <!-- BUTTON 1: RAZORPAY ONLINE PAYMENT (DISABLED - COMING SOON) -->
                 <button type="button" id="btnShopPayOnline" disabled class="btn w-100" style="background: #f1f5f9; color: #64748b; font-weight: 700; border-radius: 10px; padding: 12px 14px; font-size: 13.5px; border: 1.5px dashed #cbd5e1; cursor: not-allowed; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; opacity: 0.95; white-space: normal !important; text-align: center; box-sizing: border-box;" title="Online Gateway verification underway. Please use UPI QR.">
                     <i class="fa fa-credit-card" style="font-size: 16px; color: #94a3b8; flex-shrink: 0;"></i>
@@ -524,6 +580,9 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
+    window.DEWA_SHOP_SETTINGS = @json($shopSettings ?? []);
+    window.DEWA_DB_PRODUCTS = @json($dbProducts ?? []);
+
     function toggleReceiverSection() {
         var isChecked = document.getElementById('chk_different_receiver') && document.getElementById('chk_different_receiver').checked;
         if (isChecked) {
@@ -533,26 +592,11 @@
         }
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        try {
-            var nameEl = document.getElementById('chk_name');
-            var phoneEl = document.getElementById('chk_phone');
-            var streetEl = document.getElementById('chk_street');
-            var pinEl = document.getElementById('chk_pincode');
-            if (nameEl && !nameEl.value && localStorage.getItem('dewa_chk_name')) {
-                nameEl.value = localStorage.getItem('dewa_chk_name');
-            }
-            if (phoneEl && !phoneEl.value && localStorage.getItem('dewa_chk_phone')) {
-                phoneEl.value = localStorage.getItem('dewa_chk_phone');
-            }
-            if (streetEl && !streetEl.value && localStorage.getItem('dewa_chk_street')) {
-                streetEl.value = localStorage.getItem('dewa_chk_street');
-            }
-            if (pinEl && !pinEl.value && localStorage.getItem('dewa_chk_pincode')) {
-                pinEl.value = localStorage.getItem('dewa_chk_pincode');
-            }
-        } catch(e) {}
-    });
+    function isDewaSharifLocal() {
+        var pin = ($('#chk_pincode').val() || '').trim();
+        var city = ($('#chk_city').val() || '').trim().toLowerCase();
+        return (pin === '225301' || city.includes('dewa'));
+    }
 
     function getCartData() {
         var raw = localStorage.getItem('dewa_cart');
@@ -583,10 +627,296 @@
         });
     }
 
+    function calculateCartFees(cart) {
+        var subtotal = 0;
+        var packagingFee = 0;
+        var defaultPkg = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.default_packaging_fee) || 20);
+        var maxHandling = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.default_handling_fee) || 10);
+        var deghCount = 0;
+        var hasDeghItem = false;
+
+        cart.forEach(function(item) {
+            subtotal += (item.price * item.qty);
+            var isItemDegh = item.name.toLowerCase().includes('biryani') || 
+                             item.name.toLowerCase().includes('zarda') || 
+                             item.name.toLowerCase().includes('kheer') || 
+                             item.name.toLowerCase().includes('degh');
+            if (isItemDegh) {
+                hasDeghItem = true;
+                deghCount += item.qty;
+            } else {
+                var pDb = (window.DEWA_DB_PRODUCTS && window.DEWA_DB_PRODUCTS[item.id]) ? window.DEWA_DB_PRODUCTS[item.id] : null;
+                var itemPkg = (pDb && pDb.packaging_fee !== null && pDb.packaging_fee !== undefined && pDb.packaging_fee !== '') 
+                              ? parseFloat(pDb.packaging_fee) 
+                              : defaultPkg;
+                packagingFee += (itemPkg * item.qty);
+            }
+
+            if (pDb && pDb.handling_fee !== null && pDb.handling_fee !== undefined && pDb.handling_fee !== '') {
+                var pH = parseFloat(pDb.handling_fee);
+                if (pH > maxHandling) maxHandling = pH;
+            }
+        });
+
+        var chosenPkgType = $('input[name="chk_packaging_choice"]:checked').val() || 'none';
+        if (hasDeghItem) {
+            if (chosenPkgType === 'polythin' || chosenPkgType === 'katori') {
+                packagingFee += (300 * deghCount);
+            } else if (chosenPkgType === 'box' || chosenPkgType === 'mitti_katori') {
+                packagingFee += (600 * deghCount);
+            }
+        }
+
+        var chosenDistType = $('input[name="distribution_type"]:checked').val() || 'Direct Handover / Self Collection at Dewa Sharif';
+        var distributionFee = 0;
+        if (hasDeghItem) {
+            if (chosenDistType.toLowerCase().includes('langar taqseem') || chosenDistType.toLowerCase().includes('managed')) {
+                distributionFee = 500 * deghCount;
+            } else {
+                distributionFee = 0;
+            }
+        }
+
+        var isLocal = isDewaSharifLocal();
+        var selectedTier = $('input[name="delivery_tier"]:checked').val();
+        if (isLocal) {
+            if (!selectedTier || (selectedTier !== 'express_2_4h' && selectedTier !== 'local_24h' && selectedTier !== 'standard_courier')) {
+                selectedTier = 'local_24h';
+            }
+        } else {
+            selectedTier = 'standard_courier';
+        }
+
+        var freeThreshold = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.free_delivery_threshold) || 999);
+        var deliveryFee = 0;
+        var deliveryTierName = "🚚 Standard Courier Delivery";
+
+        if (selectedTier === 'express_2_4h') {
+            deliveryFee = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.express_2_4h_fee) || 35);
+            deliveryTierName = "⚡ Superfast Express (2–4 Hours)";
+        } else if (selectedTier === 'local_24h') {
+            deliveryFee = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.local_24h_fee) || 20);
+            deliveryTierName = "🕒 Dewa Sharif Normal Local (Within 24 Hours)";
+        } else {
+            if (freeThreshold > 0 && subtotal >= freeThreshold) {
+                deliveryFee = 0;
+                deliveryTierName = "🚚 Standard Courier (FREE Delivery)";
+            } else {
+                deliveryFee = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.standard_courier_fee) || 40);
+                deliveryTierName = "🚚 Standard Company Courier";
+            }
+        }
+
+        var paymentMethod = $('input[name="payment_method"]:checked').val() || 'online';
+        var codFee = 0;
+        if (paymentMethod === 'cod') {
+            codFee = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.cod_extra_fee) || 30);
+        }
+
+        var grandTotal = subtotal + packagingFee + distributionFee + maxHandling + deliveryFee + codFee;
+
+        return {
+            subtotal: subtotal,
+            packagingFee: packagingFee,
+            packagingType: chosenPkgType,
+            distributionFee: distributionFee,
+            distributionType: chosenDistType,
+            handlingFee: maxHandling,
+            deliveryFee: deliveryFee,
+            codFee: codFee,
+            grandTotal: grandTotal,
+            selectedTier: selectedTier,
+            deliveryTierName: deliveryTierName,
+            paymentMethod: paymentMethod,
+            isLocal: isLocal
+        };
+    }
+
+    function renderDeliverySpeedOptions() {
+        var cart = getCartData();
+        var fees = calculateCartFees(cart);
+        var wrapper = document.getElementById('deliverySpeedOptionsWrapper');
+        var badge = document.getElementById('deliveryZoneBadge');
+        if (!wrapper) return;
+
+        var expFee = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.express_2_4h_fee) || 35);
+        var locFee = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.local_24h_fee) || 20);
+        var stdFee = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.standard_courier_fee) || 40);
+        var freeThreshold = parseFloat((window.DEWA_SHOP_SETTINGS && window.DEWA_SHOP_SETTINGS.free_delivery_threshold) || 999);
+        var stdLabel = (freeThreshold > 0 && fees.subtotal >= freeThreshold) ? 'FREE (₹0)' : '₹' + stdFee;
+
+        var currentTier = $('input[name="delivery_tier"]:checked').val() || (fees.isLocal ? 'local_24h' : 'standard_courier');
+
+        if (fees.isLocal) {
+            if (badge) {
+                badge.style.background = '#dcfce7';
+                badge.style.color = '#166534';
+                badge.style.border = '1px solid #86efac';
+                badge.innerHTML = '⚡ Dewa Sharif Local Zone Active (Pincode: 225301)';
+            }
+
+            var html = '' +
+                '<label style="border: ' + (currentTier === 'express_2_4h' ? '2px solid #ef4444' : '1.5px solid #cbd5e1') + '; border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: ' + (currentTier === 'express_2_4h' ? '#fff1f2' : '#ffffff') + '; transition: all 0.2s;">' +
+                '  <div style="display: flex; align-items: center; gap: 12px;">' +
+                '    <input type="radio" name="delivery_tier" value="express_2_4h" ' + (currentTier === 'express_2_4h' ? 'checked' : '') + ' onchange="onDeliveryTierChange()" style="width: 18px; height: 18px; accent-color: #dc2626;">' +
+                '    <div>' +
+                '      <strong style="color: #991b1b; font-size: 14.5px; display: block;">⚡ Superfast Express (2–4 Hours)</strong>' +
+                '      <span style="color: #64748b; font-size: 12px;">Dewa Sharif Urgent Rider • Delivery directly to home, hotel or Astana</span>' +
+                '    </div>' +
+                '  </div>' +
+                '  <span class="badge" style="background: #dc2626; color: #ffffff; font-size: 13.5px; font-weight: 800; padding: 6px 12px; border-radius: 8px;">₹' + expFee + '</span>' +
+                '</label>' +
+
+                '<label style="border: ' + (currentTier === 'local_24h' ? '2px solid #059669' : '1.5px solid #cbd5e1') + '; border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: ' + (currentTier === 'local_24h' ? '#f0fdf4' : '#ffffff') + '; transition: all 0.2s;">' +
+                '  <div style="display: flex; align-items: center; gap: 12px;">' +
+                '    <input type="radio" name="delivery_tier" value="local_24h" ' + (currentTier === 'local_24h' ? 'checked' : '') + ' onchange="onDeliveryTierChange()" style="width: 18px; height: 18px; accent-color: #059669;">' +
+                '    <div>' +
+                '      <strong style="color: #065f46; font-size: 14.5px; display: block;">🕒 Normal Local Delivery (Within 24 Hours)</strong>' +
+                '      <span style="color: #64748b; font-size: 12px;">Dewa Sharif Town standard hand delivery within 24 hours</span>' +
+                '    </div>' +
+                '  </div>' +
+                '  <span class="badge" style="background: #059669; color: #ffffff; font-size: 13.5px; font-weight: 800; padding: 6px 12px; border-radius: 8px;">₹' + locFee + '</span>' +
+                '</label>' +
+
+                '<label style="border: ' + (currentTier === 'standard_courier' ? '2px solid #2563eb' : '1.5px solid #cbd5e1') + '; border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: ' + (currentTier === 'standard_courier' ? '#eff6ff' : '#ffffff') + '; transition: all 0.2s;">' +
+                '  <div style="display: flex; align-items: center; gap: 12px;">' +
+                '    <input type="radio" name="delivery_tier" value="standard_courier" ' + (currentTier === 'standard_courier' ? 'checked' : '') + ' onchange="onDeliveryTierChange()" style="width: 18px; height: 18px; accent-color: #2563eb;">' +
+                '    <div>' +
+                '      <strong style="color: #1e40af; font-size: 14.5px; display: block;">🚚 Standard Courier Delivery (2-3 Days)</strong>' +
+                '      <span style="color: #64748b; font-size: 12px;">Company standard courier with tracking number</span>' +
+                '    </div>' +
+                '  </div>' +
+                '  <span class="badge" style="background: #1e40af; color: #ffffff; font-size: 13.5px; font-weight: 800; padding: 6px 12px; border-radius: 8px;">' + stdLabel + '</span>' +
+                '</label>';
+            wrapper.innerHTML = html;
+        } else {
+            if (badge) {
+                badge.style.background = '#e0f2fe';
+                badge.style.color = '#0369a1';
+                badge.style.border = '1px solid #7dd3fc';
+                badge.innerHTML = '🌐 All-India Standard Courier Delivery Zone';
+            }
+
+            var html = '' +
+                '<label style="border: 2px solid #2563eb; border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; background: #eff6ff;">' +
+                '  <div style="display: flex; align-items: center; gap: 12px;">' +
+                '    <input type="radio" name="delivery_tier" value="standard_courier" checked onchange="onDeliveryTierChange()" style="width: 18px; height: 18px; accent-color: #2563eb;">' +
+                '    <div>' +
+                '      <strong style="color: #1e40af; font-size: 14.5px; display: block;">🚚 Standard Company Courier (DTDC / Shiprocket, 2-5 Days)</strong>' +
+                '      <span style="color: #64748b; font-size: 12px;">Dispatched safely with online courier tracking code</span>' +
+                '    </div>' +
+                '  </div>' +
+                '  <span class="badge" style="background: #1e40af; color: #ffffff; font-size: 13.5px; font-weight: 800; padding: 6px 12px; border-radius: 8px;">' + stdLabel + '</span>' +
+                '</label>';
+            wrapper.innerHTML = html;
+        }
+    }
+
+    function onDeliveryTierChange() {
+        renderDeliverySpeedOptions();
+        updateCheckoutTotals();
+    }
+
+    function onPaymentMethodRadioChange() {
+        var selectedMethod = $('input[name="payment_method"]:checked').val() || 'online';
+        if (selectedMethod === 'cod') {
+            $('#paymentMethodCodLabel').css({
+                'border': '2px solid #0f172a',
+                'background': '#f8fafc',
+                'box-shadow': '0 4px 12px rgba(15, 23, 42, 0.15)'
+            });
+            $('#paymentMethodOnlineLabel').css({
+                'border': '1.5px solid #cbd5e1',
+                'background': '#ffffff',
+                'box-shadow': 'none'
+            });
+            $('#btnShopConfirmCod').show();
+            $('#btnShopQr').hide();
+            $('#btnShopPayOnline').hide();
+            $('#chkCodRow').css('display', 'flex');
+        } else {
+            $('#paymentMethodOnlineLabel').css({
+                'border': '2px solid #10b981',
+                'background': 'linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%)',
+                'box-shadow': '0 4px 12px rgba(16, 185, 129, 0.15)'
+            });
+            $('#paymentMethodCodLabel').css({
+                'border': '1.5px solid #cbd5e1',
+                'background': '#ffffff',
+                'box-shadow': 'none'
+            });
+            $('#btnShopConfirmCod').hide();
+            $('#btnShopQr').show();
+            $('#btnShopPayOnline').show();
+            $('#chkCodRow').hide();
+        }
+        updateCheckoutTotals();
+    }
+
+    function updateCheckoutTotals() {
+        var cart = getCartData();
+        var fees = calculateCartFees(cart);
+
+        var subEl = document.getElementById('chkSubtotalVal');
+        if (subEl) subEl.textContent = '₹' + fees.subtotal.toLocaleString('en-IN');
+
+        var pkgEl = document.getElementById('chkPackagingFeeVal');
+        if (pkgEl) {
+            if (fees.packagingFee === 0) {
+                pkgEl.textContent = 'FREE (₹0)';
+                pkgEl.style.color = '#15803d';
+            } else {
+                pkgEl.textContent = '₹' + fees.packagingFee.toLocaleString('en-IN');
+                pkgEl.style.color = '#0f172a';
+            }
+        }
+
+        var distFeeEl = document.getElementById('chkDistFeeVal');
+        var distFeeRow = document.getElementById('chkDistFeeRow');
+        if (distFeeEl) {
+            if (fees.distributionFee > 0) {
+                distFeeEl.textContent = '+₹' + fees.distributionFee.toLocaleString('en-IN');
+                distFeeEl.style.color = '#b45309';
+                if (distFeeRow) distFeeRow.style.display = 'flex';
+            } else {
+                distFeeEl.textContent = 'FREE (₹0)';
+                distFeeEl.style.color = '#15803d';
+                if (distFeeRow) distFeeRow.style.display = 'flex';
+            }
+        }
+
+        var hndEl = document.getElementById('chkHandlingFeeVal');
+        if (hndEl) hndEl.textContent = '₹' + fees.handlingFee.toLocaleString('en-IN');
+
+        var delLabelEl = document.getElementById('chkDeliveryTierLabel');
+        if (delLabelEl) delLabelEl.textContent = fees.deliveryTierName + ':';
+
+        var delValEl = document.getElementById('chkDeliveryFeeVal');
+        if (delValEl) {
+            delValEl.textContent = fees.deliveryFee === 0 ? 'FREE (₹0)' : '₹' + fees.deliveryFee.toLocaleString('en-IN');
+            if (fees.deliveryFee === 0) {
+                delValEl.style.color = '#15803d';
+            } else {
+                delValEl.style.color = '#0f172a';
+            }
+        }
+
+        var codValEl = document.getElementById('chkCodFeeVal');
+        if (codValEl) codValEl.textContent = '+₹' + fees.codFee.toLocaleString('en-IN');
+
+        var grandEl = document.getElementById('chkGrandTotalVal');
+        if (grandEl) grandEl.textContent = '₹' + fees.grandTotal.toLocaleString('en-IN');
+
+        var upiAmtEl = document.getElementById('shopDirectUpiAmount');
+        if (upiAmtEl) upiAmtEl.textContent = '₹' + fees.grandTotal.toLocaleString('en-IN');
+
+        var qrAmtEl = document.getElementById('shopQrPayAmountText');
+        if (qrAmtEl) qrAmtEl.textContent = '₹' + fees.grandTotal.toLocaleString('en-IN');
+    }
+
     function renderCheckoutPage() {
         var cart = getCartData();
         var html = '';
-        var subtotal = 0;
         var hasDeghItem = false;
 
         if (cart.length === 0) {
@@ -601,16 +931,19 @@
             if (payOnlineBtn) payOnlineBtn.disabled = true;
             var qrBtn = document.getElementById('btnShopQr');
             if (qrBtn) qrBtn.disabled = true;
+            var codBtn = document.getElementById('btnShopConfirmCod');
+            if (codBtn) codBtn.disabled = true;
             $('#deghNiyazSection').slideUp(200);
         } else {
             var payOnlineBtn = document.getElementById('btnShopPayOnline');
             if (payOnlineBtn) payOnlineBtn.disabled = false;
             var qrBtn = document.getElementById('btnShopQr');
             if (qrBtn) qrBtn.disabled = false;
+            var codBtn = document.getElementById('btnShopConfirmCod');
+            if (codBtn) codBtn.disabled = false;
 
             cart.forEach(function(item, index) {
                 var itemTotal = item.price * item.qty;
-                subtotal += itemTotal;
                 var isItemDegh = item.name.toLowerCase().includes('biryani') || 
                                  item.name.toLowerCase().includes('zarda') || 
                                  item.name.toLowerCase().includes('kheer') || 
@@ -641,6 +974,7 @@
             });
 
             if (hasDeghItem) {
+                renderPackagingOptions(cart);
                 $('#deghNiyazSection').slideDown(200);
             } else {
                 $('#deghNiyazSection').slideUp(200);
@@ -650,14 +984,113 @@
         var itemsList = document.getElementById('checkoutOrderItemsList');
         if (itemsList) itemsList.innerHTML = html;
 
-        var subEl = document.getElementById('chkSubtotalVal');
-        if (subEl) subEl.textContent = '₹' + subtotal.toLocaleString('en-IN');
+        updateCheckoutTotals();
+    }
 
-        var grandEl = document.getElementById('chkGrandTotalVal');
-        if (grandEl) grandEl.textContent = '₹' + subtotal.toLocaleString('en-IN');
+    function renderPackagingOptions(cart) {
+        var container = document.getElementById('chk_packaging_options_container');
+        if (!container) return;
 
-        var payBtnEl = document.getElementById('chkPayBtnVal');
-        if (payBtnEl) payBtnEl.textContent = subtotal.toLocaleString('en-IN');
+        var hasKheer = cart.some(function(i) { return i.name.toLowerCase().includes('kheer'); });
+        var hasBiryani = cart.some(function(i) { 
+            return i.name.toLowerCase().includes('biryani') || i.name.toLowerCase().includes('zarda') || i.name.toLowerCase().includes('degh') || i.name.toLowerCase().includes('mutton') || i.name.toLowerCase().includes('chicken'); 
+        });
+
+        var currentChoice = $('input[name="chk_packaging_choice"]:checked').val() || 'none';
+
+        var html = '';
+        if (hasKheer && !hasBiryani) {
+            // Kheer Options: Khula ₹0, Disposable Katori ₹300, Mitti Katori ₹600
+            html = '<label style="font-size: 13px; font-weight: 800; color: #064e3b; margin-bottom: 8px; display: block;">' +
+                   '  🥣 Kheer Niyaz Serving &amp; Packaging Option' +
+                   '</label>' +
+                   '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">' +
+                   '  <label style="display: flex; align-items: flex-start; gap: 10px; background: ' + (currentChoice === 'none' ? '#f0fdf4' : '#ffffff') + '; border: ' + (currentChoice === 'none' ? '2px solid #10b981' : '1.5px solid #cbd5e1') + '; padding: 14px 16px; border-radius: 10px; cursor: pointer;">' +
+                   '    <input type="radio" name="chk_packaging_choice" value="none" ' + (currentChoice === 'none' ? 'checked' : '') + ' onchange="onPackagingChoiceChange()" style="margin-top: 3px; accent-color: #15803d;">' +
+                   '    <div>' +
+                   '      <strong style="display: block; color: #065f46; font-size: 13.5px;">🟢 Khula Langar (Direct Taqseem)</strong>' +
+                   '      <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block;">Dargah Sharif par zaireen ko direct kheer tabarruk taqseem. (₹0 Extra)</span>' +
+                   '      <span style="display: inline-block; margin-top: 4px; background: #dcfce7; color: #166534; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">FREE (₹0)</span>' +
+                   '    </div>' +
+                   '  </label>' +
+                   '  <label style="display: flex; align-items: flex-start; gap: 10px; background: ' + (currentChoice === 'katori' ? '#f0f9ff' : '#ffffff') + '; border: ' + (currentChoice === 'katori' ? '2px solid #0284c7' : '1.5px solid #cbd5e1') + '; padding: 14px 16px; border-radius: 10px; cursor: pointer;">' +
+                   '    <input type="radio" name="chk_packaging_choice" value="katori" ' + (currentChoice === 'katori' ? 'checked' : '') + ' onchange="onPackagingChoiceChange()" style="margin-top: 3px; accent-color: #0284c7;">' +
+                   '    <div>' +
+                   '      <strong style="display: block; color: #0369a1; font-size: 13.5px;">🥣 Disposable Katori Bowls</strong>' +
+                   '      <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block;">Hygienic single-use disposable bowls me kheer taqseem.</span>' +
+                   '      <span style="display: inline-block; margin-top: 4px; background: #e0f2fe; color: #0369a1; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">+₹300 / Degh</span>' +
+                   '    </div>' +
+                   '  </label>' +
+                   '  <label style="display: flex; align-items: flex-start; gap: 10px; background: ' + (currentChoice === 'mitti_katori' ? '#fffbeb' : '#ffffff') + '; border: ' + (currentChoice === 'mitti_katori' ? '2px solid #d97706' : '1.5px solid #cbd5e1') + '; padding: 14px 16px; border-radius: 10px; cursor: pointer;">' +
+                   '    <input type="radio" name="chk_packaging_choice" value="mitti_katori" ' + (currentChoice === 'mitti_katori' ? 'checked' : '') + ' onchange="onPackagingChoiceChange()" style="margin-top: 3px; accent-color: #d97706;">' +
+                   '    <div>' +
+                   '      <strong style="display: block; color: #92400e; font-size: 13.5px;">🏺 Sacred Mitti Katori Bowls</strong>' +
+                   '      <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block;">Traditional sacred clay earthen bowls me barakat wali taqseem.</span>' +
+                   '      <span style="display: inline-block; margin-top: 4px; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">+₹600 / Degh</span>' +
+                   '    </div>' +
+                   '  </label>' +
+                   '</div>';
+        } else {
+            // Biryani / Zarda / Degh Options: Khula ₹0, Polythin ₹300, Box/Dabba ₹600
+            html = '<label style="font-size: 13px; font-weight: 800; color: #064e3b; margin-bottom: 8px; display: block;">' +
+                   '  📦 Degh Niyaz Packaging &amp; Distribution Option' +
+                   '</label>' +
+                   '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">' +
+                   '  <label style="display: flex; align-items: flex-start; gap: 10px; background: ' + (currentChoice === 'none' ? '#f0fdf4' : '#ffffff') + '; border: ' + (currentChoice === 'none' ? '2px solid #10b981' : '1.5px solid #cbd5e1') + '; padding: 14px 16px; border-radius: 10px; cursor: pointer;">' +
+                   '    <input type="radio" name="chk_packaging_choice" value="none" ' + (currentChoice === 'none' ? 'checked' : '') + ' onchange="onPackagingChoiceChange()" style="margin-top: 3px; accent-color: #15803d;">' +
+                   '    <div>' +
+                   '      <strong style="display: block; color: #065f46; font-size: 13.5px;">🟢 Khula Langar (Direct Taqseem)</strong>' +
+                   '      <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block;">Dargah Sharif par zaireen aur miskeenon me direct langar taqseem. (₹0 Extra)</span>' +
+                   '      <span style="display: inline-block; margin-top: 4px; background: #dcfce7; color: #166534; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">FREE (₹0)</span>' +
+                   '    </div>' +
+                   '  </label>' +
+                   '  <label style="display: flex; align-items: flex-start; gap: 10px; background: ' + (currentChoice === 'polythin' ? '#f0f9ff' : '#ffffff') + '; border: ' + (currentChoice === 'polythin' ? '2px solid #0284c7' : '1.5px solid #cbd5e1') + '; padding: 14px 16px; border-radius: 10px; cursor: pointer;">' +
+                   '    <input type="radio" name="chk_packaging_choice" value="polythin" ' + (currentChoice === 'polythin' ? 'checked' : '') + ' onchange="onPackagingChoiceChange()" style="margin-top: 3px; accent-color: #0284c7;">' +
+                   '    <div>' +
+                   '      <strong style="display: block; color: #0369a1; font-size: 13.5px;">🛍️ Food-Grade Polythin Pouches</strong>' +
+                   '      <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block;">Food-grade hygienic sealed polythin packets for easy distribution.</span>' +
+                   '      <span style="display: inline-block; margin-top: 4px; background: #e0f2fe; color: #0369a1; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">+₹300 / Degh</span>' +
+                   '    </div>' +
+                   '  </label>' +
+                   '  <label style="display: flex; align-items: flex-start; gap: 10px; background: ' + (currentChoice === 'box' ? '#fffbeb' : '#ffffff') + '; border: ' + (currentChoice === 'box' ? '2px solid #d97706' : '1.5px solid #cbd5e1') + '; padding: 14px 16px; border-radius: 10px; cursor: pointer;">' +
+                   '    <input type="radio" name="chk_packaging_choice" value="box" ' + (currentChoice === 'box' ? 'checked' : '') + ' onchange="onPackagingChoiceChange()" style="margin-top: 3px; accent-color: #d97706;">' +
+                   '    <div>' +
+                   '      <strong style="display: block; color: #92400e; font-size: 13.5px;">🍱 Container Box / Dabba</strong>' +
+                   '      <span style="color: #64748b; font-size: 12px; line-height: 1.4; display: block;">Disposable hygienic meal container boxes for dignified handover.</span>' +
+                   '      <span style="display: inline-block; margin-top: 4px; background: #fef3c7; color: #92400e; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 6px;">+₹600 / Degh</span>' +
+                   '    </div>' +
+                   '  </label>' +
+                   '</div>';
+        }
+        container.innerHTML = html;
+    }
+
+    function onPackagingChoiceChange() {
+        var cart = getCartData();
+        renderPackagingOptions(cart);
+        updateCheckoutTotals();
+    }
+
+    function onDistributionTypeRadioChange() {
+        var val = $('input[name="distribution_type"]:checked').val() || '';
+        var isDirect = val.toLowerCase().includes('direct handover');
+        var isTakeaway = val.toLowerCase().includes('takeaway');
+        var isDargah = val.toLowerCase().includes('langar taqseem') || val.toLowerCase().includes('managed');
+
+        $('#distLabelDirect').css({
+            'border': isDirect ? '2px solid #10b981' : '1.5px solid #cbd5e1',
+            'background': isDirect ? '#f0fdf4' : '#ffffff'
+        });
+        $('#distLabelTakeaway').css({
+            'border': isTakeaway ? '2px solid #0284c7' : '1.5px solid #cbd5e1',
+            'background': isTakeaway ? '#f0f9ff' : '#ffffff'
+        });
+        $('#distLabelDargah').css({
+            'border': isDargah ? '2px solid #d97706' : '1.5px solid #cbd5e1',
+            'background': isDargah ? '#fffbeb' : '#ffffff'
+        });
+
+        updateCheckoutTotals();
     }
 
     function changeCheckoutQty(index, delta) {
@@ -675,6 +1108,7 @@
             window.dispatchEvent(new Event('dewa-cart-updated'));
             updateHeaderCartBadges();
             renderCheckoutPage();
+            renderDeliverySpeedOptions();
         }
     }
 
@@ -686,6 +1120,7 @@
             window.dispatchEvent(new Event('dewa-cart-updated'));
             updateHeaderCartBadges();
             renderCheckoutPage();
+            renderDeliverySpeedOptions();
         }
     }
 
@@ -701,105 +1136,56 @@
     }
 
     function processFinalOrder(e) {
-        e.preventDefault();
+        if (e && e.preventDefault) e.preventDefault();
         var name = (document.getElementById('chk_name') || {}).value || '';
         var phone = (document.getElementById('chk_phone') || {}).value || '';
         var street = (document.getElementById('chk_street') || {}).value || '';
         var city = (document.getElementById('chk_city') || {}).value || '';
         var pincode = (document.getElementById('chk_pincode') || {}).value || '';
         var selectedMethod = document.querySelector('input[name="payment_method"]:checked');
-        var paymentMethod = selectedMethod ? selectedMethod.value : 'razorpay';
+        var paymentMethod = selectedMethod ? selectedMethod.value : 'online';
+
+        if (!name || !phone || !street || !pincode) {
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Address & Contact Required',
+                    text: 'Kripya pehle Full Name, Mobile Number, Street Address aur Pincode enter karein.',
+                    confirmButtonColor: '#052c16'
+                });
+            } else {
+                alert('Kripya pehle Full Name, Mobile Number, Street Address aur Pincode enter karein.');
+            }
+            return;
+        }
 
         var cart = getCartData();
-        var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.qty); }, 0);
-
-        var shopBookingSaveDone = false;
-        if (paymentMethod === 'razorpay') {
-            var $payBtn = $('#btnShopPayOnline');
-            var originalBtnHtml = $payBtn.html();
-            $payBtn.prop('disabled', true).html('⏳ Opening Razorpay Gateway...');
-
-            function resetShopPayButton() {
-                $payBtn.prop('disabled', false).html(originalBtnHtml);
-            }
-
-            var options = {
-                "key": "{{ env('RAZORPAY_KEY', env('KEY_ID', 'rzp_test_TLc5br8H5K6aTI')) }}",
-                "amount": subtotal * 100,
-                "currency": "INR",
-                "name": "DewaSharif.com Sacred Store & Degh Niyaz",
-                "description": "Order Payment (SBI Account Credit)",
-                "image": "{{ asset('home/images/dewasharif/dewalogos.png') }}",
-                "handler": function (response){
-                    if (!shopBookingSaveDone) {
-                        shopBookingSaveDone = true;
-                        executeShopOrderSave(response.razorpay_payment_id || 'RZP_SHP_SUCCESS');
-                    }
-                },
-                "modal": {
-                    "ondismiss": function() {
-                        resetShopPayButton();
-                        if (typeof Swal !== 'undefined') {
-                            Swal.fire({
-                                icon: 'info',
-                                title: 'Payment Cancelled',
-                                text: 'Aapne payment cancel kar di hai. Koi order confirm nahi hua hai.',
-                                confirmButtonColor: '#052c16'
-                            });
-                        } else {
-                            alert('Aapne payment cancel kar di hai. Koi order confirm nahi hua hai.');
-                        }
-                    }
-                },
-                "prefill": {
-                    "name": name,
-                    "contact": phone
-                },
-                "theme": {
-                    "color": "#111827"
-                }
-            };
-
-            try {
-                var rzp1 = new Razorpay(options);
-                rzp1.on('payment.failed', function (response){
-                    resetShopPayButton();
-                    var errMsg = (response.error && response.error.description) ? response.error.description : 'Payment complete nahi ho saki. Kripya punah prayas karein.';
-                    if (typeof Swal !== 'undefined') {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Payment Failed',
-                            text: errMsg,
-                            confirmButtonColor: '#052c16'
-                        });
-                    } else {
-                        alert('Payment Failed: ' + errMsg);
-                    }
+        if (cart.length === 0) {
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Cart is Empty',
+                    text: 'Aapka cart khaali hai. Kripya pehle items add karein.',
+                    confirmButtonColor: '#052c16'
                 });
-                rzp1.open();
-            } catch(err) {
-                resetShopPayButton();
-                if (typeof Swal !== 'undefined') {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Gateway Error',
-                        text: 'Razorpay Gateway load nahi ho saka. Kripya apna internet connection check karein ya QR payment option use karein.',
-                        confirmButtonColor: '#052c16'
-                    });
-                } else {
-                    alert('Razorpay Gateway load nahi ho saka. Kripya QR payment use karein.');
-                }
+            } else {
+                alert('Aapka cart khaali hai.');
             }
+            return;
+        }
+
+        var fees = calculateCartFees(cart);
+
+        if (paymentMethod === 'cod') {
+            executeShopOrderSave('COD_' + Date.now());
         } else {
-            if (!shopBookingSaveDone) {
-                shopBookingSaveDone = true;
-                executeShopOrderSave('COD_' + Date.now());
-            }
+            openShopQrModal();
         }
     }
 
     function executeShopOrderSave(paymentId) {
         $('#btnShopPayOnline').prop('disabled', true).html('⏳ Processing Order & Generating Invoice...');
+        $('#btnShopConfirmCod').prop('disabled', true).html('⏳ Booking Cash on Delivery Order...');
         if ($('#btnConfirmShopQrPayment').length) {
             $('#btnConfirmShopQrPayment').prop('disabled', true).html('⏳ Confirming Order...');
         }
@@ -829,7 +1215,7 @@
         } catch(e) {}
 
         var cart = getCartData();
-        var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.qty); }, 0) || 1497;
+        var fees = calculateCartFees(cart);
         var itemsSummary = cart.map(function(item){ return item.name + ' (x' + item.qty + ')'; }).join(', ') || 'Attar & Sufi Handicrafts';
 
         $.ajax({
@@ -845,8 +1231,17 @@
                 state: state,
                 pincode: pincode,
                 items_summary: itemsSummary,
-                amount: subtotal,
+                amount: fees.grandTotal,
+                subtotal: fees.subtotal,
+                packaging_fee: fees.packagingFee,
+                packaging_type: fees.packagingType || 'none',
+                distribution_fee: fees.distributionFee || 0,
+                handling_fee: fees.handlingFee,
+                delivery_fee: fees.deliveryFee,
+                cod_fee: fees.codFee,
+                delivery_tier: fees.selectedTier,
                 payment_id: paymentId,
+                payment_mode: (fees.paymentMethod === 'cod' ? 'cod' : 'PhonePe QR'),
                 fateha_name: fatehaName,
                 niyaz_date: niyazDate,
                 distribution_type: distributionType,
@@ -856,7 +1251,7 @@
                 localStorage.removeItem('dewa_cart');
                 if(response.success) {
                     var displayCust = name + ' (' + phone + (altPhone ? ' / Alt: ' + altPhone : '') + ')';
-                    triggerShopSuccessOverlay(response, subtotal, displayCust);
+                    triggerShopSuccessOverlay(response, fees.grandTotal, displayCust);
                 } else {
                     window.location.href = "{{ route('customer.orders') }}";
                 }
@@ -1165,11 +1560,11 @@
             return;
         }
 
-        var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.qty); }, 0);
-        var formattedTotal = Number(subtotal).toLocaleString('en-IN');
+        var fees = calculateCartFees(cart);
+        var formattedTotal = Number(fees.grandTotal).toLocaleString('en-IN');
         $('#shopQrPayAmountText').text('₹' + formattedTotal);
 
-        var upiData = generateDynamicUpi(subtotal, 'Dewa Sharif Store Order');
+        var upiData = generateDynamicUpi(fees.grandTotal, 'Dewa Sharif Store Order');
         $('#shopDynamicQrImg').attr('src', upiData.qr);
         $('#shopDirectUpiBtn').attr('href', upiData.uri);
         $('#shopDirectUpiAmount').text('₹' + formattedTotal);
@@ -1214,7 +1609,7 @@
         var pincode = ($('#chk_pincode').val() || '').trim();
 
         var cart = getCartData();
-        var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.qty); }, 0);
+        var fees = calculateCartFees(cart);
         var itemsSummary = cart.map(function(item){ return "• " + item.name + " (Qty: " + item.qty + ") - ₹" + (item.price * item.qty); }).join("\n");
 
         closeShopQrModal();
@@ -1223,10 +1618,15 @@
         var custStr = name + " (" + phone + (altPhone ? " / Alt: " + altPhone : "") + ")";
         var text = "Assalamu Alaikum Dewa Sharif Store!\n\n" +
                    "Maine PhonePe QR se payment kar diya hai:\n" +
-                   "💰 Total Paid: ₹" + Number(subtotal).toLocaleString('en-IN') + "\n\n" +
-                   "📦 Items Ordered:\n" + itemsSummary + "\n\n" +
-                   "👤 Customer: " + custStr + "\n" +
-                   "📍 Delivery Address: " + street + ", " + city + ", " + state + " - " + pincode + "\n\n" +
+                   "💰 Total Paid: ₹" + Number(fees.grandTotal).toLocaleString('en-IN') + "\n\n" +
+                   "📋 *Order Bill Breakdown:*\n" +
+                   "• Items Subtotal: ₹" + fees.subtotal.toLocaleString('en-IN') + "\n" +
+                   "• Packaging Fee: ₹" + fees.packagingFee.toLocaleString('en-IN') + "\n" +
+                   "• Handling Fee: ₹" + fees.handlingFee.toLocaleString('en-IN') + "\n" +
+                   "• Delivery (" + fees.deliveryTierName + "): " + (fees.deliveryFee === 0 ? "FREE (₹0)" : "₹" + fees.deliveryFee.toLocaleString('en-IN')) + "\n\n" +
+                   "📦 *Items Ordered:*\n" + itemsSummary + "\n\n" +
+                   "👤 *Customer:* " + custStr + "\n" +
+                   "📍 *Delivery Address:* " + street + ", " + city + ", " + state + " - " + pincode + "\n\n" +
                    "Maine payment ka screenshot WhatsApp par attach kar diya hai. Kripya order dispatch confirm karein. Shukriya!";
 
         window.open("https://wa.me/919648777223?text=" + encodeURIComponent(text), '_blank');
@@ -1252,7 +1652,7 @@
             return;
         }
 
-        var subtotal = cart.reduce(function(sum, item) { return sum + (item.price * item.qty); }, 0);
+        var fees = calculateCartFees(cart);
         var itemsSummary = cart.map(function(item){ return "• " + item.name + " (Qty: " + item.qty + ") - ₹" + (item.price * item.qty); }).join("\n");
         var itemsBrief = cart.map(function(item){ return item.name + " (x" + item.qty + ")"; }).join(", ");
         var custStr = (name || "Customer") + (phone ? " (" + phone + (altPhone ? " / Alt: " + altPhone : "") + ")" : "");
@@ -1262,19 +1662,23 @@
 
         var text = "Assalamu Alaikum Dewa Sharif Store!\n\n" +
                    "Main sacred shop items order karna chahta hun:\n" +
-                   "🛍️ Order Ref: #" + code + "\n\n" +
-                   "📦 Items:\n" + itemsSummary + "\n\n" +
-                   "💰 Total Amount: ₹" + Number(subtotal).toLocaleString('en-IN') + "\n" +
-                   "👤 Customer: " + custStr + "\n" +
-                   "📍 Delivery Address: " + addrStr + "\n\n" +
+                   "🛍️ *Order Ref:* #" + code + "\n\n" +
+                   "📋 *Order Bill Breakdown:*\n" +
+                   "• Items Subtotal: ₹" + fees.subtotal.toLocaleString('en-IN') + "\n" +
+                   "• Packaging Fee: ₹" + fees.packagingFee.toLocaleString('en-IN') + "\n" +
+                   "• Handling Fee: ₹" + fees.handlingFee.toLocaleString('en-IN') + "\n" +
+                   "• Delivery (" + fees.deliveryTierName + "): " + (fees.deliveryFee === 0 ? "FREE (₹0)" : "₹" + fees.deliveryFee.toLocaleString('en-IN')) + "\n" +
+                   (fees.codFee > 0 ? ("• COD Convenience Fee: ₹" + fees.codFee.toLocaleString('en-IN') + "\n") : "") +
+                   "💰 *Grand Total:* ₹" + Number(fees.grandTotal).toLocaleString('en-IN') + "\n\n" +
+                   "📦 *Items:*\n" + itemsSummary + "\n\n" +
+                   "👤 *Customer:* " + custStr + "\n" +
+                   "📍 *Delivery Address:* " + addrStr + "\n\n" +
                    "Kripya confirmation aur delivery details bhejein. Shukriya!";
 
         var waUrl = "https://wa.me/919648777223?text=" + encodeURIComponent(text);
 
-        // Synchronously open WhatsApp window (never blocked by popup blocker!)
         window.open(waUrl, '_blank');
 
-        // Simultaneously save inquiry in backend
         $.ajax({
             url: "{{ route('shops.book') }}",
             type: "POST",
@@ -1289,7 +1693,13 @@
                 state: state || 'Uttar Pradesh',
                 pincode: pincode || '225301',
                 items_summary: itemsBrief,
-                amount: subtotal,
+                amount: fees.grandTotal,
+                subtotal: fees.subtotal,
+                packaging_fee: fees.packagingFee,
+                handling_fee: fees.handlingFee,
+                delivery_fee: fees.deliveryFee,
+                cod_fee: fees.codFee,
+                delivery_tier: fees.selectedTier,
                 booking_mode: 'whatsapp',
                 payment_mode: 'whatsapp',
                 payment_id: 'WhatsApp Order (' + code + ')',
@@ -1311,7 +1721,28 @@
 
     document.addEventListener("DOMContentLoaded", function() {
         renderCheckoutPage();
+        renderDeliverySpeedOptions();
+        updateCheckoutTotals();
         loadWorldCountries();
+
+        var pinEl = document.getElementById('chk_pincode');
+        if (pinEl) {
+            pinEl.addEventListener('input', function() {
+                renderDeliverySpeedOptions();
+                updateCheckoutTotals();
+            });
+            pinEl.addEventListener('change', function() {
+                renderDeliverySpeedOptions();
+                updateCheckoutTotals();
+            });
+        }
+        var cityEl = document.getElementById('chk_city');
+        if (cityEl) {
+            cityEl.addEventListener('change', function() {
+                renderDeliverySpeedOptions();
+                updateCheckoutTotals();
+            });
+        }
     });
 </script>
 

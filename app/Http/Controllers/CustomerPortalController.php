@@ -158,7 +158,20 @@ class CustomerPortalController extends Controller
 
     public function orders()
     {
-        $shopOrders = $this->sortLatest(DataStore::getCollection('shop_orders'));
+        $shopOrders = [];
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_orders')) {
+                $shopOrders = \Illuminate\Support\Facades\DB::table('shop_orders')
+                    ->orderBy('id', 'desc')
+                    ->get()
+                    ->map(function($item) { return (array)$item; })
+                    ->toArray();
+            }
+        } catch (\Throwable $e) {}
+
+        if (empty($shopOrders)) {
+            $shopOrders = $this->sortLatest(DataStore::getCollection('shop_orders'));
+        }
         $profile = $this->getCustomerProfile();
         return view('home.customer.orders', compact('shopOrders', 'profile'));
     }
@@ -167,7 +180,20 @@ class CustomerPortalController extends Controller
     {
         $hotelBookings = DataStore::getCollection('hotel_bookings');
         $cabBookings = DataStore::getCollection('cab_bookings');
-        $shopOrders = DataStore::getCollection('shop_orders');
+        $shopOrders = [];
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_orders')) {
+                $shopOrders = \Illuminate\Support\Facades\DB::table('shop_orders')
+                    ->orderBy('id', 'desc')
+                    ->get()
+                    ->map(function($item) { return (array)$item; })
+                    ->toArray();
+            }
+        } catch (\Throwable $e) {}
+
+        if (empty($shopOrders)) {
+            $shopOrders = DataStore::getCollection('shop_orders');
+        }
         $profile = $this->getCustomerProfile();
 
         $allInvoices = collect();
@@ -192,7 +218,7 @@ class CustomerPortalController extends Controller
                 'code' => $b['booking_code'] ?? ($b['booking_id'] ?? ('DWS-HTL-' . $rawId)),
                 'invoice_no' => 'INV-HOT-' . $numId,
                 'title' => ($b['hotel_name'] ?? 'Guest House Stay') . ' (' . ($b['room_name'] ?? ($b['room_type'] ?? 'Deluxe Room')) . ')',
-                'amount' => (float)($b['total_amount'] ?? ($b['amount'] ?? 2998)),
+                'amount' => (float)($b['total_amount'] ?? ($b['amount'] ?? ($b['price'] ?? 0))),
                 'status' => $itemStatus,
                 'date' => date('d M Y', strtotime($created)),
                 'created_at' => $created,
@@ -214,13 +240,17 @@ class CustomerPortalController extends Controller
                 $itemStatus = 'VERIFICATION PENDING';
             }
 
+            $vCount = (int)($c['vehicle_count'] ?? 1);
+            if ($vCount < 1) { $vCount = 1; }
+            $vLabel = ($c['vehicle_name'] ?? ($c['vehicle_type'] ?? 'Cab Taxi')) . ($vCount > 1 ? " [× {$vCount} Cabs]" : '');
+
             $allInvoices->push([
                 'type' => 'cab',
                 'id' => $rawId,
                 'code' => $c['booking_code'] ?? ($c['booking_id'] ?? ('DWS-CAB-' . $rawId)),
                 'invoice_no' => 'INV-CAB-' . $numId,
-                'title' => ($c['route'] ?? 'Cab Duty') . ' (' . ($c['vehicle_type'] ?? 'Sedan') . ')',
-                'amount' => (float)($c['total_fare'] ?? ($c['fare'] ?? 1400)),
+                'title' => ($c['route'] ?? 'Cab Duty') . ' (' . $vLabel . ')',
+                'amount' => (float)($c['total_fare'] ?? ($c['fare'] ?? ($c['total_amount'] ?? 0))),
                 'status' => $itemStatus,
                 'date' => date('d M Y', strtotime($created)),
                 'created_at' => $created,
@@ -248,7 +278,7 @@ class CustomerPortalController extends Controller
                 'code' => $o['order_code'] ?? ($o['order_id'] ?? ('DWS-SHP-' . $rawId)),
                 'invoice_no' => 'INV-SHP-' . $numId,
                 'title' => $o['items_summary'] ?? 'Sacred Store Order',
-                'amount' => (float)($o['total_amount'] ?? ($o['amount'] ?? 1497)),
+                'amount' => (float)($o['total_amount'] ?? ($o['amount'] ?? 0)),
                 'status' => $itemStatus,
                 'date' => date('d M Y', strtotime($created)),
                 'created_at' => $created,
@@ -501,7 +531,7 @@ class CustomerPortalController extends Controller
 
     public function downloadInvoice($type, $id)
     {
-        $invoiceDate = date('M d, Y');
+        $invoiceDate = \Carbon\Carbon::now('Asia/Kolkata')->format('d M Y, h:i A');
         $profile = $this->getCustomerProfile();
 
         $customerName = $profile['name'] ?? 'Devotee / Passenger';
@@ -515,6 +545,9 @@ class CustomerPortalController extends Controller
         $fatehaName = null;
         $niyazDate = null;
         $distribution_type = null;
+        $distributionType = null;
+        $distributionFee = 0;
+        $order = null;
         $isDegh = false;
 
         if ($type === 'hotel') {
@@ -538,12 +571,25 @@ class CustomerPortalController extends Controller
 
             $serviceName = 'Hotel & Stay Booking Service';
             $invoiceNo = 'INV-HOT-' . $numId;
+            $invoiceDate = \Carbon\Carbon::now('Asia/Kolkata')->format('d M Y, h:i A');
+
             $bCheckIn = $booking['check_in'] ?? ($booking['checkin'] ?? date('d M Y'));
             $bCheckOut = $booking['check_out'] ?? ($booking['checkout'] ?? date('d M Y', strtotime('+1 day')));
-            $serviceDate = $bCheckIn . ' – ' . $bCheckOut;
+            try {
+                $cinFormatted = \Carbon\Carbon::parse($bCheckIn)->format('d M Y') . ', 12:00 PM';
+            } catch (\Throwable $e) {
+                $cinFormatted = $bCheckIn;
+            }
+            try {
+                $coutFormatted = \Carbon\Carbon::parse($bCheckOut)->format('d M Y') . ', 11:00 AM';
+            } catch (\Throwable $e) {
+                $coutFormatted = $bCheckOut;
+            }
+            $serviceDate = $cinFormatted . ' – ' . $coutFormatted;
             $orderNo = $booking['booking_code'] ?? ($booking['booking_number'] ?? ('ORD-HOT-' . $numId));
             $paymentId = !empty($booking['utr_number']) ? ('SBI_UPI_' . $booking['utr_number']) : ($booking['payment_id'] ?? ('pay_HOT_' . substr(md5($id), 0, 10)));
             $paymentStatus = strtolower($booking['payment_status'] ?? ($booking['status'] ?? 'paid'));
+            $checkinPin = $booking['checkin_pin'] ?? ($booking->checkin_pin ?? '4821');
 
             if (!empty($booking['customer_name'])) $customerName = $booking['customer_name'];
             if (!empty($booking['customer_phone'])) $customerPhone = $booking['customer_phone'];
@@ -559,7 +605,7 @@ class CustomerPortalController extends Controller
                 }
             }
 
-            $totalAmount = (float)($booking['total_amount'] ?? ($booking['amount'] ?? 1499));
+            $totalAmount = (float)($booking['total_amount'] ?? ($booking['amount'] ?? ($booking['price'] ?? 0)));
             $gst = 0.00;
             $price = $totalAmount;
 
@@ -611,7 +657,10 @@ class CustomerPortalController extends Controller
             $cabBookings = DataStore::getCollection('cab_bookings');
             $cab = null;
             foreach ($cabBookings as $c) {
-                if ((string)($c['id'] ?? '') === (string)$id) {
+                $cId = (string)($c['id'] ?? '');
+                $cCode = (string)($c['booking_code'] ?? ($c['booking_id'] ?? ''));
+                $cBId = (string)($c['booking_id'] ?? '');
+                if ($cId === (string)$id || $cCode === (string)$id || $cBId === (string)$id) {
                     $cab = $c;
                     break;
                 }
@@ -625,8 +674,19 @@ class CustomerPortalController extends Controller
 
             $serviceName = 'Taxi & Cab Duty Service';
             $invoiceNo = 'INV-CAB-' . $numId;
-            $serviceDate = $cab['pickup_time'] ?? 'Oct 27, 2026 @ 08:30 AM';
-            $orderNo = $cab['booking_code'] ?? ('ORD-CAB-' . $numId);
+            $invoiceDate = \Carbon\Carbon::now('Asia/Kolkata')->format('d M Y, h:i A');
+
+            $rawPickup = $cab['pickup_time'] ?? null;
+            if ($rawPickup) {
+                try {
+                    $serviceDate = \Carbon\Carbon::parse($rawPickup)->format('d M Y, h:i A');
+                } catch (\Throwable $e) {
+                    $serviceDate = $rawPickup;
+                }
+            } else {
+                $serviceDate = date('d M Y, 08:30 AM');
+            }
+            $orderNo = $cab['booking_code'] ?? ($cab['booking_id'] ?? ('ORD-CAB-' . $numId));
             $paymentId = $cab['payment_id'] ?? ('pay_CAB_' . substr(md5($id), 0, 10));
 
             if (!empty($cab['customer_name'])) $customerName = $cab['customer_name'];
@@ -645,8 +705,19 @@ class CustomerPortalController extends Controller
                 }
             }
 
+            $cabVehicleCount = (int)($cab['vehicle_count'] ?? 1);
+            if ($cabVehicleCount < 1) { $cabVehicleCount = 1; }
+
+            $rawVehicleName = $cab['vehicle_name'] ?? ($cab['vehicle_type'] ?? 'Cab Taxi');
+            $cleanVehicleName = trim(preg_replace('/\s*[\(\[]×\s*\d+\s*cabs?[\)\]]/i', '', $rawVehicleName));
+            $cabVehicleLabel = $cleanVehicleName . ($cabVehicleCount > 1 ? " [× {$cabVehicleCount} Cabs Booked]" : "");
+            $cabRouteLabel = ($cab['route'] ?? 'Lucknow ↔ Dewa Sharif') . ' (' . $cabVehicleLabel . ')';
+
             $totalAmount = (float)($cab['total_fare'] ?? ($cab['fare'] ?? ($cab['amount'] ?? 0)));
-            $hasNightCharge = !empty($cab['night_surcharge']) || (isset($cab['pickup_time']) && (
+
+            // Night Surcharge: Only apply if explicitly > 0 or if night time hours were selected and night surcharge was applicable
+            $rawNightSurcharge = (float)($cab['night_surcharge'] ?? 0);
+            $isNightPickupTime = isset($cab['pickup_time']) && (
                 str_contains(strtolower($cab['pickup_time']), '10:00 pm') ||
                 str_contains(strtolower($cab['pickup_time']), '11:00 pm') ||
                 str_contains(strtolower($cab['pickup_time']), '12:00 am') ||
@@ -654,60 +725,75 @@ class CustomerPortalController extends Controller
                 str_contains(strtolower($cab['pickup_time']), '02:00 am') ||
                 str_contains(strtolower($cab['pickup_time']), '03:00 am') ||
                 str_contains(strtolower($cab['pickup_time']), '04:00 am')
-            ));
+            );
 
-            if ($hasNightCharge) {
-                $nightFee = (float)($cab['night_surcharge'] ?? 100);
-                $baseFare = max(0, $totalAmount - $nightFee);
-                $items = [
-                    [
-                        'sl' => 1,
-                        'particulars' => ($cab['route'] ?? 'Lucknow Charbagh Station → Dewa Sharif') . ' (' . ($cab['vehicle_type'] ?? 'Swift Dzire Sedan') . ')',
-                        'desc' => '',
-                        'price' => $baseFare,
-                        'qty' => 1,
-                        'discount' => 0.00,
-                        'gst' => 0.00,
-                        'total' => $baseFare
-                    ],
-                    [
-                        'sl' => 2,
-                        'particulars' => '🌙 Night Travel Service Surcharge (10:00 PM - 05:00 AM)',
-                        'desc' => 'Mandatory night travel operational fee for late night & early morning pickup',
-                        'price' => $nightFee,
-                        'qty' => 1,
-                        'discount' => 0.00,
-                        'gst' => 0.00,
-                        'total' => $nightFee
-                    ]
-                ];
-            } else {
-                $items = [
-                    [
-                        'sl' => 1,
-                        'particulars' => ($cab['route'] ?? 'Lucknow Charbagh Station → Dewa Sharif') . ' (' . ($cab['vehicle_type'] ?? 'Swift Dzire Sedan') . ')',
-                        'desc' => '',
-                        'price' => $totalAmount,
-                        'qty' => 1,
-                        'discount' => 0.00,
-                        'gst' => 0.00,
-                        'total' => $totalAmount
-                    ]
+            $nightFee = 0.0;
+            if ($rawNightSurcharge > 0) {
+                $nightFee = $rawNightSurcharge;
+            } elseif ($isNightPickupTime && !isset($cab['night_surcharge'])) {
+                $nightFee = 100.0 * $cabVehicleCount;
+            }
+
+            $baseFare = max(0, $totalAmount - $nightFee);
+
+            // Per-cab rate breakdown for multi-cab bookings
+            $perCabRate = ($cabVehicleCount > 0) ? round($baseFare / $cabVehicleCount, 2) : $baseFare;
+
+            $items = [
+                [
+                    'sl' => 1,
+                    'particulars' => $cabRouteLabel,
+                    'desc' => $cabVehicleCount > 1 ? "Total {$cabVehicleCount} vehicles scheduled for dedicated trip route (₹" . number_format($perCabRate, 2) . " per cab)" : '',
+                    'price' => $perCabRate,
+                    'qty' => $cabVehicleCount,
+                    'discount' => 0.00,
+                    'gst' => 0.00,
+                    'total' => $baseFare
+                ]
+            ];
+
+            if ($nightFee > 0) {
+                $perCabNight = round($nightFee / $cabVehicleCount, 2);
+                $items[] = [
+                    'sl' => 2,
+                    'particulars' => '🌙 Night Travel Service Surcharge (10:00 PM - 05:00 AM)',
+                    'desc' => 'Mandatory night travel operational fee for late night & early morning pickup' . ($cabVehicleCount > 1 ? " (₹" . number_format($perCabNight, 2) . " × {$cabVehicleCount} Cabs)" : ''),
+                    'price' => $perCabNight,
+                    'qty' => $cabVehicleCount,
+                    'discount' => 0.00,
+                    'gst' => 0.00,
+                    'total' => $nightFee
                 ];
             }
             $netTotal = $totalAmount;
 
         } else {
-            $shopOrders = DataStore::getCollection('shop_orders');
+            // 1. Fetch Order from MySQL shop_orders first, falling back to DataStore
             $order = null;
-            foreach ($shopOrders as $o) {
-                if ((string)($o['id'] ?? '') === (string)$id) {
-                    $order = $o;
-                    break;
+            try {
+                if (\Illuminate\Support\Facades\Schema::hasTable('shop_orders')) {
+                    if (is_numeric($id)) {
+                        $dbO = \Illuminate\Support\Facades\DB::table('shop_orders')->where('id', (int)$id)->first();
+                    } else {
+                        $dbO = \Illuminate\Support\Facades\DB::table('shop_orders')->where('order_id', (string)$id)->first();
+                    }
+                    if ($dbO) {
+                        $order = (array)$dbO;
+                    }
                 }
-            }
-            if (!$order && !empty($shopOrders)) {
-                $order = $shopOrders[0];
+            } catch (\Throwable $e) {}
+
+            if (!$order) {
+                $shopOrders = DataStore::getCollection('shop_orders');
+                foreach ($shopOrders as $o) {
+                    if ((string)($o['id'] ?? '') === (string)$id || (string)($o['order_code'] ?? '') === (string)$id || (string)($o['order_id'] ?? '') === (string)$id) {
+                        $order = $o;
+                        break;
+                    }
+                }
+                if (!$order && !empty($shopOrders)) {
+                    $order = $shopOrders[0];
+                }
             }
 
             $rawId = $order['id'] ?? $id;
@@ -715,14 +801,34 @@ class CustomerPortalController extends Controller
 
             $fatehaName = $order['fateha_name'] ?? null;
             $niyazDate = $order['niyaz_date'] ?? date('d M Y');
-            $distributionType = $order['distribution_type'] ?? 'Dargah Sharif Me Langar Taqseem (Distribute to Zaireen)';
+            $distributionType = !empty($order['distribution_type']) ? $order['distribution_type'] : 'Direct Handover / Self Collection at Dewa Sharif';
             $distribution_type = $distributionType;
             $isDegh = !empty($order['is_degh']) || !empty($fatehaName) || str_contains(strtolower($order['items_summary'] ?? ''), 'degh') || str_contains(strtolower($order['items_summary'] ?? ''), 'biryani') || str_contains(strtolower($order['items_summary'] ?? ''), 'zarda') || str_contains(strtolower($order['items_summary'] ?? ''), 'kheer');
 
             $serviceName = $isDegh ? 'Dargah Sharif Degh Niyaz & Tabarruk Service' : 'Sacred Store & Mela Souvenirs';
             $invoiceNo = ($isDegh ? 'INV-DGH-' : 'INV-SHP-') . $numId;
-            $serviceDate = $isDegh ? ($niyazDate ?? date('M d, Y')) : date('M d, Y', strtotime($order['created_at'] ?? 'now'));
-            $orderNo = $order['order_code'] ?? (($isDegh ? 'ORD-DGH-' : 'ORD-SHP-') . $numId);
+            $invoiceDate = \Carbon\Carbon::now('Asia/Kolkata')->format('d M Y, h:i A');
+
+            if ($isDegh) {
+                $rawNiyaz = $order['niyaz_date'] ?? date('d M Y');
+                if (preg_match('/\b\d{1,2}:\d{2}\s*(?:am|pm)?\b/i', $rawNiyaz)) {
+                    try {
+                        $serviceDate = \Carbon\Carbon::parse($rawNiyaz)->format('d M Y, h:i A');
+                    } catch (\Throwable $e) {
+                        $serviceDate = $rawNiyaz;
+                    }
+                } else {
+                    try {
+                        $serviceDate = \Carbon\Carbon::parse($rawNiyaz)->format('d M Y') . ', 12:00 PM';
+                    } catch (\Throwable $e) {
+                        $serviceDate = $rawNiyaz . ', 12:00 PM';
+                    }
+                }
+                $niyazDate = $serviceDate;
+            } else {
+                $serviceDate = $invoiceDate;
+            }
+            $orderNo = $order['order_code'] ?? ($order['order_id'] ?? (($isDegh ? 'ORD-DGH-' : 'ORD-SHP-') . $numId));
             $paymentId = $order['payment_id'] ?? ('pay_SHP_' . substr(md5($id), 0, 10));
 
             if (!empty($order['customer_name'])) $customerName = $order['customer_name'];
@@ -732,34 +838,225 @@ class CustomerPortalController extends Controller
             } elseif (!empty($order['customer_whatsapp']) && $order['customer_whatsapp'] !== ($order['customer_phone'] ?? '')) {
                 $customerAltPhone = $order['customer_whatsapp'];
             }
-            if (!empty($order['address'])) $customerAddress = $order['address'];
+            if (!empty($order['shipping_address'])) $customerAddress = $order['shipping_address'];
+            elseif (!empty($order['address'])) $customerAddress = $order['address'];
             elseif (!empty($order['customer_address'])) $customerAddress = $order['customer_address'];
             $customerEmail = !empty($order['customer_email']) ? $order['customer_email'] : (!empty($order['email']) ? $order['email'] : null);
             $paymentStatus = $order['payment_status'] ?? ($order['status'] ?? 'paid');
 
             $totalAmount = (float)($order['total_amount'] ?? ($order['amount'] ?? 1497));
-            $gst = 0.00;
-            $price = $totalAmount;
+            $subtotal = (float)($order['subtotal'] ?? 0);
+            $handlingFee = (float)($order['handling_fee'] ?? 0);
+            $packagingFee = (float)($order['packaging_fee'] ?? 0);
+            $distributionFee = (float)($order['distribution_fee'] ?? 0);
+            $deliveryFee = (float)($order['delivery_fee'] ?? 0);
+            $codFee = (float)($order['cod_fee'] ?? 0);
+            $deliveryTier = trim($order['delivery_tier'] ?? 'standard_courier');
 
-            $particularTitle = $order['items_summary'] ?? ($isDegh ? 'Warsi Shahi Degh Niyaz Tabarruk' : 'Sacred Store Attar & Sufi Handicrafts Package');
-            $particularDesc = $isDegh 
-                ? ('Fateha Ba-Naam: ' . ($fatehaName ?: 'Special Dua & Fateha') . ' | Distribution: ' . $distributionType . ' | Parcel Packing: Ready')
-                : ('Courier Partner: ' . ($order['courier'] ?? 'DTDC Express') . ' | Tracking: ' . ($order['tracking'] ?? 'DT78459203IN'));
+            // 2. Decode Cart Items from cart_items_json or shop_order_items
+            $cartItems = [];
+            if (!empty($order['cart_items_json'])) {
+                $rawJson = $order['cart_items_json'];
+                $decoded = is_array($rawJson) ? $rawJson : json_decode($rawJson, true);
+                if (is_array($decoded) && !empty($decoded)) {
+                    $cartItems = $decoded;
+                }
+            }
 
-            $items = [
-                [
-                    'sl' => 1,
+            if (empty($cartItems) && !empty($order['id'])) {
+                try {
+                    if (\Illuminate\Support\Facades\Schema::hasTable('shop_order_items')) {
+                        $dbItems = \Illuminate\Support\Facades\DB::table('shop_order_items')
+                            ->where('order_id', $order['id'])
+                            ->get();
+                        if ($dbItems->isNotEmpty()) {
+                            foreach ($dbItems as $dbi) {
+                                $cartItems[] = [
+                                    'name' => $dbi->product_name,
+                                    'price' => (float)$dbi->unit_price,
+                                    'qty' => (int)$dbi->quantity
+                                ];
+                            }
+                        }
+                    }
+                } catch (\Throwable $e) {}
+            }
+
+            // 3. Assemble Itemized Bill Line Items
+            $items = [];
+            $sl = 1;
+
+            if (!empty($cartItems)) {
+                foreach ($cartItems as $cItem) {
+                    $iPrice = (float)($cItem['price'] ?? 0);
+                    $iQty = max(1, (int)($cItem['qty'] ?? 1));
+                    $items[] = [
+                        'sl' => $sl++,
+                        'particulars' => $cItem['name'] ?? 'Sacred Item',
+                        'desc' => 'Sacred Store Offering | Quantity: ' . $iQty . ' | Unit: ₹' . number_format($iPrice, 2),
+                        'price' => $iPrice,
+                        'qty' => $iQty,
+                        'discount' => 0.00,
+                        'gst' => 0.00,
+                        'total' => $iPrice * $iQty
+                    ];
+                }
+            } else {
+                $particularTitle = $order['items_summary'] ?? ($isDegh ? 'Warsi Shahi Degh Niyaz Tabarruk' : 'Sacred Store Attar & Sufi Handicrafts Package');
+                $particularDesc = $isDegh 
+                    ? ('Fateha Ba-Naam: ' . ($fatehaName ?: 'Special Dua & Fateha') . ' | Distribution: ' . $distributionType . ' | Parcel Packing: Ready')
+                    : ('Courier Partner: ' . ($order['courier_name'] ?? ($order['courier'] ?? 'DTDC Express')) . ' | Tracking: ' . ($order['tracking_number'] ?? ($order['tracking'] ?? 'DT78459203IN')));
+
+                $basePrice = ($subtotal > 0) ? $subtotal : max(0, $totalAmount - $handlingFee - $packagingFee - $distributionFee - $deliveryFee - $codFee);
+                if ($basePrice <= 0) $basePrice = $totalAmount;
+
+                $items[] = [
+                    'sl' => $sl++,
                     'particulars' => $particularTitle,
                     'desc' => $particularDesc,
-                    'price' => $price,
+                    'price' => $basePrice,
                     'qty' => 1,
                     'discount' => 0.00,
-                    'gst' => $gst,
-                    'total' => $totalAmount
-                ]
-            ];
-            $netTotal = $totalAmount;
+                    'gst' => 0.00,
+                    'total' => $basePrice
+                ];
+            }
+
+            // Packaging Fee Line Item
+            $pkgType = strtolower($order['packaging_type'] ?? '');
+            $isComplimentary = ($pkgType === 'complimentary' || str_contains($pkgType, 'complimentary'));
+
+            if ($packagingFee > 0 || $isComplimentary) {
+                $particulars = '📦 Safe Transit Protective Packaging & Box Fee';
+                $desc = 'Multi-layered tamper-evident sacred parcel box & safe transit cushioning';
+
+                if ($isComplimentary) {
+                    $particulars = '🎁 Special Devotee Complimentary Packaging';
+                    $desc = 'Hygienic sealed packaging provided complimentary as sacred courtesy (₹0 Extra Charge)';
+                } elseif ($pkgType === 'polythin' || str_contains($pkgType, 'polythin')) {
+                    $particulars = '🛍️ Food-Grade Polythin Pouches Packaging Fee';
+                    $desc = 'Food-grade hygienic sealed polythin pouches for Degh Niyaz distribution';
+                } elseif ($pkgType === 'box' || str_contains($pkgType, 'box') || str_contains($pkgType, 'dabba')) {
+                    $particulars = '🍱 Container Box / Dabba Distribution Packaging Fee';
+                    $desc = 'Hygienic disposable meal container boxes for dignified Degh Niyaz distribution';
+                } elseif ($pkgType === 'katori' || (str_contains($pkgType, 'katori') && !str_contains($pkgType, 'mitti'))) {
+                    $particulars = '🥣 Disposable Katori Bowls Packaging Fee';
+                    $desc = 'Hygienic single-use disposable bowls for Kheer Niyaz distribution';
+                } elseif ($pkgType === 'mitti_katori' || str_contains($pkgType, 'mitti')) {
+                    $particulars = '🏺 Sacred Mitti Katori Bowls Packaging Fee';
+                    $desc = 'Traditional sacred clay earthen bowls for authentic Kheer Niyaz tabarruk';
+                } elseif ($isDegh) {
+                    $particulars = '📦 Custom Degh Packaging & Distribution Fee';
+                    $desc = 'Special packaging arrangement as specified in order';
+                }
+
+                $items[] = [
+                    'sl' => $sl++,
+                    'particulars' => $particulars,
+                    'desc' => $desc,
+                    'price' => $packagingFee,
+                    'qty' => 1,
+                    'discount' => 0.00,
+                    'gst' => 0.00,
+                    'total' => $packagingFee
+                ];
+            }
+
+            // Distribution Service Fee Line Item
+            if ($distributionFee > 0) {
+                $items[] = [
+                    'sl' => $sl++,
+                    'particulars' => '🕌 Dargah Sharif Langar Taqseem & Managed Distribution Service',
+                    'desc' => 'Dewa Sharif Management verified sacred distribution service to Zaireen & needy devotees at Dargah Sharif',
+                    'price' => $distributionFee,
+                    'qty' => 1,
+                    'discount' => 0.00,
+                    'gst' => 0.00,
+                    'total' => $distributionFee
+                ];
+            }
+
+            // Handling Fee Line Item
+            if ($handlingFee > 0) {
+                $items[] = [
+                    'sl' => $sl++,
+                    'particulars' => '🛡️ Order Handling & Transit Insurance Fee',
+                    'desc' => 'Quality inspection, fragile item handling and sacred dispatch care',
+                    'price' => $handlingFee,
+                    'qty' => 1,
+                    'discount' => 0.00,
+                    'gst' => 0.00,
+                    'total' => $handlingFee
+                ];
+            }
+
+            // Delivery Tier Line Item
+            $deliveryName = '🚚 Standard Courier Delivery';
+            $deliveryDesc = 'Courier: ' . ($order['courier_name'] ?? ($order['courier'] ?? 'DTDC Express / Shiprocket')) . ' | Tracking: ' . ($order['tracking_number'] ?? ($order['tracking'] ?? 'Generated on dispatch'));
+            if ($deliveryTier === 'express_2_4h') {
+                $deliveryName = '⚡ Dewa Sharif Superfast Express Delivery (2–4 Hours)';
+                $deliveryDesc = 'Urgent Local Express Rider • Direct Hand Delivery to Home, Hotel or Astana';
+            } elseif ($deliveryTier === 'local_24h') {
+                $deliveryName = '🕒 Dewa Sharif Normal Local Delivery (Within 24 Hours)';
+                $deliveryDesc = 'Dewa Sharif Town Area standard local hand delivery staff';
+            } elseif ($isDegh) {
+                $deliveryName = '🕌 Dargah Sharif Langar Khidmat / Distribution';
+                $deliveryDesc = 'Prepared and distributed at Dargah Sharif to Zaireen & Devotees';
+            }
+
+            if ($deliveryFee > 0) {
+                $items[] = [
+                    'sl' => $sl++,
+                    'particulars' => $deliveryName,
+                    'desc' => $deliveryDesc,
+                    'price' => $deliveryFee,
+                    'qty' => 1,
+                    'discount' => 0.00,
+                    'gst' => 0.00,
+                    'total' => $deliveryFee
+                ];
+            } elseif (!$isDegh) {
+                $items[] = [
+                    'sl' => $sl++,
+                    'particulars' => $deliveryName . ' (FREE Delivery Applied)',
+                    'desc' => 'Standard shipping charges waived under store promotion offer',
+                    'price' => 0.00,
+                    'qty' => 1,
+                    'discount' => 0.00,
+                    'gst' => 0.00,
+                    'total' => 0.00
+                ];
+            }
+
+            // Cash on Delivery Fee Line Item
+            if ($codFee > 0) {
+                $items[] = [
+                    'sl' => $sl++,
+                    'particulars' => '💵 Cash on Delivery (COD) Convenience Surcharge',
+                    'desc' => 'Doorstep cash collection and courier settlement charge',
+                    'price' => $codFee,
+                    'qty' => 1,
+                    'discount' => 0.00,
+                    'gst' => 0.00,
+                    'total' => $codFee
+                ];
+            }
+
+            $computedTotal = array_sum(array_column($items, 'total'));
+            $netTotal = ($totalAmount > 0) ? $totalAmount : $computedTotal;
         }
+
+        if ($type === 'hotel') {
+            $paidAmount = (float)($booking['paid_amount'] ?? (in_array(strtolower($paymentStatus), ['paid', 'completed']) ? $netTotal : 0));
+            $paymentMode = $booking['payment_mode'] ?? null;
+        } elseif ($type === 'cab') {
+            $paidAmount = (float)($cab['paid_amount'] ?? (in_array(strtolower($paymentStatus), ['paid', 'completed']) ? $netTotal : 0));
+            $paymentMode = $cab['payment_mode'] ?? null;
+        } else {
+            $paidAmount = isset($order['paid_amount']) ? (float)$order['paid_amount'] : (in_array(strtolower($paymentStatus), ['paid', 'completed']) ? $netTotal : 0);
+            $paymentMode = $order['payment_mode'] ?? null;
+        }
+        $dueAmount = max(0, $netTotal - $paidAmount);
 
         $cabParking = \App\Helpers\DataStore::getItem('cab_parking_policy', 1) ?? ['status' => 'Active'];
         $isCabParkingActive = ($cabParking['status'] ?? 'Active') === 'Active';
@@ -767,11 +1064,14 @@ class CustomerPortalController extends Controller
             ? "🅿️ *Parking Note:* Airport 10m free; extra airport/monument parking on actual receipt.\n"
             : "";
 
+        $pinMsg = ($type === 'hotel' && !empty($checkinPin)) ? ("\n🔐 *Check-In Secret PIN:* {$checkinPin} (Quote at Hotel Reception)\n") : "";
+
         $waMsg = "📄 *TAX INVOICE / VOUCHER — " . strtoupper($type) . " #{$invoiceNo}*\n" .
                  "🏛️ *Service:* {$serviceName}\n" .
                  "👤 *Name:* {$customerName} ({$customerPhone})\n" .
                  "📅 *Date:* {$serviceDate}\n" .
-                 "💰 *Amount Paid:* ₹" . number_format($netTotal, 2) . " (Direct SBI Credit)\n" .
+                 "💰 *Amount Paid:* ₹" . number_format($paidAmount > 0 ? $paidAmount : $netTotal, 2) . ($dueAmount > 0 ? " (Advance Paid • Due: ₹" . number_format($dueAmount, 2) . ")" : " (Direct SBI Credit)") . "\n" .
+                 $pinMsg .
                  $parkingInvoiceMsg .
                  (!empty($fatehaName) ? "🤲 *Fateha Ba-Naam:* {$fatehaName}\n" : "") .
                  (!empty($distributionType) && !empty($isDegh) ? "🕌 *Taqseem:* {$distributionType}\n" : "") .
@@ -784,12 +1084,16 @@ class CustomerPortalController extends Controller
 
         $cabData = ($type === 'cab') ? $cab : null;
         $hotelData = ($type === 'hotel') ? ($booking ?? null) : null;
+        $checkinPin = $checkinPin ?? ($hotelData['checkin_pin'] ?? null);
+        $packagingFee = $packagingFee ?? 0;
+        $packagingType = $order['packaging_type'] ?? null;
 
         return view('home.customer.invoice', compact(
             'type', 'id', 'serviceName', 'invoiceNo', 'invoiceDate', 'serviceDate', 'orderNo', 'paymentId',
             'customerName', 'customerEmail', 'customerPhone', 'customerAltPhone', 'customerAddress', 'idInfo',
-            'items', 'netTotal', 'fatehaName', 'niyazDate', 'distribution_type', 'isDegh',
-            'whatsappShareUrl', 'customerWhatsappUrl', 'cabData', 'hotelData', 'paymentStatus'
+            'items', 'netTotal', 'paidAmount', 'dueAmount', 'paymentMode', 'fatehaName', 'niyazDate', 'distributionType', 'distribution_type', 'isDegh',
+            'whatsappShareUrl', 'customerWhatsappUrl', 'cabData', 'hotelData', 'paymentStatus', 'checkinPin',
+            'packagingFee', 'packagingType', 'distributionFee', 'order'
         ));
     }
 
@@ -840,5 +1144,100 @@ class CustomerPortalController extends Controller
     {
         \Illuminate\Support\Facades\DB::table('reviews')->where('id', $id)->delete();
         return back()->with('success', 'Your review has been removed.');
+    }
+
+    public function cancelHotelBooking(Request $request, $id)
+    {
+        $all = DataStore::getCollection('hotel_bookings');
+        $booking = null;
+        foreach ($all as $b) {
+            $bId = is_array($b) ? ($b['id'] ?? null) : ($b->id ?? null);
+            if ((string)$bId === (string)$id) {
+                $booking = $b;
+                break;
+            }
+        }
+
+        if (!$booking) {
+            return back()->with('error', 'Booking record not found.');
+        }
+
+        $currentStatus = strtolower(is_array($booking) ? ($booking['status'] ?? '') : ($booking->status ?? ''));
+        if (str_contains($currentStatus, 'cancel')) {
+            return back()->with('error', 'This hotel booking is already cancelled.');
+        }
+
+        $totalFare = (float)(is_array($booking) ? ($booking['total_amount'] ?? ($booking['amount'] ?? 0)) : ($booking->total_amount ?? ($booking->amount ?? 0)));
+        $checkinStr = is_array($booking) ? ($booking['check_in'] ?? ($booking['checkin'] ?? date('Y-m-d'))) : ($booking->check_in ?? ($booking->checkin ?? date('Y-m-d')));
+        
+        $checkinTimestamp = strtotime($checkinStr);
+        if (!$checkinTimestamp) { $checkinTimestamp = time() + 86400; }
+        
+        $diffHours = ($checkinTimestamp - time()) / 3600;
+
+        // Tiered Cancellation Rules:
+        // >= 48 hours (2+ days prior): 40% penalty (Admin 20%, Hotel 20%), 60% refund
+        // 24 to 48 hours (1 day prior): 60% penalty (Admin 30%, Hotel 30%), 40% refund
+        // < 24 hours (same day): 80% penalty (Admin 40%, Hotel 40%), 20% refund
+        if ($diffHours >= 48) {
+            $penaltyPct = 40.0;
+            $refundPct = 60.0;
+        } elseif ($diffHours >= 24) {
+            $penaltyPct = 60.0;
+            $refundPct = 40.0;
+        } else {
+            $penaltyPct = 80.0;
+            $refundPct = 20.0;
+        }
+
+        $penaltyTotal = round($totalFare * ($penaltyPct / 100), 2);
+        $refundAmount = round($totalFare * ($refundPct / 100), 2);
+        
+        // 50-50 split of the penalty between Admin and Hotel Partner
+        $adminPenaltyShare = round($penaltyTotal / 2, 2);
+        $hotelPenaltyShare = round($penaltyTotal / 2, 2);
+
+        $reason = trim($request->input('cancellation_reason', 'Customer requested cancellation via portal'));
+
+        $updateData = [
+            'status' => 'Cancelled by Customer (Refund Pending)',
+            'hotel_status' => 'cancelled',
+            'booking_status' => 'cancelled',
+            'cancellation_fee_total' => $penaltyTotal,
+            'cancellation_admin_share' => $adminPenaltyShare,
+            'cancellation_hotel_share' => $hotelPenaltyShare,
+            'cancellation_customer_refund' => $refundAmount,
+            'cancellation_reason' => $reason,
+            'cancelled_at' => now()->toDateTimeString(),
+            'refund_status' => ($refundAmount > 0) ? 'pending' : 'none',
+        ];
+
+        DataStore::updateItem('hotel_bookings', $id, $updateData);
+
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('hotel_bookings')) {
+                $dbCols = \Illuminate\Support\Facades\Schema::getColumnListing('hotel_bookings');
+                $dbUpdate = array_intersect_key(array_merge($updateData, ['updated_at' => now()]), array_flip($dbCols));
+                \Illuminate\Support\Facades\DB::table('hotel_bookings')->where('id', $id)->update($dbUpdate);
+            }
+        } catch (\Throwable $e) {}
+
+        // Release inventory back to hotel
+        try {
+            $hId = is_array($booking) ? ($booking['hotel_id'] ?? null) : ($booking->hotel_id ?? null);
+            if ($hId) {
+                $roomsCount = (int)(is_array($booking) ? ($booking['rooms'] ?? ($booking['rooms_count'] ?? 1)) : ($booking->rooms ?? 1));
+                $hotel = \App\Models\Hotel::find($hId);
+                if ($hotel) {
+                    $hotel->increment('available_rooms', $roomsCount);
+                }
+            }
+        } catch (\Throwable $e) {}
+
+        $refundNotice = ($refundAmount > 0)
+            ? "Your refund of ₹" . number_format($refundAmount, 2) . " ({$refundPct}%) has been queued. DewaSharif Admin will process the transfer directly to your original payment method."
+            : "Booking cancelled.";
+
+        return back()->with('success', "Reservation #{$id} has been cancelled successfully. {$refundNotice}");
     }
 }

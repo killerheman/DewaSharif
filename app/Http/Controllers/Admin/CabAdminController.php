@@ -324,10 +324,12 @@ class CabAdminController extends Controller
 
     public function assignDriver(Request $request, $id)
     {
-        $driverName = trim($request->input('driver_name', 'Ramesh Kumar'));
-        $driverPhone = trim($request->input('driver_phone', '9876543210'));
-        $vehicleNumber = trim($request->input('vehicle_number', 'UP 32 AB 1234'));
+        $driverName = trim($request->input('driver_name', ''));
+        $driverPhone = trim($request->input('driver_phone', ''));
+        $driverAadhaar = trim($request->input('driver_aadhaar', ''));
+        $vehicleNumber = trim($request->input('vehicle_number', ''));
         $vehicleName = trim($request->input('vehicle_name', ''));
+        $vehicleCount = max(1, (int)$request->input('vehicle_count', 1));
 
         $fullDriverString = "{$driverName} ({$vehicleNumber})";
 
@@ -335,7 +337,9 @@ class CabAdminController extends Controller
             'driver' => $fullDriverString,
             'driver_name' => $driverName,
             'driver_phone' => $driverPhone,
+            'driver_aadhaar' => $driverAadhaar,
             'driver_vehicle_number' => $vehicleNumber,
+            'vehicle_count' => $vehicleCount,
             'status' => 'Dispatched'
         ];
 
@@ -376,13 +380,13 @@ class CabAdminController extends Controller
         $custName = is_array($booking) ? ($booking['customer_name'] ?? ($booking['passenger_name'] ?? 'Passenger')) : ($booking->customer_name ?? 'Passenger');
         $custPhone = is_array($booking) ? ($booking['customer_phone'] ?? ($booking['passenger_phone'] ?? 'N/A')) : ($booking->customer_phone ?? 'N/A');
         $custAltPhone = is_array($booking) ? ($booking['alternate_phone'] ?? null) : ($booking->alternate_phone ?? null);
-        $idType = is_array($booking) ? ($booking['id_type'] ?? 'Aadhaar Card / Govt ID') : ($booking->id_type ?? 'Aadhaar Card / Govt ID');
+        $idType = is_array($booking) ? ($booking['id_type'] ?? 'Aadhaar Card') : ($booking->id_type ?? 'Aadhaar Card');
         $idNo = is_array($booking) ? ($booking['id_no'] ?? ($booking['aadhaar'] ?? 'Verified')) : ($booking->id_no ?? 'Verified');
         $route = is_array($booking) ? ($booking['route'] ?? 'Lucknow ↔ Dewa Sharif') : ($booking->route ?? 'Lucknow ↔ Dewa Sharif');
         $vehicle = is_array($booking) ? ($booking['vehicle_type'] ?? 'Cab Taxi') : ($booking->vehicle_type ?? 'Cab Taxi');
         $pickupTime = is_array($booking) ? ($booking['pickup_time'] ?? 'As Scheduled') : ($booking->pickup_time ?? 'As Scheduled');
-        $fare = is_array($booking) ? ($booking['fare'] ?? ($booking['total_fare'] ?? 1499)) : ($booking->fare ?? 1499);
-        $nightFee = !empty(is_array($booking) ? ($booking['night_surcharge'] ?? 0) : ($booking->night_surcharge ?? 0)) ? " (Includes ₹100 Night Charge 10 PM-5 AM)" : "";
+        $vCount = (int)(is_array($booking) ? ($booking['vehicle_count'] ?? $vehicleCount) : ($booking->vehicle_count ?? $vehicleCount));
+        if ($vCount < 1) { $vCount = 1; }
 
         $waPassengerContact = $custPhone . (!empty($custAltPhone) ? " (Alt: {$custAltPhone})" : "");
         $waMsg = "🚨 *DEWA SHARIF CAB DUTY SLIP - DRIVER ASSIGNED*\n\n" .
@@ -392,12 +396,14 @@ class CabAdminController extends Controller
                  "🪪 *Passenger ID Verification:* {$idType} ({$idNo})\n" .
                  "📍 *Route:* {$route}\n" .
                  "🚕 *Vehicle Model:* " . (!empty($vehicleName) ? $vehicleName : $vehicle) . "\n" .
-                 "📅 *Pickup Date & Time:* {$pickupTime}\n" .
-                 "💰 *Total Fare Paid:* ₹" . number_format((float)$fare, 2) . "{$nightFee}\n\n" .
+                 ($vCount > 1 ? "🚗 *Total Cabs Booked:* {$vCount} Vehicles\n" : "") .
+                 "📅 *Pickup Date & Time:* {$pickupTime}\n\n" .
                  "🚖 *Assigned Driver:* {$driverName}\n" .
                  "📱 *Driver Contact:* {$driverPhone}\n" .
-                 "🔢 *Vehicle No Plate:* {$vehicleNumber}\n\n" .
-                 "Please reach pickup point 15 mins prior to time. Wish you a safe trip!";
+                 (!empty($driverAadhaar) ? "🪪 *Driver Aadhaar:* {$driverAadhaar}\n" : "") .
+                 "🔢 *Vehicle No Plate(s):* {$vehicleNumber}\n\n" .
+                 "⚠️ *Driver Instruction:* Gaadi me baithne se pehle passenger ki original physical ID verify karein. Collect any toll/parking only as per actual physical receipt.\n" .
+                 "Wish you a safe & comfortable journey!";
 
         // Send Driver Assignment Alert Email to Customer & Admin
         try {
@@ -505,13 +511,21 @@ class CabAdminController extends Controller
         $idType = trim($request->input('id_type', 'Aadhaar Card'));
         $idNo = trim($request->input('id_no', 'N/A'));
         $route = trim($request->input('route', ''));
-        $vehicle = trim($request->input('vehicle_type', $request->input('vehicle_name', '')));
+        $rawVehicle = trim($request->input('vehicle_type', $request->input('vehicle_name', '')));
+        $cleanVehicle = trim(preg_replace('/\s*[\(\[]×\s*\d+\s*cabs?[\)\]]/i', '', $rawVehicle));
+        $vehicle = $cleanVehicle ?: $rawVehicle;
+        $vehicleCount = max(1, (int)$request->input('vehicle_count', 1));
         $pickupTime = trim($request->input('pickup_time', ''));
         $amount = (float)$request->input('fare', $request->input('amount', 0));
         $paymentStatus = strtolower(trim($request->input('payment_status', 'paid')));
         $bookingStatus = trim($request->input('status', 'Confirmed & Paid'));
         $paymentMode = trim($request->input('payment_mode', 'SBI UPI / PhonePe'));
         $utrNumber = trim($request->input('utr_number', ''));
+
+        $driverName = trim($request->input('driver_name', ''));
+        $driverPhone = trim($request->input('driver_phone', ''));
+        $driverAadhaar = trim($request->input('driver_aadhaar', ''));
+        $vehicleNumber = trim($request->input('driver_vehicle_number', $request->input('vehicle_number', '')));
 
         $data = [
             'customer_name' => $custName ?: 'Guest Passenger',
@@ -524,6 +538,7 @@ class CabAdminController extends Controller
             'route' => $route,
             'vehicle_type' => $vehicle,
             'vehicle_name' => $vehicle,
+            'vehicle_count' => $vehicleCount,
             'pickup_time' => $pickupTime,
             'fare' => $amount,
             'total_fare' => $amount,
@@ -534,6 +549,16 @@ class CabAdminController extends Controller
             'payment_mode' => $paymentMode,
             'utr_number' => $utrNumber ?: null,
         ];
+
+        if ($request->has('driver_name')) {
+            $data['driver_name'] = $driverName;
+            $data['driver_phone'] = $driverPhone;
+            $data['driver_aadhaar'] = $driverAadhaar;
+            $data['driver_vehicle_number'] = $vehicleNumber;
+            if (!empty($driverName) || !empty($vehicleNumber)) {
+                $data['driver'] = trim("{$driverName} ({$vehicleNumber})");
+            }
+        }
 
         DataStore::updateItem('cab_bookings', $id, $data);
 

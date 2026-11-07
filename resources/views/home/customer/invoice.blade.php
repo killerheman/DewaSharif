@@ -84,8 +84,43 @@
             overflow: hidden;
         }
 
+        /* WATERMARK OVERLAY STAMP */
+        .watermark-bg {
+            position: absolute;
+            top: 52%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-24deg);
+            -webkit-transform: translate(-50%, -50%) rotate(-24deg);
+            text-align: center;
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+            z-index: 99;
+            line-height: 1.25;
+            border: none !important;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            text-transform: uppercase;
+        }
+
+        .watermark-paid {
+            color: #16a34a;
+            opacity: 0.18;
+        }
+
+        .watermark-pending {
+            color: #d97706;
+            opacity: 0.20;
+        }
+
+        .watermark-failed {
+            color: #dc2626;
+            opacity: 0.18;
+        }
+
         /* HEADER SECTION */
         .invoice-header {
+            position: relative;
+            z-index: 2;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -211,6 +246,8 @@
 
         /* BILLED TO */
         .billed-to {
+            position: relative;
+            z-index: 2;
             margin-bottom: 35px;
         }
 
@@ -237,6 +274,8 @@
 
         /* TABLE */
         .items-table {
+            position: relative;
+            z-index: 2;
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 25px;
@@ -250,7 +289,7 @@
         }
 
         .items-table th {
-            background-color: #ffffff;
+            background-color: transparent;
             color: #0f172a;
             font-weight: 800;
             text-align: left;
@@ -280,7 +319,7 @@
         .total-row td {
             font-weight: 800;
             font-size: 15px;
-            background-color: #ffffff;
+            background-color: transparent;
         }
 
         /* FOOTER / STAMP */
@@ -403,31 +442,72 @@
                             class="meta-val">{{ $paymentId }}</span></div>
                 @endif
                 <div class="meta-line" style="margin-top: 6px;">
-                    <span class="meta-label">Amount Status:</span>
+                    <span class="meta-label" style="display: block; margin-bottom: 3px;">Amount Status:</span>
                     @php
                         $rawPayStatus = strtolower(
-                            $paymentStatus ?? ($cabData['payment_status'] ?? ($hotelData['payment_status'] ?? 'paid')),
+                            $paymentStatus ?? ($cabData['payment_status'] ?? ($hotelData['payment_status'] ?? 'pending')),
                         );
-                        $isPaid = in_array($rawPayStatus, ['paid', 'completed', 'success']);
-                        $isFailed = in_array($rawPayStatus, ['failed', 'cancelled', 'rejected']);
-                        $isPending = !$isPaid && !$isFailed;
+                        $hasPaidAmt = !empty($paidAmount) && (float)$paidAmount > 0;
+                        $hasDueAmt = !empty($dueAmount) && (float)$dueAmount > 0;
+                        $isPaid = in_array($rawPayStatus, ['paid', 'completed', 'success']) && !$hasDueAmt;
+                        $isFullPaid = $isPaid;
+                        $isPartial = ($rawPayStatus === 'partial') || ($hasPaidAmt && $hasDueAmt && in_array($rawPayStatus, ['paid', 'completed', 'success', 'partial']));
+                        $isFailed = in_array($rawPayStatus, ['failed', 'cancelled', 'rejected', 'void']);
+                        $isPending = !$isPaid && !$isPartial && !$isFailed;
                     @endphp
                     @if ($isPaid)
                         <span class="badge-paid">✓ PAID &amp; CONFIRMED</span>
+                    @elseif($isPartial)
+                        <div style="display: inline-block; background: #fef3c7; color: #92400e; border: 1.5px solid #fde68a; font-weight: 800; padding: 6px 12px; border-radius: 6px; font-size: 11px; text-align: right; line-height: 1.4; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                            <div>✅ ADVANCE RECEIVED &amp; CONFIRMED (₹{{ number_format($paidAmount, 2) }} RECEIVED)</div>
+                            <div style="margin-top: 4px; color: #b91c1c; font-weight: 900; font-size: 11.5px; border-top: 1px dashed #fcd34d; padding-top: 3px;">🔴 BALANCE DUE: ₹{{ number_format($dueAmount, 2) }} (PAYABLE ON DELIVERY / NIYAZ)</div>
+                        </div>
                     @elseif($isFailed)
                         <span class="badge-failed">❌ PAYMENT FAILED / VOID</span>
                     @else
-                        <span class="badge-pending">⏳ VERIFICATION PENDING</span>
+                        <div style="display: inline-block; background: #fff7ed; color: #c2410c; border: 1.5px solid #fed7aa; font-weight: 800; padding: 6px 12px; border-radius: 6px; font-size: 11px; text-align: right; line-height: 1.4; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                            @if($hasPaidAmt)
+                                <div>⏳ PROVISIONAL — PAYMENT CONFIRMATION PENDING (₹{{ number_format($paidAmount, 2) }} PROPOSED ADVANCE)</div>
+                            @else
+                                <div>⏳ PROVISIONAL — PAYMENT CONFIRMATION PENDING</div>
+                            @endif
+                            @if($hasDueAmt)
+                                <div style="margin-top: 4px; color: #ea580c; font-weight: 900; font-size: 11.5px; border-top: 1px dashed #fdba74; padding-top: 3px;">🔴 BALANCE DUE: ₹{{ number_format($dueAmount, 2) }} (PAYABLE UPON CONFIRMATION)</div>
+                            @endif
+                        </div>
                     @endif
                 </div>
             </div>
         </div>
 
-        @if ($isFailed)
-            <div
-                style="position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); font-size: 38px; font-weight: 900; color: rgba(220, 38, 38, 0.16); border: 4px dashed #dc2626; padding: 12px 28px; text-transform: uppercase; pointer-events: none; z-index: 10; letter-spacing: 3px; text-align: center; border-radius: 12px; white-space: nowrap;">
-                PAYMENT FAILED / VOID
+        {{-- DYNAMIC OFFICIAL WATERMARK OVERLAY (Green for Paid, Red for Failed, Amber for Partial, Warning for Pending) --}}
+        @if ($isPaid)
+            <div class="watermark-bg watermark-paid"
+                style="position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%) rotate(-24deg); -webkit-transform: translate(-50%, -50%) rotate(-24deg); color: #16a34a; opacity: 0.18; text-align: center; white-space: nowrap; pointer-events: none; user-select: none; z-index: 99; border: none; font-family: 'Inter', system-ui, sans-serif;">
+                <div style="font-size: 38px; font-weight: 900; letter-spacing: 5px; margin-bottom: 8px;">PAID &amp; VERIFIED</div>
+                <div style="font-size: 24px; font-weight: 800; letter-spacing: 8px;">WWW.DEWASHARIF.COM</div>
             </div>
+        @elseif ($isPartial)
+            <div class="watermark-bg watermark-pending"
+                style="position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%) rotate(-24deg); -webkit-transform: translate(-50%, -50%) rotate(-24deg); color: #d97706; opacity: 0.20; text-align: center; white-space: nowrap; pointer-events: none; user-select: none; z-index: 99; border: none; font-family: 'Inter', system-ui, sans-serif;">
+                <div style="font-size: 34px; font-weight: 900; letter-spacing: 4px; margin-bottom: 8px;">ADVANCE RECEIVED &amp; CONFIRMED</div>
+                <div style="font-size: 20px; font-weight: 800; letter-spacing: 6px;">WWW.DEWASHARIF.COM</div>
+            </div>
+        @elseif ($isFailed)
+            <div class="watermark-bg watermark-failed"
+                style="position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%) rotate(-24deg); -webkit-transform: translate(-50%, -50%) rotate(-24deg); color: #dc2626; opacity: 0.18; text-align: center; white-space: nowrap; pointer-events: none; user-select: none; z-index: 99; border: none; font-family: 'Inter', system-ui, sans-serif;">
+                <div style="font-size: 38px; font-weight: 900; letter-spacing: 5px; margin-bottom: 8px;">PAYMENT FAILED / VOID</div>
+                <div style="font-size: 24px; font-weight: 800; letter-spacing: 8px;">WWW.DEWASHARIF.COM</div>
+            </div>
+        @else
+            <div class="watermark-bg watermark-pending"
+                style="position: absolute; top: 52%; left: 50%; transform: translate(-50%, -50%) rotate(-24deg); -webkit-transform: translate(-50%, -50%) rotate(-24deg); color: #c2410c; opacity: 0.20; text-align: center; white-space: nowrap; pointer-events: none; user-select: none; z-index: 99; border: none; font-family: 'Inter', system-ui, sans-serif;">
+                <div style="font-size: 32px; font-weight: 900; letter-spacing: 4px; margin-bottom: 8px;">PROVISIONAL — CONFIRMATION PENDING</div>
+                <div style="font-size: 20px; font-weight: 800; letter-spacing: 6px;">NOT CONFIRMED UNTIL BANK CREDIT</div>
+            </div>
+        @endif
+
+        @if ($isFailed)
             <div
                 style="background: #fef2f2; border: 2px solid #ef4444; border-radius: 8px; padding: 14px 18px; margin-bottom: 25px; color: #991b1b;">
                 <div
@@ -436,23 +516,30 @@
                 </div>
                 <p style="font-size: 12.5px; margin: 0; line-height: 1.5;">
                     The payment reference / UTR provided was uncredited or rejected during bank verification. This duty
-                    voucher is rendered <strong>VOID</strong> and <strong>CANNOT</strong> be accepted by the driver or
-                    hotel desk. To re-book or clarify your payment, please contact Dewa Sharif Support immediately at
+                    voucher is rendered <strong>VOID</strong> and <strong>CANNOT</strong> be accepted. To re-book or clarify your payment, please contact Dewa Sharif Support immediately at
                     <strong>info@dewasharif.com / +91 9648777223</strong>.
                 </p>
             </div>
         @elseif($isPending)
             <div
-                style="background: #fffbeb; border: 1.5px solid #f59e0b; border-radius: 8px; padding: 14px 18px; margin-bottom: 25px; color: #92400e;">
+                style="background: #fffbeb; border: 2px dashed #f59e0b; border-radius: 8px; padding: 14px 18px; margin-bottom: 25px; color: #92400e;">
                 <div
                     style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 13.5px; margin-bottom: 4px;">
-                    <span style="font-size: 18px;">⏳</span> UPI QR PAYMENT SUBMITTED — SETTLEMENT VERIFICATION UNDERWAY
+                    <span style="font-size: 18px;">⚠️</span> PROVISIONAL QUOTATION / BILL ESTIMATE — SUBJECT TO BANK REALISATION
                 </div>
                 <p style="font-size: 12px; margin: 0; line-height: 1.5;">
-                    Booking reserved against UPI Reference / UTR:
-                    <strong>{{ $cabData['utr_number'] ?? ($hotelData['utr_number'] ?? ($paymentId ?? 'Submitted')) }}</strong>.
-                    Vehicle dispatch &amp; duty assignment is subject to bank credit settlement verification by Dewa
-                    Sharif desk.
+                    <strong>TERMS / NOTICE:</strong> This document is an initial provisional quotation and booking estimate. This receipt shall only be deemed <strong>OFFICIALLY CONFIRMED &amp; ACCEPTABLE</strong> once the payment (UTR reference or bank transfer receipt) has been verified and credited to the official Dewa Sharif Management bank account. In the absence of verified bank credit realization, this document remains strictly provisional, unconfirmed, and non-claimable.
+                </p>
+            </div>
+        @elseif($isPartial)
+            <div
+                style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 8px; padding: 12px 18px; margin-bottom: 25px; color: #166534;">
+                <div
+                    style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 13.5px; margin-bottom: 4px;">
+                    <span style="font-size: 18px;">✅</span> OFFICIAL BOOKING CONFIRMED — PARTIAL ADVANCE VERIFIED
+                </div>
+                <p style="font-size: 12px; margin: 0; line-height: 1.5;">
+                    <strong>SETTLEMENT NOTICE:</strong> An advance payment of <strong>₹{{ number_format($paidAmount, 2) }}</strong> has been officially verified and credited to Dewa Sharif Management. The remaining balance of <strong>₹{{ number_format($dueAmount, 2) }}</strong> is outstanding and strictly payable prior to service commencement or Niyaz handover.
                 </p>
             </div>
         @endif
@@ -490,19 +577,64 @@
                         </div>
                     @endif
                 @endif
-            </div>
         </div>
 
-        @if (($type ?? '') === 'cab')
+        @if (($type ?? '') === 'hotel' && !$isFailed)
             @php
-                $cabDriverName = $cabData['driver_name'] ?? null;
-                $cabDriverPhone = $cabData['driver_phone'] ?? null;
-                $cabDriverVehicle = $cabData['driver_vehicle_number'] ?? null;
-                $hasDriverAssigned =
-                    (!empty($cabDriverName) && $cabDriverName !== 'Ramesh Kumar') ||
-                    (!empty($cabData['driver']) &&
-                        !str_contains($cabData['driver'], 'Progress') &&
-                        !str_contains($cabData['driver'], 'Pending'));
+                $hotelPin = $checkinPin ?? ($hotelData['checkin_pin'] ?? '4821');
+                $hotelNameDisplay = $hotelData['hotel_name'] ?? 'Al-Waris Deluxe Guest House';
+                $roomNameDisplay = $hotelData['room_name'] ?? ($hotelData['room_type'] ?? 'Deluxe Room');
+            @endphp
+            <div style="background: linear-gradient(135deg, #052c16 0%, #031c0e 100%); color: #ffffff; border-radius: 8px; padding: 16px 22px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; border: 2px solid #10b981; box-shadow: 0 4px 15px rgba(5,44,22,0.15);">
+                <div>
+                    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #34d399; font-weight: 800; margin-bottom: 3px;">
+                        🔐 Official Check-In Voucher &amp; Security PIN
+                    </div>
+                    <div style="font-size: 15px; font-weight: 800; color: #ffffff;">
+                        {{ $hotelNameDisplay }} — {{ $roomNameDisplay }}
+                    </div>
+                    <div style="font-size: 12.5px; color: rgba(255,255,255,0.85); margin-top: 3px;">
+                        Present this secret 4-digit PIN to the hotel reception upon check-in to confirm your stay and collect keys.
+                    </div>
+                    <div style="font-size: 11px; color: #fde047; margin-top: 4px; font-weight: 700;">
+                        ⚠️ 100% Online Security: Room rent is fully paid online. Do NOT pay rent in cash at reception.
+                    </div>
+                </div>
+                <div style="text-align: center; background: rgba(16, 185, 129, 0.18); border: 2px solid #10b981; padding: 10px 20px; border-radius: 10px; min-width: 130px; margin-left: 15px;">
+                    <div style="font-size: 10px; text-transform: uppercase; color: #a7f3d0; font-weight: 800; letter-spacing: 1px;">
+                        Check-In PIN
+                    </div>
+                    <div style="font-size: 30px; font-weight: 900; letter-spacing: 6px; color: #ffffff; line-height: 1.15; margin-top: 2px;">
+                        {{ $hotelPin }}
+                    </div>
+                    <div style="font-size: 9px; color: #6ee7b7; font-weight: 600; text-transform: uppercase;">
+                        Secret OTP
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        @if (($type ?? '') === 'cab' && $isPaid)
+            @php
+                $rawDriverName = trim($cabData['driver_name'] ?? '');
+                $cabDriverName = ($rawDriverName && $rawDriverName !== 'Ramesh Kumar') ? $rawDriverName : '';
+
+                $rawDriverPhone = trim($cabData['driver_phone'] ?? '');
+                $cabDriverPhone = ($rawDriverPhone && $rawDriverPhone !== '+91 9648777223' && $rawDriverPhone !== '9876543210') ? $rawDriverPhone : '';
+
+                $rawDriverVehicle = trim($cabData['driver_vehicle_number'] ?? '');
+                $cabDriverVehicle = ($rawDriverVehicle && !str_contains($rawDriverVehicle, 'UP 32 AZ 4589') && !str_contains($rawDriverVehicle, 'UP 32 AB 1234') && !str_contains($rawDriverVehicle, 'UP32 AB 1234')) ? $rawDriverVehicle : '';
+
+                $rawDriverAadhaar = trim($cabData['driver_aadhaar'] ?? '');
+                $cabDriverAadhaar = ($rawDriverAadhaar && $rawDriverAadhaar !== '1234 5678 9012' && $rawDriverAadhaar !== 'Verified') ? $rawDriverAadhaar : '';
+
+                $cabVehicleCount = (int)($cabData['vehicle_count'] ?? 1);
+                if ($cabVehicleCount < 1) { $cabVehicleCount = 1; }
+
+                $cabVehicleModel = $cabData['vehicle_name'] ?? ($cabData['vehicle_type'] ?? ($cabData['vehicle'] ?? 'Cab Taxi'));
+
+                // Strict check: driver is assigned ONLY if real data was entered in DB
+                $hasDriverAssigned = !empty($cabDriverName) || !empty($cabDriverPhone) || !empty($cabDriverVehicle);
             @endphp
             <div
                 style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 16px 20px; margin-bottom: 25px;">
@@ -520,53 +652,40 @@
                     @else
                         <span
                             style="background: #fef3c7; color: #b45309; font-weight: 800; font-size: 11px; padding: 3px 10px; border-radius: 12px; text-transform: uppercase;">
-                            ⏳ In Progress
+                            ⏳ To Be Allocated
                         </span>
                     @endif
                 </div>
                 @if ($hasDriverAssigned)
-                    @php
-                        $cabVehicleModel =
-                            $cabData['vehicle_name'] ??
-                            ($cabData['vehicle_type'] ?? ($cabData['vehicle'] ?? 'Cab Taxi'));
-                    @endphp
                     <div
                         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; font-size: 13px;">
                         <div>
-                            <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">👤 Duty
-                                Driver:</span>
-                            <strong
-                                style="color: #0f172a; font-size: 14px;">{{ $cabDriverName ?: $cabData['driver'] ?? 'Assigned Driver' }}</strong>
+                            <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">👤 Duty Driver:</span>
+                            <strong style="color: #0f172a; font-size: 14px;">{{ $cabDriverName ?: 'Duty Driver' }}</strong>
                         </div>
                         <div>
-                            <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">📱 Driver
-                                Contact:</span>
-                            <strong
-                                style="color: #0f172a; font-size: 14px;">{{ $cabDriverPhone ?: '+91 9648777223' }}</strong>
+                            <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">📱 Driver Contact:</span>
+                            <strong style="color: #0f172a; font-size: 14px;">{{ $cabDriverPhone ?: 'Shared on WhatsApp' }}</strong>
+                        </div>
+                        @if(!empty($cabDriverAadhaar))
+                        <div>
+                            <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">🪪 Driver Aadhaar:</span>
+                            <strong style="color: #1e40af; font-size: 14px;">{{ $cabDriverAadhaar }}</strong>
+                        </div>
+                        @endif
+                        <div>
+                            <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">🚗 Assigned Vehicle:</span>
+                            <strong style="color: #0f172a; font-size: 14px;">{{ $cabVehicleModel }}{{ $cabVehicleCount > 1 ? " ({$cabVehicleCount} Cabs)" : '' }}</strong>
                         </div>
                         <div>
-                            <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">🚗
-                                Assigned Vehicle:</span>
-                            <strong style="color: #0f172a; font-size: 14px;">{{ $cabVehicleModel }}</strong>
-                        </div>
-                        <div>
-                            <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">🔢
-                                Vehicle Number Plate:</span>
-                            <strong
-                                style="color: #15803d; font-size: 14px;">{{ $cabDriverVehicle ?: 'UP 32 AZ 4589' }}</strong>
+                            <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">🔢 Vehicle Number Plate(s):</span>
+                            <strong style="color: #15803d; font-size: 14px;">{{ $cabDriverVehicle ?: 'To be shared' }}</strong>
                         </div>
                     </div>
                 @else
-                    @php
-                        $cabVehicleModel =
-                            $cabData['vehicle_name'] ??
-                            ($cabData['vehicle_type'] ?? ($cabData['vehicle'] ?? 'Cab Taxi'));
-                    @endphp
-                    <div style="font-size: 12.5px; color: #334155; line-height: 1.5;">
-                        <span style="color: #b45309; font-weight: 700;">⏳ Driver Assignment in Progress:</span>
-                        Your ride for <strong>{{ $cabVehicleModel }}</strong> is confirmed. Driver name, direct phone
-                        number, and vehicle plate number will be assigned and sent via SMS/WhatsApp prior to journey
-                        pickup time.
+                    <div style="font-size: 12.5px; color: #334155; line-height: 1.55;">
+                        <span style="color: #b45309; font-weight: 700;">⏳ Driver &amp; Vehicle Allocation in Progress:</span>
+                        Your ride for <strong>{{ $cabVehicleModel }}</strong>{{ $cabVehicleCount > 1 ? " ({$cabVehicleCount} Cabs)" : '' }} is confirmed &amp; verified. Dedicated driver details, direct phone number, and vehicle number plate will be assigned and shared on your WhatsApp 2 hours prior to journey pickup time.
                     </div>
                 @endif
             </div>
@@ -613,6 +732,13 @@
                         <strong style="color: #0f172a; font-size: 14px;">{{ $checkinDate }} → {{ $checkoutDate }}
                             ({{ $stayNights }} Night{{ $stayNights > 1 ? 's' : '' }})</strong>
                     </div>
+                    <div>
+                        <span style="color: #64748b; font-weight: 600; display: block; font-size: 11.5px;">🔐 Reception Check-In PIN:</span>
+                        <strong style="color: #1e3a8a; font-size: 16px; background: #dbeafe; padding: 2px 8px; border-radius: 4px; letter-spacing: 2px;">{{ $hotelData['checkin_pin'] ?? '4821' }}</strong>
+                    </div>
+                </div>
+                <div style="margin-top: 12px; padding: 8px 12px; background: #ecfdf5; border: 1.5px solid #10b981; border-radius: 6px; font-size: 11.5px; color: #065f46;">
+                    <strong>🛡️ PAID ONLINE TO DEWASHARIF.COM:</strong> Room rent is 100% pre-paid online. <u>Do NOT pay room tariff in cash at reception</u>. Simply present this voucher and quote your 4-digit Check-In PIN during room handover.
                 </div>
             </div>
         @endif
@@ -625,12 +751,29 @@
                     style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #bbf7d0; padding-bottom: 8px;">
                     <span
                         style="font-weight: 800; color: #166534; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.5px;">
-                        🍲 Aastana-e-Aaliya Dewa Sharif — Degh Niyaz Booking Summary
+                        🍲Dewa Sharif — Degh & Niyaz Booking Summary
                     </span>
-                    <span
-                        style="background: #15803d; color: #ffffff; font-weight: 800; font-size: 11px; padding: 3px 10px; border-radius: 12px; text-transform: uppercase;">
-                        ✓ Parcel / Distribution Ready
-                    </span>
+                    @php
+                        $actPkgFee = (float)($packagingFee ?? ($order['packaging_fee'] ?? 0));
+                        $actPkgType = strtolower($packagingType ?? ($order['packaging_type'] ?? ''));
+                        $isComplimentary = ($actPkgType === 'complimentary' || str_contains($actPkgType, 'complimentary'));
+                    @endphp
+                    @if($actPkgFee > 0 || $isComplimentary)
+                        @php
+                            $badgeLabel = match(true) {
+                                $isComplimentary => "✓ COMPLIMENTARY PACKAGING COURTESY (₹0)",
+                                $actPkgType === 'polythin' || str_contains($actPkgType, 'polythin') => "✓ FOOD-GRADE POLYTHIN PACKING (₹" . number_format($actPkgFee) . ")",
+                                $actPkgType === 'box' || str_contains($actPkgType, 'box') || str_contains($actPkgType, 'dabba') => "✓ CONTAINER BOX / DABBA PACKING (₹" . number_format($actPkgFee) . ")",
+                                $actPkgType === 'katori' || (str_contains($actPkgType, 'katori') && !str_contains($actPkgType, 'mitti')) => "✓ DISPOSABLE KATORI PACKING (₹" . number_format($actPkgFee) . ")",
+                                $actPkgType === 'mitti_katori' || str_contains($actPkgType, 'mitti') => "✓ SACRED MITTI KATORI PACKING (₹" . number_format($actPkgFee) . ")",
+                                default => "✓ CUSTOM PACKAGING INCLUDED (₹" . number_format($actPkgFee) . ")"
+                            };
+                        @endphp
+                        <span
+                            style="background: #15803d; color: #ffffff; font-weight: 800; font-size: 11px; padding: 4px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.4px;">
+                            {{ $badgeLabel }}
+                        </span>
+                    @endif
                 </div>
                 <div
                     style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; font-size: 13px;">
@@ -642,14 +785,33 @@
                     </div>
                     <div>
                         <span style="color: #475569; font-weight: 600; display: block; margin-bottom: 2px;">📅
-                            Scheduled Niyaz Date:</span>
+                            Scheduled Niyaz Date &amp; Time:</span>
                         <strong style="color: #0f172a; font-size: 15px;">{{ $niyazDate ?? $serviceDate }}</strong>
                     </div>
+                    @php
+                        $distVal = $distributionType ?: ($distribution_type ?: 'Direct Handover / Self Collection at Dewa Sharif');
+                        $isDargahLangar = str_contains(strtolower($distVal), 'dargah') || str_contains(strtolower($distVal), 'taqseem') || str_contains(strtolower($distVal), 'langar');
+                        $isTakeaway = str_contains(strtolower($distVal), 'takeaway') || str_contains(strtolower($distVal), 'parcel') || str_contains(strtolower($distVal), 'packed');
+                        $actDistFee = (float)($distributionFee ?? ($order['distribution_fee'] ?? 0));
+                    @endphp
                     <div>
-                        <span style="color: #475569; font-weight: 600; display: block; margin-bottom: 2px;">🕌 Tabarruk
-                            Distribution Mode:</span>
-                        <strong
-                            style="color: #15803d; font-size: 13.5px;">{{ $distributionType ?? 'Dargah Sharif Me Langar Taqseem' }}</strong>
+                        <span style="color: #475569; font-weight: 600; display: block; margin-bottom: 3px;">🕌 Tabarruk Distribution Mode:</span>
+                        @if($isDargahLangar)
+                            <strong style="color: #92400e; font-size: 12.5px; display: inline-flex; align-items: center; gap: 5px; background: #fef3c7; border: 1px solid #fde68a; padding: 4px 10px; border-radius: 6px;">
+                                <span>🕌 Dargah Sharif Langar Taqseem (Managed Service)</span>
+                                @if($actDistFee > 0)
+                                    <span style="background: #d97706; color: #fff; font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 10px;">+₹{{ number_format($actDistFee) }}</span>
+                                @endif
+                            </strong>
+                        @elseif($isTakeaway)
+                            <strong style="color: #0369a1; font-size: 12.5px; display: inline-flex; align-items: center; gap: 5px; background: #f0f9ff; border: 1px solid #bae6fd; padding: 4px 10px; border-radius: 6px;">
+                                <span>📦 Packed Takeaway Handover (Devotee Self-Distribution)</span>
+                            </strong>
+                        @else
+                            <strong style="color: #15803d; font-size: 12.5px; display: inline-flex; align-items: center; gap: 5px; background: #f0fdf4; border: 1px solid #bbf7d0; padding: 4px 10px; border-radius: 6px;">
+                                <span>🟢 Direct Handover / Self-Collection</span>
+                            </strong>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -678,7 +840,7 @@
                                 <div class="particulars-desc">{{ $item['desc'] }}</div>
                             @endif
                         </td>
-                        <td class="text-right">₹{{ number_format($item['price'], 2) }}x{{ $item['qty'] }}</td>
+                        <td class="text-right">₹{{ number_format($item['price'], 2) }} &times; {{ $item['qty'] }}</td>
                         {{-- <td class="text-right">₹{{ number_format($item['discount'], 2) }}</td> --}}
                         {{-- <td class="text-right">₹{{ number_format($item['gst'], 2) }}</td> --}}
                         <td class="text-right">₹{{ number_format($item['total'], 2) }}</td>
@@ -688,6 +850,25 @@
                     <td colspan="3" class="text-right">Net Total Amount</td>
                     <td class="text-right">₹{{ number_format($netTotal, 2) }}</td>
                 </tr>
+                @if(!empty($isPartial))
+                    <tr style="background:#f0fdf4; color:#166534; font-weight:700;">
+                        <td colspan="3" class="text-right" style="border:1px solid #000; padding:8px 14px;">Advance Amount Received ({{ $paymentMode ?: 'UPI / Cash' }})</td>
+                        <td class="text-right" style="border:1px solid #000; padding:8px 14px; color:#15803d; font-weight:800;">- ₹{{ number_format($paidAmount, 2) }}</td>
+                    </tr>
+                    <tr style="background:#fef2f2; color:#991b1b; font-weight:800; font-size:15px;">
+                        <td colspan="3" class="text-right" style="border:1px solid #000; padding:10px 14px;">Balance Due (Payable on Niyaz / Delivery)</td>
+                        <td class="text-right" style="border:1px solid #000; padding:10px 14px; color:#dc2626;">₹{{ number_format($dueAmount, 2) }}</td>
+                    </tr>
+                @elseif(!empty($isPending) && (float)$paidAmount > 0)
+                    <tr style="background:#fffbeb; color:#92400e; font-weight:700;">
+                        <td colspan="3" class="text-right" style="border:1px solid #000; padding:8px 14px;">Proposed Advance (Payment Confirmation Pending)</td>
+                        <td class="text-right" style="border:1px solid #000; padding:8px 14px; color:#b45309; font-weight:800;">₹{{ number_format($paidAmount, 2) }}</td>
+                    </tr>
+                    <tr style="background:#fff7ed; color:#c2410c; font-weight:800; font-size:15px;">
+                        <td colspan="3" class="text-right" style="border:1px solid #000; padding:10px 14px;">Balance Due Upon Confirmation</td>
+                        <td class="text-right" style="border:1px solid #000; padding:10px 14px; color:#ea580c;">₹{{ number_format($dueAmount, 2) }}</td>
+                    </tr>
+                @endif
             </tbody>
         </table>
 
@@ -735,10 +916,13 @@
                 • Managed &amp; Supervised by Shahzade Alam / Masharrat Warsi.
             </div>
             <div class="stamp-box"
-                style="border-color: {{ $isPaid ? '#16a34a' : ($isFailed ? '#dc2626' : '#f59e0b') }}; background: {{ $isPaid ? '#f0fdf4' : ($isFailed ? '#fef2f2' : '#fffbeb') }};">
+                style="border-color: {{ $isPaid ? '#16a34a' : ($isPartial ? '#d97706' : ($isFailed ? '#dc2626' : '#f59e0b')) }}; background: {{ $isPaid ? '#f0fdf4' : ($isPartial ? '#fffbeb' : ($isFailed ? '#fef2f2' : '#fffbeb')) }};">
                 @if ($isPaid)
                     <div class="stamp-title" style="color: #15803d;">✓ VERIFIED &amp; PAID</div>
                     <div class="stamp-sub" style="color: #166534;">Dewa Sharif Trust</div>
+                @elseif($isPartial)
+                    <div class="stamp-title" style="color: #b45309;">✓ ADVANCE PAID</div>
+                    <div class="stamp-sub" style="color: #92400e;">Balance Due: ₹{{ number_format($dueAmount) }}</div>
                 @elseif($isFailed)
                     <div class="stamp-title" style="color: #dc2626;">❌ PAYMENT FAILED / VOID</div>
                     <div class="stamp-sub" style="color: #991b1b;">Not Valid for Boarding/Check-in</div>

@@ -39,7 +39,13 @@
 
     $price = (float)($product['price'] ?? 299);
     $mrp = (float)($product['mrp'] ?? round($price * 1.35));
-    $discountPct = ($mrp > $price) ? round((($mrp - $price) / $mrp) * 100) : 0;
+    $discountPct = (!empty($product['discount_percent']) && (int)$product['discount_percent'] > 0)
+        ? (int)$product['discount_percent']
+        : (($mrp > $price) ? round((($mrp - $price) / $mrp) * 100) : 0);
+
+    $rawGal = $product['gallery_images'] ?? '[]';
+    $galleryList = is_array($rawGal) ? $rawGal : (json_decode($rawGal, true) ?: []);
+    $allImages = array_values(array_unique(array_filter(array_merge([$imgSrc], $galleryList))));
 
     if ($isDegh) {
         $waMessage = "Assalamu Alaikum! Main Dewa Sharif Portal se Degh Niyaz: '" . ($product['name'] ?? 'Degh') . "' (Price: ₹" . number_format($price) . ") book karna chahta hoon. Kripya Fateha aur Taqseem ki details batayein.";
@@ -262,10 +268,29 @@
                         </span>
                     @endif
 
-                    <div style="min-height: 340px; display: flex; align-items: center; justify-content: center; padding: 30px 10px;">
+                    <div style="min-height: 340px; display: flex; align-items: center; justify-content: center; padding: 25px 10px;">
                         <img id="mainProductImage" src="{{ $imgSrc }}" alt="{{ $product['name'] }}" class="prod-main-img"
-                            onerror="this.onerror=null; this.src='/home/images/dewasharif/dewapage/attar_bottle.jpg';">
+                            onerror="this.onerror=null; this.src='/home/images/dewasharif/dewapage/attar_bottle.jpg';"
+                            style="max-height: 320px; width: auto; object-fit: contain; transition: opacity 0.2s ease;">
                     </div>
+
+                    @if(count($allImages) > 1)
+                        <!-- Multi-Image Thumbnails Gallery (Up to 5 images) -->
+                        <div style="display: flex; gap: 8px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 10px; margin-bottom: 8px; padding: 0 10px;">
+                            @foreach($allImages as $idx => $gImg)
+                                @php
+                                    $cleanGImg = preg_replace('#^https?://[^/]+#', '', $gImg);
+                                    $cleanGImg = '/' . ltrim($cleanGImg, '/');
+                                @endphp
+                                <button type="button" onclick="switchProductDetailImage('{{ $cleanGImg }}', this)"
+                                    class="btn p-0 gallery-thumb-btn {{ $idx === 0 ? 'active' : '' }}"
+                                    style="width: 54px; height: 54px; border-radius: 8px; overflow: hidden; background: #ffffff; cursor: pointer; border: 2px solid {{ $idx === 0 ? '#10b981' : '#cbd5e1' }}; padding: 2px; box-sizing: border-box; transition: transform 0.15s, border-color 0.15s;"
+                                    onmouseenter="this.style.transform='scale(1.08)'" onmouseleave="this.style.transform='scale(1)'">
+                                    <img src="{{ $cleanGImg }}" alt="View {{ $idx + 1 }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 6px;" onerror="this.src='/home/images/dewasharif/dewapage/attar_bottle.jpg'">
+                                </button>
+                            @endforeach
+                        </div>
+                    @endif
 
                     <!-- ACTION BUTTONS: ALL 3 100% FULL-WIDTH IDENTICAL TO WHATSAPP -->
                     <div style="width: 100%; margin-top: 18px; display: block;">
@@ -805,6 +830,25 @@
         });
         var badge = document.getElementById('cartBadgeCount');
         if (badge) badge.innerText = totalCount;
+    }
+
+    function switchProductDetailImage(src, btn) {
+        var mainImg = document.getElementById('mainProductImage');
+        if (mainImg) {
+            mainImg.style.opacity = '0.25';
+            setTimeout(function() {
+                mainImg.src = src;
+                mainImg.style.opacity = '1';
+            }, 120);
+        }
+        document.querySelectorAll('.gallery-thumb-btn').forEach(function(b) {
+            b.classList.remove('active');
+            b.style.borderColor = '#cbd5e1';
+        });
+        if (btn) {
+            btn.classList.add('active');
+            btn.style.borderColor = '#10b981';
+        }
     }
 </script>
 @endsection

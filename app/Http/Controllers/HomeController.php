@@ -410,74 +410,68 @@ class HomeController extends Controller
             $selectedCategory = 'all';
         }
 
+        $shopSettings = \App\Helpers\ShopSetting::all();
         $dbProducts = collect();
         try {
             if (\Illuminate\Support\Facades\Schema::hasTable('shop_products')) {
-                $dbProducts = \Illuminate\Support\Facades\DB::table('shop_products')->get()->keyBy('id');
+                $dbProducts = \Illuminate\Support\Facades\DB::table('shop_products')
+                    ->where('status', 'active')
+                    ->orderBy('id', 'desc')
+                    ->get();
             }
         } catch (\Throwable $e) {
             $dbProducts = collect();
         }
 
-        foreach ($allProducts as &$p) {
-            $pId = $p['id'] ?? null;
-            if ($pId && isset($dbProducts[$pId])) {
-                $dbItem = $dbProducts[$pId];
-                $p['stock_quantity'] = (int)$dbItem->stock_quantity;
-                $p['stock'] = (int)$dbItem->stock_quantity;
-                if (!empty($dbItem->status)) {
-                    $p['status'] = $dbItem->status;
-                }
-                if (!empty($dbItem->sku)) {
-                    $p['sku'] = $dbItem->sku;
-                }
-                if (!empty($dbItem->return_policy)) {
-                    $p['return_policy'] = $dbItem->return_policy;
-                }
-                if (isset($dbItem->is_featured)) {
-                    $p['is_featured'] = (int)$dbItem->is_featured;
-                }
-                if (!empty($dbItem->rating)) {
-                    $p['rating'] = (float)$dbItem->rating;
-                }
-                if (!empty($dbItem->reviews_count)) {
-                    $p['reviews_count'] = $dbItem->reviews_count;
-                }
-                if (isset($dbItem->price) && (float)$dbItem->price > 0) {
-                    $p['price'] = (float)$dbItem->price;
-                }
-                if (isset($dbItem->mrp) && (float)$dbItem->mrp > 0) {
-                    $p['mrp'] = (float)$dbItem->mrp;
-                }
-                if (!empty($dbItem->name)) {
-                    $p['name'] = $dbItem->name;
-                }
-                if (!empty($dbItem->thumbnail)) {
-                    $p['image'] = $dbItem->thumbnail;
-                }
-                if (!empty($dbItem->description)) {
-                    $p['description'] = $dbItem->description;
-                }
-                if (!empty($dbItem->volume_ml)) {
-                    $p['volume_ml'] = $dbItem->volume_ml;
-                }
-                if (!empty($dbItem->fabric_material)) {
-                    $p['fabric_material'] = $dbItem->fabric_material;
-                }
-                if (!empty($dbItem->size_options)) {
-                    $p['size_options'] = $dbItem->size_options;
-                }
-            } else {
-                $s = (int)($p['stock_quantity'] ?? ($p['stock'] ?? 50));
-                $p['stock'] = $s;
-                $p['stock_quantity'] = $s;
-                $p['return_policy'] = $p['return_policy'] ?? 'non_returnable';
-            }
-            $p['rating'] = (float)($p['rating'] ?? 5.0);
-            $p['return_policy'] = $p['return_policy'] ?? 'non_returnable';
-            $p['reviews_count'] = $p['reviews_count'] ?? ((($p['category'] ?? '') === 'degh') ? '240+ Niyaz Bookings' : '150+ Devotee Reviews');
+        $allProducts = [];
+        foreach ($dbProducts as $dp) {
+            $allProducts[] = [
+                'id' => $dp->id,
+                'name' => $dp->name,
+                'slug' => $dp->slug,
+                'category' => $dp->category_slug,
+                'category_slug' => $dp->category_slug,
+                'price' => (float)$dp->price,
+                'mrp' => (float)($dp->mrp ?? ($dp->price * 1.3)),
+                'sku' => $dp->sku ?? ('#PRD-' . $dp->id),
+                'return_policy' => $dp->return_policy ?? 'non_returnable',
+                'is_featured' => (int)($dp->is_featured ?? 0),
+                'stock' => (int)$dp->stock_quantity,
+                'stock_quantity' => (int)$dp->stock_quantity,
+                'volume_ml' => $dp->volume_ml ?? '',
+                'size_options' => $dp->size_options ?? '',
+                'fabric_material' => $dp->fabric_material ?? '',
+                'image' => $dp->thumbnail ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg',
+                'thumbnail' => $dp->thumbnail ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg',
+                'description' => $dp->description ?? '',
+                'rating' => (float)($dp->rating ?? 5.0),
+                'reviews_count' => $dp->reviews_count ?? ($dp->category_slug === 'degh' ? '240+ Niyaz Bookings' : '150+ Devotee Reviews'),
+                'discount_percent' => isset($dp->discount_percent) ? (int)$dp->discount_percent : null,
+                'gallery_images' => $dp->gallery_images ?? null,
+                'status' => $dp->status ?? 'active',
+                'handling_fee' => (float)($dp->handling_fee ?? ($shopSettings['default_handling_fee'] ?? 10)),
+                'packaging_fee' => (float)($dp->packaging_fee ?? ($shopSettings['default_packaging_fee'] ?? 20)),
+                'delivery_fee' => (float)($dp->delivery_fee ?? ($shopSettings['standard_courier_fee'] ?? 40)),
+                'same_day_fee_2_4h' => (float)($dp->same_day_fee_2_4h ?? ($shopSettings['express_2_4h_fee'] ?? 35)),
+                'local_fee_24h' => (float)($dp->local_fee_24h ?? ($shopSettings['local_24h_fee'] ?? 20)),
+                'cod_fee' => (float)($dp->cod_fee ?? ($shopSettings['cod_extra_fee'] ?? 30)),
+            ];
         }
-        unset($p);
+
+        // Fallback to DataStore if DB empty
+        if (empty($allProducts)) {
+            $rawDs = \App\Helpers\DataStore::getCollection('products');
+            foreach ($rawDs as $dsp) {
+                $pArray = is_array($dsp) ? $dsp : (array)$dsp;
+                $pArray['handling_fee'] = (float)($pArray['handling_fee'] ?? ($shopSettings['default_handling_fee'] ?? 10));
+                $pArray['packaging_fee'] = (float)($pArray['packaging_fee'] ?? ($shopSettings['default_packaging_fee'] ?? 20));
+                $pArray['delivery_fee'] = (float)($pArray['delivery_fee'] ?? ($shopSettings['standard_courier_fee'] ?? 40));
+                $pArray['same_day_fee_2_4h'] = (float)($pArray['same_day_fee_2_4h'] ?? ($shopSettings['express_2_4h_fee'] ?? 35));
+                $pArray['local_fee_24h'] = (float)($pArray['local_fee_24h'] ?? ($shopSettings['local_24h_fee'] ?? 20));
+                $pArray['cod_fee'] = (float)($pArray['cod_fee'] ?? ($shopSettings['cod_extra_fee'] ?? 30));
+                $allProducts[] = $pArray;
+            }
+        }
 
         if ($selectedCategory && $selectedCategory !== 'all') {
             $products = array_values(array_filter($allProducts, function ($item) use ($selectedCategory) {
@@ -488,6 +482,29 @@ class HomeController extends Controller
             $products = array_values(array_filter($allProducts, function ($item) use ($activeSlugs) {
                 return in_array(strtolower($item['category'] ?? ''), $activeSlugs);
             }));
+        }
+
+        // Apply Sorting: newest (default), price_low, price_high, discount, rating
+        $sortBy = request('sort', 'newest');
+        if ($sortBy === 'price_low') {
+            usort($products, function($a, $b) { return ($a['price'] ?? 0) <=> ($b['price'] ?? 0); });
+        } elseif ($sortBy === 'price_high') {
+            usort($products, function($a, $b) { return ($b['price'] ?? 0) <=> ($a['price'] ?? 0); });
+        } elseif ($sortBy === 'discount') {
+            usort($products, function($a, $b) {
+                $offA = (isset($a['discount_percent']) && (int)$a['discount_percent'] > 0)
+                    ? (int)$a['discount_percent']
+                    : ((($a['mrp'] ?? 0) > ($a['price'] ?? 0)) ? round(((($a['mrp'] ?? 0) - ($a['price'] ?? 0)) / ($a['mrp'] ?? 1)) * 100) : 0);
+                $offB = (isset($b['discount_percent']) && (int)$b['discount_percent'] > 0)
+                    ? (int)$b['discount_percent']
+                    : ((($b['mrp'] ?? 0) > ($b['price'] ?? 0)) ? round(((($b['mrp'] ?? 0) - ($b['price'] ?? 0)) / ($b['mrp'] ?? 1)) * 100) : 0);
+                return $offB <=> $offA;
+            });
+        } elseif ($sortBy === 'rating') {
+            usort($products, function($a, $b) { return ($b['rating'] ?? 5) <=> ($a['rating'] ?? 5); });
+        } else {
+            // Newest first (by ID DESC)
+            usort($products, function($a, $b) { return ($b['id'] ?? 0) <=> ($a['id'] ?? 0); });
         }
 
         $shopReviews = collect();
@@ -504,7 +521,7 @@ class HomeController extends Controller
             $shopReviews = collect();
         }
 
-        return view('home.shops.shop', compact('products', 'selectedCategory', 'allProducts', 'categories', 'allCategories', 'shopReviews', 'activeSlugs'));
+        return view('home.shops.shop', compact('products', 'selectedCategory', 'allProducts', 'categories', 'allCategories', 'shopReviews', 'activeSlugs', 'shopSettings', 'sortBy'));
     }
 
     // Single Product Detail Page (Flipkart / Amazon Style)
@@ -540,6 +557,8 @@ class HomeController extends Controller
                 if (isset($dbItem->mrp) && (float)$dbItem->mrp > 0) $p['mrp'] = (float)$dbItem->mrp;
                 if (!empty($dbItem->name)) $p['name'] = $dbItem->name;
                 if (!empty($dbItem->thumbnail)) $p['image'] = $dbItem->thumbnail;
+                if (!empty($dbItem->gallery_images)) $p['gallery_images'] = $dbItem->gallery_images;
+                if (isset($dbItem->discount_percent)) $p['discount_percent'] = $dbItem->discount_percent;
                 if (!empty($dbItem->size_options)) $p['size_options'] = $dbItem->size_options;
             }
             $p['rating'] = (float)($p['rating'] ?? 5.0);
@@ -568,6 +587,8 @@ class HomeController extends Controller
                         $matched = (array)$dbItem;
                         $matched['image'] = $matched['thumbnail'] ?? '/home/images/dewasharif/dewapage/attar_bottle.jpg';
                         $matched['category'] = $matched['category_slug'] ?? 'attar';
+                        $matched['gallery_images'] = $dbItem->gallery_images ?? null;
+                        $matched['discount_percent'] = $dbItem->discount_percent ?? null;
                     }
                 }
             } catch (\Throwable $e) {}
@@ -1170,7 +1191,15 @@ public function faqs()
             return redirect()->route('login')->with('error', 'Please Register or Login an account first to purchase products.');
         }
 
-        return view('home.shops.checkout');
+        $shopSettings = \App\Helpers\ShopSetting::all();
+        $dbProducts = collect();
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('shop_products')) {
+                $dbProducts = \Illuminate\Support\Facades\DB::table('shop_products')->get()->keyBy('id');
+            }
+        } catch (\Throwable $e) {}
+
+        return view('home.shops.checkout', compact('shopSettings', 'dbProducts'));
     }
 
     private function isCabNightTime($timeStr)
@@ -1560,8 +1589,28 @@ public function faqs()
         $paymentStatus = ($mode === 'whatsapp') ? 'pending' : ($isQr ? 'verification_pending' : 'paid');
         $paidAmount = ($mode === 'whatsapp' || $isQr) ? 0 : $totalFare;
 
+        // Match Hotel ID
+        $matchedHotelId = (int)$request->input('hotel_id', 0);
+        if ($matchedHotelId <= 0) {
+            $allHotels = \App\Helpers\DataStore::getCollection('hotels');
+            foreach ($allHotels as $h) {
+                $hName = is_array($h) ? ($h['name'] ?? '') : ($h->name ?? '');
+                if (!empty($hName) && (str_contains(strtolower($hName), strtolower($hotelName)) || str_contains(strtolower($hotelName), strtolower($hName)))) {
+                    $matchedHotelId = (int)(is_array($h) ? ($h['id'] ?? 1) : ($h->id ?? 1));
+                    break;
+                }
+            }
+        }
+        if ($matchedHotelId <= 0) { $matchedHotelId = 1; }
+
+        $checkinPin = (string)rand(1000, 9999);
+        $adminCommissionPct = 20.00;
+        $adminCommissionAmount = round($totalFare * 0.20, 2);
+        $hotelPayoutAmount = round($totalFare * 0.80, 2);
+
         $booking = [
             'user_id' => auth()->id() ?? null,
+            'hotel_id' => $matchedHotelId,
             'customer_email' => auth()->check() ? (auth()->user()->email ?? null) : null,
             'booking_code' => $bookingCode,
             'booking_number' => $bookingCode,
@@ -1573,6 +1622,8 @@ public function faqs()
             'rooms_count' => $roomsCount,
             'checkin' => $checkin,
             'checkout' => $checkout,
+            'check_in' => $checkin,
+            'check_out' => $checkout,
             'nights' => $nights,
             'price_per_night' => $pricePerNight,
             'amount' => $totalFare,
@@ -1587,11 +1638,26 @@ public function faqs()
             'utr_number' => trim($request->input('utr_number', '')) ?: null,
             'payment_mode' => $paymentMode,
             'payment_gateway' => $gatewayName,
+            'checkin_pin' => $checkinPin,
+            'admin_commission_pct' => $adminCommissionPct,
+            'admin_commission_amount' => $adminCommissionAmount,
+            'hotel_payout_amount' => $hotelPayoutAmount,
+            'settlement_status' => 'pending',
+            'refund_status' => 'none',
             'created_at' => date('Y-m-d H:i:s')
         ];
 
         $savedItem = \App\Helpers\DataStore::addItem('hotel_bookings', $booking);
         $bookingId = $savedItem['id'] ?? time();
+
+        // Sync to MySQL hotel_bookings table
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('hotel_bookings')) {
+                $dbCols = \Illuminate\Support\Facades\Schema::getColumnListing('hotel_bookings');
+                $dbRow = array_intersect_key(array_merge($booking, ['id' => $bookingId, 'created_at' => now(), 'updated_at' => now()]), array_flip($dbCols));
+                \Illuminate\Support\Facades\DB::table('hotel_bookings')->insertOrIgnore($dbRow);
+            }
+        } catch (\Throwable $e) {}
 
         // Save transaction record for Customer Billing only if paid
         if ($mode !== 'whatsapp') {
@@ -1705,8 +1771,16 @@ public function faqs()
         $itemsSummary = trim($request->input('items_summary', 'Warsis Attar & Sacred Souvenirs'));
         $amount = (float)$request->input('amount', 1497);
         $paymentId = $request->input('payment_id', ($mode === 'whatsapp' ? 'WhatsApp Direct' : ('RZP_SHP_' . time())));
-        $fatehaName = trim($request->input('fateha_name', ''));
-        $niyazDate = trim($request->input('niyaz_date', date('d M Y')));
+        $rawNiyazDate = trim($request->input('niyaz_date', ''));
+        if (!empty($rawNiyazDate)) {
+            try {
+                $niyazDate = \Carbon\Carbon::parse($rawNiyazDate)->format('d M Y, h:i A');
+            } catch (\Throwable $e) {
+                $niyazDate = $rawNiyazDate;
+            }
+        } else {
+            $niyazDate = \Carbon\Carbon::now('Asia/Kolkata')->format('d M Y, h:i A');
+        }
         $distributionType = trim($request->input('distribution_type', 'Dargah Sharif Me Langar Taqseem (Distribute to Zaireen & Needy Devotees)'));
         
         $isDegh = !empty($fatehaName) || str_contains(strtolower($itemsSummary), 'degh') || str_contains(strtolower($itemsSummary), 'biryani') || str_contains(strtolower($itemsSummary), 'zarda') || str_contains(strtolower($itemsSummary), 'kheer');
@@ -1775,6 +1849,25 @@ public function faqs()
 
         $orderCode = $request->input('order_code') ?: (($isDegh ? 'DWS-DGH-' : 'DWS-SHP-') . date('Y') . '-' . rand(1000, 9999));
 
+        $subtotal = (float)$request->input('subtotal', $amount);
+        $handling_fee = (float)$request->input('handling_fee', 0);
+        $packaging_fee = (float)$request->input('packaging_fee', 0);
+        $packaging_type = trim($request->input('packaging_type', 'none'));
+        $distribution_fee = (float)$request->input('distribution_fee', 0);
+        $delivery_fee = (float)$request->input('delivery_fee', 0);
+        $cod_fee = (float)$request->input('cod_fee', 0);
+        $delivery_tier = trim($request->input('delivery_tier', 'standard_courier'));
+        $cartItemsJson = is_array($cartItems) ? json_encode($cartItems) : (string)$cartItemsRaw;
+
+        $courierName = 'DTDC Express / Shiprocket';
+        if ($isDegh) {
+            $courierName = 'Dargah Langar Distribution / Special Delivery';
+        } elseif ($delivery_tier === 'express_2_4h') {
+            $courierName = '⚡ Dewa Sharif Local Express Boy (2-4h Superfast)';
+        } elseif ($delivery_tier === 'local_24h') {
+            $courierName = '🕒 Dewa Sharif Local Delivery Staff (Within 24h)';
+        }
+
         $isWhatsapp = ($mode === 'whatsapp');
         $isQrPayment = !$isWhatsapp && (stripos($paymentId, 'PhonePe') !== false || stripos($paymentId, 'QR') !== false || $request->filled('utr_number'));
         $isCodPayment = !$isWhatsapp && (stripos($paymentId, 'COD') !== false);
@@ -1791,6 +1884,15 @@ public function faqs()
             'alternate_phone' => $altPhone ?: null,
             'address' => "{$address}, {$city}, {$state} - {$pincode}",
             'items_summary' => $itemsSummary,
+            'subtotal' => $subtotal,
+            'handling_fee' => $handling_fee,
+            'packaging_fee' => $packaging_fee,
+            'packaging_type' => $packaging_type,
+            'distribution_fee' => $distribution_fee,
+            'delivery_fee' => $delivery_fee,
+            'cod_fee' => $cod_fee,
+            'delivery_tier' => $delivery_tier,
+            'cart_items_json' => $cartItemsJson,
             'amount' => $amount,
             'total_amount' => $amount,
             'paid_amount' => $paidAmount,
@@ -1802,7 +1904,7 @@ public function faqs()
             'niyaz_date' => $niyazDate,
             'distribution_type' => $distributionType,
             'is_degh' => $isDegh ? 1 : 0,
-            'courier' => $isDegh ? 'Dargah Langar Distribution / Special Delivery' : 'DTDC Express',
+            'courier' => $courierName,
             'tracking' => ($isDegh ? 'DGH-' : 'DT') . rand(10000000, 99999999) . 'IN',
             'created_at' => date('Y-m-d H:i:s')
         ];
@@ -1824,6 +1926,15 @@ public function faqs()
                     'alternate_phone' => $altPhone ?: null,
                     'shipping_address' => "{$address}, {$city}, {$state} - {$pincode}",
                     'items_summary' => $itemsSummary,
+                    'subtotal' => $subtotal,
+                    'handling_fee' => $handling_fee,
+                    'packaging_fee' => $packaging_fee,
+                    'packaging_type' => $packaging_type,
+                    'distribution_fee' => $distribution_fee,
+                    'delivery_fee' => $delivery_fee,
+                    'cod_fee' => $cod_fee,
+                    'delivery_tier' => $delivery_tier,
+                    'cart_items_json' => $cartItemsJson,
                     'total_amount' => $amount,
                     'paid_amount' => $paidAmount,
                     'payment_id' => $paymentId,
@@ -1834,7 +1945,7 @@ public function faqs()
                     'niyaz_date' => $niyazDate,
                     'distribution_type' => $distributionType,
                     'is_degh' => $isDegh ? 1 : 0,
-                    'courier_name' => $isDegh ? 'Dargah Langar Distribution / Special Delivery' : 'DTDC Express',
+                    'courier_name' => $courierName,
                     'tracking_number' => ($isDegh ? 'DGH-' : 'DT') . rand(10000000, 99999999) . 'IN',
                     'created_at' => now(),
                     'updated_at' => now()

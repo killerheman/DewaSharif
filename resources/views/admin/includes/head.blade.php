@@ -99,6 +99,70 @@
         .ck-editor__editable_inline {
             min-height: 180px;
         }
+
+        /* GLOBAL PREMIUM STAT CARDS & GRADIENTS */
+        .stat-card {
+            border-radius: 16px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.18) !important;
+            color: #ffffff !important;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.35) !important;
+        }
+
+        .card-gradient-green {
+            background: linear-gradient(135deg, #34d399 0%, #198754 48%, #064e3b 100%) !important;
+            box-shadow: 0 10px 24px -4px rgba(25, 135, 84, 0.4);
+            color: #ffffff !important;
+        }
+        .card-gradient-blue {
+            background: linear-gradient(135deg, #38bdf8 0%, #0d6efd 48%, #032b69 100%) !important;
+            box-shadow: 0 10px 24px -4px rgba(13, 110, 253, 0.4);
+            color: #ffffff !important;
+        }
+        .card-gradient-amber {
+            background: linear-gradient(135deg, #fde047 0%, #d97706 50%, #78350f 100%) !important;
+            box-shadow: 0 10px 24px -4px rgba(217, 119, 6, 0.4);
+            color: #ffffff !important;
+        }
+        .card-gradient-dark {
+            background: linear-gradient(135deg, #64748b 0%, #334155 48%, #111827 100%) !important;
+            box-shadow: 0 10px 24px -4px rgba(51, 65, 85, 0.4);
+            color: #ffffff !important;
+        }
+        .card-gradient-orange {
+            background: linear-gradient(135deg, #fb923c 0%, #ea580c 48%, #7c2d12 100%) !important;
+            box-shadow: 0 10px 24px -4px rgba(234, 88, 12, 0.4);
+            color: #ffffff !important;
+        }
+        .card-gradient-red {
+            background: linear-gradient(135deg, #ff6b6b 0%, #dc3545 48%, #7f1d1d 100%) !important;
+            box-shadow: 0 10px 24px -4px rgba(220, 53, 69, 0.4);
+            color: #ffffff !important;
+        }
+        .card-gradient-purple {
+            background: linear-gradient(135deg, #c084fc 0%, #7c3aed 48%, #3b0764 100%) !important;
+            box-shadow: 0 10px 24px -4px rgba(124, 58, 237, 0.4);
+            color: #ffffff !important;
+        }
     </style>
 
 </head>

@@ -10,6 +10,9 @@ use App\Http\Controllers\Auth\GoogleController;
 
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\HotelAdminController;
+use App\Http\Controllers\Admin\HotelPartnerAdminController;
+use App\Http\Controllers\Hotel\HotelAuthController;
+use App\Http\Controllers\Hotel\HotelDashboardController;
 use App\Http\Controllers\Admin\CabAdminController;
 use App\Http\Controllers\Admin\ShopAdminController;
 use App\Http\Controllers\Admin\CustomerAdminController;
@@ -276,6 +279,13 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
     Route::post('/hotels/bookings/{id}/update', [HotelAdminController::class, 'updateBooking'])->name('hotels.bookings.update');
     Route::delete('/hotels/bookings/{id}', [HotelAdminController::class, 'destroyBooking'])->name('hotels.bookings.destroy');
 
+    // Hotel Partners & Settlements
+    Route::get('/hotels/partners', [HotelPartnerAdminController::class, 'index'])->name('hotels.partners');
+    Route::post('/hotels/partners/toggle/{id}', [HotelPartnerAdminController::class, 'toggleStatus'])->name('hotels.partners.toggle');
+    Route::post('/hotels/partners/pay', [HotelPartnerAdminController::class, 'paySettlement'])->name('hotels.partners.pay');
+    Route::get('/hotels/refunds', [HotelPartnerAdminController::class, 'refunds'])->name('hotels.refunds');
+    Route::post('/hotels/refunds/{id}/process', [HotelPartnerAdminController::class, 'processRefund'])->name('hotels.refunds.process');
+
     // Cabs Management & CRUD
     Route::get('/cabs/manage', [CabAdminController::class, 'index'])->name('cabs.index');
     Route::post('/cabs/routes/store', [CabAdminController::class, 'storeRoute'])->name('cabs.route.store');
@@ -309,10 +319,13 @@ Route::prefix('admin')->middleware('admin')->name('admin.')->group(function () {
     Route::delete('/shop/categories/{id}', [ShopAdminController::class, 'destroyCategory'])->name('shop.categories.destroy');
 
     Route::post('/shop/products/store', [ShopAdminController::class, 'storeProduct'])->name('shop.product.store');
+    Route::post('/shop/settings', [ShopAdminController::class, 'updateSettings'])->name('shop.settings.update');
     Route::put('/shop/products/{id}', [ShopAdminController::class, 'updateProduct'])->name('shop.product.update');
     Route::post('/shop/products/toggle/{id}', [ShopAdminController::class, 'toggleStatus'])->name('shop.product.toggle');
     Route::delete('/shop/{id}', [ShopAdminController::class, 'destroy'])->name('shop.destroy');
     Route::get('/shop/orders', [ShopAdminController::class, 'orders'])->name('shop.orders');
+    Route::post('/shop/orders/custom', [ShopAdminController::class, 'storeCustomOrder'])->name('shop.order.custom');
+    Route::post('/shop/orders/{id}/update', [ShopAdminController::class, 'updateOrder'])->name('shop.order.update');
     Route::post('/shop/orders/{id}/dispatch', [ShopAdminController::class, 'dispatchOrder'])->name('shop.dispatch');
     Route::post('/shop/orders/{id}/status', [ShopAdminController::class, 'updateOrderStatus'])->name('shop.order.status');
     Route::post('/shop/orders/{id}/toggle-payment', [ShopAdminController::class, 'togglePaymentStatus'])->name('shop.order.toggle-payment');
@@ -436,9 +449,50 @@ Route::prefix('user')->middleware('customer')->name('customer.')->group(function
     Route::delete('/tickets/{id}', [CustomerPortalController::class, 'destroyTicket'])->name('tickets.destroy');
     Route::get('/invoice/{type}/{id}', [CustomerPortalController::class, 'downloadInvoice'])->name('invoice');
 
+    // Customer Hotel Cancellation
+    Route::post('/hotels/{id}/cancel', [CustomerPortalController::class, 'cancelHotelBooking'])->name('hotels.cancel');
+
     // Customer Own Reviews
     Route::get('/reviews', [CustomerPortalController::class, 'reviews'])->name('reviews');
     Route::post('/reviews/{id}/update', [CustomerPortalController::class, 'updateReview'])->name('reviews.update');
     Route::delete('/reviews/{id}', [CustomerPortalController::class, 'destroyReview'])->name('reviews.destroy');
 
 });
+
+/*
+|--------------------------------------------------------------------------
+| Hotel Partner Vendor Portal Routes (`/hotel/...`)
+|--------------------------------------------------------------------------
+*/
+Route::prefix('hotel')->name('hotel.')->group(function () {
+    // Guest Auth
+    Route::get('/login', [HotelAuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [HotelAuthController::class, 'login'])->name('login.post');
+    Route::get('/register', [HotelAuthController::class, 'showRegisterForm'])->name('register');
+    Route::post('/register', [HotelAuthController::class, 'register'])->name('register.post');
+    Route::post('/logout', [HotelAuthController::class, 'logout'])->name('logout');
+
+    // Authenticated Partner Area
+    Route::middleware('hotel')->group(function () {
+        Route::get('/dashboard', [HotelDashboardController::class, 'index'])->name('dashboard');
+
+        // Rooms CRUD
+        Route::get('/rooms', [HotelDashboardController::class, 'rooms'])->name('rooms');
+        Route::get('/rooms/create', [HotelDashboardController::class, 'createRoom'])->name('rooms.create');
+        Route::post('/rooms/store', [HotelDashboardController::class, 'storeRoom'])->name('rooms.store');
+        Route::get('/rooms/{id}/edit', [HotelDashboardController::class, 'editRoom'])->name('rooms.edit');
+        Route::post('/rooms/{id}/update', [HotelDashboardController::class, 'updateRoom'])->name('rooms.update');
+        Route::post('/rooms/{id}/toggle', [HotelDashboardController::class, 'toggleRoomStatus'])->name('rooms.toggle');
+
+        // Bookings & PIN Verification
+        Route::get('/bookings', [HotelDashboardController::class, 'bookings'])->name('bookings');
+        Route::post('/bookings/{id}/verify-pin', [HotelDashboardController::class, 'verifyCheckinPin'])->name('bookings.verify-pin');
+        Route::post('/bookings/{id}/no-show', [HotelDashboardController::class, 'markNoShow'])->name('bookings.no-show');
+
+        // Financial Settlements & Profile
+        Route::get('/settlements', [HotelDashboardController::class, 'settlements'])->name('settlements');
+        Route::get('/profile', [HotelDashboardController::class, 'profile'])->name('profile');
+        Route::post('/profile/update', [HotelDashboardController::class, 'updateProfile'])->name('profile.update');
+    });
+});
+
