@@ -2,12 +2,15 @@
 
 @section('title', 'Book Hotels & Guest Houses in Dewa Sharif | Near Waris Pak Dargah')
 @section('meta_title', 'Best Hotels & AC Rooms in Dewa Sharif | Near Dargah Waris Pak')
-@section('meta_description', 'Book verified hotels, guest houses, and deluxe AC/Non-AC family rooms in Dewa Sharif near
+@section('meta_description',
+    'Book verified hotels, guest houses, and deluxe AC/Non-AC family rooms in Dewa Sharif near
     Hazrat Haji Waris Ali Shah Dargah. Best rates for Dewa Mela 2026.')
-@section('meta_keywords', 'Dewa Sharif Hotels, Dewa Guest House, Rooms in Dewa Sharif, Stay near Waris Pak Dargah, Dewa
+@section('meta_keywords',
+    'Dewa Sharif Hotels, Dewa Guest House, Rooms in Dewa Sharif, Stay near Waris Pak Dargah, Dewa
     Mela accommodation, cheap hotel Dewa')
 @section('og_title', 'Dewa Sharif Hotels & Guest House Booking | Near Dargah')
-@section('og_description', 'Book verified rooms, family suites, and guest houses near Hazrat Waris Ali Shah Dargah with
+@section('og_description',
+    'Book verified rooms, family suites, and guest houses near Hazrat Waris Ali Shah Dargah with
     24/7 assistance.')
 
 
@@ -203,59 +206,59 @@
 
             <!-- SEARCH ENGINE BOX (PERFECTLY ALIGNED ROW) -->
             <!-- <div
-                        style="background: #ffffff; border-radius: 14px; padding: 25px 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 1.5px solid #e2e8f0;">
-                        <h5
-                            style="color: #074121; font-weight: 900; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 18px;">
-                            🔍 Check Room Availability &amp; Reserve Stays
-                        </h5>
-                        <form id="hotelSearchForm" class="row g-3 align-items-end">
-                            <div class="col-md-3 col-sm-6">
-                                <label
-                                    style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
-                                    Check-In Date</label>
-                                <input type="date" id="search_check_in" class="form-control"
-                                    style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
-                                    required>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <label
-                                    style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
-                                    Check-Out Date</label>
-                                <input type="date" id="search_check_out" class="form-control"
-                                    style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
-                                    required>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <label
-                                    style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">🛏️
-                                    Room Type</label>
-                                <select id="search_category" class="form-control"
-                                    style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;">
-                                    <option value="all">Rooms (All Categories)</option>
-                                    <optgroup label="❄️ AC Rooms">
-                                        <option value="single_ac">Single Bedroom AC</option>
-                                        <option value="queen_ac">Queen Size AC</option>
-                                        <option value="king_ac">King Size AC</option> -->
+                            style="background: #ffffff; border-radius: 14px; padding: 25px 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); border: 1.5px solid #e2e8f0;">
+                            <h5
+                                style="color: #074121; font-weight: 900; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; font-size: 18px;">
+                                🔍 Check Room Availability &amp; Reserve Stays
+                            </h5>
+                            <form id="hotelSearchForm" class="row g-3 align-items-end">
+                                <div class="col-md-3 col-sm-6">
+                                    <label
+                                        style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
+                                        Check-In Date</label>
+                                    <input type="date" id="search_check_in" class="form-control"
+                                        style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
+                                        required>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <label
+                                        style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">📅
+                                        Check-Out Date</label>
+                                    <input type="date" id="search_check_out" class="form-control"
+                                        style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;"
+                                        required>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <label
+                                        style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block; height: 20px; line-height: 20px;">🛏️
+                                        Room Type</label>
+                                    <select id="search_category" class="form-control"
+                                        style="border-radius: 8px; border: 1.5px solid #cbd5e1; height: 46px; font-weight: 600;">
+                                        <option value="all">Rooms (All Categories)</option>
+                                        <optgroup label="❄️ AC Rooms">
+                                            <option value="single_ac">Single Bedroom AC</option>
+                                            <option value="queen_ac">Queen Size AC</option>
+                                            <option value="king_ac">King Size AC</option> -->
             <!-- <option value="hall_ac">AC Hall (5+ Persons)</option> -->
             <!-- </optgroup>
-                                    <optgroup label="🌿 Non-AC Rooms">
-                                        <option value="single_non_ac">Single Non-AC</option>
-                                        <option value="queen_non_ac">Queen Size Non-AC</option>
-                                        <option value="king_non_ac">King Size Non-AC</option> -->
+                                        <optgroup label="🌿 Non-AC Rooms">
+                                            <option value="single_non_ac">Single Non-AC</option>
+                                            <option value="queen_non_ac">Queen Size Non-AC</option>
+                                            <option value="king_non_ac">King Size Non-AC</option> -->
             <!-- <option value="hall_non_ac">Non-AC Hall (5+ Persons)</option> -->
             <!-- </optgroup>
-                                </select>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <label
-                                    style="font-size: 13px; font-weight: 700; color: transparent; margin-bottom: 6px; display: block; height: 20px; line-height: 20px; user-select: none;">&nbsp;</label>
-                                <button type="button" onclick="filterHotels()" class="btn w-100"
-                                    style="background: #074121; color: #ffffff; font-weight: 800; height: 46px; border-radius: 8px; font-size: 15px; border: none; box-shadow: 0 4px 12px rgba(7, 65, 33, 0.35); display: flex; align-items: center; justify-content: center; margin: 0;">
-                                    Search Available Rooms
-                                </button>
-                            </div>
-                        </form>
-                    </div> -->
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-sm-6">
+                                    <label
+                                        style="font-size: 13px; font-weight: 700; color: transparent; margin-bottom: 6px; display: block; height: 20px; line-height: 20px; user-select: none;">&nbsp;</label>
+                                    <button type="button" onclick="filterHotels()" class="btn w-100"
+                                        style="background: #074121; color: #ffffff; font-weight: 800; height: 46px; border-radius: 8px; font-size: 15px; border: none; box-shadow: 0 4px 12px rgba(7, 65, 33, 0.35); display: flex; align-items: center; justify-content: center; margin: 0;">
+                                        Search Available Rooms
+                                    </button>
+                                </div>
+                            </form>
+                        </div> -->
 
             <!-- SEPARATE CUSTOM GROUP & FAMILY HALL STAY BOX -->
             <div class="hotel-custom-box">
@@ -264,10 +267,10 @@
 
                     <div class="hotel-mela-box">
                         <h2 class="hotel-mela-title">
-                            Special Package for Dewa Sharif Urs (Mela) 2026
+                            Online Hotel Rooms & Guest House Booking Available
                         </h2>
                         <p class="hotel-mela-subtitle">
-                            Package available 3 Days, 4 Days, 5 Days, 10 Days or More — Prebooking Start Now
+                            Comfortable Rooms for Family & Visitors — Book Your Stay Online Now
                         </p>
                     </div>
 
@@ -276,7 +279,8 @@
                         <p
                             style="font-size: 16px; color: #533f00; line-height: 1.6; font-weight: 900; margin: 0; text-align: center;">
                             ✨ Hum aise rooms bhi provide karte hain jinki Roof se Dargah aur Dargah ka Ground aur dargah
-                            poori dikhayi deti hai and just attached rooms bhi available hain sirf 10-20-50 kadam ki distance aur 50/100/202/300/400 meter distance par bhi 
+                            poori dikhayi deti hai and just attached rooms bhi available hain sirf 10-20-50 kadam ki
+                            distance aur 50/100/202/300/400 meter distance par bhi
                             par.
                             <center style="margin: 20px 0;">
                                 <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20room%20booking%20ki%20jaankari%20chahiye"
@@ -292,210 +296,213 @@
                             </center>
                         </p>
 
-                    <style>
-                        @keyframes pulseGlow {
-                            0% {
-                                box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
-                                border-color: #ffc107;
+                        <style>
+                            @keyframes pulseGlow {
+                                0% {
+                                    box-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+                                    border-color: #ffc107;
+                                }
+
+                                100% {
+                                    box-shadow: 0 0 30px rgba(255, 152, 0, 0.9), inset 0 0 10px rgba(255, 193, 7, 0.5);
+                                    border-color: #ff9800;
+                                }
                             }
-
-                            100% {
-                                box-shadow: 0 0 30px rgba(255, 152, 0, 0.9), inset 0 0 10px rgba(255, 193, 7, 0.5);
-                                border-color: #ff9800;
-                            }
-                        }
-                    </style>
+                        </style>
 
 
 
 
 
-                    <h5 style="color: #0f172a; font-weight: 900; margin: 0; font-size: 17.5px;">
-                        🏨 Want to Book Rooms, Family Hall, Party Hall, Marriage hall, Lawn, Large Group Stay in Dewa Sharif
-                        ?
-                    </h5>
-                    <span
-                        style="font-size: 12px;  background: #fef3c7; color: #b45309; margin-top: 8px; padding: 5px 14px; border-radius: 160px; font-weight: 800; border: 1px solid #fde68a;">
-                        We Provide AC/Non AC Services & Special Group Rates Available for Urs, Mela &amp; Big Families
-                    </span>
+                        <h5 style="color: #0f172a; font-weight: 900; margin: 0; font-size: 17.5px;">
+                            🏨 Want to Book Rooms, Family Hall, Party Hall, Marriage hall, Lawn, Large Group Stay in Dewa
+                            Sharif
+                            ?
+                        </h5><br>
+                        <span
+                            style="font-size: 12px;  background: #fef3c7; color: #b45309; margin-top: 8px; padding: 5px 14px; border-radius: 160px; font-weight: 800; border: 1px solid #fde68a;">
+                            We Provide AC/Non AC Services & Special Group Rates Available for Urs, Mela &amp; Big Families
+                        </span>
+                    </div>
+
+                    <form class="row g-3 align-items-end"
+                        onsubmit="event.preventDefault(); submitCustomWhatsAppHotelStay();">
+                        <div class="col-md-3  col-sm-6">
+                            <label
+                                style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">🏨
+                                Stay Requirement</label>
+                            <input type="text" id="custom_hotel_req" class="form-control"
+                                placeholder="E.g., Full AC/Non Ac  Hall / Rooms / Party"
+                                style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
+                        </div>
+
+                        <div class="col-md-3 col-sm-6">
+                            <label
+                                style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">👥
+                                Total Guests / Persons</label>
+                            <input type="text" id="custom_hotel_guests" class="form-control"
+                                placeholder="E.g., 2-4-6-8... Persons, Group / Families"
+                                style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
+                        </div>
+
+                        <div class="col-md-3 col-sm-6">
+                            <label
+                                style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">📅
+                                Expected Dates </label>
+                            <input type="text" id="custom_hotel_dates" class="form-control"
+                                placeholder="E.g., 20 Oct to 28 Oct (8 Nights)"
+                                style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
+                        </div>
+
+                        <div class="col-md-3 col-sm-6">
+                            <label
+                                style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">📅
+                                Days</label>
+                            <input type="text" id="custom_hotel_dates" class="form-control"
+                                placeholder="E.g., 1 - 2 - 3 - 4 - 5 - 6 - 7... Days"
+                                style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
+                        </div>
+
+                        <div class="col-md-3 col-sm-6">
+                            <label
+                                style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: transparent; margin-bottom: 6px; display: block; user-select: none;">Action</label>
+                            <button type="button" onclick="submitCustomWhatsAppHotelStay()"
+                                class="btn w-100 font-extrabold"
+                                style="background: #25D366; color: #ffffff; font-weight: 900; height: 46px; border-radius: 8px; font-size: 13.5px; border: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35); display: flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; padding: 0 8px; margin: 0;">
+                                <i class="fa fa-whatsapp" style="font-size: 18px;"></i>
+                                Connect With WhatsApp
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
-                <form class="row g-3 align-items-end" onsubmit="event.preventDefault(); submitCustomWhatsAppHotelStay();">
-                    <div class="col-md-3  col-sm-6">
-                        <label
-                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">🏨
-                            Stay Requirement</label>
-                        <input type="text" id="custom_hotel_req" class="form-control"
-                            placeholder="E.g., Full AC/Non Ac  Hall / Rooms / Party"
-                            style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
-                    </div>
+                <!-- CATEGORY FILTER BUTTONS (DYNAMIC AC & NON-AC ROOM TYPES) -->
+                <div style="display: flex; gap: 8px; margin-top: 28px; margin-bottom: 24px; flex-wrap: wrap; width: 100%;">
+                    <button onclick="filterCategory('all', this)" class="btn filter-btn active"
+                        style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #074121; color: #fff; box-shadow: 0 2px 8px rgba(7,65,33,0.25);">
+                        All Hotels
+                    </button>
+                    <button onclick="filterCategory('single_ac', this)" class="btn filter-btn"
+                        style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                        ❄️ Single AC
+                    </button>
+                    <button onclick="filterCategory('queen_ac', this)" class="btn filter-btn"
+                        style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                        👑 Queen Size AC
+                    </button>
+                    <button onclick="filterCategory('king_ac', this)" class="btn filter-btn"
+                        style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                        🏰 King Size AC
+                    </button>
+                    <button onclick="filterCategory('hall_ac', this)" class="btn filter-btn"
+                        style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                        🏢 AC Hall (5+)
+                    </button>
+                    <button onclick="filterCategory('single_non_ac', this)" class="btn filter-btn"
+                        style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                        🌿 Single Non-AC
+                    </button>
+                    <button onclick="filterCategory('queen_non_ac', this)" class="btn filter-btn"
+                        style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                        🌿 Queen Non-AC
+                    </button>
+                    <button onclick="filterCategory('king_non_ac', this)" class="btn filter-btn"
+                        style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                        🌿 King Non-AC
+                    </button>
+                    <button onclick="filterCategory('hall_non_ac', this)" class="btn filter-btn"
+                        style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
+                        🏠 Non-AC Hall
+                    </button>
+                </div>
 
-                    <div class="col-md-3 col-sm-6">
-                        <label
-                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">👥
-                            Total Guests / Persons</label>
-                        <input type="text" id="custom_hotel_guests" class="form-control"
-                            placeholder="E.g., 2-4-6-8... Persons, Group / Families"
-                            style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <label
-                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">📅
-                            Expected Dates </label>
-                        <input type="text" id="custom_hotel_dates" class="form-control"
-                            placeholder="E.g., 20 Oct to 28 Oct (8 Nights)"
-                            style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <label
-                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: #1e293b; margin-bottom: 6px; display: block;">📅
-                            Days</label>
-                        <input type="text" id="custom_hotel_dates" class="form-control"
-                            placeholder="E.g., 1 - 2 - 3 - 4 - 5 - 6 - 7... Days"
-                            style="border-radius: 8px; height: 46px; font-weight: 600; border: 1.5px solid #cbd5e1; background: #ffffff; color: #0f172a;">
-                    </div>
-
-                    <div class="col-md-3 col-sm-6">
-                        <label
-                            style="font-size: 12.5px; margin-top: 8px; font-weight: 700; color: transparent; margin-bottom: 6px; display: block; user-select: none;">Action</label>
-                        <button type="button" onclick="submitCustomWhatsAppHotelStay()" class="btn w-100 font-extrabold"
-                            style="background: #25D366; color: #ffffff; font-weight: 900; height: 46px; border-radius: 8px; font-size: 13.5px; border: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35); display: flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; padding: 0 8px; margin: 0;">
-                            <i class="fa fa-whatsapp" style="font-size: 18px;"></i>
-                            Connect With WhatsApp
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- CATEGORY FILTER BUTTONS (DYNAMIC AC & NON-AC ROOM TYPES) -->
-            <div style="display: flex; gap: 8px; margin-top: 28px; margin-bottom: 24px; flex-wrap: wrap; width: 100%;">
-                <button onclick="filterCategory('all', this)" class="btn filter-btn active"
-                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #074121; color: #fff; box-shadow: 0 2px 8px rgba(7,65,33,0.25);">
-                    All Hotels
-                </button>
-                <button onclick="filterCategory('single_ac', this)" class="btn filter-btn"
-                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
-                    ❄️ Single AC
-                </button>
-                <button onclick="filterCategory('queen_ac', this)" class="btn filter-btn"
-                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
-                    👑 Queen Size AC
-                </button>
-                <button onclick="filterCategory('king_ac', this)" class="btn filter-btn"
-                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
-                    🏰 King Size AC
-                </button>
-                <button onclick="filterCategory('hall_ac', this)" class="btn filter-btn"
-                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
-                    🏢 AC Hall (5+)
-                </button>
-                <button onclick="filterCategory('single_non_ac', this)" class="btn filter-btn"
-                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
-                    🌿 Single Non-AC
-                </button>
-                <button onclick="filterCategory('queen_non_ac', this)" class="btn filter-btn"
-                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
-                    🌿 Queen Non-AC
-                </button>
-                <button onclick="filterCategory('king_non_ac', this)" class="btn filter-btn"
-                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
-                    🌿 King Non-AC
-                </button>
-                <button onclick="filterCategory('hall_non_ac', this)" class="btn filter-btn"
-                    style="border-radius: 25px; font-weight: 800; font-size: 13px; padding: 8px 16px; border: 1.5px solid #074121; background: #fff; color: #074121;">
-                    🏠 Non-AC Hall
-                </button>
-            </div>
-
-            <!-- DYNAMIC HOTEL LISTINGS GRID -->
-            <style>
-                .hotel-card-item {
-                    display: flex !important;
-                    align-items: stretch !important;
-                    margin-bottom: 30px;
-                    box-sizing: border-box !important;
-                    padding-left: 10px !important;
-                    padding-right: 10px !important;
-                }
-
-                @media (max-width: 768px) {
+                <!-- DYNAMIC HOTEL LISTINGS GRID -->
+                <style>
                     .hotel-card-item {
-                        padding-left: 6px !important;
-                        padding-right: 6px !important;
-                        margin-bottom: 20px !important;
+                        display: flex !important;
+                        align-items: stretch !important;
+                        margin-bottom: 30px;
+                        box-sizing: border-box !important;
+                        padding-left: 10px !important;
+                        padding-right: 10px !important;
                     }
-                }
 
-                @media (max-width: 360px) {
-                    .hotel-card-item {
-                        padding-left: 4px !important;
-                        padding-right: 4px !important;
-                        margin-bottom: 16px !important;
+                    @media (max-width: 768px) {
+                        .hotel-card-item {
+                            padding-left: 6px !important;
+                            padding-right: 6px !important;
+                            margin-bottom: 20px !important;
+                        }
                     }
-                }
 
-                .hotel-card-item[style*="display: none"] {
-                    display: none !important;
-                }
+                    @media (max-width: 360px) {
+                        .hotel-card-item {
+                            padding-left: 4px !important;
+                            padding-right: 4px !important;
+                            margin-bottom: 16px !important;
+                        }
+                    }
 
-                .hotel-card-box {
-                    background: #ffffff;
-                    border-radius: 14px;
-                    overflow: hidden;
-                    border: 1.5px solid #cbd5e1;
-                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
-                    width: 100%;
-                    height: 100% !important;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    transition: transform 0.2s ease, box-shadow 0.2s ease;
-                }
+                    .hotel-card-item[style*="display: none"] {
+                        display: none !important;
+                    }
 
-                .hotel-card-box:hover {
-                    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-                    transform: translateY(-2px);
-                }
+                    .hotel-card-box {
+                        background: #ffffff;
+                        border-radius: 14px;
+                        overflow: hidden;
+                        border: 1.5px solid #cbd5e1;
+                        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+                        width: 100%;
+                        height: 100% !important;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        transition: transform 0.2s ease, box-shadow 0.2s ease;
+                    }
 
-                .hotel-card-title {
-                    font-size: 18.5px;
-                    font-weight: 900;
-                    margin-bottom: 6px;
-                    height: 48px;
-                    line-height: 1.3;
-                    overflow: hidden;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                }
+                    .hotel-card-box:hover {
+                        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+                        transform: translateY(-2px);
+                    }
 
-                .hotel-card-desc {
-                    font-size: 13px;
-                    color: #64748b;
-                    margin-bottom: 12px;
-                    height: 38px;
-                    overflow: hidden;
-                    line-height: 1.45;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                }
+                    .hotel-card-title {
+                        font-size: 18.5px;
+                        font-weight: 900;
+                        margin-bottom: 6px;
+                        height: 48px;
+                        line-height: 1.3;
+                        overflow: hidden;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
 
-                .hotel-card-badges {
-                    display: flex;
-                    gap: 6px;
-                    flex-wrap: wrap;
-                    margin-bottom: 14px;
-                    height: 58px;
-                    overflow: hidden;
-                    align-content: flex-start;
-                }
-            </style>
-            <div class="row" id="hotelsGrid" style="display: flex; flex-wrap: wrap;">
+                    .hotel-card-desc {
+                        font-size: 13px;
+                        color: #64748b;
+                        margin-bottom: 12px;
+                        height: 38px;
+                        overflow: hidden;
+                        line-height: 1.45;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
 
-                <!-- @foreach ($hotels as $hotel)
+                    .hotel-card-badges {
+                        display: flex;
+                        gap: 6px;
+                        flex-wrap: wrap;
+                        margin-bottom: 14px;
+                        height: 58px;
+                        overflow: hidden;
+                        align-content: flex-start;
+                    }
+                </style>
+                <div class="row" id="hotelsGrid" style="display: flex; flex-wrap: wrap;">
+
+                    <!-- @foreach ($hotels as $hotel)
     @php
         $hAc =
             $hotel['ac_type'] ??
@@ -575,734 +582,792 @@
             'home/images/dewasharif/dewapage/hero_hotel_bg.jpg',
         );
     @endphp
-                            <div class="col-md-4 col-sm-6 col-xs-12 hotel-card-item mb-4"
-                                data-category="{{ $dataCategoryStr }} near_dargah family mela">
-                                <div class="hotel-card-box">
-                                    <div>
-                                        <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
-                                            style="display: block; position: relative; height: 210px; overflow: hidden; background: #e2e8f0;">
-                                            <img src="{{ $hCardImg }}"
-                                                onerror="this.onerror=null; this.src='{{ asset('home/images/dewasharif/dewapage/hero_hotel_bg.jpg') }}'"
-                                                alt="{{ $hotel['name'] }}"
-                                                style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                                            <span
-                                                style="position: absolute; top: 12px; left: 12px; background: #16a34a; color: #fff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 20px; text-transform: uppercase; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                                                ✔ Verified Stay
-                                            </span>
-                                            <span
-                                                style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.85); color: #fff; font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 6px; backdrop-filter: blur(4px); max-width: 85%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                                📍 {{ $hotel['location'] ?? ($hotel['distance'] ?? 'Near Dewa Sharif Dargah') }}
-                                            </span>
-                                        </a>
+                                <div class="col-md-4 col-sm-6 col-xs-12 hotel-card-item mb-4"
+                                    data-category="{{ $dataCategoryStr }} near_dargah family mela">
+                                    <div class="hotel-card-box">
+                                        <div>
+                                            <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
+                                                style="display: block; position: relative; height: 210px; overflow: hidden; background: #e2e8f0;">
+                                                <img src="{{ $hCardImg }}"
+                                                    onerror="this.onerror=null; this.src='{{ asset('home/images/dewasharif/dewapage/hero_hotel_bg.jpg') }}'"
+                                                    alt="{{ $hotel['name'] }}"
+                                                    style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                                                <span
+                                                    style="position: absolute; top: 12px; left: 12px; background: #16a34a; color: #fff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 20px; text-transform: uppercase; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                                                    ✔ Verified Stay
+                                                </span>
+                                                <span
+                                                    style="position: absolute; bottom: 12px; right: 12px; background: rgba(0,0,0,0.85); color: #fff; font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 6px; backdrop-filter: blur(4px); max-width: 85%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                    📍 {{ $hotel['location'] ?? ($hotel['distance'] ?? 'Near Dewa Sharif Dargah') }}
+                                                </span>
+                                            </a>
 
-                                        <div style="padding: 20px 20px 10px 20px;">
-                                            <h4 class="hotel-card-title">
-                                                <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
-                                                    style="color: #0f172a; text-decoration: none;">
-                                                    {{ $hotel['name'] }} ↗
-                                                </a>
-                                            </h4>
-                                            <p class="hotel-card-desc">
-                                                {{ $hotel['room_type'] ?? 'Deluxe Room' }} — {{ $hBed }} with {{ $hBath }}.
-                                            </p>
+                                            <div style="padding: 20px 20px 10px 20px;">
+                                                <h4 class="hotel-card-title">
+                                                    <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
+                                                        style="color: #0f172a; text-decoration: none;">
+                                                        {{ $hotel['name'] }} ↗
+                                                    </a>
+                                                </h4>
+                                                <p class="hotel-card-desc">
+                                                    {{ $hotel['room_type'] ?? 'Deluxe Room' }} — {{ $hBed }} with {{ $hBath }}.
+                                                </p>
 
-                                            <div class="hotel-card-badges">
-                                                <span
-                                                    style="font-size: 11px; background: {{ strtolower($hAc) == 'ac' ? '#e0f2fe' : '#fef3c7' }}; color: {{ strtolower($hAc) == 'ac' ? '#0369a1' : '#b45309' }}; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
-                                                    {{ strtolower($hAc) == 'ac' ? '❄️ AC Room' : '🌿 Non-AC Room' }}
-                                                </span>
-                                                <span
-                                                    style="font-size: 11px; background: #f0fdf4; color: #15803d; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
-                                                    🛏️ {{ $hBed }}
-                                                </span>
-                                                <span
-                                                    style="font-size: 11px; background: #f1f5f9; color: #334155; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
-                                                    👥 Max {{ $hAdults }} Persons
-                                                </span>
+                                                <div class="hotel-card-badges">
+                                                    <span
+                                                        style="font-size: 11px; background: {{ strtolower($hAc) == 'ac' ? '#e0f2fe' : '#fef3c7' }}; color: {{ strtolower($hAc) == 'ac' ? '#0369a1' : '#b45309' }}; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
+                                                        {{ strtolower($hAc) == 'ac' ? '❄️ AC Room' : '🌿 Non-AC Room' }}
+                                                    </span>
+                                                    <span
+                                                        style="font-size: 11px; background: #f0fdf4; color: #15803d; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
+                                                        🛏️ {{ $hBed }}
+                                                    </span>
+                                                    <span
+                                                        style="font-size: 11px; background: #f1f5f9; color: #334155; padding: 4px 8px; border-radius: 6px; font-weight: 700; display: inline-flex; align-items: center;">
+                                                        👥 Max {{ $hAdults }} Persons
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div style="padding: 0 20px 20px 20px;">
-                                        <div
-                                            style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; border-top: 1px solid #f1f5f9; padding-top: 12px;">
-                                            <div>
-                                                <span
-                                                    style="font-size: 24px; font-weight: 900; color: #074121;">₹{{ number_format($rawHPrice) }}</span>
-                                                <span style="font-size: 12.5px; color: #64748b; font-weight: 600;"> / night</span>
-                                            </div>
-                                            @if ($hAvail > 0)
+                                        <div style="padding: 0 20px 20px 20px;">
+                                            <div
+                                                style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; border-top: 1px solid #f1f5f9; padding-top: 12px;">
+                                                <div>
+                                                    <span
+                                                        style="font-size: 24px; font-weight: 900; color: #074121;">₹{{ number_format($rawHPrice) }}</span>
+                                                    <span style="font-size: 12.5px; color: #64748b; font-weight: 600;"> / night</span>
+                                                </div>
+                                                @if ($hAvail > 0)
     <span
-                                                    style="font-size: 11px; color: #16a34a; font-weight: 800; background: #dcfce7; padding: 3px 8px; border-radius: 6px;">{{ $hAvail }}
-                                                    Rooms Left</span>
+                                                        style="font-size: 11px; color: #16a34a; font-weight: 800; background: #dcfce7; padding: 3px 8px; border-radius: 6px;">{{ $hAvail }}
+                                                        Rooms Left</span>
 @else
     <span
-                                                    style="font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 3px 8px; border-radius: 6px;">🚨
-                                                    HOUSEFULL</span>
+                                                        style="font-size: 11px; color: #dc2626; font-weight: 800; background: #fee2e2; padding: 3px 8px; border-radius: 6px;">🚨
+                                                        HOUSEFULL</span>
     @endif
-                                        </div>
+                                            </div>
 
-                                        <div style="display: flex; gap: 8px;">
-                                            <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
-                                                class="btn w-100 font-extrabold"
-                                                style="background: {{ $hAvail > 0 ? '#074121' : '#475569' }}; color: #ffffff; font-weight: 900; font-size: 14.5px; height: 46px; border-radius: 8px; padding: 0 20px; border: none; box-shadow: 0 3px 10px rgba(7,65,33,0.3); display: flex; align-items: center; justify-content: center; text-decoration: none;">
-                                                {{ $hAvail > 0 ? 'View Rooms & Reserve Stay' : 'View Hotel Details & Availability' }}
-                                            </a>
+                                            <div style="display: flex; gap: 8px;">
+                                                <a href="{{ route('hotel.detail', ['id' => $hotel['id']]) }}"
+                                                    class="btn w-100 font-extrabold"
+                                                    style="background: {{ $hAvail > 0 ? '#074121' : '#475569' }}; color: #ffffff; font-weight: 900; font-size: 14.5px; height: 46px; border-radius: 8px; padding: 0 20px; border: none; box-shadow: 0 3px 10px rgba(7,65,33,0.3); display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                                                    {{ $hAvail > 0 ? 'View Rooms & Reserve Stay' : 'View Hotel Details & Availability' }}
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
     @endforeach -->
 
-                <!-- EMPTY STATE IF NO HOTELS MATCH FILTER -->
-                <!-- <div id="noHotelsNotice" class="col-12 py-5 text-center" style="display: none;">
-                            <div
-                                style="background: #ffffff; border-radius: 16px; padding: 40px 20px; border: 2px dashed #cbd5e1; max-width: 500px; margin: 0 auto;">
-                                <div style="font-size: 48px; margin-bottom: 12px;">🏨</div>
-                                <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">No Hotels Found</h4>
-                                <p style="color: #64748b; font-size: 14px; margin-bottom: 20px;">Is category me abhi koi hotel
-                                    listed nahi hai ya sabhi book hain.</p>
-                                <button onclick="filterCategory('all', $('.filter-btn').first()[0])" class="btn font-extrabold"
-                                    style="background: #074121; color: #fff; border-radius: 8px; padding: 10px 24px;">
-                                    🔄 View All Hotels & Guest Houses
-                                </button>
-                            </div>
-                        </div> -->
-
-            </div>
-
-            <!-- DEWA SHARIF HOTELS & GUEST HOUSES — SEO EDITORIAL & ACCOMMODATION GUIDE -->
-            <div class="hotel-guide-card" style="background: #ffffff; border-radius: 16px; padding: 34px 28px; margin-top: 45px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1.5px solid #e2e8f0; box-sizing: border-box;">
-
-                <!-- Section Badges Header -->
-                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
-                    <span style="background: #eff6ff; color: #1e40af; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
-                        🏨 Pilgrim Accommodation Guide &amp; Stay Overview
-                    </span>
-                    <span style="background: #dcfce7; color: #166534; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px;">
-                        ⭐ 10 to 400m from Dargah Gate
-                    </span>
-                    <span style="background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px;">
-                        ✔ Sarai Act Compliant
-                    </span>
-                </div>
-
-                <h2 style="font-size: 25px; font-weight: 900; color: #074121; margin: 0 0 14px 0; line-height: 1.35; letter-spacing: -0.3px;">
-                    Dewa Sharif Hotels &amp; Guest Houses — Overview &amp; Accommodation Guide Near Dargah
-                </h2>
-
-                <p style="font-size: 14.5px; color: #334155; line-height: 1.8; margin-bottom: 24px;">
-                    Planning your sacred journey to Dewa Sharif for pilgrimage, spiritual renewal, family visits, or the annual <strong>Urs Mubarak and Dewa Mela</strong> celebrations? We provide a comprehensive selection of verified, hygienic, and family-safe accommodations including <strong>Deluxe AC Rooms, Budget Non-AC Rooms, Independent Guest Houses, Family Halls, and Community Dormitories</strong> situated at prime walking distances around <strong>Dargah Hazrat Waris Ali Shah (R.A.)</strong>. Whether you require premium rooms right opposite the main shrine gates with direct rooftop views of the holy dome or peaceful budget stays with vehicle parking, our portal assists you in reserving comfortable, dignified stays without middleman commission or surge pricing shocks.
-                </p>
-
-                <!-- Key Highlights & Room Types Grid -->
-                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
-                    <span>✨</span> Special Highlights &amp; Accommodation Options
-                </h3>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 28px;">
-                    
-                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #16a34a; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
-                        <h4 style="font-size: 15.5px; font-weight: 800; color: #166534; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
-                            <span>📍</span> Prime Location &amp; Proximity
-                        </h4>
-                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
-                            Choose from guest houses and lodges located just 10 to 50 steps away, or within a comfortable 50 to 400 meters walking perimeter from the Dargah premises, Chashma-e-Hayat, and festive grounds. Ideal for elderly pilgrims and families.
-                        </p>
-                    </div>
-
-                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
-                        <h4 style="font-size: 15.5px; font-weight: 800; color: #92400e; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
-                            <span>🕌</span> Dargah View Rooms &amp; Rooftops
-                        </h4>
-                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
-                            Enjoy specially curated rooms and open rooftop terraces that offer an unobstructed, scenic panoramic view of the holy Dargah minarets, golden dome, and evening festive illumination.
-                        </p>
-                    </div>
-
-                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #2563eb; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
-                        <h4 style="font-size: 15.5px; font-weight: 800; color: #1e40af; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
-                            <span>🛏️</span> Complete Range of Room Categories
-                        </h4>
-                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
-                            Fully equipped with Single AC, Queen Size AC, King Size Master AC, large AC Halls (for groups of 5 to 15+), Single Non-AC, Queen Non-AC, and budget-friendly community halls with clean attached washrooms.
-                        </p>
-                    </div>
-
-                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #dc2626; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
-                        <h4 style="font-size: 15.5px; font-weight: 800; color: #991b1b; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
-                            <span>🏮</span> Urs &amp; Dewa Mela 2026 Packages
-                        </h4>
-                        <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
-                            Exclusive multi-day booking packages (3, 5, or 10 days) tailored for the grand Urs festival. Pre-booking ensures guaranteed room availability and transparent tariffs without peak-festival price inflations.
-                        </p>
-                    </div>
+                    <!-- EMPTY STATE IF NO HOTELS MATCH FILTER -->
+                    <!-- <div id="noHotelsNotice" class="col-12 py-5 text-center" style="display: none;">
+                                <div
+                                    style="background: #ffffff; border-radius: 16px; padding: 40px 20px; border: 2px dashed #cbd5e1; max-width: 500px; margin: 0 auto;">
+                                    <div style="font-size: 48px; margin-bottom: 12px;">🏨</div>
+                                    <h4 style="font-weight: 800; color: #0f172a; margin-bottom: 8px;">No Hotels Found</h4>
+                                    <p style="color: #64748b; font-size: 14px; margin-bottom: 20px;">Is category me abhi koi hotel
+                                        listed nahi hai ya sabhi book hain.</p>
+                                    <button onclick="filterCategory('all', $('.filter-btn').first()[0])" class="btn font-extrabold"
+                                        style="background: #074121; color: #fff; border-radius: 8px; padding: 10px 24px;">
+                                        🔄 View All Hotels & Guest Houses
+                                    </button>
+                                </div>
+                            </div> -->
 
                 </div>
 
-                <!-- Walking Proximity Table -->
-                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 14px 0; display: flex; align-items: center; gap: 8px;">
-                    <span>🚶</span> Proximity &amp; Walking Distance Guide to Shrine Landmarks
-                </h3>
+                <!-- DEWA SHARIF HOTELS & GUEST HOUSES — SEO EDITORIAL & ACCOMMODATION GUIDE -->
+                <div class="hotel-guide-card"
+                    style="background: #ffffff; border-radius: 16px; padding: 34px 28px; margin-top: 45px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1.5px solid #e2e8f0; box-sizing: border-box;">
 
-                <div style="overflow-x: auto; margin-bottom: 28px; border-radius: 10px; border: 1px solid #e2e8f0;">
-                    <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; min-width: 580px;">
-                        <thead>
-                            <tr style="background: #074121; color: #ffffff;">
-                                <th style="padding: 12px 16px; font-weight: 800;">Location / Landmark</th>
-                                <th style="padding: 12px 16px; font-weight: 800;">Distance from Hotels</th>
-                                <th style="padding: 12px 16px; font-weight: 800;">Walking Time</th>
-                                <th style="padding: 12px 16px; font-weight: 800;">Best Suited For</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
-                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Main Dargah Gate 1 &amp; Chashma-e-Hayat</td>
-                                <td style="padding: 12px 16px; color: #475569;">10 to 50 Steps</td>
-                                <td style="padding: 12px 16px; color: #475569;">&lt; 1 Minute</td>
-                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Elderly pilgrims, ladies, and families</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
-                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Dewa Mela Grounds &amp; Exhibition Arena</td>
-                                <td style="padding: 12px 16px; color: #475569;">150 to 250 Meters</td>
-                                <td style="padding: 12px 16px; color: #475569;">3 to 4 Minutes</td>
-                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Festival attendees &amp; cultural visitors</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
-                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Karbala Road &amp; Outer Garden Lodges</td>
-                                <td style="padding: 12px 16px; color: #475569;">250 to 400 Meters</td>
-                                <td style="padding: 12px 16px; color: #475569;">5 Minutes</td>
-                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Guests with private cars requiring parking</td>
-                            </tr>
-                            <tr style="background: #f8fafc;">
-                                <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Town Bus Stand &amp; Shared Taxi Stand</td>
-                                <td style="padding: 12px 16px; color: #475569;">300 to 500 Meters</td>
-                                <td style="padding: 12px 16px; color: #475569;">6 Minutes</td>
-                                <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Direct highway &amp; Lucknow bus commuters</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <!-- Section Badges Header -->
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span
+                            style="background: #eff6ff; color: #1e40af; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            🏨 Pilgrim Accommodation Guide &amp; Stay Overview
+                        </span>
+                        <span
+                            style="background: #dcfce7; color: #166534; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px;">
+                            ⭐ 10 to 400m from Dargah Gate
+                        </span>
+                        <span
+                            style="background: #fef3c7; color: #92400e; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 20px;">
+                            ✔ Sarai Act Compliant
+                        </span>
+                    </div>
 
-                <!-- Guest Verification & Sarai Act Compliance Note -->
-                <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 12px; padding: 20px 22px; margin-bottom: 28px;">
-                    <h3 style="font-size: 17.5px; font-weight: 900; color: #166534; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
-                        <span>📋</span> Statutory Guest Check-in Guidelines (Sarai Act 1867 Compliance)
-                    </h3>
-                    <p style="font-size: 13.5px; color: #14532d; line-height: 1.7; margin: 0;">
-                        As per standard administrative and police regulations under the Sarai Act, all guests (Indian and foreign nationals) must present an original, valid government-issued photo identity proof (Aadhaar Card, Voter ID, Passport, or Driving License) upon physical arrival at the reception. Standard check-in is typically from 11:00 AM and check-out is 12:00 Noon. Late night check-ins are readily accommodated if informed in advance.
+                    <h2
+                        style="font-size: 25px; font-weight: 900; color: #074121; margin: 0 0 14px 0; line-height: 1.35; letter-spacing: -0.3px;">
+                        Dewa Sharif Hotels &amp; Guest Houses — Overview &amp; Accommodation Guide Near Dargah
+                    </h2>
+
+                    <p style="font-size: 14.5px; color: #334155; line-height: 1.8; margin-bottom: 24px;">
+                        Planning your sacred journey to Dewa Sharif for pilgrimage, spiritual renewal, family visits, or the
+                        annual <strong>Urs Mubarak and Dewa Mela</strong> celebrations? We provide a comprehensive selection
+                        of verified, hygienic, and family-safe accommodations including <strong>Deluxe AC Rooms, Budget
+                            Non-AC Rooms, Independent Guest Houses, Family Halls, and Community Dormitories</strong>
+                        situated at prime walking distances around <strong>Dargah Hazrat Waris Ali Shah (R.A.)</strong>.
+                        Whether you require premium rooms right opposite the main shrine gates with direct rooftop views of
+                        the holy dome or peaceful budget stays with vehicle parking, our portal assists you in reserving
+                        comfortable, dignified stays without middleman commission or surge pricing shocks.
                     </p>
+
+                    <!-- Key Highlights & Room Types Grid -->
+                    <h3
+                        style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
+                        <span>✨</span> Special Highlights &amp; Accommodation Options
+                    </h3>
+
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 28px;">
+
+                        <div
+                            style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #16a34a; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                            <h4
+                                style="font-size: 15.5px; font-weight: 800; color: #166534; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                                <span>📍</span> Prime Location &amp; Proximity
+                            </h4>
+                            <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                                Choose from guest houses and lodges located just 10 to 50 steps away, or within a
+                                comfortable 50 to 400 meters walking perimeter from the Dargah premises, Chashma-e-Hayat,
+                                and festive grounds. Ideal for elderly pilgrims and families.
+                            </p>
+                        </div>
+
+                        <div
+                            style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #f59e0b; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                            <h4
+                                style="font-size: 15.5px; font-weight: 800; color: #92400e; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                                <span>🕌</span> Dargah View Rooms &amp; Rooftops
+                            </h4>
+                            <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                                Enjoy specially curated rooms and open rooftop terraces that offer an unobstructed, scenic
+                                panoramic view of the holy Dargah minarets, golden dome, and evening festive illumination.
+                            </p>
+                        </div>
+
+                        <div
+                            style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #2563eb; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                            <h4
+                                style="font-size: 15.5px; font-weight: 800; color: #1e40af; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                                <span>🛏️</span> Complete Range of Room Categories
+                            </h4>
+                            <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                                Fully equipped with Single AC, Queen Size AC, King Size Master AC, large AC Halls (for
+                                groups of 5 to 15+), Single Non-AC, Queen Non-AC, and budget-friendly community halls with
+                                clean attached washrooms.
+                            </p>
+                        </div>
+
+                        <div
+                            style="background: #f8fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #dc2626; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+                            <h4
+                                style="font-size: 15.5px; font-weight: 800; color: #991b1b; margin: 0 0 8px 0; display: flex; align-items: center; gap: 6px;">
+                                <span>🏮</span> Urs &amp; Dewa Mela 2026 Packages
+                            </h4>
+                            <p style="font-size: 13.5px; color: #475569; margin: 0; line-height: 1.65;">
+                                Exclusive multi-day booking packages (3, 5, or 10 days) tailored for the grand Urs festival.
+                                Pre-booking ensures guaranteed room availability and transparent tariffs without
+                                peak-festival price inflations.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Walking Proximity Table -->
+                    <h3
+                        style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 14px 0; display: flex; align-items: center; gap: 8px;">
+                        <span>🚶</span> Proximity &amp; Walking Distance Guide to Shrine Landmarks
+                    </h3>
+
+                    <div style="overflow-x: auto; margin-bottom: 28px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                        <table
+                            style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left; min-width: 580px;">
+                            <thead>
+                                <tr style="background: #074121; color: #ffffff;">
+                                    <th style="padding: 12px 16px; font-weight: 800;">Location / Landmark</th>
+                                    <th style="padding: 12px 16px; font-weight: 800;">Distance from Hotels</th>
+                                    <th style="padding: 12px 16px; font-weight: 800;">Walking Time</th>
+                                    <th style="padding: 12px 16px; font-weight: 800;">Best Suited For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                                    <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Main Dargah Gate 1
+                                        &amp; Chashma-e-Hayat</td>
+                                    <td style="padding: 12px 16px; color: #475569;">10 to 50 Steps</td>
+                                    <td style="padding: 12px 16px; color: #475569;">&lt; 1 Minute</td>
+                                    <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Elderly pilgrims,
+                                        ladies, and families</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc;">
+                                    <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Dewa Mela Grounds
+                                        &amp; Exhibition Arena</td>
+                                    <td style="padding: 12px 16px; color: #475569;">150 to 250 Meters</td>
+                                    <td style="padding: 12px 16px; color: #475569;">3 to 4 Minutes</td>
+                                    <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Festival attendees
+                                        &amp; cultural visitors</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff;">
+                                    <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Karbala Road &amp;
+                                        Outer Garden Lodges</td>
+                                    <td style="padding: 12px 16px; color: #475569;">250 to 400 Meters</td>
+                                    <td style="padding: 12px 16px; color: #475569;">5 Minutes</td>
+                                    <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Guests with private
+                                        cars requiring parking</td>
+                                </tr>
+                                <tr style="background: #f8fafc;">
+                                    <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Town Bus Stand &amp;
+                                        Shared Taxi Stand</td>
+                                    <td style="padding: 12px 16px; color: #475569;">300 to 500 Meters</td>
+                                    <td style="padding: 12px 16px; color: #475569;">6 Minutes</td>
+                                    <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Direct highway &amp;
+                                        Lucknow bus commuters</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Guest Verification & Sarai Act Compliance Note -->
+                    <div
+                        style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 12px; padding: 20px 22px; margin-bottom: 28px;">
+                        <h3
+                            style="font-size: 17.5px; font-weight: 900; color: #166534; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
+                            <span>📋</span> Statutory Guest Check-in Guidelines (Sarai Act 1867 Compliance)
+                        </h3>
+                        <p style="font-size: 13.5px; color: #14532d; line-height: 1.7; margin: 0;">
+                            As per standard administrative and police regulations under the Sarai Act, all guests (Indian
+                            and foreign nationals) must present an original, valid government-issued photo identity proof
+                            (Aadhaar Card, Voter ID, Passport, or Driving License) upon physical arrival at the reception.
+                            Standard check-in is typically from 11:00 AM and check-out is 12:00 Noon. Late night check-ins
+                            are readily accommodated if informed in advance.
+                        </p>
+                    </div>
+
+                    <!-- Frequently Asked Questions (Hotel FAQs) -->
+                    <h3
+                        style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
+                        <span>❓</span> Frequently Asked Questions (Hotel &amp; Stay FAQs)
+                    </h3>
+
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+
+                        <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                            <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                                Q1: Can I get an attached western toilet and 24-hour hot water in the rooms?
+                            </h4>
+                            <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                                Yes. Most Deluxe AC and Queen/King rooms listed on our portal feature clean attached
+                                washrooms with western commodes, geysers for hot running water, and power backup for ceiling
+                                fans and lights during power outages.
+                            </p>
+                        </div>
+
+                        <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                            <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                                Q2: Are rooms safe and suitable for solo women and family groups?
+                            </h4>
+                            <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                                Dewa Sharif is a historically hospitable, spiritual pilgrim town. All partner guest houses
+                                maintain strict family-friendly environments, registered guest registers, night caretakers,
+                                and CCTV monitoring in common entry hallways for complete safety.
+                            </p>
+                        </div>
+
+                        <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                            <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                                Q3: What are the group stay facilities for Urs delegations (Zayreen Jatha)?
+                            </h4>
+                            <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                                We provide large air-conditioned and non-AC halls capable of accommodating 10 to 30+
+                                pilgrims together with multiple bedding arrangements, separate washroom access, and
+                                economical per-head group pricing for delegations attending annual Urs dates.
+                            </p>
+                        </div>
+
+                        <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
+                            <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
+                                Q4: Can we book marriage lawns or private party halls in Dewa Sharif?
+                            </h4>
+                            <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
+                                Yes! For family weddings, Nikah ceremonies, spiritual Milad gatherings, or collective langar
+                                feasts, we facilitate spacious marriage lawns and event halls with catering setups and
+                                dedicated guest room blocks. Contact our desk on WhatsApp for custom event quotes.
+                            </p>
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <!-- Frequently Asked Questions (Hotel FAQs) -->
-                <h3 style="font-size: 19px; font-weight: 900; color: #0f172a; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
-                    <span>❓</span> Frequently Asked Questions (Hotel &amp; Stay FAQs)
-                </h3>
-
-                <div style="display: flex; flex-direction: column; gap: 12px;">
-                    
-                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
-                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
-                            Q1: Can I get an attached western toilet and 24-hour hot water in the rooms?
-                        </h4>
-                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
-                            Yes. Most Deluxe AC and Queen/King rooms listed on our portal feature clean attached washrooms with western commodes, geysers for hot running water, and power backup for ceiling fans and lights during power outages.
-                        </p>
-                    </div>
-
-                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
-                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
-                            Q2: Are rooms safe and suitable for solo women and family groups?
-                        </h4>
-                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
-                            Dewa Sharif is a historically hospitable, spiritual pilgrim town. All partner guest houses maintain strict family-friendly environments, registered guest registers, night caretakers, and CCTV monitoring in common entry hallways for complete safety.
-                        </p>
-                    </div>
-
-                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
-                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
-                            Q3: What are the group stay facilities for Urs delegations (Zayreen Jatha)?
-                        </h4>
-                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
-                            We provide large air-conditioned and non-AC halls capable of accommodating 10 to 30+ pilgrims together with multiple bedding arrangements, separate washroom access, and economical per-head group pricing for delegations attending annual Urs dates.
-                        </p>
-                    </div>
-
-                    <div style="background: #f8fafc; padding: 18px; border-radius: 10px; border: 1px solid #e2e8f0;">
-                        <h4 style="font-size: 15px; font-weight: 800; color: #074121; margin: 0 0 6px 0;">
-                            Q4: Can we book marriage lawns or private party halls in Dewa Sharif?
-                        </h4>
-                        <p style="font-size: 13.5px; color: #475569; line-height: 1.65; margin: 0;">
-                            Yes! For family weddings, Nikah ceremonies, spiritual Milad gatherings, or collective langar feasts, we facilitate spacious marriage lawns and event halls with catering setups and dedicated guest room blocks. Contact our desk on WhatsApp for custom event quotes.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- HOTEL REVIEWS & GUEST EXPERIENCES SECTION -->
-            <style>
-                .hotel-reviews-container {
-                    margin-top: 50px;
-                    padding-top: 30px;
-                    border-top: 2px solid #e2e8f0;
-                    padding-left: 10px;
-                    padding-right: 10px;
-                    box-sizing: border-box;
-                }
-
-                .hotel-reviews-header-box {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    flex-wrap: wrap;
-                    gap: 15px;
-                    margin-bottom: 24px;
-                    width: 100%;
-                    box-sizing: border-box;
-                }
-
-                .hotel-reviews-title-box {
-                    flex: 1 1 auto;
-                }
-
-                .hotel-reviews-title {
-                    font-weight: 900;
-                    color: #074121;
-                    margin: 0;
-                    font-size: 22px;
-                    word-break: break-word;
-                }
-
-                .hotel-reviews-desc {
-                    margin: 4px 0 0 0;
-                    color: #64748b;
-                    font-size: 13.5px;
-                    font-weight: 600;
-                    word-break: break-word;
-                }
-
-                .hotel-reviews-actions {
-                    display: flex;
-                    gap: 10px;
-                    flex-wrap: wrap;
-                    align-items: center;
-                    flex-shrink: 0;
-                }
-
-                .hotel-reviews-btn {
-                    font-weight: 800;
-                    font-size: 13px;
-                    padding: 8px 16px;
-                    border-radius: 25px;
-                    white-space: nowrap;
-                    text-align: center;
-                    cursor: pointer;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                @media (max-width: 768px) {
+                <!-- HOTEL REVIEWS & GUEST EXPERIENCES SECTION -->
+                <style>
                     .hotel-reviews-container {
-                        padding-left: 4px;
-                        padding-right: 4px;
-                        margin-top: 35px;
-                        padding-top: 20px;
+                        margin-top: 50px;
+                        padding-top: 30px;
+                        border-top: 2px solid #e2e8f0;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        box-sizing: border-box;
                     }
 
                     .hotel-reviews-header-box {
-                        flex-direction: column !important;
-                        align-items: flex-start !important;
-                        gap: 12px !important;
-                        margin-bottom: 18px !important;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 15px;
+                        margin-bottom: 24px;
+                        width: 100%;
+                        box-sizing: border-box;
                     }
 
                     .hotel-reviews-title-box {
-                        width: 100% !important;
+                        flex: 1 1 auto;
                     }
 
                     .hotel-reviews-title {
-                        font-size: 18px !important;
-                        line-height: 1.3 !important;
+                        font-weight: 900;
+                        color: #074121;
+                        margin: 0;
+                        font-size: 22px;
+                        word-break: break-word;
                     }
 
                     .hotel-reviews-desc {
-                        font-size: 12.5px !important;
-                        line-height: 1.4 !important;
+                        margin: 4px 0 0 0;
+                        color: #64748b;
+                        font-size: 13.5px;
+                        font-weight: 600;
+                        word-break: break-word;
                     }
 
                     .hotel-reviews-actions {
-                        width: 100% !important;
-                        display: flex !important;
-                        gap: 8px !important;
+                        display: flex;
+                        gap: 10px;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        flex-shrink: 0;
                     }
 
                     .hotel-reviews-btn {
-                        flex: 1 1 0% !important;
-                        width: 48% !important;
-                        font-size: 11.5px !important;
-                        padding: 8px 8px !important;
-                        box-sizing: border-box !important;
+                        font-weight: 800;
+                        font-size: 13px;
+                        padding: 8px 16px;
+                        border-radius: 25px;
+                        white-space: nowrap;
+                        text-align: center;
+                        cursor: pointer;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
                     }
-                }
 
-                @media (max-width: 340px) {
-                    .hotel-reviews-actions {
-                        flex-direction: column !important;
+                    @media (max-width: 768px) {
+                        .hotel-reviews-container {
+                            padding-left: 4px;
+                            padding-right: 4px;
+                            margin-top: 35px;
+                            padding-top: 20px;
+                        }
+
+                        .hotel-reviews-header-box {
+                            flex-direction: column !important;
+                            align-items: flex-start !important;
+                            gap: 12px !important;
+                            margin-bottom: 18px !important;
+                        }
+
+                        .hotel-reviews-title-box {
+                            width: 100% !important;
+                        }
+
+                        .hotel-reviews-title {
+                            font-size: 18px !important;
+                            line-height: 1.3 !important;
+                        }
+
+                        .hotel-reviews-desc {
+                            font-size: 12.5px !important;
+                            line-height: 1.4 !important;
+                        }
+
+                        .hotel-reviews-actions {
+                            width: 100% !important;
+                            display: flex !important;
+                            gap: 8px !important;
+                        }
+
+                        .hotel-reviews-btn {
+                            flex: 1 1 0% !important;
+                            width: 48% !important;
+                            font-size: 11.5px !important;
+                            padding: 8px 8px !important;
+                            box-sizing: border-box !important;
+                        }
                     }
 
-                    .hotel-reviews-btn {
-                        width: 100% !important;
-                    }
-                }
-            </style>
+                    @media (max-width: 340px) {
+                        .hotel-reviews-actions {
+                            flex-direction: column !important;
+                        }
 
-            <div class="hotel-reviews-container">
-                <div class="hotel-reviews-header-box">
-                    <div class="hotel-reviews-title-box">
-                        <h4 class="hotel-reviews-title">
-                            ⭐ Guest Reviews &amp; Stay Experiences
-                        </h4>
-                        <p class="hotel-reviews-desc">
-                            Verified reviews from pilgrims staying near Dewa Sharif Dargah
-                        </p>
+                        .hotel-reviews-btn {
+                            width: 100% !important;
+                        }
+                    }
+                </style>
+
+                <div class="hotel-reviews-container">
+                    <div class="hotel-reviews-header-box">
+                        <div class="hotel-reviews-title-box">
+                            <h4 class="hotel-reviews-title">
+                                ⭐ Guest Reviews &amp; Stay Experiences
+                            </h4>
+                            <p class="hotel-reviews-desc">
+                                Verified reviews from pilgrims staying near Dewa Sharif Dargah
+                            </p>
+                        </div>
+                        <div class="hotel-reviews-actions">
+                            <button type="button" class="btn btn-success hotel-reviews-btn"
+                                onclick="$('#writeHotelReviewModal').modal('show')" data-toggle="modal"
+                                data-target="#writeHotelReviewModal" data-bs-toggle="modal"
+                                data-bs-target="#writeHotelReviewModal"
+                                style="background: #16a34a; border: none; color: #ffffff;">
+                                ✍️ Write Hotel Review
+                            </button>
+                            <button type="button" class="btn btn-outline-success hotel-reviews-btn"
+                                onclick="$('#sendHotelFeedbackModal').modal('show')" data-toggle="modal"
+                                data-target="#sendHotelFeedbackModal" data-bs-toggle="modal"
+                                data-bs-target="#sendHotelFeedbackModal"
+                                style="border: 1.5px solid #16a34a; color: #16a34a; background: #ffffff;">
+                                💬 Send Feedback
+                            </button>
+                        </div>
                     </div>
-                    <div class="hotel-reviews-actions">
-                        <button type="button" class="btn btn-success hotel-reviews-btn"
-                            onclick="$('#writeHotelReviewModal').modal('show')" data-toggle="modal"
-                            data-target="#writeHotelReviewModal" data-bs-toggle="modal"
-                            data-bs-target="#writeHotelReviewModal"
-                            style="background: #16a34a; border: none; color: #ffffff;">
-                            ✍️ Write Hotel Review
-                        </button>
-                        <button type="button" class="btn btn-outline-success hotel-reviews-btn"
-                            onclick="$('#sendHotelFeedbackModal').modal('show')" data-toggle="modal"
-                            data-target="#sendHotelFeedbackModal" data-bs-toggle="modal"
-                            data-bs-target="#sendHotelFeedbackModal"
-                            style="border: 1.5px solid #16a34a; color: #16a34a; background: #ffffff;">
-                            💬 Send Feedback
-                        </button>
-                    </div>
-                </div>
 
-                <div class="row g-4">
-                    @forelse($hotelReviews ?? [] as $rev)
-                        <div class="col-lg-4 col-md-6 col-12 mb-3">
-                            <div
-                                style="background: #ffffff; border-radius: 14px; border: 1.5px solid #e2e8f0; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-                                <div>
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <div class="d-flex align-items-center gap-1">
-                                            <span style="color: #f59e0b; font-size: 15px; white-space: nowrap !important; display: inline-flex; align-items: center; letter-spacing: 2px;">
-                                                @for ($i = 1; $i <= 5; $i++)
-                                                    {{ $i <= $rev->rating ? '★' : '☆' }}
-                                                @endfor
-                                            </span>
-                                            <strong
-                                                style="font-size: 13px; color: #0f172a; margin-left: 4px; white-space: nowrap;">{{ $rev->rating }}.0</strong>
+                    <div class="row g-4">
+                        @forelse($hotelReviews ?? [] as $rev)
+                            <div class="col-lg-4 col-md-6 col-12 mb-3">
+                                <div
+                                    style="background: #ffffff; border-radius: 14px; border: 1.5px solid #e2e8f0; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div>
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <div class="d-flex align-items-center gap-1">
+                                                <span
+                                                    style="color: #f59e0b; font-size: 15px; white-space: nowrap !important; display: inline-flex; align-items: center; letter-spacing: 2px;">
+                                                    @for ($i = 1; $i <= 5; $i++)
+                                                        {{ $i <= $rev->rating ? '★' : '☆' }}
+                                                    @endfor
+                                                </span>
+                                                <strong
+                                                    style="font-size: 13px; color: #0f172a; margin-left: 4px; white-space: nowrap;">{{ $rev->rating }}.0</strong>
+                                            </div>
+                                            <small
+                                                style="color: #94a3b8; font-size: 11.5px;">{{ date('d M Y', strtotime($rev->created_at ?? now())) }}</small>
                                         </div>
-                                        <small
-                                            style="color: #94a3b8; font-size: 11.5px;">{{ date('d M Y', strtotime($rev->created_at ?? now())) }}</small>
+                                        @if (!empty($rev->title))
+                                            <h6
+                                                style="font-weight: 800; color: #0f172a; margin-bottom: 6px; font-size: 14.5px;">
+                                                {{ $rev->title }}</h6>
+                                        @endif
+                                        <p
+                                            style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 10px; text-align: left !important; word-break: break-word;">
+                                            "{{ $rev->comment }}"
+                                        </p>
                                     </div>
-                                    @if (!empty($rev->title))
-                                        <h6
-                                            style="font-weight: 800; color: #0f172a; margin-bottom: 6px; font-size: 14.5px;">
-                                            {{ $rev->title }}</h6>
-                                    @endif
-                                    <p style="font-size: 13px; color: #475569; line-height: 1.5; margin-bottom: 10px; text-align: left !important; word-break: break-word;">
-                                        "{{ $rev->comment }}"
-                                    </p>
-                                </div>
-                                <div class="pt-2 border-top d-flex justify-content-between align-items-center">
-                                    <span style="font-weight: 800; font-size: 12.5px; color: #0f172a;">👤
-                                        {{ $rev->customer_name }}</span>
-                                    <span
-                                        style="font-size: 11px; color: #0284c7; font-weight: 700; background: #e0f2fe; padding: 2px 8px; border-radius: 4px;">Verified
-                                        Guest</span>
+                                    <div class="pt-2 border-top d-flex justify-content-between align-items-center">
+                                        <span style="font-weight: 800; font-size: 12.5px; color: #0f172a;">👤
+                                            {{ $rev->customer_name }}</span>
+                                        <span
+                                            style="font-size: 11px; color: #0284c7; font-weight: 700; background: #e0f2fe; padding: 2px 8px; border-radius: 4px;">Verified
+                                            Guest</span>
+                                    </div>
                                 </div>
                             </div>
+                        @empty
+                            <div class="col-12 text-center py-4 text-muted">
+                                <p>Be the first pilgrim to review Dewa Sharif hotel stays!</p>
+                            </div>
+                        @endforelse
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- WRITE HOTEL REVIEW MODAL -->
+        <div class="modal fade" id="writeHotelReviewModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content" style="border-radius: 16px; overflow: hidden;">
+                    <form onsubmit="submitHotelReview(event)">
+                        <div class="modal-header"
+                            style="background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #10b981 100%); color: #fff;">
+                            <h5 class="modal-title font-weight-bold"><i class="fa fa-star text-warning mr-2"></i>Write a
+                                Hotel
+                                Review</h5>
+                            <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
                         </div>
-                    @empty
-                        <div class="col-12 text-center py-4 text-muted">
-                            <p>Be the first pilgrim to review Dewa Sharif hotel stays!</p>
+                        <div class="modal-body p-4">
+                            <input type="hidden" name="service_type" value="hotel">
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Select Hotel / Guest House*</label>
+                                <select name="item_name" class="form-control" required>
+                                    @foreach ($hotels as $h)
+                                        <option value="{{ is_array($h) ? $h['name'] ?? 'Hotel' : $h->name }}">
+                                            {{ is_array($h) ? $h['name'] ?? 'Hotel' : $h->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Your Rating*</label>
+                                <select name="rating" class="form-control font-weight-bold">
+                                    <option value="5" selected>★★★★★ 5 Stars (Excellent Experience)</option>
+                                    <option value="4">★★★★☆ 4 Stars (Very Good)</option>
+                                    <option value="3">★★★☆☆ 3 Stars (Average)</option>
+                                    <option value="2">★★☆☆☆ 2 Stars (Needs Improvement)</option>
+                                    <option value="1">★☆☆☆☆ 1 Star (Not Satisfied)</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Your Name*</label>
+                                <input type="text" name="name" class="form-control" placeholder="e.g. Mohd Imran"
+                                    required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Phone Number</label>
+                                <input type="text" name="phone" class="form-control" placeholder="e.g. 9876543210">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Headline / Short Title</label>
+                                <input type="text" name="title" class="form-control"
+                                    placeholder="e.g. Very clean room near Dargah">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Your Stay Experience / Comments*</label>
+                                <textarea name="comment" class="form-control" rows="4"
+                                    placeholder="How was your room, AC, cleanliness and service?" required></textarea>
+                            </div>
                         </div>
-                    @endforelse
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary font-weight-bold"
+                                data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-success font-weight-bold px-4"
+                                style="background: #16a34a; border-color: #16a34a;">
+                                Submit Review
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
         </div>
-    </div>
 
-    <!-- WRITE HOTEL REVIEW MODAL -->
-    <div class="modal fade" id="writeHotelReviewModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content" style="border-radius: 16px; overflow: hidden;">
-                <form onsubmit="submitHotelReview(event)">
-                    <div class="modal-header"
-                        style="background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #10b981 100%); color: #fff;">
-                        <h5 class="modal-title font-weight-bold"><i class="fa fa-star text-warning mr-2"></i>Write a Hotel
-                            Review</h5>
-                        <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body p-4">
-                        <input type="hidden" name="service_type" value="hotel">
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Select Hotel / Guest House*</label>
-                            <select name="item_name" class="form-control" required>
-                                @foreach ($hotels as $h)
-                                    <option value="{{ is_array($h) ? $h['name'] ?? 'Hotel' : $h->name }}">
-                                        {{ is_array($h) ? $h['name'] ?? 'Hotel' : $h->name }}</option>
-                                @endforeach
-                            </select>
+        <!-- SEND HOTEL FEEDBACK MODAL -->
+        <div class="modal fade" id="sendHotelFeedbackModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content" style="border-radius: 16px; overflow: hidden;">
+                    <form onsubmit="submitHotelFeedback(event)">
+                        <div class="modal-header"
+                            style="background: linear-gradient(135deg, #0b132b 0%, #1e3a8a 50%, #2563eb 100%); color: #fff;">
+                            <h5 class="modal-title font-weight-bold"><i
+                                    class="fa fa-commenting text-warning mr-2"></i>Send
+                                Hotel Feedback</h5>
+                            <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
                         </div>
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Your Rating*</label>
-                            <select name="rating" class="form-control font-weight-bold">
-                                <option value="5" selected>★★★★★ 5 Stars (Excellent Experience)</option>
-                                <option value="4">★★★★☆ 4 Stars (Very Good)</option>
-                                <option value="3">★★★☆☆ 3 Stars (Average)</option>
-                                <option value="2">★★☆☆☆ 2 Stars (Needs Improvement)</option>
-                                <option value="1">★☆☆☆☆ 1 Star (Not Satisfied)</option>
-                            </select>
+                        <div class="modal-body p-4">
+                            <input type="hidden" name="service_type" value="hotel">
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Your Name*</label>
+                                <input type="text" name="name" class="form-control" placeholder="e.g. Zaid Khan"
+                                    required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Phone Number*</label>
+                                <input type="text" name="phone" class="form-control" placeholder="e.g. 9876543210"
+                                    required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Subject*</label>
+                                <input type="text" name="subject" class="form-control"
+                                    placeholder="e.g. Room suggestion / Issue" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Your Feedback / Suggestion*</label>
+                                <textarea name="message" class="form-control" rows="4"
+                                    placeholder="Share your suggestions with administration..." required></textarea>
+                            </div>
                         </div>
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Your Name*</label>
-                            <input type="text" name="name" class="form-control" placeholder="e.g. Mohd Imran"
-                                required>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary font-weight-bold"
+                                data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary font-weight-bold px-4"
+                                style="background: #2563eb; border-color: #2563eb;">
+                                Send Feedback
+                            </button>
                         </div>
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Phone Number</label>
-                            <input type="text" name="phone" class="form-control" placeholder="e.g. 9876543210">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Headline / Short Title</label>
-                            <input type="text" name="title" class="form-control"
-                                placeholder="e.g. Very clean room near Dargah">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Your Stay Experience / Comments*</label>
-                            <textarea name="comment" class="form-control" rows="4"
-                                placeholder="How was your room, AC, cleanliness and service?" required></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary font-weight-bold"
-                            data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-success font-weight-bold px-4"
-                            style="background: #16a34a; border-color: #16a34a;">
-                            Submit Review
-                        </button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- SEND HOTEL FEEDBACK MODAL -->
-    <div class="modal fade" id="sendHotelFeedbackModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content" style="border-radius: 16px; overflow: hidden;">
-                <form onsubmit="submitHotelFeedback(event)">
-                    <div class="modal-header"
-                        style="background: linear-gradient(135deg, #0b132b 0%, #1e3a8a 50%, #2563eb 100%); color: #fff;">
-                        <h5 class="modal-title font-weight-bold"><i class="fa fa-commenting text-warning mr-2"></i>Send
-                            Hotel Feedback</h5>
-                        <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body p-4">
-                        <input type="hidden" name="service_type" value="hotel">
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Your Name*</label>
-                            <input type="text" name="name" class="form-control" placeholder="e.g. Zaid Khan"
-                                required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Phone Number*</label>
-                            <input type="text" name="phone" class="form-control" placeholder="e.g. 9876543210"
-                                required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Subject*</label>
-                            <input type="text" name="subject" class="form-control"
-                                placeholder="e.g. Room suggestion / Issue" required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="font-weight-bold">Your Feedback / Suggestion*</label>
-                            <textarea name="message" class="form-control" rows="4"
-                                placeholder="Share your suggestions with administration..." required></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary font-weight-bold"
-                            data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary font-weight-bold px-4"
-                            style="background: #2563eb; border-color: #2563eb;">
-                            Send Feedback
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function checkEmptyState() {
-            var visibleCount = $('.hotel-card-item:visible').length;
-            if (visibleCount === 0) {
-                $('#noHotelsNotice').fadeIn(200);
-            } else {
-                $('#noHotelsNotice').hide();
+        <script>
+            function checkEmptyState() {
+                var visibleCount = $('.hotel-card-item:visible').length;
+                if (visibleCount === 0) {
+                    $('#noHotelsNotice').fadeIn(200);
+                } else {
+                    $('#noHotelsNotice').hide();
+                }
             }
-        }
 
-        function filterCategory(cat, btn) {
-            $('.filter-btn').removeClass('active').css({
-                'background': '#fff',
-                'color': '#074121'
-            });
-            if (btn) {
-                $(btn).addClass('active').css({
-                    'background': '#074121',
-                    'color': '#fff'
+            function filterCategory(cat, btn) {
+                $('.filter-btn').removeClass('active').css({
+                    'background': '#fff',
+                    'color': '#074121'
                 });
-            }
+                if (btn) {
+                    $(btn).addClass('active').css({
+                        'background': '#074121',
+                        'color': '#fff'
+                    });
+                }
 
-            if (cat === 'all') {
-                $('.hotel-card-item').fadeIn(200, function() {
-                    $(this).css('display', 'flex');
+                if (cat === 'all') {
+                    $('.hotel-card-item').fadeIn(200, function() {
+                        $(this).css('display', 'flex');
+                        checkEmptyState();
+                    });
+                } else {
+                    $('.hotel-card-item').hide();
+                    $('.hotel-card-item[data-category*="' + cat + '"]').fadeIn(200, function() {
+                        $(this).css('display', 'flex');
+                        checkEmptyState();
+                    });
+                }
+                setTimeout(function() {
+                    $('.hotel-card-item:visible').css('display', 'flex');
                     checkEmptyState();
-                });
-            } else {
-                $('.hotel-card-item').hide();
-                $('.hotel-card-item[data-category*="' + cat + '"]').fadeIn(200, function() {
-                    $(this).css('display', 'flex');
-                    checkEmptyState();
-                });
-            }
-            setTimeout(function() {
-                $('.hotel-card-item:visible').css('display', 'flex');
-                checkEmptyState();
-            }, 250);
-        }
-
-        function filterHotels() {
-            var cat = $('#search_category').val();
-            var matchingBtn = $('.filter-btn').filter(function() {
-                var onclickAttr = $(this).attr('onclick') || '';
-                return onclickAttr.indexOf("'" + cat + "'") !== -1;
-            })[0];
-            filterCategory(cat, matchingBtn);
-            var grid = document.getElementById('hotelsGrid');
-            if (grid) {
-                grid.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        }
-
-        function submitHotelReview(e) {
-            e.preventDefault();
-            var form = e.target;
-            var formData = new FormData(form);
-            var dataObj = {};
-            formData.forEach(function(val, key) {
-                dataObj[key] = val;
-            });
-
-            fetch("{{ route('reviews.store') }}", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                    },
-                    body: JSON.stringify(dataObj)
-                })
-                .then(function(res) {
-                    return res.json();
-                })
-                .then(function(res) {
-                    if (res.success) {
-                        alert('🎉 ' + res.message);
-                        $('#writeHotelReviewModal').modal('hide');
-                        form.reset();
-                        location.reload();
-                    } else {
-                        alert('❌ ' + (res.message || 'Error submitting review'));
-                    }
-                })
-                .catch(function() {
-                    alert('Server error while submitting review.');
-                });
-        }
-
-        function submitHotelFeedback(e) {
-            e.preventDefault();
-            var form = e.target;
-            var formData = new FormData(form);
-            var dataObj = {};
-            formData.forEach(function(val, key) {
-                dataObj[key] = val;
-            });
-
-            fetch("{{ route('feedback.store') }}", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
-                    },
-                    body: JSON.stringify(dataObj)
-                })
-                .then(function(res) {
-                    return res.json();
-                })
-                .then(function(res) {
-                    if (res.success) {
-                        alert('🎉 ' + res.message);
-                        $('#sendHotelFeedbackModal').modal('hide');
-                        form.reset();
-                    } else {
-                        alert('❌ ' + (res.message || 'Error submitting feedback'));
-                    }
-                })
-                .catch(function() {
-                    alert('Server error while sending feedback.');
-                });
-        }
-
-        function submitCustomWhatsAppHotelStay() {
-            var req = ($('#custom_hotel_req').val() || '').trim();
-            var guests = ($('#custom_hotel_guests').val() || '').trim();
-            var dates = ($('#custom_hotel_dates').val() || '').trim();
-
-            if (!req && !guests) {
-                alert('Kripya Stay Requirement (jaise Hall ya Rooms) aur Guests count type karein!');
-                return;
+                }, 250);
             }
 
-            var safeReq = req || 'Custom Family Hall / Group Stay';
-            var safeGuests = guests || '6-10 Persons';
-            var safeDates = dates || 'Upcoming Ziyarat Stay';
+            function filterHotels() {
+                var cat = $('#search_category').val();
+                var matchingBtn = $('.filter-btn').filter(function() {
+                    var onclickAttr = $(this).attr('onclick') || '';
+                    return onclickAttr.indexOf("'" + cat + "'") !== -1;
+                })[0];
+                filterCategory(cat, matchingBtn);
+                var grid = document.getElementById('hotelsGrid');
+                if (grid) {
+                    grid.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
 
-            var text = "Assalamu Alaikum Dewa Sharif Hotel Desk!\n\n" +
-                "I want to book a Custom Family Hall / Group Stay near Dewa Sharif Dargah:\n" +
-                "🏨 Stay Requirement: " + safeReq + "\n" +
-                "👥 Total Guests / Persons: " + safeGuests + "\n" +
-                "📅 Expected Dates / Duration: " + safeDates + "\n\n" +
-                "Please share available guest houses, halls & best custom quote. Thank you!";
+            function submitHotelReview(e) {
+                e.preventDefault();
+                var form = e.target;
+                var formData = new FormData(form);
+                var dataObj = {};
+                formData.forEach(function(val, key) {
+                    dataObj[key] = val;
+                });
 
-            var waUrl = "https://wa.me/919648777223?text=" + encodeURIComponent(text);
-            window.open(waUrl, '_blank');
+                fetch("{{ route('reviews.store') }}", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                        },
+                        body: JSON.stringify(dataObj)
+                    })
+                    .then(function(res) {
+                        return res.json();
+                    })
+                    .then(function(res) {
+                        if (res.success) {
+                            alert('🎉 ' + res.message);
+                            $('#writeHotelReviewModal').modal('hide');
+                            form.reset();
+                            location.reload();
+                        } else {
+                            alert('❌ ' + (res.message || 'Error submitting review'));
+                        }
+                    })
+                    .catch(function() {
+                        alert('Server error while submitting review.');
+                    });
+            }
 
-            $.post("{{ route('hotels.custom-enquiry') }}", {
-                _token: "{{ csrf_token() }}",
-                requirement: safeReq,
-                guests: safeGuests,
-                dates: safeDates
-            });
-        }
-    </script>
+            function submitHotelFeedback(e) {
+                e.preventDefault();
+                var form = e.target;
+                var formData = new FormData(form);
+                var dataObj = {};
+                formData.forEach(function(val, key) {
+                    dataObj[key] = val;
+                });
 
-@endsection
+                fetch("{{ route('feedback.store') }}", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                        },
+                        body: JSON.stringify(dataObj)
+                    })
+                    .then(function(res) {
+                        return res.json();
+                    })
+                    .then(function(res) {
+                        if (res.success) {
+                            alert('🎉 ' + res.message);
+                            $('#sendHotelFeedbackModal').modal('hide');
+                            form.reset();
+                        } else {
+                            alert('❌ ' + (res.message || 'Error submitting feedback'));
+                        }
+                    })
+                    .catch(function() {
+                        alert('Server error while sending feedback.');
+                    });
+            }
+
+            function submitCustomWhatsAppHotelStay() {
+                var req = ($('#custom_hotel_req').val() || '').trim();
+                var guests = ($('#custom_hotel_guests').val() || '').trim();
+                var dates = ($('#custom_hotel_dates').val() || '').trim();
+
+                if (!req && !guests) {
+                    alert('Kripya Stay Requirement (jaise Hall ya Rooms) aur Guests count type karein!');
+                    return;
+                }
+
+                var safeReq = req || 'Custom Family Hall / Group Stay';
+                var safeGuests = guests || '6-10 Persons';
+                var safeDates = dates || 'Upcoming Ziyarat Stay';
+
+                var text = "Assalamu Alaikum Dewa Sharif Hotel Desk!\n\n" +
+                    "I want to book a Custom Family Hall / Group Stay near Dewa Sharif Dargah:\n" +
+                    "🏨 Stay Requirement: " + safeReq + "\n" +
+                    "👥 Total Guests / Persons: " + safeGuests + "\n" +
+                    "📅 Expected Dates / Duration: " + safeDates + "\n\n" +
+                    "Please share available guest houses, halls & best custom quote. Thank you!";
+
+                var waUrl = "https://wa.me/919648777223?text=" + encodeURIComponent(text);
+                window.open(waUrl, '_blank');
+
+                $.post("{{ route('hotels.custom-enquiry') }}", {
+                    _token: "{{ csrf_token() }}",
+                    requirement: safeReq,
+                    guests: safeGuests,
+                    dates: safeDates
+                });
+            }
+        </script>
+
+    @endsection
