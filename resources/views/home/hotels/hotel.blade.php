@@ -321,7 +321,7 @@
                         </h5><br>
                         <span
                             style="font-size: 12px;  background: #fef3c7; color: #b45309; margin-top: 8px; padding: 5px 14px; border-radius: 160px; font-weight: 800; border: 1px solid #fde68a;">
-                            We Provide AC/Non AC Services & Special Group Rates Available for Urs, Mela &amp; Big Families
+                            We Provide AC/Non AC Services & Special Group Rates Available
                         </span>
                     </div>
 
