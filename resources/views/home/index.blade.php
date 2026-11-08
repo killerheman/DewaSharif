@@ -11,7 +11,7 @@
             <!-- Header Badge -->
             <span
                 style="background: #e8a824; color: #111; font-weight: 800; font-size: 12px; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                🙏 Heartfelt Gratitude 🙏
+                ❤️ Heartfelt Gratitude ❤️
             </span>
 
             <h3
