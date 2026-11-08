@@ -77,9 +77,14 @@
             <p
                 style="font-size: 15.5px; color: #fdf6e2; line-height: 1.7; font-weight: 500; margin: 0 auto 20px auto; max-width: 950px; text-align: center;">
                 Hum provide karte hain —
-                <span style="color: #e53e3e; font-weight: 700;">Confirm All India Bus Ticket, National & International
-                    Flights Ticket and Train Ticket only if Available - contact us on <span
-                        style="color: #25d366; font-weight: 800;">WhatsApp</span></span>,
+                <span style="color: #f80505ff; font-weight: 700;">
+                    Confirm All India Bus Ticket, National & International Flights Ticket and Train Ticket only if Available
+                    - contact us on
+                    <a href="https://wa.me/919648777223" target="_blank"
+                        style="color: #25d366; font-weight: 800; text-decoration: none;">
+                        WhatsApp
+                    </a>
+                </span>
                 <br><span style="color: #60a5fa; font-weight: 700;">Lucknow Airport & Railway Station or Custom Pickup &
                     Drop by Cabs</span>,
                 <br><span style="color: #4ade80; font-weight: 700;">AC / Non-AC (Standard, Deluxe, Premium & Luxury
