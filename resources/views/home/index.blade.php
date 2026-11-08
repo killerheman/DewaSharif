@@ -77,7 +77,7 @@
             <p
                 style="font-size: 15.5px; color: #fdf6e2; line-height: 1.7; font-weight: 500; margin: 0 auto 20px auto; max-width: 950px; text-align: center;">
                 Hum provide karte hain —
-                <span style="color: #f80505ff; font-weight: 700;">
+                <span style="color: #c50404ff; font-weight: 700;">
                     Confirm All India Bus Ticket, National & International Flights Ticket and Train Ticket only if Available
                     - contact us on
                     <a href="https://wa.me/919648777223" target="_blank"
