@@ -7,16 +7,16 @@
     <div class="container" style="padding: 45px 15px;">
 
         <!-- Page Title Header (Bold & Dark) -->
-        <div style="text-align: center; margin-bottom: 40px;">
+      <div style="text-align: center; margin-bottom: 40px; padding: 0 10px; box-sizing: border-box;">
             <span
                 style="background: #e8a824; color: #111; font-weight: 900; font-size: 13px; text-transform: uppercase; padding: 6px 18px; border-radius: 20px; letter-spacing: 1px;">
                 dewasharif.com Official Platform
             </span>
             <h1 style="color: #0b4625; font-size: 32px; font-weight: 900; margin-top: 15px;">
-                📱 Dewa Sharif WhatsApp Groups & Warsi Matrimonial Services
+                📱 Dewa Sharif WhatsApp Groups &amp; Warsi Matrimonial Services
             </h1>
             <p
-                style="color: #222; font-size: 16px; font-weight: 700; max-width: 800px; margin: 12px auto 0 auto; line-height: 1.6;">
+                style="color: #222; font-size: 16px; font-weight: 700; max-width: 800px; margin: 12px auto 0 auto; line-height: 1.6; padding: 0 15px; box-sizing: border-box;">
                 Join our verified community updates group and Muslim marriage rishte groups securely. Please read all terms
                 and safety rules carefully.
             </p>
