@@ -203,7 +203,7 @@
             <!-- Services Header Section -->
             <h3
                 style="color: #ffd700; font-size: 19px; font-weight: 800; text-align: center; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">
-                ✨ Deva Sharif Dargah: Chadar, Phool, Dua aur Ehram Seva Packages ✨
+                ✨ Dewa Sharif Dargah: Chadar, Phool, Dua aur Ehram Seva Packages ✨
             </h3>
             <p style="font-size: 14px; color: #fdf6e2; text-align: center; margin: 0 0 20px 0; line-height: 1.5;">
                 Aapki haazri mein ya aapki gair-maujudgi mein, Sarkar Haji Waris Ali Shah R.A ki bargah mein pure ehtaram
