@@ -162,7 +162,7 @@
             <!-- Timings Section -->
             <h3
                 style="color: #ffd700; font-size: 21px; font-weight: 800; text-align: center; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.5px;">
-                ✨ Dargah Sharif Ziyarat Open / Close Timings ✨
+                ✨ Dewa Sharif Dargah Ziyarat Open / Close Timings ✨
             </h3>
             <p style="font-size: 14px; color: #fdf6e2; text-align: center; margin: 0 0 20px 0; line-height: 1.4;">
                 Zayreen (Visitors) ke liye Mazar-e-Mubarak ke khulne (open) aur band (close) hone ka tay shuda waqt (time):
