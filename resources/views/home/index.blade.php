@@ -2,7 +2,9 @@
 @section('content')
     <!-- Dewa Mela Hero Section -->
     <div
-        style="background: linear-gradient(135deg, rgba(3, 37, 20, 0.92), rgba(4, 22, 12, 0.96)), url('{{ asset('home/images/dewa-bg.jpg') }}') center/cover no-repeat; color: #fff; padding: 75px 15px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: inset 0 0 100px rgba(0,0,0,0.6); box-sizing: border-box; width: 100%;">
+        style="background: linear-gradient(135deg, rgba(3, 37, 20, 0.92), rgba(4, 22, 12, 0.96)), url('{{ asset('home/images/dewa-bg.jpg') }}') center/cover no-repeat; color: #fff; padding: 75px 15px 20px 15px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: inset 0 0 100px rgba(0,0,0,0.6); box-sizing: border-box; width: 100%;">
+
+
 
         <!-- 1. THANK YOU / BOOKING STATS CARD (100% WIDE RESPONSIVE) -->
         <div
@@ -155,42 +157,190 @@
 
         <!-- 3. DARGAH SHARIF ZIYARAT TIMINGS (100% WIDE RESPONSIVE) -->
         <div
-            style="width: 100%; max-width: 1140px; margin-top: 30px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; box-sizing: border-box;">
+            style="width: 100%; max-width: 1140px; margin: 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 
+            <!-- Timings Section -->
             <h3
-                style="color: #ffd700; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;">
+                style="color: #ffd700; font-size: 21px; font-weight: 800; text-align: center; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.5px;">
                 ✨ Dargah Sharif Ziyarat Open / Close Timings ✨
             </h3>
-            <p style="font-size: 15px; color: #fdf6e2; text-align: center; margin-bottom: 22px;">
+            <p style="font-size: 14px; color: #fdf6e2; text-align: center; margin: 0 0 20px 0; line-height: 1.4;">
                 Zayreen (Visitors) ke liye Mazar-e-Mubarak ke khulne (open) aur band (close) hone ka tay shuda waqt (time):
             </p>
 
-            <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; width: 100%;">
-
+            <div
+                style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; width: 100%; margin-bottom: 25px;">
                 <!-- Winter Timing -->
                 <div
-                    style="flex: 1; min-width: 280px; width: 100%; background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 18px 22px; text-align: left; box-sizing: border-box;">
-                    <div style="color: #ffd700; font-weight: 800; font-size: 17px; margin-bottom: 6px;">❄️ Winter (Sardi ke
-                        Din)</div>
-                    <div style="color: #ffffff; font-size: 15px; margin-bottom: 5px;"><strong>Morning (Subah):</strong> 5:00
-                        AM to 12:00 PM</div>
-                    <div style="color: #ffffff; font-size: 15px;"><strong>After-Noon (Dopahar):</strong> 2:00 PM to 9:00 PM
+                    style="flex: 1; min-width: 270px; background: rgba(242, 245, 244, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 16px 18px; text-align: left; box-sizing: border-box;">
+                    <div style="color: #13471eff; font-weight: 800; font-size: 16px; margin-bottom: 6px;">❄️ Winter (Sardi
+                        ke Din)</div>
+                    <div style="color: #23913bff; font-size: 14px; font-weight: 700; margin-bottom: 4px;">
+                        <strong>Morning (Subah):</strong> <span style="font-weight: 900;">5:00 AM to 12:00 PM</span>
+                    </div>
+                    <div style="color: #23913bff; font-size: 14px; font-weight: 700;">
+                        <strong>After-Noon (Dopahar):</strong> <span style="font-weight: 900;">2:00 PM to 9:00 PM</span>
                     </div>
                 </div>
 
                 <!-- Summer Timing -->
                 <div
-                    style="flex: 1; min-width: 280px; width: 100%; background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 18px 22px; text-align: left; box-sizing: border-box;">
-                    <div style="color: #ffd700; font-weight: 800; font-size: 17px; margin-bottom: 6px;">☀️ Summer (Garmi ke
-                        Din)</div>
-                    <div style="color: #ffffff; font-size: 15px; margin-bottom: 5px;"><strong>Morning (Subah):</strong> 4:00
-                        AM to 12:00 PM</div>
-                    <div style="color: #ffffff; font-size: 15px;"><strong>After-Noon (Dopahar):</strong> 2:00 PM to 10:00 PM
+                    style="flex: 1; min-width: 270px; background: rgba(255, 254, 172, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 16px 18px; text-align: left; box-sizing: border-box;">
+                    <div style="color: #830404ff; font-weight: 800; font-size: 16px; margin-bottom: 6px;">☀️ Summer (Garmi
+                        ke Din)</div>
+                    <div style="color: #d42828ff; font-size: 14px; font-weight: 700; margin-bottom: 4px;">
+                        <strong>Morning (Subah):</strong> <span style="font-weight: 900;">4:00 AM to 12:00 PM</span>
+                    </div>
+                    <div style="color: #d42828ff; font-size: 14px; font-weight: 700;">
+                        <strong>After-Noon (Dopahar):</strong> <span style="font-weight: 900;">2:00 PM to 10:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider Line -->
+            <hr style="border: none; border-top: 1px solid rgba(212, 175, 55, 0.3); margin: 25px 0;">
+
+            <!-- Services Header Section -->
+            <h3
+                style="color: #ffd700; font-size: 19px; font-weight: 800; text-align: center; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">
+                ✨ Deva Sharif Dargah: Chadar, Phool, Dua aur Ehram Seva Packages ✨
+            </h3>
+            <p style="font-size: 14px; color: #fdf6e2; text-align: center; margin: 0 0 20px 0; line-height: 1.5;">
+                Aapki haazri mein ya aapki gair-maujudgi mein, Sarkar Haji Waris Ali Shah R.A ki bargah mein pure ehtaram
+                (respect) ke sath chadar, phool, attar pesh karwane, aur Dua karwane ki mukammal service available hai.
+                Saman aur chadar ki quality ke mutabiq hamare rates niche diye gaye hain:
+            </p>
+
+            <!-- Highlight Badge -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span
+                    style="background: rgba(0, 0, 0, 0.25); color: #4cd137; font-weight: 800; font-size: 12px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; display: inline-block; letter-spacing: 0.8px; border: 1.5px solid #4cd137; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                    🌸 Dargah ke andar Mazar-e-Mubarak par Bouquet(Guldasta) aur Flower Decoration karwane ke liye Contact
+                    Karen 🌸
+                </span>
+            </div>
+
+            <!-- Packages List Container (Compact & Clean) -->
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+
+                <!-- Package 1 -->
+                <div
+                    style="background: rgba(0, 0, 0, 0.25); border-left: 3.5px solid #d4af37; padding: 12px 15px; border-radius: 6px; text-align: left;">
+                    <div
+                        style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                        <span>1. Warsi Chadar &amp; Fateha/Dua</span>
+                        <span style="color: #4cd137; font-weight: 700;">Rate: ₹499</span>
+                    </div>
+                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Warsi Big
+                        Size Chadar, Phool Daliya, Best Quality Attar, Agarbatti aur aapki taraf se
+                        Mazar-e-Mubarak par Fateha/Dua.</div>
+                </div>
+
+
+
+                <!-- Package 2 -->
+                <div
+                    style="background: rgba(0, 0, 0, 0.25); border-left: 3.5px solid #d4af37; padding: 12px 15px; border-radius: 6px; text-align: left;">
+                    <div
+                        style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                        <span>2. Warsi Laces Chadar &amp; Fateha/Dua</span>
+                        <span style="color: #4cd137; font-weight: 700;">Rate: ₹707</span>
+                    </div>
+                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Warsi Big
+                        Size Chadar, Phool Daliya, Best Quality Attar, Agarbatti aur aapki taraf se
+                        Mazar-e-Mubarak par Fateha/Dua.</div>
+                </div>
+
+                <!-- Package 3 -->
+                <div
+                    style="background: rgba(0, 0, 0, 0.25); border-left: 3.5px solid #d4af37; padding: 12px 15px; border-radius: 6px; text-align: left;">
+                    <div
+                        style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                        <span>3. Standard Warsi Zari Chadar &amp; Fateha/Dua </span>
+                        <span style="color: #4cd137; font-weight: 700;">Rate: ₹1100</span>
+                    </div>
+                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Behtar
+                        quality ki Standard Warsi Zari Big Size Chadar, Big Size Phool Daliya, Best &amp; Umda Quality
+                        Attar, Agarbatti, Loban
+                        aur aapki taraf se Mazar-e-Mubarak par Fateha/Dua.</div>
+                </div>
+
+                <!-- Package 4 -->
+                <div
+                    style="background: rgba(0, 0, 0, 0.25); border-left: 3.5px solid #d4af37; padding: 12px 15px; border-radius: 6px; text-align: left;">
+                    <div
+                        style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                        <span>4. Special Warsi Velvet Zari Chadar &amp; Fateha/Dua </span>
+                        <span style="color: #4cd137; font-weight: 700;">Rate: ₹2100</span>
+                    </div>
+                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Behtar
+                        quality ki Warsi Velvet Zari Big Size Chadar, Big Size Phool Daliya, Premium &amp; Umda Quality
+                        Attar,
+                        Agarbatti, Loban aur aapki taraf se Mazar-e-Mubarak par Fateha/Dua.</div>
+                </div>
+
+                <!-- Package 5 -->
+                <div
+                    style="background: rgba(0, 0, 0, 0.25); border-left: 3.5px solid #d4af37; padding: 12px 15px; border-radius: 6px; text-align: left;">
+                    <div
+                        style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                        <span>5. Premium Warsi Velvet Zari Chadar &amp; Fateha/Dua</span>
+                        <span style="color: #4cd137; font-weight: 700;">Rate: ₹5100</span>
+                    </div>
+                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Very Big
+                        size aur behad khubsurat heavy Premium Warsi Velvet Zari Big Size Chadar, Big Size Phool Daliya,
+                        Premium
+                        &amp; Umda Quality Attar, Agarbatti, Loban aur aapki taraf se Mazar-e-Mubarak par Fateha/Dua.</div>
+                </div>
+
+                <!-- Package 6 -->
+                <div
+                    style="background: rgba(0, 0, 0, 0.25); border-left: 3.5px solid #d4af37; padding: 12px 15px; border-radius: 6px; text-align: left;">
+                    <div
+                        style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                        <span>6. Grand Premium Warsi Velvet Designer Zari Chadar &amp; Fateha/Dua</span>
+                        <span style="color: #4cd137; font-weight: 700;">Rate: ₹7707</span>
+                    </div>
+                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Sabse
+                        shandar Premium Warsi Velvet Zari Big Size Chadar, Big Size Phool Daliya, Premium &amp; Umda
+                        Quality Attar, Agarbatti, Loban , aapki taraf se Mazar-e-Mubarak par Tabarruk(Mithayi) takseem aur
+                        Fateha/Dua.</div>
+                </div>
+
+                <!-- Package 7 -->
+                <div
+                    style="background: rgba(0, 0, 0, 0.25); border-left: 3.5px solid #d4af37; padding: 12px 15px; border-radius: 6px; text-align: left;">
+                    <div
+                        style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                        <span>7. Warsi Ehram Mubarak (Ehramposh Buzurgo (BABA ji) ko dene ya Dargah me Pesh karne ke
+                            liye)</span>
+                        {{-- <span style="color: #4cd137; font-weight: 700;">Rate: ₹7707</span> --}}
+                    </div>
+                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;">
+                        <p
+                            style="color: #fdf6e2; font-size: 13.5px; margin: 0; line-height: 1.5; border-top: 1px dashed rgba(212, 175, 55, 0.3); padding-top: 8px;">
+                            ✨ <strong style="color: #ffd700;">Ehram Khidmaat Notice</strong>✨ Dewa Sharif mein kisi bhi
+                            Ehram-posh buzurg ko Ehram Mubarak agar koi dena chahe ya Astana-e-Aliya mein pesh karna chahe,
+                            toh uske liye <strong>direct contact kare</strong>.
+                        </p>
                     </div>
                 </div>
 
             </div>
+
+            <!-- Note Section (Compact) -->
+            <div
+                style="background: rgba(212, 175, 55, 0.08); border: 1.2px dashed #d4af37; padding: 14px; border-radius: 6px; text-align: left;">
+                <p style="font-size: 13.5px; margin: 0; line-height: 1.5;">
+                    <strong style="color: #ffd700;">(Important Notice:</strong> <span style="color: #ffffff;">Aapko hamare
+                        platform se koi bhi service lene par <strong>Photos / Video (Proof)</strong> WhatsApp par bheja
+                        jayega, jisse aapko kaam ki quality aur transparency par poora bharosa bana rahe. Kisi bhi tarah ki
+                        malumat ke liye hamare WhatsApp / Email par contact kare.)</span>
+                </p>
+            </div>
+
         </div>
+
 
         <style>
             @keyframes royalGlow {
@@ -205,7 +355,292 @@
                 }
             }
         </style>
+
+       <div
+    style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+    <!-- Top Small Badge -->
+    <span
+        style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+        🌟 Business Opportunity 🌟
+    </span>
+
+    <!-- Main Heading -->
+    <h1
+        style="color: #ffd700; font-size: 20px; font-weight: 800; line-height: 1.5; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">
+        ✨ Agar koi bhai India me "Warsi Attar &amp; Perfumes Dewa Sharif" की Franchise lena chahta hai toh Contact kare ✨
+    </h1>
+
+    <!-- Subtitle / Short Details -->
+    <p style="color: #ffffff; font-size: 14px; margin: 0 0 18px 0; line-height: 1.5;">
+        Apne shehar mein shuru karein Sarkar Haji Waris Ali Shah R.A ki nisbat se makhsoos original Warsi Attar aur Perfumes ka business.
+    </p>
+
+    <!-- Highlights Points -->
+    <div
+        style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; font-size: 13px; color: #ffffff;">
+        <span
+            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">✨
+            100% Pure &amp; Original Fragrance</span>
+        <span
+            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">💧
+            100% Alcohol Free</span>
+        <span
+            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">📈
+            High Profit Margin</span>
+        <span
+            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">🤝
+            Full Business Support</span>
     </div>
+
+    <!-- Security Money Highlight -->
+    <div
+        style="background: rgba(0, 15, 8, 0.85); border: 1.5px dashed #4cd137; padding: 12px 20px; border-radius: 8px; display: inline-block; margin-bottom: 15px;">
+        <span style="color: #ffffff; font-size: 15px; font-weight: 700;">🔒 Security Money: <span
+                style="color: #4cd137; font-size: 18px; font-weight: 900;">₹99,999</span> Only</span>
+    </div>
+
+    <!-- Call to Action / Contact Note -->
+    <div
+        style="text-align: center; margin-top: 15px; color: #fdf6e2; font-size: 13.5px; font-weight: 600; line-height: 1.6;">
+        📞 Franchise ya dealership ke liye aaj hi humare WhatsApp par contact karein!
+        <br>Warsi Attar &amp; Perfumes detail aur zyada jankari ke liye diye gaye button par click karen <br><br>
+        <a href="{{ url('/attarfrenchise') }}"
+            style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 11px 20px; border-radius: 30px; text-decoration: none; font-size: 14px; border: 2px solid #ffd700; box-shadow: 0 4px 12px rgba(11, 70, 37, 0.3); max-width: 100%; box-sizing: border-box;">
+            More Information &amp; Rules - CLICK HERE
+        </a>
+    </div>
+
+</div>
+
+
+
+
+        <!-- WhatsApp & Marriage Groups Section -->
+        <section id="whatsapp-groups-section"
+            style="padding: 30px 12px; background: #f9f6ef; margin-top: 20px; border-top: 2px solid #d4af37; border-bottom: 2px solid #d4af37; box-sizing: border-box; width: 100%;">
+            <div class="container"
+                style="padding-left: 15px; padding-right: 15px; max-width: 1280px; margin: 0 auto; box-sizing: border-box; width: 100%;">
+                <div class="row text-center mb-4" style="margin-left: 0; margin-right: 0;">
+                    <div class="col-md-12" style="padding: 0 10px;">
+                        <span
+                            style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; letter-spacing: 1px; display: inline-block;">
+                            Community & Warsi Matrimonial Services
+                        </span>
+                        <h2 style="color: #0b4625; font-size: 24px; font-weight: 900; margin-top: 12px;">
+                            ✨ Join Our Official WhatsApp Groups ✨
+                        </h2>
+                        <p
+                            style="color: #111; font-size: 14.5px; max-width: 800px; margin: 10px auto 0 auto; font-weight: 800; letter-spacing: 0.2px; padding: 0 5px;">
+                            Dewa Sharif aur Dargah se judi jankari, updates aur Muslim Marriage (Rishte) ke liye hamare
+                            official aur verified WhatsApp groups se judein.
+                        </p>
+                        <div style="width: 70px; height: 3px; background: #03be64; margin: 12px auto; border-radius: 2px;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row with flexible card widths -->
+                <div class="row"
+                    style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 20px; margin-right: 0; margin-left: 0; align-items: stretch;">
+
+                    <!-- CARD 1: YELLOW THEME (Dewa Sharif Updates Group) -->
+                    <div
+                        style="flex: 1; min-width: 300px; max-width: 380px; width: 100%; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #facc15, #ca8a04) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(202,138,4,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
+
+                        <!-- Floating Badge -->
+                        <div
+                            style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); width: 90%; text-align: center;">
+                            <span
+                                style="background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%); color: #111; font-weight: 900; font-size: 10.5px; padding: 5px 12px; border-radius: 14px; text-transform: uppercase; box-shadow: 0 3px 8px rgba(0,0,0,0.2); display: inline-block; white-space: nowrap;">📢
+                                COMMUNITY UPDATES</span>
+                        </div>
+
+                        <div
+                            style="padding-top: 10px; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+                            <div>
+                                <div style="text-align: center; margin: 5px 0 0 0;">
+                                    <h4
+                                        style="color: #713f12; font-weight: 900; font-size: 19px; margin: 0; display: flex; align-items: center; justify-content: center;">
+                                        🕌 Dewa Sharif Updates
+                                    </h4>
+                                    <p style="font-size: 11px; color: #023dbeff; font-weight: 700; margin: 5px 0 8px 0;">
+                                        ( Dewa Sharif aur dargah se related updates ke liye hamare WhatsApp group se judein
+                                        )
+                                    </p>
+                                </div>
+
+                                <!-- Bullet Points Area -->
+                                <div style="margin-bottom: 12px;">
+                                    <ul
+                                        style="font-size: 12.5px; color: #111; font-weight: 700; text-align: left; padding-left: 18px; line-height: 1.5; margin: 0; width: 100%; box-sizing: border-box;">
+                                        <li>Dargah Sharif, Urs, Mela aur Ziyarat se reated Jankari.</li>
+                                        <li>Hotels & Cabs Booking, Travel Guidance & Degh-Niyaz-Langar Facility Availables.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- QR Image Box -->
+                            <div>
+                                <div
+                                    style="background: #fdfdfd; padding: 8px; border-radius: 12px; border: 2px dashed #ca8a04; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 12px;">
+                                    <img src="{{ asset('home/images/dewasharif/dewa-sharif-group.jpeg') }}"
+                                        alt="Dewa Sharif WhatsApp QR"
+                                        style="width: 100%; max-width: 200px; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 6px;">
+                                    <span
+                                        style="font-size: 11.5px; font-weight: 800; color: #713f12; display: block; margin-top: 5px;">Scan
+                                        QR Code</span>
+                                </div>
+
+                                <div>
+                                    <a href="https://chat.whatsapp.com/F7iFNc1a4hR9sMZMADXcoy" target="_blank"
+                                        style="display: block; background: linear-gradient(135deg, #eab308 0%, #a16207 100%); color: #fff; font-weight: 900; padding: 11px 15px; border-radius: 30px; text-decoration: none; font-size: 14px; box-shadow: 0 4px 15px rgba(202, 138, 4, 0.4);">
+                                        📲 Join Group via Link
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2: GREEN THEME (Warsi Matrimonial Services - Free) -->
+                    <div
+                        style="flex: 1; min-width: 300px; max-width: 380px; width: 100%; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #22c55e, #15803d) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(22,163,74,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
+
+                        <!-- Floating Badge -->
+                        <div
+                            style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); width: 90%; text-align: center;">
+                            <span
+                                style="background: linear-gradient(135deg, #22c55e 0%, #15803d 100%); color: #fff; font-weight: 900; font-size: 10.5px; padding: 5px 12px; border-radius: 14px; text-transform: uppercase; box-shadow: 0 3px 8px rgba(0,0,0,0.2); display: inline-block; white-space: nowrap;">✨
+                                FREE SERVICE</span>
+                        </div>
+
+                        <div
+                            style="padding-top: 10px; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+                            <div>
+                                <div style="text-align: center; margin: 5px 0 0 0;">
+                                    <h4
+                                        style="color: #14532d; font-weight: 900; font-size: 19px; margin: 0; display: flex; align-items: center; justify-content: center;">
+                                        💍 Free Muslim Marriage
+                                    </h4>
+                                    <p style="font-size: 11px; color: #023dbeff; font-weight: 700; margin: 5px 0 8px 0;">
+                                        Dewa Sharif aur All India ke sabhi bhai-behno ke liye bilkul 100% Free rishton ki
+                                        jankari
+                                    </p>
+                                </div>
+
+                                <!-- Bullet Points Area -->
+                                <div style="margin-bottom: 12px;">
+                                    <ul
+                                        style="font-size: 12.5px; color: #111; font-weight: 700; text-align: left; padding-left: 18px; line-height: 1.5; margin: 0; width: 100%; box-sizing: border-box;">
+                                        <li>Muslim Marriage Group Dewa Sharif Free- All India.</li>
+                                        <li>100% Free Biodata Sharing Service for Everyone in the Community.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- QR Image Box -->
+                            <div>
+                                <div
+                                    style="background: #fdfdfd; padding: 8px; border-radius: 12px; border: 2px dashed #16a34a; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 12px;">
+                                    <img src="{{ asset('home/images/dewasharif/free_marriage.jpeg') }}"
+                                        alt="Free Marriage QR"
+                                        style="width: 100%; max-width: 200px; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 6px;">
+                                    <span
+                                        style="font-size: 11.5px; font-weight: 800; color: #16a34a; display: block; margin-top: 5px;">Scan
+                                        QR Code</span>
+                                </div>
+
+                                <div>
+                                    <a href="https://chat.whatsapp.com/F7iFNc1a4hR9sMZMADXcoy" target="_blank"
+                                        style="display: block; background: linear-gradient(135deg, #22c55e 0%, #15803d 100%); color: #fff; font-weight: 900; padding: 11px 15px; border-radius: 30px; text-decoration: none; font-size: 14px; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);">
+                                        📲 Join Group Via Link
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3: RED THEME (Warsi Matrimonial Services - Paid Group ₹299) -->
+                    {{-- <div
+                        style="flex: 1; min-width: 300px; max-width: 380px; width: 100%; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #ef4444, #b91c1c) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(220,38,38,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
+
+                        <!-- Floating Badge -->
+                        <div
+                            style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); width: 90%; text-align: center;">
+                            <span
+                                style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); color: #fff; font-weight: 900; font-size: 10.5px; padding: 5px 12px; border-radius: 14px; text-transform: uppercase; box-shadow: 0 3px 8px rgba(0,0,0,0.2); display: inline-block; white-space: nowrap;">⭐
+                                PREMIUM GROUP (₹299)</span>
+                        </div>
+
+                        <div
+                            style="padding-top: 10px; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+                            <div>
+                                <div style="text-align: center; margin: 5px 0 0 0;">
+                                    <h4
+                                        style="color: #7f1d1d; font-weight: 900; font-size: 19px; margin: 0; display: flex; align-items: center; justify-content: center;">
+                                        💎 Paid Marriage Group
+                                    </h4>
+                                    <p style="font-size: 11px; color: #023dbeff; font-weight: 700; margin: 5px 0 8px 0;">
+                                        ( Dewa Sharif aur All India ke Zyada behtar rishton ke liye hamara paid WhatsApp
+                                        group join karen )
+                                    </p>
+                                </div>
+
+                                <!-- Bullet Points Area -->
+                                <div style="margin-bottom: 12px;">
+                                    <ul
+                                        style="font-size: 12.5px; color: #111; font-weight: 700; text-align: left; padding-left: 18px; line-height: 1.5; margin: 0; width: 100%; box-sizing: border-box;">
+                                        <li>Muslim Marriage Group Dewa Sharif All India Service and Valid for 6 Months.</li>
+                                        <li>Verified Biodatas, Photo, Contact, Address. Direct Admin Posting Service.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- QR Image Box -->
+                            <div>
+                                <div
+                                    style="background: #fdfdfd; padding: 8px; border-radius: 12px; border: 2px dashed #dc2626; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 12px;">
+                                    <img src="{{ asset('home/images/dewasharif/phonepe_qr.jpg') }}" alt="PhonePe QR 299"
+                                        style="width: 100%; max-width: 200px; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 6px;">
+                                    <span
+                                        style="font-size: 11.5px; font-weight: 800; color: #b91c1c; display: block; margin-top: 5px;">Scan
+                                        QR code using UPI APP</span>
+                                </div>
+
+                                <div>
+                                    <a href="upi://pay?pa=9648777223@ybl&pn=ShahzadeAlam&am=299.00&cu=INR&tn=Paid+Muslim+Marriage+Group+Subscription+6+Months"
+                                        target="_blank"
+                                        style="display: block; background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); color: #fff; font-weight: 900; padding: 11px 15px; border-radius: 30px; text-decoration: none; font-size: 13.5px; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);">
+                                        ⚡ Pay ₹299 via UPI / PhonePe
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                </div>
+
+                <!-- More Information & Rules Button -->
+                <div class="row text-center" style="margin-top: 20px; margin-left: 0; margin-right: 0;">
+                    <div class="col-md-12" style="padding: 0 5px;">
+                        <p style="font-size: 13.5px; color: #333; margin-bottom: 10px; font-weight: 700;">
+                            ⚠️ Group join karne se pehle niyam aur shartein (Rules & Regulations) zaroor padhein niche
+                            Button click karen.
+                        </p>
+                        <a href="{{ url('/whatsappgroup') }}"
+                            style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 11px 20px; border-radius: 30px; text-decoration: none; font-size: 14px; border: 2px solid #ffd700; box-shadow: 0 4px 12px rgba(11, 70, 37, 0.3); max-width: 100%; box-sizing: border-box;">
+                            📖 For More Information & Rules (Niyam & Shartein)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+
 
     <!-- ================= 3 FEATURED SERVICE CARDS ================= -->
     <section style="padding: 50px 0 25px 0; background: #fdfbf7; border-bottom: 2px solid #e2d7c5;">
@@ -583,6 +1018,8 @@
             <img src="{{ asset('home/images/Festive_Delights_divider.png') }}" alt="Background" title="Background" />
         </div>
     </section>
+
+
 
     <section id="explore">
         <div class="container">

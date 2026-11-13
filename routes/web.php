@@ -96,6 +96,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 */
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/whatsappgroup', [HomeController::class, 'whatsappGroup'])->name('whatsapp.group');
+Route::get('/attarfrenchise', [HomeController::class, 'attarfrenchise'])->name('attar.frenchise');
 
 // About Menu
 Route::get('/about-us', [HomeController::class, 'about'])->name('about');
