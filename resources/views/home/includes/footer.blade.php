@@ -155,8 +155,8 @@
                                 This is a
                                 privately run, independent community facilitation portal. It is <strong>NOT</strong> an
                                 official portal of, nor run by, nor affiliated with the <strong>Official Dargah
-                                    Committee, Trust, Waqf Board, or any Government Administration</strong>. We do not
-                                claim official authority nor collect any official religious donations on their behalf.
+                                    Committee Dewa Sharif, Trust, Waqf Board, or any Government Administration</strong>. We do not
+                                claim official authority nor collect any official Dargah Dewa Sharif religious donations on their behalf.
                             </p>
                             <p style="margin: 6px 0 0 0; line-height: 1.5; font-size: 11.5px; color: #fef08a;">
                                 <strong>Service Facilitation &amp; Statutory Immunity:</strong> DewaSharif.com operates

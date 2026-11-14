@@ -528,7 +528,7 @@
                     <span style="font-size: 18px;">⚠️</span> PROVISIONAL QUOTATION / BILL ESTIMATE — SUBJECT TO BANK REALISATION
                 </div>
                 <p style="font-size: 12px; margin: 0; line-height: 1.5;">
-                    <strong>TERMS / NOTICE:</strong> This document is an initial provisional quotation and booking estimate. This receipt shall only be deemed <strong>OFFICIALLY CONFIRMED &amp; ACCEPTABLE</strong> once the payment (UTR reference or bank transfer receipt) has been verified and credited to the official Dewa Sharif Management bank account. In the absence of verified bank credit realization, this document remains strictly provisional, unconfirmed, and non-claimable.
+                    <strong>TERMS / NOTICE:</strong> This document is an initial provisional quotation and booking estimate. This receipt shall only be deemed <strong>CONFIRMED &amp; ACCEPTABLE</strong> once the payment (UTR reference or bank transfer receipt) has been verified and credited to the official Dewa Sharif Management bank account. In the absence of verified bank credit realization, this document remains strictly provisional, unconfirmed, and non-claimable.
                 </p>
             </div>
         @elseif($isPartial)
@@ -536,10 +536,10 @@
                 style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 8px; padding: 12px 18px; margin-bottom: 25px; color: #166534;">
                 <div
                     style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 13.5px; margin-bottom: 4px;">
-                    <span style="font-size: 18px;">✅</span> OFFICIAL BOOKING CONFIRMED — PARTIAL ADVANCE VERIFIED
+                    <span style="font-size: 18px;">✅</span>BOOKING CONFIRMED — PARTIAL ADVANCE VERIFIED
                 </div>
                 <p style="font-size: 12px; margin: 0; line-height: 1.5;">
-                    <strong>SETTLEMENT NOTICE:</strong> An advance payment of <strong>₹{{ number_format($paidAmount, 2) }}</strong> has been officially verified and credited to Dewa Sharif Management. The remaining balance of <strong>₹{{ number_format($dueAmount, 2) }}</strong> is outstanding and strictly payable prior to service commencement or Niyaz handover.
+                    <strong>SETTLEMENT NOTICE:</strong> An advance payment of <strong>₹{{ number_format($paidAmount, 2) }}</strong> has been verified and credited to Dewa Sharif Management. The remaining balance of <strong>₹{{ number_format($dueAmount, 2) }}</strong> is outstanding and strictly payable prior to service commencement or Niyaz handover.
                 </p>
             </div>
         @endif
@@ -588,7 +588,7 @@
             <div style="background: linear-gradient(135deg, #052c16 0%, #031c0e 100%); color: #ffffff; border-radius: 8px; padding: 16px 22px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; border: 2px solid #10b981; box-shadow: 0 4px 15px rgba(5,44,22,0.15);">
                 <div>
                     <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #34d399; font-weight: 800; margin-bottom: 3px;">
-                        🔐 Official Check-In Voucher &amp; Security PIN
+                        🔐Check-In Voucher &amp; Security PIN
                     </div>
                     <div style="font-size: 15px; font-weight: 800; color: #ffffff;">
                         {{ $hotelNameDisplay }} — {{ $roomNameDisplay }}
@@ -894,7 +894,7 @@
                         <li
                             style="color: #b45309; font-size: 11px; list-style-type: none; margin-left: -18px; margin-top: 4px;">
                             <em>*Notice: Standard taxi fare covers transit &amp; toll. Any parking fee is non-inclusive
-                                in invoice total and must be settled directly against official parking slip.</em>
+                                in invoice total and must be settled directly against parking slip.</em>
                         </li>
                     </ul>
                 </div>
@@ -904,7 +904,7 @@
         <!-- FOOTER / STAMP -->
         <div class="invoice-footer">
             <div class="footer-note">
-                • Computer generated official Booking Voucher &amp; Receipt under DewaSharif.com Platform.<br>
+                • Computer generated Booking Voucher &amp; Receipt under DewaSharif.com Platform.<br>
                 • <strong>Statutory Safe Harbor Notice:</strong> DewaSharif.com is an independent technology booking
                 facilitator under Section 79 of the IT Act, 2000. Physical premises safety, guest ledger entry under
                 Sarai Act / police rules, and vehicular travel safety remain the exclusive statutory responsibility of

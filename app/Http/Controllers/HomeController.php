@@ -2191,7 +2191,7 @@ class HomeController extends Controller
                      "🕌 *Distribution Mode:* {$distributionType}\n".
                      "🥘 *Degh Tabarruk:* {$itemsSummary}\n".
                      '💰 *Amount Paid:* ₹'.number_format($amount)." (Direct SBI Credit)\n\n".
-                     "📄 *Official Tabarruk Invoice PDF:* {$invoiceUrl}\n\n".
+                     "📄 *Tabarruk Invoice PDF:* {$invoiceUrl}\n\n".
                      'Aapki Degh Niyaz Dargah Sharif par tayyar o taqseem ki jayegi. Shukriya!';
         } else {
             $waMsg = "🎉 *DEWA SHARIF SACRED STORE ORDER CONFIRMED*\n\n".
@@ -2215,7 +2215,7 @@ class HomeController extends Controller
             'redirect_url' => $redirectUrl,
             'whatsapp_url' => $passengerWhatsappUrl,
             'company_whatsapp_url' => $companyWhatsappUrl,
-            'message' => $isDegh ? 'Degh Niyaz Booked & Official Invoice Generated Successfully!' : 'Sacred Store Order Confirmed & Tax Invoice Generated Successfully!',
+            'message' => $isDegh ? 'Degh Niyaz Booked & Invoice Generated Successfully!' : 'Sacred Store Order Confirmed & Tax Invoice Generated Successfully!',
         ]);
     }
 

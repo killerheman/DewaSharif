@@ -56,7 +56,7 @@
                             Welcome, {{ $profile['name'] ?? 'User' }}
                         </h3>
                         <p style="font-size: 13.5px; color: #e8f5e9; margin: 0; font-weight: 500;">
-                            Manage your verified Hotel stays, Cab duty slips , Sacred store orders and Official invoices.
+                            Manage your verified Hotel stays, Cab duty slips , Sacred store orders and invoices.
                         </p>
                     </div>
                    

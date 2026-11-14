@@ -132,7 +132,7 @@
 
                                         $cleanWaPhone = preg_replace('/[^0-9]/', '', $custPhone);
                                         if(strlen($cleanWaPhone) === 10) $cleanWaPhone = '91' . $cleanWaPhone;
-                                        $waOrderText = urlencode("Assalamu Alaikum {$custName}! Dewa Sharif Sacred Store se aapke " . ($isDegh ? "Degh Niyaz Order #DGH-{$oId}" : "Order #ORD-{$oId}") . " ka bill ready hai. Official Invoice dekhne ke liye yahan click karein: " . route('customer.invoice', ['type' => 'shop', 'id' => $oId]));
+                                        $waOrderText = urlencode("Assalamu Alaikum {$custName}! Dewa Sharif Sacred Store se aapke " . ($isDegh ? "Degh Niyaz Order #DGH-{$oId}" : "Order #ORD-{$oId}") . " ka bill ready hai.Invoice dekhne ke liye yahan click karein: " . route('customer.invoice', ['type' => 'shop', 'id' => $oId]));
                                     @endphp
                                     <tr>
                                         <td>
@@ -269,7 +269,7 @@
 
                                                 <!-- Row 3: Tax Invoice & WhatsApp Bill -->
                                                 <div style="grid-column: span 3; display: flex; gap: 4px; width: 100%;">
-                                                    <a href="{{ route('customer.invoice', ['type' => 'shop', 'id' => $oId]) }}" target="_blank" class="btn btn-sm btn-dark text-warning fw-bold d-flex align-items-center justify-content-center shadow-sm flex-fill" style="height: 28px; font-size: 11.5px; padding: 0 4px;" title="Print Official Tax Invoice">
+                                                    <a href="{{ route('customer.invoice', ['type' => 'shop', 'id' => $oId]) }}" target="_blank" class="btn btn-sm btn-dark text-warning fw-bold d-flex align-items-center justify-content-center shadow-sm flex-fill" style="height: 28px; font-size: 11.5px; padding: 0 4px;" title="Print Tax Invoice">
                                                         <i class="bi bi-printer me-1"></i> Tax Invoice
                                                     </a>
                                                     <a href="https://wa.me/{{ $cleanWaPhone }}?text={{ $waOrderText }}" target="_blank" class="btn btn-sm text-white fw-bold d-flex align-items-center justify-content-center shadow-sm flex-fill" style="height: 28px; font-size: 11.5px; background-color: #25D366; border-color: #25D366; padding: 0 4px;" title="Send Bill to Devotee on WhatsApp">
@@ -334,7 +334,7 @@
 
         $cleanWaPhone = preg_replace('/[^0-9]/', '', $custPhone);
         if(strlen($cleanWaPhone) === 10) $cleanWaPhone = '91' . $cleanWaPhone;
-        $waOrderText = urlencode("Assalamu Alaikum {$custName}! Dewa Sharif Sacred Store se aapke " . ($isDegh ? "Degh Niyaz Order #DGH-{$oId}" : "Order #ORD-{$oId}") . " ka bill ready hai. Official Invoice dekhne ke liye yahan click karein: " . route('customer.invoice', ['type' => 'shop', 'id' => $oId]));
+        $waOrderText = urlencode("Assalamu Alaikum {$custName}! Dewa Sharif Sacred Store se aapke " . ($isDegh ? "Degh Niyaz Order #DGH-{$oId}" : "Order #ORD-{$oId}") . " ka bill ready hai.Invoice dekhne ke liye yahan click karein: " . route('customer.invoice', ['type' => 'shop', 'id' => $oId]));
     @endphp
 
     <!-- 1. VIEW ORDER DETAILS MODAL -->

@@ -109,7 +109,7 @@
                     <strong style="color: #ffd700;">फ्रेंचाइजी उद्देश्य:</strong> हमारी <strong style="color: #ffd700;">"Warsi Attar &amp; Perfumes Dewa Sharif"</strong> की long-lasting premium quality खुशबुओं के व्यापार को आगे बढ़ाना है, जिस पर फ्रेंचाइजी पार्टनर बेहतरीन मुनाफा (Profit) कमा सकते हैं।
                 </li>
                 <li style="margin-bottom: 12px;">
-                    <strong style="color: #ffd700;">इन्वेस्टमेंट और फीस:</strong> कुल राशि ₹99,999 है। इसमें से <strong style="color: #ffd700;">₹11,000 रजिस्ट्रेशन फीस (Non-Refundable)</strong> होगी और बाकी <strong style="color: #ffd700;">₹88,999 सिक्योरिटी डिपॉजिट</strong> होगा।
+                    <strong style="color: #ffd700;">इन्वेस्टमेंट और फीस:</strong> कुल राशि ₹49,999 है। इसमें से <strong style="color: #ffd700;">₹11,000 रजिस्ट्रेशन फीस (Non-Refundable)</strong> होगी और बाकी <strong style="color: #ffd700;">₹38,999 सिक्योरिटी डिपॉजिट</strong> होगा।
                 </li>
                 <li style="margin-bottom: 12px;">
                     <strong style="color: #ffd700;">माल डिलीवरी (Delivery):</strong> अनुबंध (Agreement) होने के बाद माल <strong style="color: #ffd700;">20 दिनों के भीतर</strong> पार्सल द्वारा या देवा कार्यालय से सीधे (Hand-to-Hand) दिया जाएगा। ट्रांसपोर्ट से भेजने पर <strong style="color: #ffd700;">transport charge dealer ko hi dena hoga</strong>, कंपनी की जिम्मेदारी नहीं होगी।
@@ -139,16 +139,16 @@
                     <strong style="color: #2ecc71;">Franchise Purpose:</strong> To promote our long-lasting premium quality <strong style="color: #2ecc71;">"Warsi Attar &amp; Perfumes Dewa Sharif"</strong> collection, allowing franchise partners to earn high profit margins.
                 </li>
                 <li style="margin-bottom: 12px;">
-                    <strong style="color: #2ecc71;">Investment &amp; Fees:</strong> Total investment is ₹99,999. <strong style="color: #2ecc71;">₹11,000 is Registration Fee (Non-Refundable)</strong> and remaining <strong style="color: #2ecc71;">₹88,999 is Security Deposit</strong>.
+                    <strong style="color: #2ecc71;">Investment &amp; Fees:</strong> Total investment is ₹49,999. <strong style="color: #2ecc71;">₹11,000 is Registration Fee (Non-Refundable)</strong> and remaining <strong style="color: #2ecc71;">₹38,999 is Security Deposit</strong>.
                 </li>
                 <li style="margin-bottom: 12px;">
                     <strong style="color: #2ecc71;">Stock Delivery:</strong> Dispatched via parcel or hand-to-hand in Dewa <strong style="color: #2ecc71;">within 20 days</strong> of agreement. If shipped via transport, <strong style="color: #2ecc71;">transport charges must be borne by the franchisee</strong>; the company holds no liability.
                 </li>
                 <li style="margin-bottom: 12px;">
-                    <strong style="color: #2ecc71;">Refund Policy:</strong> Security Deposit is strictly <strong style="color: #2ecc71;">Refundable only after 1 year from the date of agreement</strong> and stock clearance. No refunds before 1 year.
+                    <strong style="color: #2ecc71;">Refund Policy:</strong> Security Deposit is strictly <strong style="color: #2ecc71;">Refundable only after 1 year from the date of agreement.</strong> No refunds before 1 year.
                 </li>
                 <li style="margin-bottom: 12px;">
-                    <strong style="color: #2ecc71;">Supply Compliance:</strong> Franchisees must procure official stock of <strong style="color: #2ecc71;">"Warsi Attar &amp; Perfumes Dewa Sharif"</strong> from the company. Selling any <strong style="color: #2ecc71;">duplicate or nakli</strong> products under the brand leads to immediate termination and deposit forfeiture.
+                    <strong style="color: #2ecc71;">Supply Compliance:</strong> Franchisees must procure stock of <strong style="color: #2ecc71;">"Warsi Attar &amp; Perfumes Dewa Sharif"</strong> from the company. Selling any <strong style="color: #2ecc71;">duplicate or nakli</strong> products under the brand leads to immediate termination and deposit forfeiture.
                 </li>
                 <li style="margin-bottom: 0;">
                     <strong style="color: #2ecc71;">Legal Jurisdiction:</strong> Any legal disputes or matters will be subject exclusively to the jurisdiction of the <strong style="color: #2ecc71;">Barabanki District Court</strong>.

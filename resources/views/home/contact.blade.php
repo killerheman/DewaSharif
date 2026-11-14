@@ -356,7 +356,7 @@
                                     <i class="fa fa-envelope"></i>
                                 </div>
                                 <div class="info-text-content">
-                                    <span class="info-item-title">Official Email</span>
+                                    <span class="info-item-title"> Email</span>
                                     <a href="mailto:{{ $siteEmail }}" target="_blank" rel="noopener"
                                         class="info-item-desc text-decoration-none"
                                         style="color: #0284c7 !important; font-weight: 600;">

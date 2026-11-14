@@ -53,8 +53,8 @@ class EmailServiceSeeder extends Seeder
                         'sort_order' => 1,
                     ],
                     [
-                        'question'   => 'Can I use the official Gmail app on mobile devices?',
-                        'answer'     => 'Yes, your custom email works seamlessly on the official Gmail app for Android and iOS, as well as desktop clients like Microsoft Outlook and Apple Mail via IMAP/POP.',
+                        'question'   => 'Can I use the Gmail app on mobile devices?',
+                        'answer'     => 'Yes, your custom email works seamlessly on the Gmail app for Android and iOS, as well as desktop clients like Microsoft Outlook and Apple Mail via IMAP/POP.',
                         'sort_order' => 2,
                     ],
                     [

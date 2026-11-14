@@ -136,7 +136,7 @@
                         </h3>
                     </div>
                     <p style="color: #4b5563; line-height: 1.7;">
-                        <strong>DewaSharif.com</strong> is a privately managed, independent community facilitation portal. It is <strong>NOT</strong> an official website of, nor run by, nor affiliated with the <em>Official Dargah Committee, Trust, Waqf Board, or any Government Administration</em>. We do not claim official administrative authority nor do we collect religious donations on their behalf.
+                        <strong>DewaSharif.com</strong> is a privately managed, independent community facilitation portal. It is <strong>NOT</strong> an official website of, nor run by, nor affiliated with the <em>Official Dargah Committee Dewa Sharif, Trust, Waqf Board, or any Government Administration</em>. We do not claim official Dewa Sharif administrative authority nor do we collect religious donations on their behalf.
                     </p>
                 </div>
 
@@ -175,7 +175,7 @@
                         </h3>
                     </div>
                     <p style="color: #4b5563; line-height: 1.7;">
-                        If any law enforcement agency, authority, business, or visitor has official inquiries, notices, or concerns, please contact our grievance officer directly:
+                        If any law enforcement agency, authority, business, or visitor has inquiries, notices, or concerns, please contact our grievance officer directly:
                     </p>
                     <p style="color: #0b5e36; font-weight: 700; margin: 0;">
                         <i class="fa fa-envelope me-2"></i> info@dewasharif.com | <i class="fa fa-phone me-2"></i> +91 96487 77223

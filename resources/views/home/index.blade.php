@@ -289,12 +289,12 @@
                     </div>
                     <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Very Big
                         size aur behad khubsurat heavy Premium Warsi Velvet Zari Big Size Chadar, Big Size Phool Daliya,
-                        Premium
-                        &amp; Umda Quality Attar, Agarbatti, Loban aur aapki taraf se Mazar-e-Mubarak par Fateha/Dua.</div>
+                        Premium &amp; Umda Quality Attar, Agarbatti, Loban aur aapki taraf se Mazar-e-Mubarak par Tabarruk(Mithayi) takseem aur
+                        Fateha/Dua..</div>
                 </div>
 
                 <!-- Package 6 -->
-                <div
+                {{-- <div
                     style="background: rgba(0, 0, 0, 0.25); border-left: 3.5px solid #d4af37; padding: 12px 15px; border-radius: 6px; text-align: left;">
                     <div
                         style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -305,7 +305,7 @@
                         shandar Premium Warsi Velvet Zari Big Size Chadar, Big Size Phool Daliya, Premium &amp; Umda
                         Quality Attar, Agarbatti, Loban , aapki taraf se Mazar-e-Mubarak par Tabarruk(Mithayi) takseem aur
                         Fateha/Dua.</div>
-                </div>
+                </div> --}}
 
                 <!-- Package 7 -->
                 <div
@@ -356,62 +356,115 @@
             }
         </style>
 
-       <div
-    style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <!-- QR Code Payment & Contribution Box -->
+        <div
+    style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 
-    <!-- Top Small Badge -->
+    <!-- Top Badge -->
     <span
-        style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-        🌟 Business Opportunity 🌟
+        style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 15px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+        📷 Secure Digital Payment / QR Code 📷
     </span>
 
-    <!-- Main Heading -->
-    <h1
-        style="color: #ffd700; font-size: 20px; font-weight: 800; line-height: 1.5; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">
-        ✨ Agar koi bhai India me "Warsi Attar &amp; Perfumes Dewa Sharif" की Franchise lena chahta hai toh Contact kare ✨
-    </h1>
+    <!-- QR Code & Center-Aligned Text Container -->
+    <div style="text-align: center; margin-bottom: 25px;">
+        <!-- Heading -->
+        <h3 style="color: #ffd700; font-size: 20px; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; text-align: center; letter-spacing: 0.5px;">
+            ✨ किसी भी सेवा (SERVICE) - फीस (PAYMENT) के लिए ✨
+        </h3>
 
-    <!-- Subtitle / Short Details -->
-    <p style="color: #ffffff; font-size: 14px; margin: 0 0 18px 0; line-height: 1.5;">
-        Apne shehar mein shuru karein Sarkar Haji Waris Ali Shah R.A ki nisbat se makhsoos original Warsi Attar aur Perfumes ka business.
-    </p>
+        <!-- Hindi Text (Centered) -->
+        <p style="font-size: 14.5px; color: #ffffff; font-weight: 600; margin: 0 auto 8px auto; max-width: 800px; text-align: center; line-height: 1.5;">
+            अगर आपको किसी भी सेवा (service) से जुड़ा पैसा भेजना है, तो नीचे दिए गए QR Code को स्कैन करें या हमारी UPI ID पर सीधे पेमेंट भेजें।
+        </p>
 
-    <!-- Highlights Points -->
-    <div
-        style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; font-size: 13px; color: #ffffff;">
-        <span
-            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">✨
-            100% Pure &amp; Original Fragrance</span>
-        <span
-            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">💧
-            100% Alcohol Free</span>
-        <span
-            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">📈
-            High Profit Margin</span>
-        <span
-            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">🤝
-            Full Business Support</span>
+        <!-- English Text (Centered) -->
+        <p style="font-size: 13.5px; color: #e2e8f0; font-weight: 500; margin: 0 auto 20px auto; max-width: 800px; text-align: center; line-height: 1.5;">
+            For any service payments, please scan the QR Code below or use our UPI ID securely.
+        </p>
+
+        <!-- QR Code Image (Bade Size Mein & Aspect Ratio Fixed) -->
+        <img src="{{ asset('home/images/dewasharif/pay-scanner.png') }}" alt="Dewasharif Payment QR Code"
+            style="width: 380px; height: auto; object-fit: contain; border-radius: 8px; background: #fff; padding: 10px; display: block; margin: 0 auto 15px auto; border: 2px solid #d4af37;">
+
+        <!-- Official UPI ID Highlight Box -->
+        <div
+            style="background: rgba(11, 70, 37, 0.6); border: 1.5px dashed #2ecc71; padding: 10px 18px; border-radius: 6px; display: inline-block; margin-top: 5px;">
+            <span style="color: #ffffff; font-size: 14px; font-weight: 700;">
+                 UPI ID: <span
+                    style="color: #ffd700; font-size: 15.5px; font-weight: 800; letter-spacing: 0.5px;">9648777223@ybl</span>
+            </span>
+        </div>
     </div>
 
-    <!-- Security Money Highlight -->
+    <!-- Important Note / Instruction -->
     <div
-        style="background: rgba(0, 15, 8, 0.85); border: 1.5px dashed #4cd137; padding: 12px 20px; border-radius: 8px; display: inline-block; margin-bottom: 15px;">
-        <span style="color: #ffffff; font-size: 15px; font-weight: 700;">🔒 Security Money: <span
-                style="color: #4cd137; font-size: 18px; font-weight: 900;">₹99,999</span> Only</span>
-    </div>
-
-    <!-- Call to Action / Contact Note -->
-    <div
-        style="text-align: center; margin-top: 15px; color: #fdf6e2; font-size: 13.5px; font-weight: 600; line-height: 1.6;">
-        📞 Franchise ya dealership ke liye aaj hi humare WhatsApp par contact karein!
-        <br>Warsi Attar &amp; Perfumes detail aur zyada jankari ke liye diye gaye button par click karen <br><br>
-        <a href="{{ url('/attarfrenchise') }}"
-            style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 11px 20px; border-radius: 30px; text-decoration: none; font-size: 14px; border: 2px solid #ffd700; box-shadow: 0 4px 12px rgba(11, 70, 37, 0.3); max-width: 100%; box-sizing: border-box;">
-            More Information &amp; Rules - CLICK HERE
-        </a>
+        style="color: #fdf6e2; font-size: 13px; font-weight: 600; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+        ⚠️ <span style="color: #ffd700;">जरूरी बात:</span> पैसे भेजने के बाद उसका स्क्रीनशॉट (Screenshot) और अपनी
+        जानकारी हमारे WhatsApp नंबर पर जरूर भेजें, ताकि Verify होने के बाद आपका काम समय पर पूरा हो सके।
     </div>
 
 </div>
+
+        <div
+            style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+            <!-- Top Small Badge -->
+            <span
+                style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                🌟 Business Opportunity 🌟
+            </span>
+
+            <!-- Main Heading -->
+            <h1
+                style="color: #ffd700; font-size: 20px; font-weight: 800; line-height: 1.5; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">
+                ✨ Agar koi bhai India me "Warsi Attar &amp; Perfumes Dewa Sharif" की Franchise lena chahta hai toh Contact
+                kare ✨
+            </h1>
+
+            <!-- Subtitle / Short Details -->
+            <p style="color: #ffffff; font-size: 14px; margin: 0 0 18px 0; line-height: 1.5;">
+                Apne shehar mein shuru karein Sarkar Haji Waris Ali Shah R.A ki nisbat se makhsoos original Warsi Attar aur
+                Perfumes ka business.
+            </p>
+
+            <!-- Highlights Points -->
+            <div
+                style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; font-size: 13px; color: #ffffff;">
+                <span
+                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">✨
+                    100% Pure &amp; Original Fragrance</span>
+                <span
+                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">💧
+                    100% Alcohol Free</span>
+                <span
+                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">📈
+                    High Profit Margin</span>
+                <span
+                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">🤝
+                    Full Business Support</span>
+            </div>
+
+            <!-- Security Money Highlight -->
+            <div
+                style="background: rgba(0, 15, 8, 0.85); border: 1.5px dashed #4cd137; padding: 12px 20px; border-radius: 8px; display: inline-block; margin-bottom: 15px;">
+                <span style="color: #ffffff; font-size: 15px; font-weight: 700;">🔒 Security Money: <span
+                        style="color: #4cd137; font-size: 18px; font-weight: 900;">₹49,999</span> Only</span>
+            </div>
+
+            <!-- Call to Action / Contact Note -->
+            <div
+                style="text-align: center; margin-top: 15px; color: #fdf6e2; font-size: 13.5px; font-weight: 600; line-height: 1.6;">
+                📞 Franchise ya dealership ke liye aaj hi humare WhatsApp par contact karein!
+                <br>Warsi Attar &amp; Perfumes detail aur zyada jankari ke liye niche diye gaye button par click karen
+                <br><br>
+                <a href="{{ url('/attarfrenchise') }}"
+                    style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 11px 20px; border-radius: 30px; text-decoration: none; font-size: 14px; border: 2px solid #ffd700; box-shadow: 0 4px 12px rgba(11, 70, 37, 0.3); max-width: 100%; box-sizing: border-box;">
+                    More Information &amp; Rules - CLICK HERE
+                </a>
+            </div>
+
+        </div>
 
 
 
@@ -428,12 +481,12 @@
                             Community & Warsi Matrimonial Services
                         </span>
                         <h2 style="color: #0b4625; font-size: 24px; font-weight: 900; margin-top: 12px;">
-                            ✨ Join Our Official WhatsApp Groups ✨
+                            ✨ Join Our WhatsApp Groups ✨
                         </h2>
                         <p
                             style="color: #111; font-size: 14.5px; max-width: 800px; margin: 10px auto 0 auto; font-weight: 800; letter-spacing: 0.2px; padding: 0 5px;">
                             Dewa Sharif aur Dargah se judi jankari, updates aur Muslim Marriage (Rishte) ke liye hamare
-                            official aur verified WhatsApp groups se judein.
+                          verified WhatsApp groups se judein.
                         </p>
                         <div style="width: 70px; height: 3px; background: #03be64; margin: 12px auto; border-radius: 2px;">
                         </div>
@@ -624,23 +677,20 @@
                 <!-- More Information & Rules Button -->
                 <div class="row text-center" style="margin-top: 20px; margin-left: 0; margin-right: 0;">
                     <div class="col-md-12" style="padding: 0 5px;">
-                        <p style="font-size: 13.5px; color: #333; margin-bottom: 10px; font-weight: 700;">
+                        <p style="font-size: 13.5px; color: #0b4625; margin-bottom: 10px; font-weight: 700;">
                             ⚠️ Group join karne se pehle niyam aur shartein (Rules & Regulations) zaroor padhein niche
                             Button click karen.
                         </p>
                         <a href="{{ url('/whatsappgroup') }}"
                             style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 11px 20px; border-radius: 30px; text-decoration: none; font-size: 14px; border: 2px solid #ffd700; box-shadow: 0 4px 12px rgba(11, 70, 37, 0.3); max-width: 100%; box-sizing: border-box;">
-                            📖 For More Information & Rules (Niyam & Shartein)
+                            More Information &amp; Rules - CLICK HERE
                         </a>
                     </div>
                 </div>
 
             </div>
         </section>
-
     </div>
-
-
 
     <!-- ================= 3 FEATURED SERVICE CARDS ================= -->
     <section style="padding: 50px 0 25px 0; background: #fdfbf7; border-bottom: 2px solid #e2d7c5;">
@@ -1562,7 +1612,7 @@
             <div style="text-align: center; margin-bottom: 35px;">
                 <span
                     style="background: #e8a824; color: #111; font-weight: 800; font-size: 12px; text-transform: uppercase; padding: 5px 15px; border-radius: 20px; letter-spacing: 1px;">
-                    Official Information Portal
+                     Information Portal
                 </span>
                 <h2 style="color: #0b4625; font-size: 28px; font-weight: 900; margin-top: 15px; line-height: 1.4;">
                     Welcome to Dewa Sharif — Spiritual Heritage, Ziyarat & Travel Hub

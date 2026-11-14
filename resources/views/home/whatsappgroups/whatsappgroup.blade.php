@@ -10,7 +10,7 @@
       <div style="text-align: center; margin-bottom: 40px; padding: 0 10px; box-sizing: border-box;">
             <span
                 style="background: #e8a824; color: #111; font-weight: 900; font-size: 13px; text-transform: uppercase; padding: 6px 18px; border-radius: 20px; letter-spacing: 1px;">
-                dewasharif.com Official Platform
+                dewasharif.com Platform
             </span>
             <h1 style="color: #0b4625; font-size: 32px; font-weight: 900; margin-top: 15px;">
                 📱 Dewa Sharif WhatsApp Groups &amp; Warsi Matrimonial Services
@@ -221,7 +221,7 @@
                             under the supervision of family guardians.</li>
                         {{-- <li style="margin-bottom: 12px;"><b>Subscription Fee:</b> The paid group fee is ₹299 for 6 months
                             (Strictly Non-refundable).</li> --}}
-                        <li style="margin-bottom: 6px;"><b>Privacy & Posting:</b> Configured as "Admin-Only". Send your biodata and photo to our official WhatsApp (+91 9648777223) or Email
+                        <li style="margin-bottom: 6px;"><b>Privacy & Posting:</b> Configured as "Admin-Only". Send your biodata and photo to our WhatsApp (+91 9648777223) or Email
                             (info@dewasharif.com).</li>
                             {{-- payment screenshot along with Note isko bad me likhna hai send ke --}}
                     </ul>

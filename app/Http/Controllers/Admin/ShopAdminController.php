@@ -552,7 +552,7 @@ class ShopAdminController extends Controller
         $orderData['id'] = $newId;
         DataStore::addItem('shop_orders', $orderData);
 
-        return back()->with('success', "Custom " . ($isDegh ? "Degh Niyaz" : "Store") . " Order #{$randCode} created successfully! You can now view and download the official invoice.");
+        return back()->with('success', "Custom " . ($isDegh ? "Degh Niyaz" : "Store") . " Order #{$randCode} created successfully! You can now view and download the invoice.");
     }
 
     public function updateOrder(Request $request, $id)
@@ -649,7 +649,7 @@ class ShopAdminController extends Controller
 
         DataStore::updateItem('shop_orders', $id, $updateData);
 
-        return back()->with('success', "Order #{$id} updated successfully! Official Invoice and WhatsApp links refreshed.");
+        return back()->with('success', "Order #{$id} updated successfully! Invoice and WhatsApp links refreshed.");
     }
 
     public function dispatchOrder(Request $request, $id)
