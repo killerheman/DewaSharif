@@ -1,42 +1,40 @@
 <?php
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LocationController;
-use App\Http\Controllers\CustomerPortalController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Auth\GoogleController;
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\Auth\ChangePasswordController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BusinessEmailController;
+use App\Http\Controllers\Admin\CabAdminController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\CouponAdminController;
+use App\Http\Controllers\Admin\CustomerAdminController;
+use App\Http\Controllers\Admin\EmailServiceController;
+use App\Http\Controllers\Admin\FeedbackAdminController;
+use App\Http\Controllers\Admin\FreeEmailRequestController;
 use App\Http\Controllers\Admin\HotelAdminController;
 use App\Http\Controllers\Admin\HotelPartnerAdminController;
+use App\Http\Controllers\Admin\InvoiceController;
+use App\Http\Controllers\Admin\PaymentSettingController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ReviewAdminController;
+use App\Http\Controllers\Admin\SettingAdminController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\ShopAdminController;
+use App\Http\Controllers\Admin\SupportTicketController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\TicketAdminController;
+use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CustomerPortalController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Hotel\HotelAuthController;
 use App\Http\Controllers\Hotel\HotelDashboardController;
-use App\Http\Controllers\Admin\CabAdminController;
-use App\Http\Controllers\Admin\ShopAdminController;
-use App\Http\Controllers\Admin\CustomerAdminController;
-use App\Http\Controllers\Admin\SettingAdminController;
-use App\Http\Controllers\Admin\CouponAdminController;
-use App\Http\Controllers\Admin\TicketAdminController;
-use App\Http\Controllers\Admin\ReviewAdminController;
-use App\Http\Controllers\Admin\FeedbackAdminController;
-
-use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\EmailServiceController;
-use App\Http\Controllers\Admin\FreeEmailRequestController;
-use App\Http\Controllers\Admin\BusinessEmailController;
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\TestimonialController;
-use App\Http\Controllers\Admin\PaymentSettingController;
-use App\Http\Controllers\Admin\TransactionController;
-use App\Http\Controllers\Admin\InvoiceController;
-use App\Http\Controllers\Admin\CouponController;
-use App\Http\Controllers\Admin\SupportTicketController;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\Auth\ChangePasswordController;
+use App\Http\Controllers\LocationController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,7 +98,7 @@ Route::get('/whatsappgroup', [HomeController::class, 'whatsappGroup'])->name('wh
 Route::get('/attarfrenchise', [HomeController::class, 'attarfrenchise'])->name('attar.frenchise');
 
 // About Menu
-Route::get('/about-us', [HomeController::class, 'about'])->name('about');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/history', [HomeController::class, 'history'])->name('history');
 Route::get('/sufism', [HomeController::class, 'sufism'])->name('sufism');
 Route::get('/hajiwarisalishah', [HomeController::class, 'hajiwarisalishah'])->name('hajiwarisalishah');
@@ -125,13 +123,14 @@ Route::get('/mela', [HomeController::class, 'mela'])->name('mela');
 Route::get('/numaisground', [HomeController::class, 'numaisground'])->name('numaisground');
 Route::get('/auditorium', [HomeController::class, 'auditorium'])->name('auditorium');
 Route::get('/eidgaah', [HomeController::class, 'eidgaah'])->name('eidgaah');
-Route::get('/culture', [HomeController::class, 'artandculture'])->name('artandculture');
+Route::get('/artandculture', [HomeController::class, 'artandculture'])->name('artandculture');
 Route::get('/artandcraft', [HomeController::class, 'artandcraft'])->name('artandcraft');
 Route::get('/madarsalist', [HomeController::class, 'madarsalist'])->name('madarsalist');
-Route::get('/education', [HomeController::class, 'collegeslist'])->name('collegeslist');
+Route::get('/collegelist', [HomeController::class, 'collegeslist'])->name('collegeslist');
 Route::get('/hospitals', [HomeController::class, 'hospitals'])->name('hospitals');
 Route::get('/docters', [HomeController::class, 'docters'])->name('docters');
 Route::get('/banks', [HomeController::class, 'bank'])->name('bank');
+Route::redirect('/bank', '/banks');
 Route::get('/thana', [HomeController::class, 'thana'])->name('thana');
 Route::get('/postoffice', [HomeController::class, 'postoffice'])->name('postoffice');
 Route::get('/townarea', [HomeController::class, 'townarea'])->name('townarea');
@@ -444,7 +443,10 @@ Route::prefix('user')->middleware('customer')->name('customer.')->group(function
     Route::post('/account/password', [CustomerPortalController::class, 'updatePassword'])->name('account.password');
     Route::get('/change-password', [CustomerPortalController::class, 'changePasswordView'])->name('changePassword');
     Route::post('/change-password/store', [CustomerPortalController::class, 'updatePassword'])->name('changePassword.store');
+    // Best Practice (SEO friendly URL with hyphen)
     Route::get('/report-issue', [CustomerPortalController::class, 'reportIssue'])->name('reportIssue');
+    // Agar pehle bina hyphen wala URL use ho raha tha, toh 404 se bachne ke liye yeh redirect laga sakte hain:
+    Route::redirect('/reportissue', '/report-issue');
     Route::post('/report-issue/store', [CustomerPortalController::class, 'storeReportIssue'])->name('reportIssue.store');
     Route::get('/tickets', [CustomerPortalController::class, 'tickets'])->name('tickets');
     Route::get('/tickets/{id}', [CustomerPortalController::class, 'showTicket'])->name('tickets.show');
@@ -497,4 +499,3 @@ Route::prefix('hotel')->name('hotel.')->group(function () {
         Route::post('/profile/update', [HotelDashboardController::class, 'updateProfile'])->name('profile.update');
     });
 });
-
