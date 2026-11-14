@@ -478,7 +478,7 @@
                     <div class="col-md-12" style="padding: 0 10px;">
                         <span
                             style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; letter-spacing: 1px; display: inline-block;">
-                            Community & Warsi Matrimonial Services
+                            Community & Warsi Marriage Service
                         </span>
                         <h2 style="color: #0b4625; font-size: 24px; font-weight: 900; margin-top: 12px;">
                             ✨ Join Our WhatsApp Groups ✨
@@ -556,7 +556,7 @@
                         </div>
                     </div>
 
-                    <!-- CARD 2: GREEN THEME (Warsi Matrimonial Services - Free) -->
+                    <!-- CARD 2: GREEN THEME (Warsi Marriage Service - Free) -->
                     <div
                         style="flex: 1; min-width: 300px; max-width: 380px; width: 100%; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #22c55e, #15803d) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(22,163,74,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
 
@@ -614,7 +614,7 @@
                         </div>
                     </div>
 
-                    <!-- CARD 3: RED THEME (Warsi Matrimonial Services - Paid Group ₹299) -->
+                    <!-- CARD 3: RED THEME (Warsi Marriage Service - Paid Group ₹299) -->
                     {{-- <div
                         style="flex: 1; min-width: 300px; max-width: 380px; width: 100%; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #ef4444, #b91c1c) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(220,38,38,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
 

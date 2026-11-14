@@ -13,7 +13,7 @@
                 dewasharif.com Platform
             </span>
             <h1 style="color: #0b4625; font-size: 32px; font-weight: 900; margin-top: 15px;">
-                📱 Dewa Sharif WhatsApp Groups &amp; Warsi Matrimonial Services
+                📱 Dewa Sharif WhatsApp Groups &amp; Warsi Marriage Service
             </h1>
             <p
                 style="color: #222; font-size: 16px; font-weight: 700; max-width: 800px; margin: 12px auto 0 auto; line-height: 1.6; padding: 0 15px; box-sizing: border-box;">
@@ -28,7 +28,7 @@
             style="background: #fff3cd; border: 2px solid #ffeeba; color: #533f04; padding: 20px 22px; border-radius: 12px; margin-bottom: 35px; font-size: 15px; font-weight: 700; line-height: 1.8; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
             <b style="font-size: 17px; color: #721c24; font-weight: 900;">⚠️ IMPORTANT LEGAL DISCLAIMER & SAFETY NOTICE /
                 कानूनी चेतावनी:</b><br>
-            <b>dewasharif.com</b> par Warsi Matrimonial Service sirf aur sirf ek information-sharing aur biodata posting platform hai. Rishta tay karne,
+            <b>dewasharif.com</b> par Warsi Marriage Service sirf aur sirf ek information-sharing aur biodata posting platform hai. Rishta tay karne,
             background ya police verification karne ya aapas ke kisi bhi len-den ki <u style="font-weight: 900;">poori
                 zimmedari kewal aur kewal user aur uske parivar ki hogi</u>. Platform, Founder (Shahzade Alam) ya Admin ka
             kisi bhi vivad, police case, fraud ya nuksan se koi lena-den nahi hai. / This platform holds <b
@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <!-- CARD 2: GREEN THEME (Warsi Matrimonial Services - Free) -->
+            <!-- CARD 2: GREEN THEME (Warsi Marriage Service - Free) -->
             <div style="flex: 0 0 350px; max-width: 100%; width: 350px; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #22c55e, #15803d) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(22,163,74,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
                 
                 <!-- Floating Badge -->
@@ -127,7 +127,7 @@
                 </div>
             </div>
 
-            <!-- CARD 3: RED THEME (Warsi Matrimonial Services - Paid Group ₹299) -->
+            <!-- CARD 3: RED THEME (Warsi Marriage Service - Paid Group ₹299) -->
             {{-- <div style="flex: 0 0 350px; max-width: 100%; width: 350px; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #ef4444, #b91c1c) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(220,38,38,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
                 
                 <!-- Floating Badge -->
