@@ -65,6 +65,16 @@
             </div>
         </div>
 
+        <div
+            style="margin-top: 10px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; width: 100%; max-width: 1140px; box-sizing: border-box;">
+
+            <!-- Heading -->
+            <h3
+                style="color: #ffd700; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+      ✨ Dewa Sharif aur Aas-Paas Ke Elaqo Se Shadi ya Party Ke Liye Gaadiyan (Cars🚗/Bus🚌) Book Karne Ke Liye Contact Karen ✨
+            </h3>
+        </div>
+
         <!-- 2. TRAVEL & SERVICES BOX (100% WIDE RESPONSIVE) -->
         <div
             style="margin-top: 10px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; width: 100%; max-width: 1140px; box-sizing: border-box;">
@@ -231,7 +241,8 @@
                         <span>1. Warsi Chadar &amp; Fateha/Dua</span>
                         <span style="color: #4cd137; font-weight: 700;">Rate: ₹499</span>
                     </div>
-                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Warsi Big
+                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Warsi
+                        Big
                         Size Chadar, Phool Daliya, Best Quality Attar, Agarbatti aur aapki taraf se
                         Mazar-e-Mubarak par Fateha/Dua.</div>
                 </div>
@@ -246,7 +257,8 @@
                         <span>2. Warsi Laces Chadar &amp; Fateha/Dua</span>
                         <span style="color: #4cd137; font-weight: 700;">Rate: ₹707</span>
                     </div>
-                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Warsi Big
+                    <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Warsi
+                        Big
                         Size Chadar, Phool Daliya, Best Quality Attar, Agarbatti aur aapki taraf se
                         Mazar-e-Mubarak par Fateha/Dua.</div>
                 </div>
@@ -289,12 +301,13 @@
                     </div>
                     <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Very Big
                         size aur behad khubsurat heavy Premium Warsi Velvet Zari Big Size Chadar, Big Size Phool Daliya,
-                        Premium &amp; Umda Quality Attar, Agarbatti, Loban aur aapki taraf se Mazar-e-Mubarak par Tabarruk(Mithayi) takseem aur
+                        Premium &amp; Umda Quality Attar, Agarbatti, Loban aur aapki taraf se Mazar-e-Mubarak par Tabarruk
+                        (Sweets) takseem aur
                         Fateha/Dua..</div>
                 </div>
 
                 <!-- Package 6 -->
-                {{-- <div
+                <div
                     style="background: rgba(0, 0, 0, 0.25); border-left: 3.5px solid #d4af37; padding: 12px 15px; border-radius: 6px; text-align: left;">
                     <div
                         style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -302,10 +315,12 @@
                         <span style="color: #4cd137; font-weight: 700;">Rate: ₹7707</span>
                     </div>
                     <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;"><strong>Kya milega:</strong> Sabse
-                        shandar Premium Warsi Velvet Zari Big Size Chadar, Big Size Phool Daliya, Premium &amp; Umda
-                        Quality Attar, Agarbatti, Loban , aapki taraf se Mazar-e-Mubarak par Tabarruk(Mithayi) takseem aur
+                        shandar Premium Warsi Velvet Designer Zari Big Size Chadar, Big Size Phool Daliya, Premium &amp;
+                        Umda
+                        Quality Attar, Agarbatti, Loban , aapki taraf se Mazar-e-Mubarak par Tabarruk (Sweets & Mix Fruits)
+                        takseem aur
                         Fateha/Dua.</div>
-                </div> --}}
+                </div>
 
                 <!-- Package 7 -->
                 <div
@@ -358,53 +373,57 @@
 
         <!-- QR Code Payment & Contribution Box -->
         <div
-    style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 
-    <!-- Top Badge -->
-    <span
-        style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 15px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-        📷 Secure Digital Payment / QR Code 📷
-    </span>
-
-    <!-- QR Code & Center-Aligned Text Container -->
-    <div style="text-align: center; margin-bottom: 25px;">
-        <!-- Heading -->
-        <h3 style="color: #ffd700; font-size: 20px; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; text-align: center; letter-spacing: 0.5px;">
-            ✨ किसी भी सेवा (SERVICE) - फीस (PAYMENT) के लिए ✨
-        </h3>
-
-        <!-- Hindi Text (Centered) -->
-        <p style="font-size: 14.5px; color: #ffffff; font-weight: 600; margin: 0 auto 8px auto; max-width: 800px; text-align: center; line-height: 1.5;">
-            अगर आपको किसी भी सेवा (service) से जुड़ा पैसा भेजना है, तो नीचे दिए गए QR Code को स्कैन करें या हमारी UPI ID पर सीधे पेमेंट भेजें।
-        </p>
-
-        <!-- English Text (Centered) -->
-        <p style="font-size: 13.5px; color: #e2e8f0; font-weight: 500; margin: 0 auto 20px auto; max-width: 800px; text-align: center; line-height: 1.5;">
-            For any service payments, please scan the QR Code below or use our UPI ID securely.
-        </p>
-
-        <!-- QR Code Image (Bade Size Mein & Aspect Ratio Fixed) -->
-        <img src="{{ asset('home/images/dewasharif/pay-scanner.png') }}" alt="Dewasharif Payment QR Code"
-            style="width: 380px; height: auto; object-fit: contain; border-radius: 8px; background: #fff; padding: 10px; display: block; margin: 0 auto 15px auto; border: 2px solid #d4af37;">
-
-        <!-- Official UPI ID Highlight Box -->
-        <div
-            style="background: rgba(11, 70, 37, 0.6); border: 1.5px dashed #2ecc71; padding: 10px 18px; border-radius: 6px; display: inline-block; margin-top: 5px;">
-            <span style="color: #ffffff; font-size: 14px; font-weight: 700;">
-                 UPI ID: <span
-                    style="color: #ffd700; font-size: 15.5px; font-weight: 800; letter-spacing: 0.5px;">9648777223@ybl</span>
+            <!-- Top Badge -->
+            <span
+                style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 15px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                📷 Secure Digital Payment / QR Code 📷
             </span>
+
+            <!-- QR Code & Center-Aligned Text Container -->
+            <div style="text-align: center; margin-bottom: 25px;">
+                <!-- Heading -->
+                <h3
+                    style="color: #ffd700; font-size: 20px; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; text-align: center; letter-spacing: 0.5px;">
+                    ✨ किसी भी सेवा (SERVICE) - फीस (PAYMENT) के लिए QR Code को स्कैन करें ✨
+                </h3>
+
+                <!-- Hindi Text (Centered) -->
+                <p
+                    style="font-size: 14.5px; color: #ffffff; font-weight: 600; margin: 0 auto 8px auto; max-width: 800px; text-align: center; line-height: 1.5;">
+                    अगर आपको किसी भी सेवा (service) से जुड़ा पैसा भेजना है, तो नीचे दिए गए QR Code को स्कैन करें या हमारी
+                    UPI ID पर सीधे पेमेंट भेजें।
+                </p>
+
+                <!-- English Text (Centered) -->
+                <p
+                    style="font-size: 13.5px; color: #e2e8f0; font-weight: 500; margin: 0 auto 20px auto; max-width: 800px; text-align: center; line-height: 1.5;">
+                    For any service payments, please scan the QR Code below or use our UPI ID securely.
+                </p>
+
+                <!-- QR Code Image (Bade Size Mein & Aspect Ratio Fixed) -->
+                <img src="{{ asset('home/images/dewasharif/pay-scanner.png') }}" alt="Dewasharif Payment QR Code"
+                    style="width: 380px; height: auto; object-fit: contain; border-radius: 8px; background: #fff; padding: 10px; display: block; margin: 0 auto 15px auto; border: 2px solid #d4af37;">
+
+                <!-- Official UPI ID Highlight Box -->
+                <div
+                    style="background: rgba(11, 70, 37, 0.6); border: 1.5px dashed #2ecc71; padding: 10px 18px; border-radius: 6px; display: inline-block; margin-top: 5px;">
+                    <span style="color: #ffffff; font-size: 14px; font-weight: 700;">
+                        UPI ID: <span
+                            style="color: #ffd700; font-size: 15.5px; font-weight: 800; letter-spacing: 0.5px;">9648777223@ybl</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Important Note / Instruction -->
+            <div
+                style="color: #fdf6e2; font-size: 13px; font-weight: 600; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                ⚠️ <span style="color: #ffd700;">जरूरी बात:</span> पैसे भेजने के बाद उसका स्क्रीनशॉट (Screenshot) और अपनी
+                जानकारी हमारे WhatsApp नंबर पर जरूर भेजें, ताकि Verify होने के बाद आपका काम समय पर पूरा हो सके।
+            </div>
+
         </div>
-    </div>
-
-    <!-- Important Note / Instruction -->
-    <div
-        style="color: #fdf6e2; font-size: 13px; font-weight: 600; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-        ⚠️ <span style="color: #ffd700;">जरूरी बात:</span> पैसे भेजने के बाद उसका स्क्रीनशॉट (Screenshot) और अपनी
-        जानकारी हमारे WhatsApp नंबर पर जरूर भेजें, ताकि Verify होने के बाद आपका काम समय पर पूरा हो सके।
-    </div>
-
-</div>
 
         <div
             style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
@@ -486,7 +505,7 @@
                         <p
                             style="color: #111; font-size: 14.5px; max-width: 800px; margin: 10px auto 0 auto; font-weight: 800; letter-spacing: 0.2px; padding: 0 5px;">
                             Dewa Sharif aur Dargah se judi jankari, updates aur Muslim Marriage (Rishte) ke liye hamare
-                          verified WhatsApp groups se judein.
+                            verified WhatsApp groups se judein.
                         </p>
                         <div style="width: 70px; height: 3px; background: #03be64; margin: 12px auto; border-radius: 2px;">
                         </div>
@@ -1612,7 +1631,7 @@
             <div style="text-align: center; margin-bottom: 35px;">
                 <span
                     style="background: #e8a824; color: #111; font-weight: 800; font-size: 12px; text-transform: uppercase; padding: 5px 15px; border-radius: 20px; letter-spacing: 1px;">
-                     Information Portal
+                    Information Portal
                 </span>
                 <h2 style="color: #0b4625; font-size: 28px; font-weight: 900; margin-top: 15px; line-height: 1.4;">
                     Welcome to Dewa Sharif — Spiritual Heritage, Ziyarat & Travel Hub
