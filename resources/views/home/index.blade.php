@@ -80,8 +80,7 @@
             </p>
 
             <p style="font-size: 15px; line-height: 1.7; color: #ffffff; margin-bottom: 20px; text-align: justify;">
-                Awliya-Allah ki bargah mein Adab-Ehtaram ka khaas khayal rakhein aur unke, apne aur sabke liye sirf Allah se
-                dua karein.
+                Awliya-Allah ki bargah mein Adab-Ehtaram ka khaas khayal rakhein.
             </p>
 
             <div class="text-center pt-3 border-top" style="border-color: rgba(212, 175, 55, 0.3) !important;">
