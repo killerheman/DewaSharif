@@ -65,6 +65,31 @@
             </div>
         </div>
 
+       <div style="margin-top: 10px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; width: 100%; max-width: 1140px; box-sizing: border-box; margin-left: auto; margin-right: auto;">
+    
+    <h4 style="color: #fd0505ff; font-weight: 800; text-align: center; margin-bottom: 15px; font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+        ⚠️ ZAROORI HIDAYAT (IMPORTANT NOTE) ⚠️
+    </h4>
+    
+    <p style="font-size: 15px; line-height: 1.7; color: #ffffff; margin-bottom: 15px; text-align: justify;">
+        Hum apni website par sirf <b>Chadar, Phool, Khushbu aur Dua-Fateha</b> karwane ki sahuliyat provide karte hain. <b>Taveez, Ghusl ka paani waghaira</b> yeh sab cheezein hum nahi rakhte hain.
+    </p>
+    
+    <p style="font-size: 15px; line-height: 1.7; color: #ffffff; margin-bottom: 20px; text-align: justify;">
+        Awliya-Allah ki bargah mein Adab-Ehtaram ka khaas khayal rakhein aur unke, apne aur sabke liye sirf Allah se dua karein.
+    </p>
+
+    <div class="text-center pt-3 border-top" style="border-color: rgba(212, 175, 55, 0.3) !important;">
+        <h5 style="color: #4cd137; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 5px;">
+            لَا إِلَهَ إِلَّا اللَّهُ مُحَمَّدٌ رَسُولُ اللَّهِ
+        </h5>
+        <small style="color: #e2e8f0; font-style: italic;">
+            (Tarjuma: Allah ke siva koi ma'bud nahi, aur Hazrat Muhammad Sallallahu Alaihi Wasallam Allah ke Rasool hain.)
+        </small>
+    </div>
+
+</div>
+
         <div
             style="margin-top: 10px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; width: 100%; max-width: 1140px; box-sizing: border-box;">
 
@@ -615,7 +640,7 @@
                             <div>
                                 <div
                                     style="background: #fdfdfd; padding: 8px; border-radius: 12px; border: 2px dashed #16a34a; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 12px;">
-                                    <img src="{{ asset('home/images/dewasharif/free_marriage.jpeg') }}"
+                                    <img src="{{ asset('home/images/dewasharif/free-marriage.png') }}"
                                         alt="Free Marriage QR"
                                         style="width: 100%; max-width: 200px; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 6px;">
                                     <span

@@ -114,7 +114,7 @@
                     <!-- QR Image Box -->
                     <div>
                         <div style="background: #fdfdfd; padding: 8px; border-radius: 12px; border: 2px dashed #16a34a; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 12px;">
-                            <img src="{{ asset('home/images/dewasharif/free_marriage.jpeg') }}" alt="Free Marriage QR" style="width: 100%; max-width: 200px; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 6px;">
+                            <img src="{{ asset('home/images/dewasharif/free-marriage.png') }}" alt="Free Marriage QR" style="width: 100%; max-width: 200px; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 6px;">
                             <span style="font-size: 11.5px; font-weight: 800; color: #16a34a; display: block; margin-top: 5px;">Scan QR Code</span>
                         </div>
 
