@@ -65,30 +65,36 @@
             </div>
         </div>
 
-       <div style="margin-top: 10px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; width: 100%; max-width: 1140px; box-sizing: border-box; margin-left: auto; margin-right: auto;">
-    
-    <h4 style="color: #fd0505ff; font-weight: 800; text-align: center; margin-bottom: 15px; font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
-        ⚠️ ZAROORI HIDAYAT (IMPORTANT NOTE) ⚠️
-    </h4>
-    
-    <p style="font-size: 15px; line-height: 1.7; color: #ffffff; margin-bottom: 15px; text-align: justify;">
-        Hum apni website par sirf <b>Chadar, Phool, Khushbu aur Dua-Fateha</b> karwane ki sahuliyat provide karte hain. <b>Taveez, Ghusl ka paani waghaira</b> yeh sab cheezein hum nahi rakhte hain.
-    </p>
-    
-    <p style="font-size: 15px; line-height: 1.7; color: #ffffff; margin-bottom: 20px; text-align: justify;">
-        Awliya-Allah ki bargah mein Adab-Ehtaram ka khaas khayal rakhein aur unke, apne aur sabke liye sirf Allah se dua karein.
-    </p>
+        <div
+            style="margin-top: 10px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; width: 100%; max-width: 1140px; box-sizing: border-box; margin-left: auto; margin-right: auto;">
 
-    <div class="text-center pt-3 border-top" style="border-color: rgba(212, 175, 55, 0.3) !important;">
-        <h5 style="color: #4cd137; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 5px;">
-            لَا إِلَهَ إِلَّا اللَّهُ مُحَمَّدٌ رَسُولُ اللَّهِ
-        </h5>
-        <small style="color: #e2e8f0; font-style: italic;">
-            (Tarjuma: Allah ke siva koi ma'bud nahi, aur Hazrat Muhammad Sallallahu Alaihi Wasallam Allah ke Rasool hain.)
-        </small>
-    </div>
+            <h4
+                style="color: #fd0505ff; font-weight: 800; text-align: center; margin-bottom: 15px; font-size: 20px; text-transform: uppercase; letter-spacing: 0.5px;">
+                ⚠️ ZAROORI HIDAYAT⚠️ <br>
+                ⚠️ IMPORTANT-NOTE ⚠️
+            </h4>
 
-</div>
+            <p style="font-size: 15px; line-height: 1.7; color: #ffffff; margin-bottom: 15px; text-align: justify;">
+                Hum apni website par sirf <b>Chadar, Phool, Khushbu aur Dua-Fateha</b> karwane ki sahuliyat provide karte
+                hain. <b>Taveez, Ghusl ka paani waghaira</b> yeh sab cheezein hum nahi rakhte hain.
+            </p>
+
+            <p style="font-size: 15px; line-height: 1.7; color: #ffffff; margin-bottom: 20px; text-align: justify;">
+                Awliya-Allah ki bargah mein Adab-Ehtaram ka khaas khayal rakhein aur unke, apne aur sabke liye sirf Allah se
+                dua karein.
+            </p>
+
+            <div class="text-center pt-3 border-top" style="border-color: rgba(212, 175, 55, 0.3) !important;">
+                <h5 style="color: #4cd137; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 5px;">
+                    لَا إِلَهَ إِلَّا اللَّهُ مُحَمَّدٌ رَسُولُ اللَّهِ
+                </h5>
+                <small style="color: #e2e8f0; font-style: italic;">
+                    (Tarjuma: Allah ke siva koi ma'bud nahi, aur Hazrat Muhammad Sallallahu Alaihi Wasallam Allah ke Rasool
+                    hain.)
+                </small>
+            </div>
+
+        </div>
 
         <div
             style="margin-top: 10px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; width: 100%; max-width: 1140px; box-sizing: border-box;">
@@ -96,7 +102,8 @@
             <!-- Heading -->
             <h3
                 style="color: #ffd700; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
-      ✨ Dewa Sharif aur Aas-Paas Ke Elaqo Se Shadi ya Party Ke Liye Gaadiyan (Cars🚗/Bus🚌) Book Karne Ke Liye Contact Karen ✨
+                ✨ Dewa Sharif aur Aas-Paas Ke Elaqo Se Shadi ya Party Ke Liye Gaadiyan (Cars🚗/Bus🚌) Book Karne Ke Liye
+                Contact Karen ✨
             </h3>
         </div>
 
@@ -1115,241 +1122,223 @@
 
 
 
-    <section id="explore">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <h2>"Dewa Sharif:<b> A Legacy of Love, Faith, Spirituality, Humanity, Peace And Devotion"</b></h2>
-                    <style>
-                        .letters-wrap-box {
-                            width: 100%;
-                            margin: 15px auto;
-                            text-align: center;
-                            padding: 0 12px;
-                            box-sizing: border-box;
-                        }
+   <section id="explore">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <h2 style="text-align: center; margin-bottom: 25px;">"Dewa Sharif:<b> A Legacy of Love, Faith, Spirituality, Humanity, Peace And Devotion</b>"</h2>
+                
+                <style>
+                    .letters-wrap-box {
+                        width: 100%;
+                        margin: 15px auto;
+                        text-align: center;
+                        padding: 0 12px;
+                        box-sizing: border-box;
+                    }
 
+                    .letters-row {
+                        display: flex !important;
+                        justify-content: center !important;
+                        align-items: flex-start !important;
+                        list-style: none !important;
+                        padding: 0 !important;
+                        margin: 0 auto 18px auto !important;
+                        gap: 20px;
+                        flex-wrap: nowrap !important;
+                    }
+
+                    .letters-row li {
+                        text-align: center;
+                        margin: 0 !important;
+                        padding: 0 2px;
+                        transition: transform 0.3s ease;
+                        flex: 0 0 auto;
+                    }
+
+                    .letters-row li a {
+                        display: block;
+                        pointer-events: none;
+                    }
+
+                    .letters-row li img {
+                        height: 120px;
+                        display: block;
+                        margin: 5px auto;
+                        max-width: 100%;
+                        object-fit: contain;
+                    }
+
+                    .letters-row li p {
+                        color: #005c29;
+                        font-size: 13px;
+                        font-weight: 700;
+                        text-align: center;
+                        margin-top: 4px;
+                        letter-spacing: 0.4px;
+                    }
+
+                    .letters-row li:hover {
+                        transform: translateY(-8px);
+                    }
+
+                    @media (max-width: 991px) {
                         .letters-row {
-                            display: flex !important;
-                            justify-content: center !important;
-                            align-items: flex-start !important;
-                            list-style: none !important;
-                            padding: 0 !important;
-                            margin: 0 auto 18px auto !important;
-                            gap: 20px;
-                            flex-wrap: nowrap !important;
+                            gap: 14px;
                         }
-
-                        .letters-row li {
-                            text-align: center;
-                            margin: 0 !important;
-                            padding: 0 2px;
-                            transition: transform 0.3s ease;
-                            flex: 0 0 auto;
-                        }
-
-                        .letters-row li a {
-                            display: block;
-                            pointer-events: none;
-                        }
-
                         .letters-row li img {
-                            height: 120px;
-                            display: block;
-                            margin: 5px auto;
-                            max-width: 100%;
-                            object-fit: contain;
+                            height: 85px;
                         }
-
                         .letters-row li p {
-                            color: #005c29;
-                            font-size: 13px;
-                            font-weight: 700;
-                            text-align: center;
-                            margin-top: 4px;
-                            letter-spacing: 0.4px;
+                            font-size: 11px;
                         }
+                    }
 
-                        .letters-row li:hover {
-                            transform: translateY(-8px);
+                    @media (max-width: 768px) {
+                        .letters-row {
+                            gap: 8px;
+                            margin-bottom: 12px !important;
                         }
-
-                        @media (max-width: 991px) {
-                            .letters-row {
-                                gap: 14px;
-                            }
-
-                            .letters-row li img {
-                                height: 85px;
-                            }
-
-                            .letters-row li p {
-                                font-size: 11px;
-                            }
+                        .letters-row li img {
+                            height: 50px;
                         }
-
-                        @media (max-width: 768px) {
-                            .letters-row {
-                                gap: 8px;
-                                margin-bottom: 12px !important;
-                            }
-
-                            .letters-row li img {
-                                height: 50px;
-                            }
-
-                            .letters-row li p {
-                                font-size: 8px;
-                                letter-spacing: 0;
-                            }
+                        .letters-row li p {
+                            font-size: 8px;
+                            letter-spacing: 0;
                         }
+                    }
 
-                        @media (max-width: 480px) {
-                            .letters-wrap-box {
-                                padding: 0 8px;
-                            }
-
-                            .letters-row {
-                                gap: 5px;
-                                margin-bottom: 10px !important;
-                            }
-
-                            .letters-row li img {
-                                height: 38px;
-                                max-width: 32px;
-                            }
-
-                            .letters-row li p {
-                                font-size: 6.5px;
-                                margin-top: 2px;
-                            }
+                    @media (max-width: 480px) {
+                        .letters-wrap-box {
+                            padding: 0 8px;
                         }
-
-                        @media (max-width: 360px) {
-                            .letters-wrap-box {
-                                padding: 0 6px;
-                            }
-
-                            .letters-row {
-                                gap: 3px;
-                            }
-
-                            .letters-row li img {
-                                height: 30px;
-                                max-width: 25px;
-                            }
-
-                            .letters-row li p {
-                                font-size: 5.5px;
-                            }
+                        .letters-row {
+                            gap: 5px;
+                            margin-bottom: 10px !important;
                         }
-
-                        @media (max-width: 300px) {
-                            .letters-wrap-box {
-                                padding: 0 4px;
-                            }
-
-                            .letters-row {
-                                gap: 2px;
-                            }
-
-                            .letters-row li img {
-                                height: 26px;
-                                max-width: 22px;
-                            }
-
-                            .letters-row li p {
-                                font-size: 5px;
-                            }
+                        .letters-row li img {
+                            height: 38px;
+                            max-width: 32px;
                         }
-                    </style>
+                        .letters-row li p {
+                            font-size: 6.5px;
+                            margin-top: 2px;
+                        }
+                    }
 
-                    <div class="letters-wrap-box">
-                        <!-- LINE 1: DEWA -->
-                        <ul class="letters-row">
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/1.png') }}" alt="DEVOTION"
-                                        title="DEVOTION" /></a>
-                                <p>DEVOTION</p>
-                            </li>
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/2.png') }}" alt="EDUCATION"
-                                        title="EDUCATION" /></a>
-                                <p>EDUCATION</p>
-                            </li>
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/3.png') }}" alt="WARSI"
-                                        title="WARSI" /></a>
-                                <p>WARSI</p>
-                            </li>
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/4.png') }}" alt="AZAAN"
-                                        title="AZAAN" /></a>
-                                <p>AZAAN</p>
-                            </li>
-                        </ul>
+                    @media (max-width: 360px) {
+                        .letters-wrap-box {
+                            padding: 0 6px;
+                        }
+                        .letters-row {
+                            gap: 3px;
+                        }
+                        .letters-row li img {
+                            height: 30px;
+                            max-width: 25px;
+                        }
+                        .letters-row li p {
+                            font-size: 5.5px;
+                        }
+                    }
 
-                        <!-- LINE 2: SHARIF -->
-                        <ul class="letters-row">
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/5.png') }}"
-                                        alt="SPRITUALITY" title="SPRITUALITY" /></a>
-                                <p>SPRITUALITY</p>
-                            </li>
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/6.png') }}" alt="HUMANITY"
-                                        title="HUMANITY" /></a>
-                                <p>HUMANITY</p>
-                            </li>
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/7.png') }}" alt="AWLIYA"
-                                        title="AWLIYA" /></a>
-                                <p>AWLIYA</p>
-                            </li>
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/8.png') }}" alt="RELIGIOUS"
-                                        title="RELIGIOUS" /></a>
-                                <p>RELIGIOUS</p>
-                            </li>
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/9.png') }}" alt="ISLAM"
-                                        title="ISLAM" /></a>
-                                <p>ISLAM</p>
-                            </li>
-                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/10.png') }}" alt="FAITH"
-                                        title="FAITH" /></a>
-                                <p>FAITH</p>
-                            </li>
-                        </ul>
-                    </div>
+                    @media (max-width: 300px) {
+                        .letters-wrap-box {
+                            padding: 0 4px;
+                        }
+                        .letters-row {
+                            gap: 2px;
+                        }
+                        .letters-row li img {
+                            height: 26px;
+                            max-width: 22px;
+                        }
+                        .letters-row li p {
+                            font-size: 5px;
+                        }
+                    }
+                </style>
+
+                <div class="letters-wrap-box">
+                    <!-- LINE 1: DEWA -->
+                    <ul class="letters-row">
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/1.png') }}" alt="DEVOTION" title="DEVOTION" /></a>
+                            <p>DEVOTION</p>
+                        </li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/2.png') }}" alt="EDUCATION" title="EDUCATION" /></a>
+                            <p>EDUCATION</p>
+                        </li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/3.png') }}" alt="WARSI" title="WARSI" /></a>
+                            <p>WARSI</p>
+                        </li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/4.png') }}" alt="AZAAN" title="AZAAN" /></a>
+                            <p>AZAAN</p>
+                        </li>
+                    </ul>
+
+                    <!-- LINE 2: SHARIF -->
+                    <ul class="letters-row">
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/5.png') }}" alt="SPRITUALITY" title="SPRITUALITY" /></a>
+                            <p>SPRITUALITY</p>
+                        </li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/6.png') }}" alt="HUMANITY" title="HUMANITY" /></a>
+                            <p>HUMANITY</p>
+                        </li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/7.png') }}" alt="AWLIYA" title="AWLIYA" /></a>
+                            <p>AWLIYA</p>
+                        </li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/8.png') }}" alt="RELIGIOUS" title="RELIGIOUS" /></a>
+                            <p>RELIGIOUS</p>
+                        </li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/9.png') }}" alt="ISLAM" title="ISLAM" /></a>
+                            <p>ISLAM</p>
+                        </li>
+                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/10.png') }}" alt="FAITH" title="FAITH" /></a>
+                            <p>FAITH</p>
+                        </li>
+                    </ul>
                 </div>
-                <div class="row justify-content-center text-center">
-                    <div class="row justify-content-center text-center">
-                        <!-- Father Card -->
-                        <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
-                            <div style="border: 1px solid #ccc; border-radius: 8px; padding: 15px 10px; background: #fff;">
-                                <img src="{{ asset('home/images/dewasharif/walidsahab.jpeg') }}" alt="Father"
-                                    title="Barkat Ali"
-                                    style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
-                                <h4
-                                    style="font-size: 18px; font-weight: 800; text-align: center; margin-top: 10px; color: #14412a;">
-                                    BARKAT ALI <br><span style="font-size: 14px;">[FATHER]</span></h4>
-                                <p style="margin: 0; text-align: center; font-size: 14px;"><b><i>Barkat Ali Kirana
-                                            Store</i></b> <br /> <b
-                                        style="word-break: break-all; color: #09532f;">www.dewasharif.com</b></p>
-                            </div>
-                        </div>
 
-                        <!-- Shahzade Alam Card -->
-                        <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
-                            <div style="border: 1px solid #ccc; border-radius: 8px; padding: 15px 10px; background: #fff;">
-                                <img src="{{ asset('home/images/dewasharif/masharrat.jpg') }}" alt="Shahzade Alam"
-                                    title="Shahzade Alam"
-                                    style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
-                                <h4
-                                    style="font-size: 18px; text-align: center; font-weight: 800; margin-top: 10px; color: #14412a;">
-                                    Shahzade Alam <br><span style="font-size: 14px;">[مشرت وارثی]</span></h4>
-                                <p style="margin: 0; text-align: center; font-size: 14px;"><b><i>Software Engineer</i></b>
-                                    <br /> <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+
+        <!-- Father & Shahzade Alam Cards Row -->
+        <div class="row justify-content-center text-center mt-4">
+            <!-- Father Card -->
+            <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
+                <div style="border: 1px solid #ccc; border-radius: 8px; padding: 20px 15px; background: #fff; height: 100%;">
+                    <img src="{{ asset('home/images/dewasharif/walidsahab.jpeg') }}" alt="Father"
+                        title="Barkat Ali"
+                        style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
+                    <h4 style="font-size: 18px; font-weight: 800; text-align: center; margin-top: 10px; color: #14412a;">
+                        BARKAT ALI <br><span style="font-size: 14px; font-weight: 600;">[FATHER]</span>
+                    </h4>
+                    <p style="margin: 0; text-align: center; font-size: 14px;">
+                        <b><i>Barkat Ali Kirana Store</i></b> <br />
+                        <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Shahzade Alam Card -->
+            <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
+                <div style="border: 1px solid #ccc; border-radius: 8px; padding: 20px 15px; background: #fff; height: 100%;">
+                    <img src="{{ asset('home/images/dewasharif/masharrat.jpg') }}" alt="Shahzade Alam"
+                        title="Shahzade Alam"
+                        style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
+                    <h4 style="font-size: 18px; text-align: center; font-weight: 800; margin-top: 10px; color: #14412a;">
+                        Shahzade Alam <br><span style="font-size: 14px; font-weight: 600;">[مشرت وارثی]</span>
+                    </h4>
+                    <p style="margin: 0; text-align: center; font-size: 14px;">
+                        <b><i>Software Engineer</i></b> <br />
+                        <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b>
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+
+    </div>
+</section>
 
     {{-- Masjid AL Waris --}}
     <div class="kumbh-25">
