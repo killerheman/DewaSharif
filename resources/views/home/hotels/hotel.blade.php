@@ -798,7 +798,7 @@
                                     <td style="padding: 12px 16px; font-weight: 700; color: #0f172a;">Main Dargah Gate 1
                                         &amp; Chashma-e-Hayat</td>
                                     <td style="padding: 12px 16px; color: #475569;">10 to 50 Steps</td>
-                                    <td style="padding: 12px 16px; color: #475569;">&lt; 1 Minute</td>
+                                    <td style="padding: 12px 16px; color: #475569;">Less than 1 Minute</td>
                                     <td style="padding: 12px 16px; color: #166534; font-weight: 700;">Elderly pilgrims,
                                         ladies, and families</td>
                                 </tr>
