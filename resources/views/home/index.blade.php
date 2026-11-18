@@ -83,6 +83,7 @@
                 Awliya-Allah ki bargah mein Adab-Ehtaram ka khaas khayal rakhein.
             </p>
 
+            <!-- Pehla Section -->
             <div class="text-center pt-3 border-top" style="border-color: rgba(212, 175, 55, 0.3) !important;">
                 <h5 style="color: #4cd137; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 5px;">
                     لَا إِلَهَ إِلَّا اللَّهُ مُحَمَّدٌ رَسُولُ اللَّهِ
@@ -93,18 +94,97 @@
                 </small>
             </div>
 
+            <!-- Full Width Green Separator Line -->
+            <div style="width: 100%; text-align: center; margin: 15px 0;">
+                <hr style="border: none; border-top: 2px dashed #4cd137; width: 100%; margin: 0 auto; opacity: 0.85;">
+            </div>
+
+            <!-- Dusra Section -->
+            <div class="text-center pt-3 border-top" style="border-color: rgba(212, 175, 55, 0.3) !important;">
+                <h5 style="color: #4cd137; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 5px;">
+                    لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ
+                </h5>
+                <small style="color: #e2e8f0; font-style: italic;">
+                    (Tarjuma: Allah ke siva koi ibadat ke laiq nahi, wo akela hai, uska koi shareek nahi.)
+                </small>
+            </div>
+
         </div>
+
 
         <div
-            style="margin-top: 10px; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); animation: royalGlow 2.5s infinite alternate; width: 100%; max-width: 1140px; box-sizing: border-box;">
+    style="width: 100%; max-width: 1140px; margin-top: 10px; margin-bottom: 10px; margin-left: auto; margin-right: auto; padding: 20px 20px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 
-            <!-- Heading -->
-            <h3
-                style="color: #ffd700; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
-                ✨ Dewa Sharif aur Aas-Paas Ke Elaqo Se Shadi ya Party Ke Liye Gaadiyan (Cars🚗/Bus🚌) Book Karne Ke Liye
-                Contact Karen ✨
-            </h3>
+    <!-- TOP BADGE -->
+    <span
+        style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+        🌐 Business Opportunity &amp; Services 🌐
+    </span>
+
+    <!-- MAIN HEADING / INTRO -->
+    <h1
+        style="color: #ffd700; font-size: 20px; font-weight: 800; line-height: 1.5; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.5px;">
+        Apne Business ya Startup ko le jayein Online 🌐
+    </h1>
+
+    <p style="color: #ffffff; font-size: 14px; margin: 0 0 15px 0; line-height: 1.6;">
+        Static ya Dynamic kaisi bhi Website banwani ho ya apne Business ko Digital Growth deni ho — Design se lekar
+        Maintenance tak sabhi kaam ke liye aaj hi contact karein!
+    </p>
+
+    <!-- SERVICES POINTS GRID/LIST -->
+    <div
+        style="display: flex; flex-direction: column; gap: 8px; max-width: 800px; margin: 0 auto 15px auto; text-align: left;">
+        <div
+            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
+            💻 <strong>Website Development:</strong> Modern Technology &amp; Responsive Design
         </div>
+        <div
+            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
+            🛠️ <strong>Website Maintenance &amp; Support:</strong> Regular Updates, Security &amp; Bug Fixing
+        </div>
+        <div
+            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
+            📈 <strong>Digital Growth &amp; Branding:</strong> Public Reach &amp; Social Integration
+        </div>
+        <div
+            style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
+            💳 <strong>Payment Integration:</strong> Secure &amp; Safe Transaction System - QR Code, UPI Setup &amp;
+            Gateways etc.
+        </div>
+    </div>
+
+    <!-- CLOSING NOTE & WHATSAPP BUTTON (PART 1) -->
+    <div style="text-align: center; margin-top: 15px; color: #fdf6e2; font-size: 14px; font-weight: 600;">
+        <p style="margin-bottom: 10px;">Aaj hi contact karein aur apne business ko digital growth dein!</p>
+
+        <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20website%20ya%20service%20ke%20liye%20baat%20karni%20hai"
+            target="_blank"
+            style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 10px 24px; border-radius: 30px; text-decoration: none; font-size: 15px; border: 2px solid #ffd700; box-shadow: 0 4px 15px rgba(11, 70, 37, 0.5); text-align: center;">
+            Contact Us Now 📞
+        </a>
+    </div>
+
+    <!-- GAADI BOOKING SECTION (INSIDE THE SAME BOX) -->
+    <div style="margin-top: 20px; padding-top: 15px; border-top: 1.5px dashed rgba(212, 175, 55, 0.4);">
+
+        <h3
+            style="color: #ffd700; font-size: 19px; font-weight: 800; text-align: center; margin-top: 5px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.5;">
+            ✨ Dewa Sharif aur Aas-Paas Ke Elaqo Se Shadi ya Party Ke Liye Gaadiyan (Cars 🚗 / Bus 🚌) Book Karne Ke
+            Liye Contact Karen ✨
+        </h3>
+
+        <div style="text-align: center;">
+            <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20shadi%20ya%20party%20ke%20liye%20gaadi%20(Car/Bus)%20book%20karni%20hai"
+                target="_blank"
+                style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 10px 24px; border-radius: 30px; text-decoration: none; font-size: 15px; border: 2px solid #ffd700; box-shadow: 0 4px 15px rgba(11, 70, 37, 0.5);">
+                Contact Us Now 📞
+            </a>
+        </div>
+
+    </div>
+
+</div>
 
         <!-- 2. TRAVEL & SERVICES BOX (100% WIDE RESPONSIVE) -->
         <div
@@ -122,7 +202,7 @@
                 Hum provide karte hain —
                 <span style="color: #af0202ff; font-weight: 700;">
                     Confirm All India Bus Ticket, National & International Flights Ticket and Train Ticket only if Available
-                    - contact us on
+- contact us on
                     <a href="https://wa.me/919648777223" target="_blank"
                         style="color: #25d366; font-weight: 800; text-decoration: none;">
                         WhatsApp
@@ -184,7 +264,8 @@
                 <a href="https://wa.me/919648777223?text={{ urlencode('Assalamu Alaikum! Mujhe Dewa Sharif Ziyarat, Hotels, Cabs aur Tabarruk ke baare me jaankari chahiye.') }}"
                     target="_blank" rel="noopener"
                     style="background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); color: #ffffff; flex: 1; min-width: 220px; min-height: 52px; padding: 7px 14px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
-                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    onmouseover="this.style.transform='translateY(-2px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
                     <i class="fa fa-whatsapp" style="font-size: 20px; flex-shrink: 0;"></i>
                     <div
                         style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
@@ -261,7 +342,7 @@
                 </span>
             </div>
 
-            <!-- Packages List Container (Compact & Clean) -->
+            <!-- Packages List Container -->
             <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
 
                 <!-- Package 1 -->
@@ -277,8 +358,6 @@
                         Size Chadar, Phool Daliya, Best Quality Attar, Agarbatti aur aapki taraf se
                         Mazar-e-Mubarak par Fateha/Dua.</div>
                 </div>
-
-
 
                 <!-- Package 2 -->
                 <div
@@ -360,7 +439,6 @@
                         style="color: #ffd700; font-weight: 700; font-size: 15px; margin-bottom: 3px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
                         <span>7. Warsi Ehram Mubarak (Ehramposh Buzurgo (BABA ji) ko dene ya Dargah me Pesh karne ke
                             liye)</span>
-                        {{-- <span style="color: #4cd137; font-weight: 700;">Rate: ₹7707</span> --}}
                     </div>
                     <div style="color: #fdf6e2; font-size: 13.5px; line-height: 1.4;">
                         <p
@@ -374,7 +452,7 @@
 
             </div>
 
-            <!-- Note Section (Compact) -->
+            <!-- Note Section -->
             <div
                 style="background: rgba(212, 175, 55, 0.08); border: 1.2px dashed #d4af37; padding: 14px; border-radius: 6px; text-align: left;">
                 <p style="font-size: 13.5px; margin: 0; line-height: 1.5;">
@@ -404,343 +482,7 @@
 
         <!-- QR Code Payment & Contribution Box -->
         <div
-            style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #d4af37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-
-            <!-- Top Badge -->
-            <span
-                style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 15px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                📷 Secure Digital Payment / QR Code 📷
-            </span>
-
-            <!-- QR Code & Center-Aligned Text Container -->
-            <div style="text-align: center; margin-bottom: 25px;">
-                <!-- Heading -->
-                <h3
-                    style="color: #ffd700; font-size: 20px; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; text-align: center; letter-spacing: 0.5px;">
-                    ✨ किसी भी सेवा (SERVICE) - फीस (PAYMENT) के लिए QR Code को स्कैन करें ✨
-                </h3>
-
-                <!-- Hindi Text (Centered) -->
-                <p
-                    style="font-size: 14.5px; color: #ffffff; font-weight: 600; margin: 0 auto 8px auto; max-width: 800px; text-align: center; line-height: 1.5;">
-                    अगर आपको किसी भी सेवा (service) से जुड़ा पैसा भेजना है, तो नीचे दिए गए QR Code को स्कैन करें या हमारी
-                    UPI ID पर सीधे पेमेंट भेजें।
-                </p>
-
-                <!-- English Text (Centered) -->
-                <p
-                    style="font-size: 13.5px; color: #e2e8f0; font-weight: 500; margin: 0 auto 20px auto; max-width: 800px; text-align: center; line-height: 1.5;">
-                    For any service payments, please scan the QR Code below or use our UPI ID securely.
-                </p>
-
-                <!-- QR Code Image (Bade Size Mein & Aspect Ratio Fixed) -->
-                <img src="{{ asset('home/images/dewasharif/pay-scanner.png') }}" alt="Dewasharif Payment QR Code"
-                    style="width: 380px; height: auto; object-fit: contain; border-radius: 8px; background: #fff; padding: 10px; display: block; margin: 0 auto 15px auto; border: 2px solid #d4af37;">
-
-                <!-- Official UPI ID Highlight Box -->
-                <div
-                    style="background: rgba(11, 70, 37, 0.6); border: 1.5px dashed #2ecc71; padding: 10px 18px; border-radius: 6px; display: inline-block; margin-top: 5px;">
-                    <span style="color: #ffffff; font-size: 14px; font-weight: 700;">
-                        UPI ID: <span
-                            style="color: #ffd700; font-size: 15.5px; font-weight: 800; letter-spacing: 0.5px;">9648777223@ybl</span>
-                    </span>
-                </div>
-            </div>
-
-            <!-- Important Note / Instruction -->
-            <div
-                style="color: #fdf6e2; font-size: 13px; font-weight: 600; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-                ⚠️ <span style="color: #ffd700;">जरूरी बात:</span> पैसे भेजने के बाद उसका स्क्रीनशॉट (Screenshot) और अपनी
-                जानकारी हमारे WhatsApp नंबर पर जरूर भेजें, ताकि Verify होने के बाद आपका काम समय पर पूरा हो सके।
-            </div>
-
-        </div>
-
-        <div
-            style="width: 100%; max-width: 1140px; margin: 0 auto 30px auto; padding: 30px 25px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-
-            <!-- Top Small Badge -->
-            <span
-                style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-                🌟 Business Opportunity 🌟
-            </span>
-
-            <!-- Main Heading -->
-            <h1
-                style="color: #ffd700; font-size: 20px; font-weight: 800; line-height: 1.5; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">
-                ✨ Agar koi bhai India me "Warsi Attar &amp; Perfumes Dewa Sharif" की Franchise lena chahta hai toh Contact
-                kare ✨
-            </h1>
-
-            <!-- Subtitle / Short Details -->
-            <p style="color: #ffffff; font-size: 14px; margin: 0 0 18px 0; line-height: 1.5;">
-                Apne shehar mein shuru karein Sarkar Haji Waris Ali Shah R.A ki nisbat se makhsoos original Warsi Attar aur
-                Perfumes ka business.
-            </p>
-
-            <!-- Highlights Points -->
-            <div
-                style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; font-size: 13px; color: #ffffff;">
-                <span
-                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">✨
-                    100% Pure &amp; Original Fragrance</span>
-                <span
-                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">💧
-                    100% Alcohol Free</span>
-                <span
-                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">📈
-                    High Profit Margin</span>
-                <span
-                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 6px 12px; border-radius: 6px;">🤝
-                    Full Business Support</span>
-            </div>
-
-            <!-- Security Money Highlight -->
-            <div
-                style="background: rgba(0, 15, 8, 0.85); border: 1.5px dashed #4cd137; padding: 12px 20px; border-radius: 8px; display: inline-block; margin-bottom: 15px;">
-                <span style="color: #ffffff; font-size: 15px; font-weight: 700;">🔒 Security Money: <span
-                        style="color: #4cd137; font-size: 18px; font-weight: 900;">₹49,999</span> Only</span>
-            </div>
-
-            <!-- Call to Action / Contact Note -->
-            <div
-                style="text-align: center; margin-top: 15px; color: #fdf6e2; font-size: 13.5px; font-weight: 600; line-height: 1.6;">
-                📞 Franchise ya dealership ke liye aaj hi humare WhatsApp par contact karein!
-                <br>Warsi Attar &amp; Perfumes detail aur zyada jankari ke liye niche diye gaye button par click karen
-                <br><br>
-                <a href="{{ url('/attarfrenchise') }}"
-                    style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 11px 20px; border-radius: 30px; text-decoration: none; font-size: 14px; border: 2px solid #ffd700; box-shadow: 0 4px 12px rgba(11, 70, 37, 0.3); max-width: 100%; box-sizing: border-box;">
-                    More Information &amp; Rules - CLICK HERE
-                </a>
-            </div>
-
-        </div>
-
-
-
-
-        <!-- WhatsApp & Marriage Groups Section -->
-        <section id="whatsapp-groups-section"
-            style="padding: 30px 12px; background: #f9f6ef; margin-top: 20px; border-top: 2px solid #d4af37; border-bottom: 2px solid #d4af37; box-sizing: border-box; width: 100%;">
-            <div class="container"
-                style="padding-left: 15px; padding-right: 15px; max-width: 1280px; margin: 0 auto; box-sizing: border-box; width: 100%;">
-                <div class="row text-center mb-4" style="margin-left: 0; margin-right: 0;">
-                    <div class="col-md-12" style="padding: 0 10px;">
-                        <span
-                            style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; letter-spacing: 1px; display: inline-block;">
-                            Community & Warsi Marriage Service
-                        </span>
-                        <h2 style="color: #0b4625; font-size: 24px; font-weight: 900; margin-top: 12px;">
-                            ✨ Join Our WhatsApp Groups ✨
-                        </h2>
-                        <p
-                            style="color: #111; font-size: 14.5px; max-width: 800px; margin: 10px auto 0 auto; font-weight: 800; letter-spacing: 0.2px; padding: 0 5px;">
-                            Dewa Sharif aur Dargah se judi jankari, updates aur Muslim Marriage (Rishte) ke liye hamare
-                            verified WhatsApp groups se judein.
-                        </p>
-                        <div style="width: 70px; height: 3px; background: #03be64; margin: 12px auto; border-radius: 2px;">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row with flexible card widths -->
-                <div class="row"
-                    style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 20px; margin-right: 0; margin-left: 0; align-items: stretch;">
-
-                    <!-- CARD 1: YELLOW THEME (Dewa Sharif Updates Group) -->
-                    <div
-                        style="flex: 1; min-width: 300px; max-width: 380px; width: 100%; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #facc15, #ca8a04) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(202,138,4,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
-
-                        <!-- Floating Badge -->
-                        <div
-                            style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); width: 90%; text-align: center;">
-                            <span
-                                style="background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%); color: #111; font-weight: 900; font-size: 10.5px; padding: 5px 12px; border-radius: 14px; text-transform: uppercase; box-shadow: 0 3px 8px rgba(0,0,0,0.2); display: inline-block; white-space: nowrap;">📢
-                                COMMUNITY UPDATES</span>
-                        </div>
-
-                        <div
-                            style="padding-top: 10px; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
-                            <div>
-                                <div style="text-align: center; margin: 5px 0 0 0;">
-                                    <h4
-                                        style="color: #713f12; font-weight: 900; font-size: 19px; margin: 0; display: flex; align-items: center; justify-content: center;">
-                                        🕌 Dewa Sharif Updates
-                                    </h4>
-                                    <p style="font-size: 11px; color: #023dbeff; font-weight: 700; margin: 5px 0 8px 0;">
-                                        ( Dewa Sharif aur dargah se related updates ke liye hamare WhatsApp group se judein
-                                        )
-                                    </p>
-                                </div>
-
-                                <!-- Bullet Points Area -->
-                                <div style="margin-bottom: 12px;">
-                                    <ul
-                                        style="font-size: 12.5px; color: #111; font-weight: 700; text-align: left; padding-left: 18px; line-height: 1.5; margin: 0; width: 100%; box-sizing: border-box;">
-                                        <li>Dargah Sharif, Urs, Mela aur Ziyarat se reated Jankari.</li>
-                                        <li>Hotels & Cabs Booking, Travel Guidance & Degh-Niyaz-Langar Facility Availables.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- QR Image Box -->
-                            <div>
-                                <div
-                                    style="background: #fdfdfd; padding: 8px; border-radius: 12px; border: 2px dashed #ca8a04; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 12px;">
-                                    <img src="{{ asset('home/images/dewasharif/dewa-sharif-group.jpeg') }}"
-                                        alt="Dewa Sharif WhatsApp QR"
-                                        style="width: 100%; max-width: 200px; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 6px;">
-                                    <span
-                                        style="font-size: 11.5px; font-weight: 800; color: #713f12; display: block; margin-top: 5px;">Scan
-                                        QR Code</span>
-                                </div>
-
-                                <div>
-                                    <a href="https://chat.whatsapp.com/F7iFNc1a4hR9sMZMADXcoy" target="_blank"
-                                        style="display: block; background: linear-gradient(135deg, #eab308 0%, #a16207 100%); color: #fff; font-weight: 900; padding: 11px 15px; border-radius: 30px; text-decoration: none; font-size: 14px; box-shadow: 0 4px 15px rgba(202, 138, 4, 0.4);">
-                                        📲 Join Group via Link
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CARD 2: GREEN THEME (Warsi Marriage Service - Free) -->
-                    <div
-                        style="flex: 1; min-width: 300px; max-width: 380px; width: 100%; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #22c55e, #15803d) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(22,163,74,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
-
-                        <!-- Floating Badge -->
-                        <div
-                            style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); width: 90%; text-align: center;">
-                            <span
-                                style="background: linear-gradient(135deg, #22c55e 0%, #15803d 100%); color: #fff; font-weight: 900; font-size: 10.5px; padding: 5px 12px; border-radius: 14px; text-transform: uppercase; box-shadow: 0 3px 8px rgba(0,0,0,0.2); display: inline-block; white-space: nowrap;">✨
-                                FREE SERVICE</span>
-                        </div>
-
-                        <div
-                            style="padding-top: 10px; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
-                            <div>
-                                <div style="text-align: center; margin: 5px 0 0 0;">
-                                    <h4
-                                        style="color: #14532d; font-weight: 900; font-size: 19px; margin: 0; display: flex; align-items: center; justify-content: center;">
-                                        💍 Free Muslim Marriage
-                                    </h4>
-                                    <p style="font-size: 11px; color: #023dbeff; font-weight: 700; margin: 5px 0 8px 0;">
-                                        Dewa Sharif aur All India ke sabhi bhai-behno ke liye bilkul 100% Free rishton ki
-                                        jankari
-                                    </p>
-                                </div>
-
-                                <!-- Bullet Points Area -->
-                                <div style="margin-bottom: 12px;">
-                                    <ul
-                                        style="font-size: 12.5px; color: #111; font-weight: 700; text-align: left; padding-left: 18px; line-height: 1.5; margin: 0; width: 100%; box-sizing: border-box;">
-                                        <li>Muslim Marriage Group Dewa Sharif Free- All India.</li>
-                                        <li>100% Free Biodata Sharing Service for Everyone in the Community.</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- QR Image Box -->
-                            <div>
-                                <div
-                                    style="background: #fdfdfd; padding: 8px; border-radius: 12px; border: 2px dashed #16a34a; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 12px;">
-                                    <img src="{{ asset('home/images/dewasharif/free-marriage.png') }}"
-                                        alt="Free Marriage QR"
-                                        style="width: 100%; max-width: 200px; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 6px;">
-                                    <span
-                                        style="font-size: 11.5px; font-weight: 800; color: #16a34a; display: block; margin-top: 5px;">Scan
-                                        QR Code</span>
-                                </div>
-
-                                <div>
-                                    <a href="https://chat.whatsapp.com/F7iFNc1a4hR9sMZMADXcoy" target="_blank"
-                                        style="display: block; background: linear-gradient(135deg, #22c55e 0%, #15803d 100%); color: #fff; font-weight: 900; padding: 11px 15px; border-radius: 30px; text-decoration: none; font-size: 14px; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);">
-                                        📲 Join Group Via Link
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CARD 3: RED THEME (Warsi Marriage Service - Paid Group ₹299) -->
-                    {{-- <div
-                        style="flex: 1; min-width: 300px; max-width: 380px; width: 100%; background: #fff; border: 4px solid transparent; border-image: linear-gradient(135deg, #ef4444, #b91c1c) 1; border-radius: 16px; padding: 22px 16px; text-align: center; box-shadow: 0 8px 25px rgba(220,38,38,0.2); display: flex; flex-direction: column; justify-content: space-between; position: relative; margin-top: 20px; box-sizing: border-box;">
-
-                        <!-- Floating Badge -->
-                        <div
-                            style="position: absolute; top: -16px; left: 50%; transform: translateX(-50%); width: 90%; text-align: center;">
-                            <span
-                                style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); color: #fff; font-weight: 900; font-size: 10.5px; padding: 5px 12px; border-radius: 14px; text-transform: uppercase; box-shadow: 0 3px 8px rgba(0,0,0,0.2); display: inline-block; white-space: nowrap;">⭐
-                                PREMIUM GROUP (₹299)</span>
-                        </div>
-
-                        <div
-                            style="padding-top: 10px; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
-                            <div>
-                                <div style="text-align: center; margin: 5px 0 0 0;">
-                                    <h4
-                                        style="color: #7f1d1d; font-weight: 900; font-size: 19px; margin: 0; display: flex; align-items: center; justify-content: center;">
-                                        💎 Paid Marriage Group
-                                    </h4>
-                                    <p style="font-size: 11px; color: #023dbeff; font-weight: 700; margin: 5px 0 8px 0;">
-                                        ( Dewa Sharif aur All India ke Zyada behtar rishton ke liye hamara paid WhatsApp
-                                        group join karen )
-                                    </p>
-                                </div>
-
-                                <!-- Bullet Points Area -->
-                                <div style="margin-bottom: 12px;">
-                                    <ul
-                                        style="font-size: 12.5px; color: #111; font-weight: 700; text-align: left; padding-left: 18px; line-height: 1.5; margin: 0; width: 100%; box-sizing: border-box;">
-                                        <li>Muslim Marriage Group Dewa Sharif All India Service and Valid for 6 Months.</li>
-                                        <li>Verified Biodatas, Photo, Contact, Address. Direct Admin Posting Service.</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- QR Image Box -->
-                            <div>
-                                <div
-                                    style="background: #fdfdfd; padding: 8px; border-radius: 12px; border: 2px dashed #dc2626; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 12px;">
-                                    <img src="{{ asset('home/images/dewasharif/phonepe_qr.jpg') }}" alt="PhonePe QR 299"
-                                        style="width: 100%; max-width: 200px; height: auto; object-fit: contain; display: block; margin: 0 auto; border-radius: 6px;">
-                                    <span
-                                        style="font-size: 11.5px; font-weight: 800; color: #b91c1c; display: block; margin-top: 5px;">Scan
-                                        QR code using UPI APP</span>
-                                </div>
-
-                                <div>
-                                    <a href="upi://pay?pa=9648777223@ybl&pn=ShahzadeAlam&am=299.00&cu=INR&tn=Paid+Muslim+Marriage+Group+Subscription+6+Months"
-                                        target="_blank"
-                                        style="display: block; background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); color: #fff; font-weight: 900; padding: 11px 15px; border-radius: 30px; text-decoration: none; font-size: 13.5px; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);">
-                                        ⚡ Pay ₹299 via UPI / PhonePe
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-
-                </div>
-
-                <!-- More Information & Rules Button -->
-                <div class="row text-center" style="margin-top: 20px; margin-left: 0; margin-right: 0;">
-                    <div class="col-md-12" style="padding: 0 5px;">
-                        <p style="font-size: 13.5px; color: #0b4625; margin-bottom: 10px; font-weight: 700;">
-                            ⚠️ Group join karne se pehle niyam aur shartein (Rules & Regulations) zaroor padhein niche
-                            Button click karen.
-                        </p>
-                        <a href="{{ url('/whatsappgroup') }}"
-                            style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 11px 20px; border-radius: 30px; text-decoration: none; font-size: 14px; border: 2px solid #ffd700; box-shadow: 0 4px 12px rgba(11, 70, 37, 0.3); max-width: 100%; box-sizing: border-box;">
-                            More Information &amp; Rules - CLICK HERE
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </div>
+            style="width: 100%; max-width: 1140px; margin:
 
     <!-- ================= 3 FEATURED SERVICE CARDS ================= -->
     <section style="padding: 50px 0 25px 0; background: #fdfbf7; border-bottom: 2px solid #e2d7c5;">
@@ -1121,223 +863,251 @@
 
 
 
-   <section id="explore">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
-                <h2 style="text-align: center; margin-bottom: 25px;">"Dewa Sharif:<b> A Legacy of Love, Faith, Spirituality, Humanity, Peace And Devotion</b>"</h2>
-                
-                <style>
-                    .letters-wrap-box {
-                        width: 100%;
-                        margin: 15px auto;
-                        text-align: center;
-                        padding: 0 12px;
-                        box-sizing: border-box;
-                    }
+    <section id="explore">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 text-center">
+                    <h2 style="text-align: center; margin-bottom: 25px;">"Dewa Sharif:<b> A Legacy of Love, Faith,
+                            Spirituality, Humanity, Peace And Devotion</b>"</h2>
 
-                    .letters-row {
-                        display: flex !important;
-                        justify-content: center !important;
-                        align-items: flex-start !important;
-                        list-style: none !important;
-                        padding: 0 !important;
-                        margin: 0 auto 18px auto !important;
-                        gap: 20px;
-                        flex-wrap: nowrap !important;
-                    }
-
-                    .letters-row li {
-                        text-align: center;
-                        margin: 0 !important;
-                        padding: 0 2px;
-                        transition: transform 0.3s ease;
-                        flex: 0 0 auto;
-                    }
-
-                    .letters-row li a {
-                        display: block;
-                        pointer-events: none;
-                    }
-
-                    .letters-row li img {
-                        height: 120px;
-                        display: block;
-                        margin: 5px auto;
-                        max-width: 100%;
-                        object-fit: contain;
-                    }
-
-                    .letters-row li p {
-                        color: #005c29;
-                        font-size: 13px;
-                        font-weight: 700;
-                        text-align: center;
-                        margin-top: 4px;
-                        letter-spacing: 0.4px;
-                    }
-
-                    .letters-row li:hover {
-                        transform: translateY(-8px);
-                    }
-
-                    @media (max-width: 991px) {
-                        .letters-row {
-                            gap: 14px;
-                        }
-                        .letters-row li img {
-                            height: 85px;
-                        }
-                        .letters-row li p {
-                            font-size: 11px;
-                        }
-                    }
-
-                    @media (max-width: 768px) {
-                        .letters-row {
-                            gap: 8px;
-                            margin-bottom: 12px !important;
-                        }
-                        .letters-row li img {
-                            height: 50px;
-                        }
-                        .letters-row li p {
-                            font-size: 8px;
-                            letter-spacing: 0;
-                        }
-                    }
-
-                    @media (max-width: 480px) {
+                    <style>
                         .letters-wrap-box {
-                            padding: 0 8px;
+                            width: 100%;
+                            margin: 15px auto;
+                            text-align: center;
+                            padding: 0 12px;
+                            box-sizing: border-box;
                         }
+
                         .letters-row {
-                            gap: 5px;
-                            margin-bottom: 10px !important;
+                            display: flex !important;
+                            justify-content: center !important;
+                            align-items: flex-start !important;
+                            list-style: none !important;
+                            padding: 0 !important;
+                            margin: 0 auto 18px auto !important;
+                            gap: 20px;
+                            flex-wrap: nowrap !important;
                         }
+
+                        .letters-row li {
+                            text-align: center;
+                            margin: 0 !important;
+                            padding: 0 2px;
+                            transition: transform 0.3s ease;
+                            flex: 0 0 auto;
+                        }
+
+                        .letters-row li a {
+                            display: block;
+                            pointer-events: none;
+                        }
+
                         .letters-row li img {
-                            height: 38px;
-                            max-width: 32px;
+                            height: 120px;
+                            display: block;
+                            margin: 5px auto;
+                            max-width: 100%;
+                            object-fit: contain;
                         }
+
                         .letters-row li p {
-                            font-size: 6.5px;
-                            margin-top: 2px;
+                            color: #005c29;
+                            font-size: 13px;
+                            font-weight: 700;
+                            text-align: center;
+                            margin-top: 4px;
+                            letter-spacing: 0.4px;
                         }
-                    }
 
-                    @media (max-width: 360px) {
-                        .letters-wrap-box {
-                            padding: 0 6px;
+                        .letters-row li:hover {
+                            transform: translateY(-8px);
                         }
-                        .letters-row {
-                            gap: 3px;
-                        }
-                        .letters-row li img {
-                            height: 30px;
-                            max-width: 25px;
-                        }
-                        .letters-row li p {
-                            font-size: 5.5px;
-                        }
-                    }
 
-                    @media (max-width: 300px) {
-                        .letters-wrap-box {
-                            padding: 0 4px;
-                        }
-                        .letters-row {
-                            gap: 2px;
-                        }
-                        .letters-row li img {
-                            height: 26px;
-                            max-width: 22px;
-                        }
-                        .letters-row li p {
-                            font-size: 5px;
-                        }
-                    }
-                </style>
+                        @media (max-width: 991px) {
+                            .letters-row {
+                                gap: 14px;
+                            }
 
-                <div class="letters-wrap-box">
-                    <!-- LINE 1: DEWA -->
-                    <ul class="letters-row">
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/1.png') }}" alt="DEVOTION" title="DEVOTION" /></a>
-                            <p>DEVOTION</p>
-                        </li>
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/2.png') }}" alt="EDUCATION" title="EDUCATION" /></a>
-                            <p>EDUCATION</p>
-                        </li>
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/3.png') }}" alt="WARSI" title="WARSI" /></a>
-                            <p>WARSI</p>
-                        </li>
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/4.png') }}" alt="AZAAN" title="AZAAN" /></a>
-                            <p>AZAAN</p>
-                        </li>
-                    </ul>
+                            .letters-row li img {
+                                height: 85px;
+                            }
 
-                    <!-- LINE 2: SHARIF -->
-                    <ul class="letters-row">
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/5.png') }}" alt="SPRITUALITY" title="SPRITUALITY" /></a>
-                            <p>SPRITUALITY</p>
-                        </li>
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/6.png') }}" alt="HUMANITY" title="HUMANITY" /></a>
-                            <p>HUMANITY</p>
-                        </li>
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/7.png') }}" alt="AWLIYA" title="AWLIYA" /></a>
-                            <p>AWLIYA</p>
-                        </li>
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/8.png') }}" alt="RELIGIOUS" title="RELIGIOUS" /></a>
-                            <p>RELIGIOUS</p>
-                        </li>
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/9.png') }}" alt="ISLAM" title="ISLAM" /></a>
-                            <p>ISLAM</p>
-                        </li>
-                        <li><a href="#"><img src="{{ asset('home/images/dewasharif/10.png') }}" alt="FAITH" title="FAITH" /></a>
-                            <p>FAITH</p>
-                        </li>
-                    </ul>
+                            .letters-row li p {
+                                font-size: 11px;
+                            }
+                        }
+
+                        @media (max-width: 768px) {
+                            .letters-row {
+                                gap: 8px;
+                                margin-bottom: 12px !important;
+                            }
+
+                            .letters-row li img {
+                                height: 50px;
+                            }
+
+                            .letters-row li p {
+                                font-size: 8px;
+                                letter-spacing: 0;
+                            }
+                        }
+
+                        @media (max-width: 480px) {
+                            .letters-wrap-box {
+                                padding: 0 8px;
+                            }
+
+                            .letters-row {
+                                gap: 5px;
+                                margin-bottom: 10px !important;
+                            }
+
+                            .letters-row li img {
+                                height: 38px;
+                                max-width: 32px;
+                            }
+
+                            .letters-row li p {
+                                font-size: 6.5px;
+                                margin-top: 2px;
+                            }
+                        }
+
+                        @media (max-width: 360px) {
+                            .letters-wrap-box {
+                                padding: 0 6px;
+                            }
+
+                            .letters-row {
+                                gap: 3px;
+                            }
+
+                            .letters-row li img {
+                                height: 30px;
+                                max-width: 25px;
+                            }
+
+                            .letters-row li p {
+                                font-size: 5.5px;
+                            }
+                        }
+
+                        @media (max-width: 300px) {
+                            .letters-wrap-box {
+                                padding: 0 4px;
+                            }
+
+                            .letters-row {
+                                gap: 2px;
+                            }
+
+                            .letters-row li img {
+                                height: 26px;
+                                max-width: 22px;
+                            }
+
+                            .letters-row li p {
+                                font-size: 5px;
+                            }
+                        }
+                    </style>
+
+                    <div class="letters-wrap-box">
+                        <!-- LINE 1: DEWA -->
+                        <ul class="letters-row">
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/1.png') }}" alt="DEVOTION"
+                                        title="DEVOTION" /></a>
+                                <p>DEVOTION</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/2.png') }}" alt="EDUCATION"
+                                        title="EDUCATION" /></a>
+                                <p>EDUCATION</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/3.png') }}" alt="WARSI"
+                                        title="WARSI" /></a>
+                                <p>WARSI</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/4.png') }}" alt="AZAAN"
+                                        title="AZAAN" /></a>
+                                <p>AZAAN</p>
+                            </li>
+                        </ul>
+
+                        <!-- LINE 2: SHARIF -->
+                        <ul class="letters-row">
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/5.png') }}"
+                                        alt="SPRITUALITY" title="SPRITUALITY" /></a>
+                                <p>SPRITUALITY</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/6.png') }}" alt="HUMANITY"
+                                        title="HUMANITY" /></a>
+                                <p>HUMANITY</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/7.png') }}" alt="AWLIYA"
+                                        title="AWLIYA" /></a>
+                                <p>AWLIYA</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/8.png') }}" alt="RELIGIOUS"
+                                        title="RELIGIOUS" /></a>
+                                <p>RELIGIOUS</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/9.png') }}" alt="ISLAM"
+                                        title="ISLAM" /></a>
+                                <p>ISLAM</p>
+                            </li>
+                            <li><a href="#"><img src="{{ asset('home/images/dewasharif/10.png') }}" alt="FAITH"
+                                        title="FAITH" /></a>
+                                <p>FAITH</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Father & Shahzade Alam Cards Row -->
+            <div class="row justify-content-center text-center mt-4">
+                <!-- Father Card -->
+                <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
+                    <div
+                        style="border: 1px solid #ccc; border-radius: 8px; padding: 20px 15px; background: #fff; height: 100%;">
+                        <img src="{{ asset('home/images/dewasharif/walidsahab.jpeg') }}" alt="Father"
+                            title="Barkat Ali"
+                            style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
+                        <h4
+                            style="font-size: 18px; font-weight: 800; text-align: center; margin-top: 10px; color: #14412a;">
+                            BARKAT ALI <br><span style="font-size: 14px; font-weight: 600;">[FATHER]</span>
+                        </h4>
+                        <p style="margin: 0; text-align: center; font-size: 14px;">
+                            <b><i>Barkat Ali Kirana Store</i></b> <br />
+                            <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b>
+                        </p>
+                    </div>
                 </div>
 
+                <!-- Shahzade Alam Card -->
+                <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
+                    <div
+                        style="border: 1px solid #ccc; border-radius: 8px; padding: 20px 15px; background: #fff; height: 100%;">
+                        <img src="{{ asset('home/images/dewasharif/masharrat.jpg') }}" alt="Shahzade Alam"
+                            title="Shahzade Alam"
+                            style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
+                        <h4
+                            style="font-size: 18px; text-align: center; font-weight: 800; margin-top: 10px; color: #14412a;">
+                            Shahzade Alam <br><span style="font-size: 14px; font-weight: 600;">[مشرت وارثی]</span>
+                        </h4>
+                        <p style="margin: 0; text-align: center; font-size: 14px;">
+                            <b><i>Software Engineer</i></b> <br />
+                            <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b>
+                        </p>
+                    </div>
+                </div>
             </div>
+
         </div>
-
-        <!-- Father & Shahzade Alam Cards Row -->
-        <div class="row justify-content-center text-center mt-4">
-            <!-- Father Card -->
-            <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
-                <div style="border: 1px solid #ccc; border-radius: 8px; padding: 20px 15px; background: #fff; height: 100%;">
-                    <img src="{{ asset('home/images/dewasharif/walidsahab.jpeg') }}" alt="Father"
-                        title="Barkat Ali"
-                        style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
-                    <h4 style="font-size: 18px; font-weight: 800; text-align: center; margin-top: 10px; color: #14412a;">
-                        BARKAT ALI <br><span style="font-size: 14px; font-weight: 600;">[FATHER]</span>
-                    </h4>
-                    <p style="margin: 0; text-align: center; font-size: 14px;">
-                        <b><i>Barkat Ali Kirana Store</i></b> <br />
-                        <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Shahzade Alam Card -->
-            <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
-                <div style="border: 1px solid #ccc; border-radius: 8px; padding: 20px 15px; background: #fff; height: 100%;">
-                    <img src="{{ asset('home/images/dewasharif/masharrat.jpg') }}" alt="Shahzade Alam"
-                        title="Shahzade Alam"
-                        style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid #ffeb3b;" />
-                    <h4 style="font-size: 18px; text-align: center; font-weight: 800; margin-top: 10px; color: #14412a;">
-                        Shahzade Alam <br><span style="font-size: 14px; font-weight: 600;">[مشرت وارثی]</span>
-                    </h4>
-                    <p style="margin: 0; text-align: center; font-size: 14px;">
-                        <b><i>Software Engineer</i></b> <br />
-                        <b style="word-break: break-all; color: #09532f;">www.dewasharif.com</b>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
+    </section>
 
     {{-- Masjid AL Waris --}}
     <div class="kumbh-25">
