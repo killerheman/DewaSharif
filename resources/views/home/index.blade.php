@@ -110,67 +110,104 @@
             </div>
 
         </div>
-<div style="width: 100%; max-width: 1140px; margin: 10px auto 10px auto; padding: 20px 20px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <div
+            style="width: 100%; max-width: 1140px; margin: 10px auto 10px auto; padding: 20px 20px; background: linear-gradient(135deg, #2c1a0c 0%, #1a0f05 100%); border-radius: 14px; border: 2px solid #ffd700; box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); box-sizing: border-box; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 
-    <!-- TOP BADGE -->
-    <span style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
-        🌐 Business Opportunity &amp; Services 🌐
-    </span>
+            <!-- TOP BADGE -->
+            <span
+                style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 12px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); white-space: nowrap;">
+                🌐 Business Opportunity &amp; Services 🌐
+            </span>
 
-    <!-- MAIN HEADING / INTRO -->
-    <h1 style="color: #ffd700; font-size: 20px; font-weight: 800; line-height: 1.5; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.5px;">
-        Apne Business ya Startup ko le jayein Online 🌐
-    </h1>
+            <!-- MAIN HEADING / INTRO -->
+            <h1
+                style="color: #ffd700; font-size: 20px; font-weight: 800; line-height: 1.5; margin: 0 0 8px 0; text-transform: uppercase; letter-spacing: 0.5px;">
+                Apne Business ya Startup ko le jayein Online 🌐
+            </h1>
 
-    <p style="color: #ffffff; font-size: 14px; margin: 0 0 15px 0; line-height: 1.6;">
-        Static ya Dynamic kaisi bhi Website banwani ho ya apne Business ko Digital Growth deni ho — Design se lekar Maintenance tak sabhi kaam ke liye aaj hi contact karein!
-    </p>
+            <p style="color: #ffffff; font-size: 14px; margin: 0 0 15px 0; line-height: 1.6;">
+                Static ya Dynamic kaisi bhi Website banwani ho ya apne Business ko Digital Growth deni ho — Design se lekar
+                Maintenance tak sabhi kaam ke liye aaj hi contact karein!
+            </p>
 
-    <!-- SERVICES POINTS GRID/LIST -->
-    <div style="display: flex; flex-direction: column; gap: 8px; max-width: 800px; margin: 0 auto 15px auto; text-align: left;">
-        <div style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
-            💻 <strong>Website Development:</strong> Modern Technology &amp; Responsive Design
+            <!-- SERVICES POINTS GRID/LIST -->
+            <div
+                style="display: flex; flex-direction: column; gap: 8px; max-width: 800px; margin: 0 auto 15px auto; text-align: left;">
+                <div
+                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
+                    💻 <strong>Website Development:</strong> Modern Technology &amp; Responsive Design
+                </div>
+                <div
+                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
+                    🛠️ <strong>Website Maintenance &amp; Support:</strong> Regular Updates, Security &amp; Bug Fixing
+                </div>
+                <div
+                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
+                    📈 <strong>Digital Growth &amp; Branding:</strong> Public Reach &amp; Social Integration
+                </div>
+                <div
+                    style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
+                    💳 <strong>Payment Integration:</strong> Secure &amp; Safe Transaction System - QR Code, UPI Setup &amp;
+                    Gateways etc.
+                </div>
+            </div>
+
+            <!-- CLOSING NOTE & WHATSAPP BUTTON (PART 1) -->
+            <div style="text-align: center; margin-top: 15px; color: #fdf6e2; font-size: 14px; font-weight: 600;">
+                <p style="margin-bottom: 10px;">Aaj hi contact karein aur apne business ko digital growth dein!</p>
+
+                <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20website%20ya%20service%20ke%20liye%20baat%20karni%20hai"
+                    target="_blank"
+                    style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 10px 24px; border-radius: 30px; text-decoration: none; font-size: 15px; border: 2px solid #ffd700; box-shadow: 0 4px 15px rgba(11, 70, 37, 0.5); text-align: center;">
+                    Contact Us Now 📞
+                </a>
+            </div>
+
+            <div
+                style="background: rgba(0, 15, 8, 0.75); border: 1.5px solid rgba(212, 175, 55, 0.45); border-radius: 10px; padding: 16px 15px; text-align: center; margin: 15px 0; box-sizing: border-box; width: 100%; max-width: 100%; overflow: hidden;">
+                <h4
+                    style="color: #ffd700; font-size: 15px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.4; word-break: break-word;">
+                    📢 Advertisement &amp; Promotion 📢
+                </h4>
+                <p
+                    style="font-size: 13.5px; color: #ffffff; line-height: 1.6; margin-bottom: 8px; font-weight: 600; word-break: break-word;">
+                    <strong style="color: #ff4d4d;">Note:</strong> हमारी वेबसाइट पर किसी भी तरह का ऐड, प्रचार या इश्तेहार
+                    करवाना हो, तो बिना किसी देरी के तुरंत राब्ता करें!
+                </p>
+                <p
+                    style="font-size: 13px; color: #fdf6e2; line-height: 1.5; margin-bottom: 14px; font-weight: 500; word-break: break-word;">
+                    <strong style="color: #ff4d4d;">Note:</strong> To display any kind of advertisement or promotion on our
+                    website, please contact us immediately!
+                </p>
+                <div style="text-align: center;">
+                    <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20apni%20website%20par%20Advertisement%20karwana%20hai"
+                        target="_blank"
+                        style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 9px 20px; border-radius: 30px; text-decoration: none; font-size: 14px; border: 2px solid #ffd700; box-shadow: 0 4px 15px rgba(11, 70, 37, 0.5); max-width: 100%; box-sizing: border-box;">
+                        Contact Us for Ads 📞
+                    </a>
+                </div>
+            </div>
+
+            <!-- GAADI BOOKING SECTION (INSIDE THE SAME BOX) -->
+            <div style="margin-top: 20px; padding-top: 15px; border-top: 1.5px dashed rgba(212, 175, 55, 0.4);">
+
+                <h3
+                    style="color: #ffd700; font-size: 19px; font-weight: 800; text-align: center; margin-top: 5px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.5;">
+                    ✨ Dewa Sharif aur Aas-Paas Ke Elaqo Se Shadi ya Party Ke Liye Gaadiyan (Cars🚗 / Bus🚌) Book Karne Ke
+                    Liye Contact Karen ✨
+                </h3>
+
+                <div style="text-align: center;">
+                    <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20shadi%20ya%20party%20ke%20liye%20gaadi%20(Car/Bus)%20book%20karni%20hai"
+                        target="_blank"
+                        style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 10px 24px; border-radius: 30px; text-decoration: none; font-size: 15px; border: 2px solid #ffd700; box-shadow: 0 4px 15px rgba(11, 70, 37, 0.5);">
+                        Contact Us Now 📞
+                    </a>
+                </div>
+
+            </div>
+
         </div>
-        <div style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
-            🛠️ <strong>Website Maintenance &amp; Support:</strong> Regular Updates, Security &amp; Bug Fixing
-        </div>
-        <div style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
-            📈 <strong>Digital Growth &amp; Branding:</strong> Public Reach &amp; Social Integration
-        </div>
-        <div style="background: rgba(0, 15, 8, 0.75); border: 1px solid rgba(212, 175, 55, 0.4); padding: 8px 12px; border-radius: 8px; color: #ffffff; font-size: 13.5px;">
-            💳 <strong>Payment Integration:</strong> Secure &amp; Safe Transaction System - QR Code, UPI Setup &amp; Gateways etc.
-        </div>
-    </div>
-
-    <!-- CLOSING NOTE & WHATSAPP BUTTON (PART 1) -->
-    <div style="text-align: center; margin-top: 15px; color: #fdf6e2; font-size: 14px; font-weight: 600;">
-        <p style="margin-bottom: 10px;">Aaj hi contact karein aur apne business ko digital growth dein!</p>
-
-        <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20website%20ya%20service%20ke%20liye%20baat%20karni%20hai"
-            target="_blank"
-            style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 10px 24px; border-radius: 30px; text-decoration: none; font-size: 15px; border: 2px solid #ffd700; box-shadow: 0 4px 15px rgba(11, 70, 37, 0.5); text-align: center;">
-            Contact Us Now 📞
-        </a>
-    </div>
-
-    <!-- GAADI BOOKING SECTION (INSIDE THE SAME BOX) -->
-    <div style="margin-top: 20px; padding-top: 15px; border-top: 1.5px dashed rgba(212, 175, 55, 0.4);">
-
-        <h3 style="color: #ffd700; font-size: 19px; font-weight: 800; text-align: center; margin-top: 5px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.5;">
-            ✨ Dewa Sharif aur Aas-Paas Ke Elaqo Se Shadi ya Party Ke Liye Gaadiyan (Cars 🚗 / Bus 🚌) Book Karne Ke Liye Contact Karen ✨
-        </h3>
-
-        <div style="text-align: center;">
-            <a href="https://wa.me/919648777223?text=Hello,%20mujhe%20shadi%20ya%20party%20ke%20liye%20gaadi%20(Car/Bus)%20book%20karni%20hai"
-                target="_blank"
-                style="display: inline-block; background: #0b4625; color: #ffd700; font-weight: 800; padding: 10px 24px; border-radius: 30px; text-decoration: none; font-size: 15px; border: 2px solid #ffd700; box-shadow: 0 4px 15px rgba(11, 70, 37, 0.5);">
-                Contact Us Now 📞
-            </a>
-        </div>
-
-    </div>
-
-</div>
 
         <!-- 2. TRAVEL & SERVICES BOX (100% WIDE RESPONSIVE) -->
         <div
@@ -178,7 +215,7 @@
 
             <!-- Heading -->
             <h3
-                style="color: #ffd700; font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px;">
+                style="color: #ffd700; font-size: 17.5px; font-weight: 800; text-align: center; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.4; word-break: break-word; padding: 0 10px;">
                 ✨ Complete Dewa Sharif Ziyarat & Travel Services ✨
             </h3>
 
@@ -250,7 +287,8 @@
                 <a href="https://wa.me/919648777223?text={{ urlencode('Assalamu Alaikum! Mujhe Dewa Sharif Ziyarat, Hotels, Cabs aur Tabarruk ke baare me jaankari chahiye.') }}"
                     target="_blank" rel="noopener"
                     style="background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); color: #ffffff; flex: 1; min-width: 220px; min-height: 52px; padding: 7px 14px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.45); transition: transform 0.2s, box-shadow 0.2s; box-sizing: border-box;"
-                    onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    onmouseover="this.style.transform='translateY(-2px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
                     <i class="fa fa-whatsapp" style="font-size: 20px; flex-shrink: 0;"></i>
                     <div
                         style="display: flex; flex-direction: column; align-items: center; text-align: center; line-height: 1.2;">
@@ -269,7 +307,7 @@
             <!-- Timings Section -->
             <h3
                 style="color: #ffd700; font-size: 21px; font-weight: 800; text-align: center; margin: 0 0 6px 0; text-transform: uppercase; letter-spacing: 0.5px;">
-                ✨ Dewa Sharif Dargah Ziyarat Open / Close Timings ✨
+                ✨Dewa Sharif Dargah Ziyarat Open/Close Timings✨
             </h3>
             <p style="font-size: 14px; color: #fdf6e2; text-align: center; margin: 0 0 20px 0; line-height: 1.4;">
                 Zayreen (Visitors) ke liye Mazar-e-Mubarak ke khulne (open) aur band (close) hone ka tay shuda waqt (time):
@@ -474,7 +512,7 @@
 
             <!-- Top Badge -->
             <span
-                style="background: #e8a824; color: #111; font-weight: 800; font-size: 11px; text-transform: uppercase; padding: 4px 16px; border-radius: 20px; display: inline-block; margin-bottom: 15px; letter-spacing: 0.8px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+                style="background: #e8a824; color: #111; font-weight: 800; font-size: 10.5px; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; display: inline-block; margin-bottom: 15px; letter-spacing: 0.5px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); white-space: nowrap;">
                 📷 Secure Digital Payment / QR Code 📷
             </span>
 
