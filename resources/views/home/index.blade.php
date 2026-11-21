@@ -1430,7 +1430,7 @@
             </div>
 
             <!-- Father & Shahzade Alam Cards Row -->
-            <div class="row justify-content-center text-center mt-4">
+            {{-- <div class="row justify-content-center text-center mt-4">
                 <!-- Father Card -->
                 <div class="col-md-6 col-sm-6 col-12 mb-3 px-2">
                     <div
@@ -1466,7 +1466,7 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
     </section>
